@@ -155,7 +155,8 @@ function layout(title, body, { depth = 0, clippy_message = '', extraHead = '' } 
         <li><a href="${absPrefix}">APIs</a></li>
         <li><a href="${absPrefix}pricing.html">Pricing</a></li>
         <li><a href="${absPrefix}docs.html">Docs</a></li>
-        <li><a href="https://github.com/stupidapis" target="_blank">GitHub</a></li>
+        <li><a href="${absPrefix}contribute.html">Contribute</a></li>
+        <li><a href="https://github.com/stupidapis/stupid-apis" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://pipeworx.io" target="_blank" rel="noopener" class="nav-pipeworx">Need Real APIs? &rarr;</a></li>
       </ul>
     </nav>
@@ -1043,6 +1044,74 @@ function buildPricingPage() {
 }
 
 // ============================================================
+// CONTRIBUTE PAGE
+// ============================================================
+
+function buildContributePage() {
+  const body = `
+<main>
+  <div class="container">
+    <div class="docs-content">
+      <h1>Contribute a Stupid API</h1>
+      <p class="subhead">We host every pack on our own infrastructure. That means submissions are code we read and merge.</p>
+
+      <h2>The bar</h2>
+      <p>Specific. Dry. Confidently wrong. The voice is deadpan. No exclamation points. The joke is in the precision.</p>
+
+      <h2>Two ways to submit</h2>
+
+      <div class="contribute-cards">
+        <div class="contribute-card">
+          <h3>I have code</h3>
+          <p>Open a pull request that adds a pack under <code>apis/{your-slug}/</code>, an entry in <code>website/data/apis.json</code>, and a <code>SKILL.md</code>. Our CI checks the security boundary automatically.</p>
+          <a href="https://github.com/stupidapis/stupid-apis/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="btn btn-primary">Read CONTRIBUTING.md</a>
+          <a href="https://github.com/stupidapis/stupid-apis/compare" target="_blank" rel="noopener" class="btn btn-outline">Open a PR</a>
+        </div>
+
+        <div class="contribute-card">
+          <h3>I just have an idea</h3>
+          <p>Open a GitHub issue with the "stupid API idea" template. Tell us what it is, what a single call returns, and why it's stupid. We may build it. We make no promises.</p>
+          <a href="https://github.com/stupidapis/stupid-apis/issues/new?template=idea.md" target="_blank" rel="noopener" class="btn btn-primary">Submit an idea</a>
+        </div>
+      </div>
+
+      <h2>The hard rules</h2>
+      <p>These are the security boundary. CI rejects PRs that violate them.</p>
+      <ul>
+        <li><strong>No <code>fetch()</code> calls in pack source.</strong> Need a model? Import <code>callHaiku</code> from <code>@stupid-apis/shared</code>.</li>
+        <li><strong>No external imports.</strong> The only allowed import is <code>@stupid-apis/shared</code>.</li>
+        <li><strong>No <code>eval</code>, <code>new Function</code>, <code>require</code>, or <code>process</code>.</strong> Pure functions only.</li>
+        <li><strong>No state outside the function.</strong> Each call is independent.</li>
+        <li><strong>Deterministic where possible.</strong> A curated list of 20 hand-picked items beats a procedural template that produces 2000.</li>
+      </ul>
+
+      <h2>What we review for</h2>
+      <ul>
+        <li>Voice fit (specific, dry, deadpan)</li>
+        <li>Security boundary (the rules above)</li>
+        <li>Dedup vs existing packs</li>
+        <li>Whether it makes us laugh once</li>
+      </ul>
+
+      <h2>What happens if we accept</h2>
+      <p>We assign a <code>releaseDate</code> and the pack drops on its day. You get attribution on the API page.</p>
+
+      <h2>Starter template</h2>
+      <p>Copy <a href="https://github.com/stupidapis/stupid-apis/tree/main/apis/dad-joke" target="_blank" rel="noopener"><code>apis/dad-joke/</code></a> — it's the cleanest example of a deterministic pack. Replace the slug, the joke list, and the tool name.</p>
+    </div>
+  </div>
+</main>`;
+
+  const html = layout('Contribute', body, {
+    depth: 0,
+    clippy_message: "It looks like you want to contribute. Have you read CONTRIBUTING.md?"
+  });
+
+  fs.writeFileSync(path.join(PAGES, 'contribute.html'), html);
+  console.log('  ✓ pages/contribute.html');
+}
+
+// ============================================================
 // BUILD
 // ============================================================
 
@@ -1055,6 +1124,7 @@ buildCategoryPages();
 buildApiPages();
 buildDocsPage();
 buildPricingPage();
+buildContributePage();
 
 // Copy assets into pages/ for deployment
 const assetsDest = path.join(PAGES, 'assets');
