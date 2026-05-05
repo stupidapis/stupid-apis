@@ -7796,6 +7796,1261 @@
         }
       ],
       "clippy_message": "It looks like you're applying for a job. Let me discourage you specifically."
+    },
+    {
+      "id": "fake-museum-plaque",
+      "name": "Fake Museum Plaque",
+      "category": "generators",
+      "tags": [
+        "museum",
+        "plaque",
+        "object",
+        "description"
+      ],
+      "description": "Writes a museum plaque for any object: title, period, materials, provenance, significance, viewing note.",
+      "long_description": "The Fake Museum Plaque API takes any everyday object and elevates it. Returns a title with period (\"Chair, c. 2003\"), materials (\"wood, paint, and intent\"), provenance (\"Donated by an anonymous benefactor in 1987 with no accompanying note\"), significance, viewing note, and a catalog number.",
+      "stupidity": 1,
+      "added_date": "2026-06-07",
+      "release_date": "2026-06-07",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-museum-plaque",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/describe",
+          "description": "Describe an object"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "object",
+          "type": "string",
+          "required": true,
+          "description": "The object to describe."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "object",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "title",
+          "type": "string",
+          "description": "Title with period"
+        },
+        {
+          "field": "period",
+          "type": "string",
+          "description": "When it was made"
+        },
+        {
+          "field": "materials",
+          "type": "string",
+          "description": "What it is made of"
+        },
+        {
+          "field": "provenance",
+          "type": "string",
+          "description": "Where it came from"
+        },
+        {
+          "field": "significance",
+          "type": "string",
+          "description": "Why it matters"
+        },
+        {
+          "field": "viewing_note",
+          "type": "string",
+          "description": "How to view it"
+        },
+        {
+          "field": "catalog_number",
+          "type": "string",
+          "description": "Catalog number"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-museum-plaque/describe?object=stapler\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-museum-plaque/describe\",\n    params={\"object\": \"stapler\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-museum-plaque/describe?object=stapler\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "object": "stapler",
+          "title": "Stapler, mid-2000s",
+          "period": "mid-2000s",
+          "materials": "metal, wax, and what is left of an opinion",
+          "provenance": "Donated by an anonymous benefactor in 1987 with no accompanying note",
+          "significance": "A representative example of its period and class",
+          "viewing_note": "view from the left side, slightly squinting",
+          "catalog_number": "A.2034.482"
+        }
+      },
+      "mock_responses": [
+        {
+          "object": "chair",
+          "title": "Chair, c. 2003",
+          "period": "c. 2003",
+          "materials": "wood, paint, and intent",
+          "provenance": "Believed to have witnessed three breakups",
+          "significance": "A common object made unfamiliar by attention",
+          "viewing_note": "pause for thirty seconds before moving on",
+          "catalog_number": "M.2042.117"
+        },
+        {
+          "object": "USB cable",
+          "title": "USB Cable, pre-pandemic",
+          "period": "pre-pandemic",
+          "materials": "plastic, glass, and a small amount of regret",
+          "provenance": "Acquired in 2014 in lieu of payment",
+          "significance": "Demonstrates a workmanship typical of the late afternoon",
+          "viewing_note": "consider its absence",
+          "catalog_number": "V.1988.341"
+        },
+        {
+          "object": "paperclip",
+          "title": "Paperclip, a Tuesday",
+          "period": "a Tuesday",
+          "materials": "metal, wax, and what is left of an opinion",
+          "provenance": "Purchased from a yard sale for $4",
+          "significance": "Considered minor by experts and major by visitors",
+          "viewing_note": "continue to the next gallery; this work does not require attention",
+          "catalog_number": "P.2021.054"
+        }
+      ],
+      "clippy_message": "It looks like you have an object. Allow me to overstate it."
+    },
+    {
+      "id": "fake-news-headline",
+      "name": "Fake News Headline",
+      "category": "generators",
+      "tags": [
+        "news",
+        "headline",
+        "tabloid",
+        "satire"
+      ],
+      "description": "Returns a tabloid-style headline with subhead, byline, beat, and word count estimate.",
+      "long_description": "The Fake News Headline API generates one tabloid-style headline per call (\"Local Man Discovers Tuesday, Refuses to Comment\"). Includes a subhead, byline, beat (local/national/business/etc.), word count estimate, and a significance rating.",
+      "stupidity": 2,
+      "added_date": "2026-06-08",
+      "release_date": "2026-06-08",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-news-headline",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Get a headline"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "headline",
+          "type": "string",
+          "description": "The headline"
+        },
+        {
+          "field": "subhead",
+          "type": "string",
+          "description": "A subhead"
+        },
+        {
+          "field": "byline",
+          "type": "string",
+          "description": "Who wrote it"
+        },
+        {
+          "field": "beat",
+          "type": "string",
+          "description": "Coverage area"
+        },
+        {
+          "field": "word_count_estimate",
+          "type": "number",
+          "description": "Estimated article length"
+        },
+        {
+          "field": "significance",
+          "type": "string",
+          "description": "low / very low / genuine"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-news-headline/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-news-headline/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-news-headline/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "headline": "Local Man Discovers Tuesday, Refuses to Comment",
+          "subhead": "Witnesses describe events as \"happening, mostly\"",
+          "byline": "staff",
+          "beat": "local",
+          "word_count_estimate": 412,
+          "significance": "low"
+        }
+      },
+      "mock_responses": [
+        {
+          "headline": "Studies Show Studies are Mostly Studies",
+          "subhead": "Experts say more research is needed; experts always say this",
+          "byline": "wire",
+          "beat": "science",
+          "word_count_estimate": 678,
+          "significance": "very low"
+        },
+        {
+          "headline": "Couple Spends Anniversary Comparing Subscriptions",
+          "subhead": "Investigation pending; nobody is investigating",
+          "byline": "a contributor",
+          "beat": "lifestyle",
+          "word_count_estimate": 244,
+          "significance": "low"
+        },
+        {
+          "headline": "Birds Continue, Sources Confirm",
+          "subhead": "Statement to follow when convenient",
+          "byline": "a stringer who would prefer not to be named",
+          "beat": "national",
+          "word_count_estimate": 891,
+          "significance": "genuine"
+        }
+      ],
+      "clippy_message": "It looks like you're reading the news. Have you considered: not."
+    },
+    {
+      "id": "insult-my-code",
+      "name": "Insult My Code",
+      "category": "text-analysis",
+      "tags": [
+        "code",
+        "review",
+        "developer",
+        "snark"
+      ],
+      "description": "Returns a snarky code review with structural, style, and semantic critiques. The review does not read your code.",
+      "long_description": "The Insult My Code API delivers a code review for any language. The review does not read your code; the review has, however, opinions. Returns three critiques (structural, style, semantic), a verdict, a recommended next step, and the reviewer's mood.",
+      "stupidity": 2,
+      "added_date": "2026-06-09",
+      "release_date": "2026-06-09",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/insult-my-code",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/review",
+          "description": "Review code"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "language",
+          "type": "string",
+          "required": true,
+          "description": "Language (used for flavor only)."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "language",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "structural_critique",
+          "type": "string",
+          "description": "On structure"
+        },
+        {
+          "field": "style_critique",
+          "type": "string",
+          "description": "On style"
+        },
+        {
+          "field": "semantic_critique",
+          "type": "string",
+          "description": "On meaning"
+        },
+        {
+          "field": "verdict",
+          "type": "string",
+          "description": "Final verdict"
+        },
+        {
+          "field": "recommended_next",
+          "type": "string",
+          "description": "What to do next"
+        },
+        {
+          "field": "reviewer_mood",
+          "type": "string",
+          "description": "Their mood today"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/insult-my-code/review?language=javascript\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/insult-my-code/review\",\n    params={\"language\": \"javascript\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/insult-my-code/review?language=javascript\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "language": "javascript",
+          "structural_critique": "Ah yes, a 47-line if-else. Bold choice.",
+          "style_critique": "You named this `data`. We are all going to need a moment.",
+          "semantic_critique": "You are catching the error and then forgetting it.",
+          "verdict": "ships, eventually",
+          "recommended_next": "extract one thing — any one thing — into a function",
+          "reviewer_mood": "tired"
+        }
+      },
+      "mock_responses": [
+        {
+          "language": "python",
+          "structural_critique": "You wrote a class so the class could have problems.",
+          "style_critique": "There is a TODO from 2019. The TODO is your superior.",
+          "semantic_critique": "You are mutating the input. We will discuss this later.",
+          "verdict": "fine for prod, regrettable for posterity",
+          "recommended_next": "add one test, then look at the test and listen to what it tells you",
+          "reviewer_mood": "professional"
+        },
+        {
+          "language": "go",
+          "structural_critique": "I count three return paths and a moral one.",
+          "style_critique": "The indentation is a personality.",
+          "semantic_critique": "You are reading the file three times. Once, lovingly.",
+          "verdict": "will haunt the codebase like a small, persistent rumor",
+          "recommended_next": "sleep on it",
+          "reviewer_mood": "tired but professional"
+        },
+        {
+          "language": "java",
+          "structural_critique": "This is recursion in the same way a maze is recursion.",
+          "style_critique": "You imported the kitchen sink and then did not wash it.",
+          "semantic_critique": "Your boolean has three states.",
+          "verdict": "a working, tested, deeply unhappy piece of code",
+          "recommended_next": "rename the most-used variable; you will know which one",
+          "reviewer_mood": "late stage of caring"
+        }
+      ],
+      "clippy_message": "It looks like you're writing code. Allow me to comment."
+    },
+    {
+      "id": "fake-restaurant-menu",
+      "name": "Fake Restaurant Menu",
+      "category": "generators",
+      "tags": [
+        "restaurant",
+        "menu",
+        "pretentious",
+        "food"
+      ],
+      "description": "Generates a pretentious restaurant menu with starters, mains, desserts, footnote, and reservation window.",
+      "long_description": "The Fake Restaurant Menu API generates a complete menu per call. Restaurant name (\"Threshold\"), cuisine (\"Locally Foraged\"), three starters with prices (\"Single radish, salted, served on a board, $26\"), four mains, two desserts, a footnote (\"A still water service charge of $9 applies\"), and a reservation window. Six to eight weeks.",
+      "stupidity": 2,
+      "added_date": "2026-06-10",
+      "release_date": "2026-06-10",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-restaurant-menu",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a menu"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "restaurant",
+          "type": "string",
+          "description": "Name of the restaurant"
+        },
+        {
+          "field": "cuisine",
+          "type": "string",
+          "description": "Cuisine type"
+        },
+        {
+          "field": "starters",
+          "type": "object[]",
+          "description": "Three starters with prices"
+        },
+        {
+          "field": "mains",
+          "type": "object[]",
+          "description": "Four mains with prices"
+        },
+        {
+          "field": "desserts",
+          "type": "object[]",
+          "description": "Two desserts with prices"
+        },
+        {
+          "field": "footnote",
+          "type": "string",
+          "description": "Menu footnote"
+        },
+        {
+          "field": "reservation_window",
+          "type": "string",
+          "description": "How far out to book"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-restaurant-menu/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-restaurant-menu/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-restaurant-menu/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "restaurant": "Tare",
+          "cuisine": "Hand-Restrained",
+          "starters": [
+            {
+              "name": "Deconstructed water, foraged ice",
+              "price": 32
+            },
+            {
+              "name": "Pickled onion, three ways, one onion",
+              "price": 28
+            },
+            {
+              "name": "House sourdough, arrived",
+              "price": 24
+            }
+          ],
+          "mains": [
+            {
+              "name": "Beet, prepared from belief",
+              "price": 56
+            },
+            {
+              "name": "Cauliflower, painted",
+              "price": 48
+            },
+            {
+              "name": "Pasta, hand-cut by Lawrence",
+              "price": 62
+            },
+            {
+              "name": "Grilled trout with whatever the kitchen has decided",
+              "price": 71
+            }
+          ],
+          "desserts": [
+            {
+              "name": "Olive oil cake, a small one",
+              "price": 22
+            },
+            {
+              "name": "Honeycomb on a saucer",
+              "price": 26
+            }
+          ],
+          "footnote": "The kitchen prefers our 12-course tasting; please ask",
+          "reservation_window": "six to eight weeks"
+        }
+      },
+      "mock_responses": [
+        {
+          "restaurant": "Plate",
+          "cuisine": "New American",
+          "starters": [
+            {
+              "name": "Compressed cucumber and a memory of dill",
+              "price": 27
+            },
+            {
+              "name": "Smoked butter on its own",
+              "price": 22
+            },
+            {
+              "name": "Single radish, salted, served on a board",
+              "price": 24
+            }
+          ],
+          "mains": [
+            {
+              "name": "Slow-cooked lamb shoulder over reduced silence",
+              "price": 74
+            },
+            {
+              "name": "Brown rice, restored",
+              "price": 44
+            },
+            {
+              "name": "Roasted carrot, intended",
+              "price": 52
+            },
+            {
+              "name": "Grilled trout with whatever the kitchen has decided",
+              "price": 68
+            }
+          ],
+          "desserts": [
+            {
+              "name": "Affogato, but with regret",
+              "price": 24
+            },
+            {
+              "name": "Bread pudding, defended",
+              "price": 18
+            }
+          ],
+          "footnote": "20% gratuity included on parties of two and up",
+          "reservation_window": "six to eight weeks"
+        },
+        {
+          "restaurant": "The Long Table",
+          "cuisine": "Modern Continental",
+          "starters": [
+            {
+              "name": "Pickled onion, three ways, one onion",
+              "price": 30
+            },
+            {
+              "name": "House sourdough, arrived",
+              "price": 22
+            },
+            {
+              "name": "Smoked butter on its own",
+              "price": 26
+            }
+          ],
+          "mains": [
+            {
+              "name": "Pasta, hand-cut by Lawrence",
+              "price": 58
+            },
+            {
+              "name": "Beet, prepared from belief",
+              "price": 50
+            },
+            {
+              "name": "Cauliflower, painted",
+              "price": 46
+            },
+            {
+              "name": "Slow-cooked lamb shoulder over reduced silence",
+              "price": 76
+            }
+          ],
+          "desserts": [
+            {
+              "name": "Sorbet of two fruits, undisclosed",
+              "price": 20
+            },
+            {
+              "name": "Honeycomb on a saucer",
+              "price": 22
+            }
+          ],
+          "footnote": "Substitutions are not available, philosophically or otherwise",
+          "reservation_window": "six to eight weeks"
+        }
+      ],
+      "clippy_message": "It looks like you're hungry. Allow me to disappoint you slowly."
+    },
+    {
+      "id": "what-would-x-say",
+      "name": "What Would X Say",
+      "category": "generators",
+      "tags": [
+        "quote",
+        "voice",
+        "character",
+        "imagination"
+      ],
+      "description": "Imagines what a person (real or archetypal) would say about a topic.",
+      "long_description": "The What Would X Say API takes a person and a topic and returns a quote in their voice. Matches keywords like \"pirate\", \"cowboy\", \"scientist\", \"philosopher\", \"ceo\", or \"grandmother\"; otherwise falls back to a deterministic archetype. Includes the matched archetype, fidelity rating, and delivery note.",
+      "stupidity": 2,
+      "added_date": "2026-06-11",
+      "release_date": "2026-06-11",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/what-would-x-say",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/imagine",
+          "description": "Imagine a quote"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "person",
+          "type": "string",
+          "required": true,
+          "description": "Who is speaking."
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "required": true,
+          "description": "What they're speaking about."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "person",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "topic",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "quote",
+          "type": "string",
+          "description": "The imagined quote"
+        },
+        {
+          "field": "archetype_matched",
+          "type": "string",
+          "description": "Voice used"
+        },
+        {
+          "field": "fidelity",
+          "type": "string",
+          "description": "low / moderate / low (fallback)"
+        },
+        {
+          "field": "delivery",
+          "type": "string",
+          "description": "How it was delivered"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/what-would-x-say/imagine?person=a+pirate&topic=TypeScript\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/what-would-x-say/imagine\",\n    params={\"person\": \"a pirate\", \"topic\": \"TypeScript\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/what-would-x-say/imagine?person=a+pirate&topic=TypeScript\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "person": "a pirate",
+          "topic": "TypeScript",
+          "quote": "Arr, TypeScript, ye say. I have seen TypeScript in three ports and trusted none of them.",
+          "archetype_matched": "pirate",
+          "fidelity": "moderate",
+          "delivery": "over the shoulder"
+        }
+      },
+      "mock_responses": [
+        {
+          "person": "a CEO",
+          "topic": "breakfast",
+          "quote": "We have an opportunity around breakfast. The opportunity is named breakfast.",
+          "archetype_matched": "corporate-executive",
+          "fidelity": "low",
+          "delivery": "confident"
+        },
+        {
+          "person": "my grandmother",
+          "topic": "social media",
+          "quote": "Social media? In my day, social media was free, and it killed people.",
+          "archetype_matched": "grandmother",
+          "fidelity": "moderate",
+          "delivery": "while making a sandwich"
+        },
+        {
+          "person": "a stoic philosopher",
+          "topic": "lunch",
+          "quote": "Lunch is what remains after we forget the original question.",
+          "archetype_matched": "philosopher",
+          "fidelity": "low",
+          "delivery": "into the middle distance"
+        }
+      ],
+      "clippy_message": "It looks like you want a fake quote. Whose name should we steal."
+    },
+    {
+      "id": "band-breakup-reason",
+      "name": "Band Breakup Reason",
+      "category": "generators",
+      "tags": [
+        "band",
+        "music",
+        "breakup",
+        "history"
+      ],
+      "description": "Explains why a band broke up. Returns reason, final gig, reunion probability, postscript, documentary status.",
+      "long_description": "The Band Breakup Reason API explains the demise of any band — real or invented. Reasons range from creative differences (\"over the bassist's sourdough starter\") to mundane (\"a long argument about whether the snare should be live\"). Includes the location of the final gig and the band members' postscripts.",
+      "stupidity": 1,
+      "added_date": "2026-06-12",
+      "release_date": "2026-06-12",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/band-breakup-reason",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/explain",
+          "description": "Explain the breakup"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "band",
+          "type": "string",
+          "required": true,
+          "description": "The band name."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "band",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "reason",
+          "type": "string",
+          "description": "Why they broke up"
+        },
+        {
+          "field": "final_gig",
+          "type": "string",
+          "description": "Where the last show was"
+        },
+        {
+          "field": "reunion_probability",
+          "type": "string",
+          "description": "Likelihood of return"
+        },
+        {
+          "field": "postscript",
+          "type": "string",
+          "description": "What the members did next"
+        },
+        {
+          "field": "documentary_in_development",
+          "type": "boolean",
+          "description": "Whether a doc is being made"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/band-breakup-reason/explain?band=The+Velvet+Toasters\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/band-breakup-reason/explain\",\n    params={\"band\": \"The Velvet Toasters\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/band-breakup-reason/explain?band=The+Velvet+Toasters\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "band": "The Velvet Toasters",
+          "reason": "Creative differences over the bassist's sourdough starter",
+          "final_gig": "a half-empty club in Cleveland",
+          "reunion_probability": "high (for money)",
+          "postscript": "the bassist now has a podcast",
+          "documentary_in_development": true
+        }
+      },
+      "mock_responses": [
+        {
+          "band": "Saint Lonergan",
+          "reason": "The drummer wanted to experiment with silence",
+          "final_gig": "a friend's house, in the kitchen",
+          "reunion_probability": "never (rumored)",
+          "postscript": "the drummer joined a more famous band",
+          "documentary_in_development": false
+        },
+        {
+          "band": "Kitchens, Crows",
+          "reason": "A van. There was a van. The van is the reason.",
+          "final_gig": "a wedding they were paid to play",
+          "reunion_probability": "low",
+          "postscript": "the singer released a solo record nobody understood",
+          "documentary_in_development": false
+        },
+        {
+          "band": "The Wounded Compromise",
+          "reason": "A poorly-timed Twitter argument with a more famous band",
+          "final_gig": "a benefit for a public access station",
+          "reunion_probability": "moderate",
+          "postscript": "the manager is now the manager of someone else",
+          "documentary_in_development": true
+        }
+      ],
+      "clippy_message": "It looks like you have a band. Let me predict its end."
+    },
+    {
+      "id": "personality-test",
+      "name": "Personality Test",
+      "category": "oracles",
+      "tags": [
+        "personality",
+        "test",
+        "mbti",
+        "absurd"
+      ],
+      "description": "Asks one absurd question and assigns a personality type like INFJ-Toaster.",
+      "long_description": "The Personality Test API has two tools: ask returns one absurd question (\"You walk into a room. The light is wrong. What do you do?\"). Pass the answer to analyze, which returns a personality type (\"INFJ-Toaster\"), traits, compatibility note, famous-people-like-you note, and a scientific validity rating (always \"none\").",
+      "stupidity": 1,
+      "added_date": "2026-06-13",
+      "release_date": "2026-06-13",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/personality-test",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/ask",
+          "description": "Get a question"
+        },
+        {
+          "method": "POST",
+          "path": "/analyze",
+          "description": "Analyze an answer"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": false,
+          "description": "For analyze: the question that was asked."
+        },
+        {
+          "name": "answer",
+          "type": "string",
+          "required": false,
+          "description": "For analyze: your answer."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "question",
+          "type": "string",
+          "description": "For ask: the question. For analyze: echoed back."
+        },
+        {
+          "field": "answer",
+          "type": "string",
+          "optional": true,
+          "description": "For analyze: echoed back."
+        },
+        {
+          "field": "type",
+          "type": "string",
+          "optional": true,
+          "description": "Personality type assigned"
+        },
+        {
+          "field": "traits",
+          "type": "string[]",
+          "optional": true,
+          "description": "Two traits"
+        },
+        {
+          "field": "compatibility",
+          "type": "string",
+          "optional": true,
+          "description": "Who you work with"
+        },
+        {
+          "field": "famous_people_like_you",
+          "type": "string",
+          "optional": true,
+          "description": "A note about peers"
+        },
+        {
+          "field": "scientific_validity",
+          "type": "string",
+          "optional": true,
+          "description": "Always none"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/personality-test/ask\"",
+        "python": "import requests\n\nq = requests.get(\"https://api.stupidapis.com/personality-test/ask\").json()\na = requests.post(\"https://api.stupidapis.com/personality-test/analyze\", json={\"question\": q[\"question\"], \"answer\": \"I close the curtains\"}).json()\nprint(a)",
+        "javascript": "const q = await (await fetch(\"https://api.stupidapis.com/personality-test/ask\")).json();\nconst a = await (await fetch(\"https://api.stupidapis.com/personality-test/analyze\", { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ question: q.question, answer: \"I close the curtains\" }) })).json();\nconsole.log(a);",
+        "response": {
+          "question": "You walk into a room. The light is wrong. What do you do?"
+        }
+      },
+      "mock_responses": [
+        {
+          "question": "There is one cookie left. You see it. You:",
+          "answer": "leave it for someone else",
+          "type": "ISFJ-Iron",
+          "traits": [
+            "quietly competent",
+            "patient with objects"
+          ],
+          "compatibility": "works well with: people who speak slowly",
+          "famous_people_like_you": "the person who returns the cart",
+          "scientific_validity": "none"
+        },
+        {
+          "question": "A meeting begins five minutes late. Your reaction:",
+          "answer": "I bring it up later in private",
+          "type": "INTP-Filing Cabinet",
+          "traits": [
+            "observant about the wrong things",
+            "organized in a way that has its costs"
+          ],
+          "compatibility": "works well with: themselves, alone",
+          "famous_people_like_you": "three coworkers, one neighbor",
+          "scientific_validity": "none"
+        },
+        {
+          "question": "You have one minute alone with the office printer. Describe.",
+          "answer": "I would whisper to it",
+          "type": "ENFP-Hair Dryer",
+          "traits": [
+            "creative under unrelated pressure",
+            "communicative until tired"
+          ],
+          "compatibility": "works well with: children and machines",
+          "famous_people_like_you": "someone in your phone's contacts you have not texted in years",
+          "scientific_validity": "none"
+        }
+      ],
+      "clippy_message": "It looks like you want a label. Allow me to assign one."
+    },
+    {
+      "id": "rate-my-username",
+      "name": "Rate My Username",
+      "category": "text-analysis",
+      "tags": [
+        "username",
+        "rate",
+        "identity",
+        "critique"
+      ],
+      "description": "Rates a username out of 10 with style descriptor, era guess, and a replacement strategy.",
+      "long_description": "The Rate My Username API rates any username out of 10. Uses a small set of penalties (3+ digits, \"xX...Xx\" patterns, \"420/69/666\", excessive length) and bonuses (camelCase, clean alphabetic, reasonable length). Returns rating, style descriptor, era guess (LiveJournal era through 2024), suggested replacement strategy, an example replacement, and a one-word vibe.",
+      "stupidity": 1,
+      "added_date": "2026-06-14",
+      "release_date": "2026-06-14",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/rate-my-username",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/rate",
+          "description": "Rate a username"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "The username to rate."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "username",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "rating",
+          "type": "string",
+          "description": "Score out of 10"
+        },
+        {
+          "field": "style",
+          "type": "string",
+          "description": "Style descriptor"
+        },
+        {
+          "field": "era_guess",
+          "type": "string",
+          "description": "When it was named"
+        },
+        {
+          "field": "suggested_replacement_strategy",
+          "type": "string",
+          "description": "How to fix it"
+        },
+        {
+          "field": "example_replacement",
+          "type": "string",
+          "description": "A possible new name"
+        },
+        {
+          "field": "vibe",
+          "type": "string",
+          "description": "One-word vibe"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/rate-my-username/rate?username=xXDarkLord420Xx\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/rate-my-username/rate\",\n    params={\"username\": \"xXDarkLord420Xx\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/rate-my-username/rate?username=xXDarkLord420Xx\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "username": "xXDarkLord420Xx",
+          "rating": "4/10",
+          "style": "classic but dated",
+          "era_guess": "2009 Xbox Live",
+          "suggested_replacement_strategy": "pick one of the strong words and abandon the rest",
+          "example_replacement": "darklord37",
+          "vibe": "a personality"
+        }
+      },
+      "mock_responses": [
+        {
+          "username": "sarah",
+          "rating": "8/10",
+          "style": "curiously timeless",
+          "era_guess": "pre-2010, archival",
+          "suggested_replacement_strategy": "a single, normal word",
+          "example_replacement": "sarah41",
+          "vibe": "fine"
+        },
+        {
+          "username": "cosmic_potato_42",
+          "rating": "6/10",
+          "style": "tries hard",
+          "era_guess": "2017 Discord",
+          "suggested_replacement_strategy": "a small noun and a smaller number",
+          "example_replacement": "cosmicpot22",
+          "vibe": "a personality"
+        },
+        {
+          "username": "JohnSmith2024",
+          "rating": "7/10",
+          "style": "a placeholder that became permanent",
+          "era_guess": "2024, but feels older",
+          "suggested_replacement_strategy": "first name plus a thing you have done",
+          "example_replacement": "johnsmith17",
+          "vibe": "interview-safe"
+        }
+      ],
+      "clippy_message": "It looks like you're choosing a name. Choose poorly with confidence."
+    },
+    {
+      "id": "fake-stack-trace",
+      "name": "Fake Stack Trace",
+      "category": "generators",
+      "tags": [
+        "error",
+        "stack",
+        "developer",
+        "fake"
+      ],
+      "description": "Generates a believable but fictional error stack trace in javascript, python, java, go, or ruby.",
+      "long_description": "The Fake Stack Trace API generates a complete, language-correct stack trace for any of five languages. Real-looking error messages, real-looking file paths, real-looking line numbers — none of it real. Includes thread, timestamp, and a \"next question\" to ask yourself.",
+      "stupidity": 2,
+      "added_date": "2026-06-15",
+      "release_date": "2026-06-15",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-stack-trace",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a stack trace"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "language",
+          "type": "string",
+          "required": false,
+          "default": "javascript",
+          "options": [
+            "javascript",
+            "python",
+            "java",
+            "go",
+            "ruby"
+          ],
+          "description": "Target language."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "language",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "error_message",
+          "type": "string",
+          "description": "The error"
+        },
+        {
+          "field": "stack",
+          "type": "string[]",
+          "description": "Stack frames"
+        },
+        {
+          "field": "thread",
+          "type": "string",
+          "description": "Thread/goroutine name"
+        },
+        {
+          "field": "occurred_at",
+          "type": "string",
+          "description": "ISO timestamp"
+        },
+        {
+          "field": "next_question",
+          "type": "string",
+          "description": "What to ask yourself"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-stack-trace/generate?language=python\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-stack-trace/generate\",\n    params={\"language\": \"python\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-stack-trace/generate?language=python\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "language": "python",
+          "error_message": "AttributeError: 'NoneType' object has no attribute 'split'",
+          "stack": [
+            "  File \"app/main.py\", line 142, in handle",
+            "  File \"lib/processor.py\", line 87, in process",
+            "  File \"utils/serializer.py\", line 33, in serialize"
+          ],
+          "thread": "main",
+          "occurred_at": "2026-06-15T03:14:22.000Z",
+          "next_question": "is there a null somewhere upstream"
+        }
+      },
+      "mock_responses": [
+        {
+          "language": "javascript",
+          "error_message": "TypeError: Cannot read properties of undefined (reading 'reduce')",
+          "stack": [
+            "    at handle (src/index.js:412:18)",
+            "    at process (src/utils/parse.js:88:5)",
+            "    at compute (lib/middleware.js:223:11)",
+            "    at validate (app/handlers/checkout.js:67:9)"
+          ],
+          "thread": "main",
+          "occurred_at": "2026-06-15T03:00:00.000Z",
+          "next_question": "is the input what you think it is"
+        },
+        {
+          "language": "go",
+          "error_message": "panic: runtime error: index out of range",
+          "stack": [
+            "cmd/server/main.go:88 +0x1a3f\n\thandle(...)",
+            "pkg/db/migrate.go:412 +0x892\n\tparse(...)",
+            "internal/auth/handler.go:213 +0x4d2\n\tvalidate(...)"
+          ],
+          "thread": "goroutine 1",
+          "occurred_at": "2026-06-15T03:00:00.000Z",
+          "next_question": "did you handle the empty case"
+        }
+      ],
+      "clippy_message": "It looks like you want to alarm a coworker. Allow me to draft."
+    },
+    {
+      "id": "fake-etymology",
+      "name": "Fake Etymology",
+      "category": "generators",
+      "tags": [
+        "etymology",
+        "word",
+        "language",
+        "history"
+      ],
+      "description": "Returns a made-up etymology for any word: origin language, proto-form, original meaning, development, cognates.",
+      "long_description": "The Fake Etymology API takes any word and traces it through a confidently made-up history. Origin languages include \"Old Norse\" and \"Late Latin\". Proto-forms are invented (\"sand-veikr\"). Original meanings are specific (\"beach betrayal\"). The tracing is deterministic — same word always returns the same etymology.",
+      "stupidity": 1,
+      "added_date": "2026-06-16",
+      "release_date": "2026-06-16",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-etymology",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/trace",
+          "description": "Trace a word"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "word",
+          "type": "string",
+          "required": true,
+          "description": "The word to trace."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "word",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "origin_language",
+          "type": "string",
+          "description": "A pre-modern language"
+        },
+        {
+          "field": "proto_form",
+          "type": "string",
+          "description": "An invented proto-form"
+        },
+        {
+          "field": "original_meaning",
+          "type": "string",
+          "description": "A specific original meaning"
+        },
+        {
+          "field": "development",
+          "type": "string",
+          "description": "How it changed"
+        },
+        {
+          "field": "cognates",
+          "type": "string",
+          "description": "Related forms in other languages"
+        },
+        {
+          "field": "first_attested",
+          "type": "number",
+          "description": "Year of first attestation"
+        },
+        {
+          "field": "citation",
+          "type": "string",
+          "description": "Always fragmentary, contested"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-etymology/trace?word=sandwich\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-etymology/trace\",\n    params={\"word\": \"sandwich\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-etymology/trace?word=sandwich\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "word": "sandwich",
+          "origin_language": "Old Norse",
+          "proto_form": "sand-veikr",
+          "original_meaning": "beach betrayal",
+          "development": "entered Middle English in the 12th century",
+          "cognates": "cognate with the Faroese verb for \"to wait\"",
+          "first_attested": 1278,
+          "citation": "fragmentary, contested"
+        }
+      },
+      "mock_responses": [
+        {
+          "word": "commute",
+          "origin_language": "Late Latin",
+          "proto_form": "morn-spell",
+          "original_meaning": "a journey of less than a mile, taken seriously",
+          "development": "arrived via French traders",
+          "cognates": "shares a root with the modern German word for \"yes, but\"",
+          "first_attested": 1455,
+          "citation": "fragmentary, contested"
+        },
+        {
+          "word": "meeting",
+          "origin_language": "Proto-Germanic",
+          "proto_form": "thrym-bole",
+          "original_meaning": "a question no one wanted to answer",
+          "development": "first appears in a 1486 ledger of complaints",
+          "cognates": "cognate with Welsh \"to be slightly sorry\"",
+          "first_attested": 1486,
+          "citation": "fragmentary, contested"
+        },
+        {
+          "word": "budget",
+          "origin_language": "Vulgar Latin",
+          "proto_form": "graef-stein",
+          "original_meaning": "a small private grief",
+          "development": "shifted meaning during a long winter",
+          "cognates": "a parallel form survives in Maltese",
+          "first_attested": 1622,
+          "citation": "fragmentary, contested"
+        }
+      ],
+      "clippy_message": "It looks like you have a word. Let me misexplain it."
     }
   ]
 }

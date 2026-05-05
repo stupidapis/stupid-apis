@@ -75,6 +75,16 @@
     "@stupid-apis/fake-conference-talk": "workspace:*",
     "@stupid-apis/fake-translation": "workspace:*",
     "@stupid-apis/villain-monologue": "workspace:*",
-    "@stupid-apis/roast-my-resume": "workspace:*"
+    "@stupid-apis/roast-my-resume": "workspace:*",
+    "@stupid-apis/fake-museum-plaque": "workspace:*",
+    "@stupid-apis/fake-news-headline": "workspace:*",
+    "@stupid-apis/insult-my-code": "workspace:*",
+    "@stupid-apis/fake-restaurant-menu": "workspace:*",
+    "@stupid-apis/what-would-x-say": "workspace:*",
+    "@stupid-apis/band-breakup-reason": "workspace:*",
+    "@stupid-apis/personality-test": "workspace:*",
+    "@stupid-apis/rate-my-username": "workspace:*",
+    "@stupid-apis/fake-stack-trace": "workspace:*",
+    "@stupid-apis/fake-etymology": "workspace:*"
   }
 }

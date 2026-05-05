@@ -66,6 +66,16 @@ import fakeConferenceTalk from '@stupid-apis/fake-conference-talk';
 import fakeTranslation from '@stupid-apis/fake-translation';
 import villainMonologue from '@stupid-apis/villain-monologue';
 import roastMyResume from '@stupid-apis/roast-my-resume';
+import fakeMuseumPlaque from '@stupid-apis/fake-museum-plaque';
+import fakeNewsHeadline from '@stupid-apis/fake-news-headline';
+import insultMyCode from '@stupid-apis/insult-my-code';
+import fakeRestaurantMenu from '@stupid-apis/fake-restaurant-menu';
+import whatWouldXSay from '@stupid-apis/what-would-x-say';
+import bandBreakupReason from '@stupid-apis/band-breakup-reason';
+import personalityTest from '@stupid-apis/personality-test';
+import rateMyUsername from '@stupid-apis/rate-my-username';
+import fakeStackTrace from '@stupid-apis/fake-stack-trace';
+import fakeEtymology from '@stupid-apis/fake-etymology';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -162,6 +172,16 @@ const API_PACKS: ApiPack[] = [
   { slug: 'fake-translation', module: fakeTranslation, releaseDate: '2026-06-04' },
   { slug: 'villain-monologue', module: villainMonologue, releaseDate: '2026-06-05' },
   { slug: 'roast-my-resume', module: roastMyResume, releaseDate: '2026-06-06' },
+  { slug: 'fake-museum-plaque', module: fakeMuseumPlaque, releaseDate: '2026-06-07' },
+  { slug: 'fake-news-headline', module: fakeNewsHeadline, releaseDate: '2026-06-08' },
+  { slug: 'insult-my-code', module: insultMyCode, releaseDate: '2026-06-09' },
+  { slug: 'fake-restaurant-menu', module: fakeRestaurantMenu, releaseDate: '2026-06-10' },
+  { slug: 'what-would-x-say', module: whatWouldXSay, releaseDate: '2026-06-11' },
+  { slug: 'band-breakup-reason', module: bandBreakupReason, releaseDate: '2026-06-12' },
+  { slug: 'personality-test', module: personalityTest, releaseDate: '2026-06-13' },
+  { slug: 'rate-my-username', module: rateMyUsername, releaseDate: '2026-06-14' },
+  { slug: 'fake-stack-trace', module: fakeStackTrace, releaseDate: '2026-06-15' },
+  { slug: 'fake-etymology', module: fakeEtymology, releaseDate: '2026-06-16' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────
