@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 260" width="120" height="260">
+  <defs>
+    <!-- Clippy's signature blue-purple metallic wire -->
+    <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#6858A0"/>
+      <stop offset="20%"  stop-color="#8878B8"/>
+      <stop offset="40%"  stop-color="#A898D0"/>
+      <stop offset="50%"  stop-color="#BEB0DC"/>
+      <stop offset="60%"  stop-color="#A898D0"/>
+      <stop offset="80%"  stop-color="#8878B8"/>
+      <stop offset="100%" stop-color="#6858A0"/>
+    </linearGradient>
+    <linearGradient id="wire-dark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#3E3068"/>
+      <stop offset="50%"  stop-color="#4A3C78"/>
+      <stop offset="100%" stop-color="#3E3068"/>
+    </linearGradient>
+    <linearGradient id="wire-shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#C8BEE8" stop-opacity="0"/>
+      <stop offset="35%"  stop-color="#E0D8F0" stop-opacity="0.9"/>
+      <stop offset="50%"  stop-color="#EDE8F6" stop-opacity="1"/>
+      <stop offset="65%"  stop-color="#E0D8F0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#C8BEE8" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Eye -->
+    <radialGradient id="eyeball" cx="0.45" cy="0.38" r="0.55">
+      <stop offset="0%"   stop-color="#FFFFFF"/>
+      <stop offset="70%"  stop-color="#F4F4F4"/>
+      <stop offset="100%" stop-color="#DCDCDC"/>
+    </radialGradient>
+    <radialGradient id="iris" cx="0.35" cy="0.3" r="0.6">
+      <stop offset="0%"   stop-color="#333333"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    @keyframes idle-bounce {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+    @keyframes blink {
+      0%, 90%, 100% { transform: scaleY(1); }
+      94%, 96%      { transform: scaleY(0.05); }
+    }
+    @keyframes look {
+      0%, 25%  { transform: translate(0, 0); }
+      30%, 55% { transform: translate(2.5px, -1px); }
+      60%, 80% { transform: translate(-1px, 0.5px); }
+      85%, 100%{ transform: translate(0, 0); }
+    }
+    @keyframes brow-raise {
+      0%, 82%, 100% { transform: translateY(0) rotate(0deg); }
+      87%, 95%      { transform: translateY(-3px) rotate(-5deg); }
+    }
+    .clippy-all   { animation: idle-bounce 3s ease-in-out infinite; }
+    .eye-group    { animation: blink 5s ease-in-out infinite; transform-origin: 60px 48px; }
+    .pupils       { animation: look 8s ease-in-out infinite; }
+    .brow-left    { animation: brow-raise 8s ease-in-out infinite; transform-origin: 42px 30px; }
+  </style>
+
+  <g class="clippy-all">
+
+    <!--
+      THE WIRE: one continuous open path, tracing the classic paperclip.
+
+      Shape (single wire, top-down):
+        End A (bottom-left)
+          → up outer-left
+          → curve over the top (the "head")
+          → down outer-right
+          → curve around the bottom
+          → up inner-left
+          → curve at inner top
+          → down inner-right
+        End B (lower-right, open end)
+    -->
+
+    <!-- Shadow layer -->
+    <path d="
+      M 30 242
+      L 30 52
+      C 30 14, 90 14, 90 52
+      L 90 238
+      C 90 260, 54 260, 54 238
+      L 54 82
+      C 54 58, 74 58, 74 82
+      L 74 212
+    " fill="none" stroke="#2E2050" stroke-width="15"
+      stroke-linecap="round" stroke-linejoin="round" opacity="0.25"
+      transform="translate(1.5, 2)"/>
+
+    <!-- Wire outline (dark edge) -->
+    <path d="
+      M 30 242
+      L 30 52
+      C 30 14, 90 14, 90 52
+      L 90 238
+      C 90 260, 54 260, 54 238
+      L 54 82
+      C 54 58, 74 58, 74 82
+      L 74 212
+    " fill="none" stroke="url(#wire-dark)" stroke-width="14"
+      stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Wire body (main color) -->
+    <path d="
+      M 30 242
+      L 30 52
+      C 30 14, 90 14, 90 52
+      L 90 238
+      C 90 260, 54 260, 54 238
+      L 54 82
+      C 54 58, 74 58, 74 82
+      L 74 212
+    " fill="none" stroke="url(#wire)" stroke-width="10.5"
+      stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Wire highlight (bright streak) -->
+    <path d="
+      M 30 238
+      L 30 54
+      C 30 18, 90 18, 90 54
+      L 90 234
+    " fill="none" stroke="url(#wire-shine)" stroke-width="3.5"
+      stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+    <!-- Inner wire highlight -->
+    <path d="
+      M 54 234
+      L 54 84
+      C 54 62, 74 62, 74 84
+      L 74 208
+    " fill="none" stroke="url(#wire-shine)" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+
+    <!-- === FACE === -->
+    <!-- The eyes sit in the top arch of the outer paperclip loop -->
+
+    <g class="eye-group">
+      <!-- Left eye -->
+      <ellipse cx="48" cy="46" rx="14" ry="16" fill="url(#eyeball)"
+               stroke="#5C4F80" stroke-width="1.5"/>
+      <!-- Right eye (slightly higher — the classic Clippy tilt) -->
+      <ellipse cx="74" cy="44" rx="14" ry="16" fill="url(#eyeball)"
+               stroke="#5C4F80" stroke-width="1.5"/>
+
+      <g class="pupils">
+        <!-- Left pupil -->
+        <circle cx="51" cy="49" r="6.5" fill="url(#iris)"/>
+        <circle cx="48" cy="45" r="2.5" fill="white" opacity="0.95"/>
+        <circle cx="53" cy="50" r="1" fill="white" opacity="0.35"/>
+
+        <!-- Right pupil -->
+        <circle cx="77" cy="47" r="6.5" fill="url(#iris)"/>
+        <circle cx="74" cy="43" r="2.5" fill="white" opacity="0.95"/>
+        <circle cx="79" cy="48" r="1" fill="white" opacity="0.35"/>
+      </g>
+    </g>
+
+    <!-- Left eyebrow — raised higher (the signature quizzical look) -->
+    <path class="brow-left" d="M 34 27 Q 42 18, 54 26"
+          fill="none" stroke="#3A2D60" stroke-width="3"
+          stroke-linecap="round"/>
+    <!-- Right eyebrow — flatter -->
+    <path d="M 64 25 Q 72 20, 84 27"
+          fill="none" stroke="#3A2D60" stroke-width="3"
+          stroke-linecap="round"/>
+
+    <!-- Mouth — small smile -->
+    <path d="M 54 68 Q 60 75, 66 68"
+          fill="none" stroke="#5C4F80" stroke-width="2"
+          stroke-linecap="round"/>
+
+  </g>
+</svg>

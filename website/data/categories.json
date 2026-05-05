@@ -1,0 +1,39 @@
+{
+  "categories": [
+    {
+      "id": "decision-making",
+      "name": "Decision Making",
+      "description": "Outsource your worst choices to our algorithms. We accept no responsibility.",
+      "icon": "\ud83c\udfb1",
+      "color": "--hotdog-red"
+    },
+    {
+      "id": "randomness",
+      "name": "Randomness Generators",
+      "description": "Numbers, but make them meaningless in creative ways.",
+      "icon": "\ud83c\udfb2",
+      "color": "--hotdog-yellow"
+    },
+    {
+      "id": "text-analysis",
+      "name": "Text Analysis",
+      "description": "We will judge your writing. Harshly. Absurdly. With algorithms.",
+      "icon": "\ud83d\udcca",
+      "color": "--hotdog-red"
+    },
+    {
+      "id": "oracles",
+      "name": "Oracles & Advice",
+      "description": "Ancient wisdom. Modern nonsense. Zero accountability.",
+      "icon": "\ud83d\udd2e",
+      "color": "--hotdog-yellow"
+    },
+    {
+      "id": "generators",
+      "name": "Generators",
+      "description": "Content generated. Quality not guaranteed.",
+      "icon": "\u26a1",
+      "color": "--hotdog-red"
+    }
+  ]
+}

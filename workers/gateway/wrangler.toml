@@ -1,0 +1,15 @@
+name = "stupid-apis-gateway"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[routes]]
+pattern = "api.stupidapis.com/*"
+zone_id = "7165f5add74e439307d1b297f27077ac"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "80f8d5552b5f46e697dc355e4b31c758"
+
+[triggers]
+crons = ["0 0 * * *"]

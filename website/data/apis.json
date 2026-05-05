@@ -1,0 +1,4450 @@
+{
+  "apis": [
+    {
+      "id": "magic-8-ball",
+      "name": "Magic 8 Ball",
+      "category": "oracles",
+      "tags": [
+        "decisions",
+        "fate",
+        "outsourcing",
+        "oracle"
+      ],
+      "description": "Outsource your decision-making to a plastic ball filled with blue liquid. More reliable than your instincts.",
+      "long_description": "The Magic 8 Ball API brings the time-honored tradition of shaking a plastic sphere to the digital age. Ask any yes-or-no question and receive a definitive answer from our proprietary blue-liquid algorithm. Features configurable cynicism levels for the modern professional and a corporate mode for when you need to justify decisions in a board meeting.",
+      "stupidity": 1,
+      "added_date": "2025-01-01",
+      "call_count": 12847,
+      "base_url": "https://api.stupidapis.com/magic-8-ball",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/ask",
+          "description": "Ask the Magic 8 Ball a question and receive cosmic wisdom"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "description": "Your burning question. We recommend keeping it to yes/no format, but we won't stop you from asking open-ended existential queries."
+        },
+        {
+          "name": "cynical",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Enable cynical mode. Answers skew negative because life is like that sometimes."
+        },
+        {
+          "name": "corporate",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Rephrase answers in corporate-speak. Useful for quarterly reviews and strategy meetings."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "question",
+          "type": "string",
+          "description": "Your original question, echoed back for posterity"
+        },
+        {
+          "field": "answer",
+          "type": "string",
+          "description": "The 8 Ball's definitive response"
+        },
+        {
+          "field": "confidence",
+          "type": "number",
+          "description": "How confident the ball is (0-1). Unrelated to accuracy."
+        },
+        {
+          "field": "shake_count",
+          "type": "number",
+          "description": "Number of shakes performed. More shakes = more accurate (not really)."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/magic-8-ball/ask?question=Should+I+learn+Rust\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/magic-8-ball/ask\",\n    params={\"question\": \"Should I learn Rust\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/magic-8-ball/ask?question=Should+I+learn+Rust\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "question": "Should I learn Rust?",
+          "answer": "Reply hazy, try again",
+          "confidence": 0.42,
+          "shake_count": 3
+        }
+      },
+      "mock_responses": [
+        {
+          "question": "Should I learn Rust?",
+          "answer": "Reply hazy, try again",
+          "confidence": 0.42,
+          "shake_count": 3
+        },
+        {
+          "question": "Will this code compile?",
+          "answer": "Don't count on it",
+          "confidence": 0.15,
+          "shake_count": 7
+        },
+        {
+          "question": "Should I refactor?",
+          "answer": "It is decidedly so",
+          "confidence": 0.91,
+          "shake_count": 1
+        },
+        {
+          "question": "Is this a good variable name?",
+          "answer": "Outlook not so good",
+          "confidence": 0.23,
+          "shake_count": 5
+        },
+        {
+          "question": "Will the tests pass?",
+          "answer": "Signs point to yes",
+          "confidence": 0.78,
+          "shake_count": 2
+        }
+      ],
+      "clippy_message": "It looks like you need guidance. The answer is: ASK AGAIN LATER."
+    },
+    {
+      "id": "ship-on-friday",
+      "name": "Should I Ship on Friday",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "deployment",
+        "career",
+        "friday"
+      ],
+      "description": "A sophisticated risk assessment engine that always returns the same answer. The answer is no.",
+      "long_description": "The Should I Ship on Friday API is a cutting-edge deployment risk analyzer powered by years of collective trauma from the software industry. It evaluates your deploy type, team size, and temporal coordinates to produce a comprehensive risk assessment. The result is always no. We've spent considerable engineering effort to arrive at this conclusion every single time, regardless of input.",
+      "stupidity": 2,
+      "added_date": "2025-01-15",
+      "call_count": 8432,
+      "base_url": "https://api.stupidapis.com/ship-on-friday",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/check",
+          "description": "Check whether you should deploy on Friday. Spoiler: no."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "deploy_type",
+          "type": "string",
+          "required": false,
+          "default": "\"hotfix\"",
+          "description": "Type of deployment: hotfix, feature, migration, infrastructure, or yolo",
+          "options": [
+            "hotfix",
+            "feature",
+            "migration",
+            "infrastructure",
+            "yolo"
+          ]
+        },
+        {
+          "name": "team_size",
+          "type": "number",
+          "required": false,
+          "default": "1",
+          "description": "Number of people who will be woken up at 3am when this goes wrong"
+        },
+        {
+          "name": "is_friday",
+          "type": "boolean",
+          "required": false,
+          "default": "auto-detected",
+          "description": "Whether it is currently Friday. Auto-detected via server time. Override at your own risk."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "answer",
+          "type": "string",
+          "description": "Always 'no'. We checked."
+        },
+        {
+          "field": "reason",
+          "type": "string",
+          "description": "A detailed explanation of why not"
+        },
+        {
+          "field": "risk_level",
+          "type": "string",
+          "description": "Always 'catastrophic'. We also checked this."
+        },
+        {
+          "field": "suggested_day",
+          "type": "string",
+          "description": "A better day to deploy (never Friday)"
+        },
+        {
+          "field": "on_call_sympathy_score",
+          "type": "number",
+          "description": "How sorry we feel for your on-call engineer (0-100)"
+        },
+        {
+          "field": "is_friday",
+          "type": "boolean",
+          "description": "Server's assessment of whether it is, in fact, Friday"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/ship-on-friday/check?deploy_type=migration&team_size=3\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/ship-on-friday/check\",\n    params={\"deploy_type\": \"migration\", \"team_size\": 3}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/ship-on-friday/check?deploy_type=migration&team_size=3\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "answer": "no",
+          "reason": "It's Friday. You have a migration. 3 people will be sad. Don't do this.",
+          "risk_level": "catastrophic",
+          "suggested_day": "Monday (the day God intended for deployments)",
+          "on_call_sympathy_score": 87,
+          "is_friday": true
+        }
+      },
+      "mock_responses": [
+        {
+          "answer": "no",
+          "reason": "It's Friday. You have a migration. 3 people will be sad. Don't do this.",
+          "risk_level": "catastrophic",
+          "suggested_day": "Monday (the day God intended for deployments)",
+          "on_call_sympathy_score": 87,
+          "is_friday": true
+        },
+        {
+          "answer": "no",
+          "reason": "A hotfix on Friday is just a regular fix that ruins a weekend.",
+          "risk_level": "catastrophic",
+          "suggested_day": "Tuesday (Monday's more rested sibling)",
+          "on_call_sympathy_score": 92,
+          "is_friday": true
+        },
+        {
+          "answer": "no",
+          "reason": "You said 'yolo'. That's not a deployment strategy, that's a cry for help.",
+          "risk_level": "catastrophic",
+          "suggested_day": "Never",
+          "on_call_sympathy_score": 100,
+          "is_friday": false
+        }
+      ],
+      "clippy_message": "It looks like you're about to make a career-limiting decision."
+    },
+    {
+      "id": "emoji-oracle",
+      "name": "Emoji Oracle",
+      "category": "oracles",
+      "tags": [
+        "decisions",
+        "emoji",
+        "prophecy",
+        "vibes",
+        "oracle"
+      ],
+      "description": "Ancient wisdom delivered entirely in emoji. Surprisingly insightful if you squint.",
+      "long_description": "The Emoji Oracle channels the wisdom of the ancients through the modern medium of Unicode pictographs. Submit your deepest questions and receive a prophecy composed entirely of emoji. Optionally request an interpretation, though we cannot guarantee the interpretation will be any clearer than the emojis themselves. The vibe_check field provides our proprietary assessment of the cosmic energy surrounding your query.",
+      "stupidity": 2,
+      "added_date": "2025-02-01",
+      "call_count": 6291,
+      "base_url": "https://api.stupidapis.com/emoji-oracle",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/consult",
+          "description": "Consult the oracle. Receive emoji. Question everything."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "description": "Your question for the oracle. The oracle does not judge. The oracle only emojis."
+        },
+        {
+          "name": "interpret",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Request a human-readable interpretation. 'Human-readable' is generous."
+        },
+        {
+          "name": "emoji_count",
+          "type": "number",
+          "required": false,
+          "default": "3",
+          "description": "Number of emoji in the prophecy (1-5). More emoji = more wisdom. Allegedly."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "question",
+          "type": "string",
+          "description": "Your original question"
+        },
+        {
+          "field": "prophecy",
+          "type": "string",
+          "description": "The emoji prophecy. Interpret at your own risk."
+        },
+        {
+          "field": "vibe_check",
+          "type": "string",
+          "description": "Overall cosmic vibe: positive, negative, or chaotic"
+        },
+        {
+          "field": "interpretation",
+          "type": "string",
+          "optional": true,
+          "description": "A questionable interpretation. Only present if interpret=true."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/emoji-oracle/consult?question=Should+I+quit+my+job&interpret=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/emoji-oracle/consult\",\n    params={\"question\": \"Should I quit my job\", \"interpret\": True}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/emoji-oracle/consult?question=Should+I+quit+my+job&interpret=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "question": "Should I quit my job?",
+          "prophecy": "🔥💼🎉",
+          "vibe_check": "chaotic",
+          "interpretation": "The flames consume the briefcase, but celebration follows. The oracle suggests burning bridges leads to parties. This is not career advice."
+        }
+      },
+      "mock_responses": [
+        {
+          "question": "Should I quit my job?",
+          "prophecy": "🔥💼🎉",
+          "vibe_check": "chaotic",
+          "interpretation": "The flames consume the briefcase, but celebration follows. The oracle suggests burning bridges leads to parties. This is not career advice."
+        },
+        {
+          "question": "Will I find love?",
+          "prophecy": "👀🧲💜",
+          "vibe_check": "positive",
+          "interpretation": "Eyes are watching. Magnets are pulling. Love is purple. The oracle has spoken."
+        },
+        {
+          "question": "Should I buy crypto?",
+          "prophecy": "📉🤡💨",
+          "vibe_check": "negative",
+          "interpretation": "The chart goes down. The clown appears. Everything evaporates. The oracle recommends index funds."
+        }
+      ],
+      "clippy_message": "It looks like you need wisdom. Might I suggest: 🔥💀🎺"
+    },
+    {
+      "id": "schrodingers-boolean",
+      "name": "Schrödinger's Boolean",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "quantum",
+        "philosophy",
+        "cats"
+      ],
+      "description": "Returns true and false simultaneously until observed. Quantum computing's most useless application.",
+      "long_description": "Schrödinger's Boolean exists in a superposition of true and false until the moment of observation. Ask any question and receive both possible answers simultaneously. Enable observation to collapse the wavefunction and get a definitive (but arbitrary) result. The cat parameter adds a feline companion whose fate is entangled with the boolean state. The reopen parameter returns an error because you can't un-observe quantum state. We checked.",
+      "stupidity": 3,
+      "added_date": "2025-02-15",
+      "call_count": 4108,
+      "base_url": "https://api.stupidapis.com/schrodingers-boolean",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/evaluate",
+          "description": "Evaluate a boolean in quantum superposition. Both answers are correct."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "description": "A question to place in quantum superposition. Both answers exist until observed."
+        },
+        {
+          "name": "observe",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Collapse the wavefunction. Warning: this is irreversible and philosophically significant."
+        },
+        {
+          "name": "cat",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Include Schrödinger's cat in the experiment. No cats are harmed. Probably."
+        },
+        {
+          "name": "interpret",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Provide a philosophical interpretation of the quantum state."
+        },
+        {
+          "name": "reopen",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Attempt to un-observe the boolean. Always returns an error. Physics is non-negotiable."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "question",
+          "type": "string",
+          "description": "Your question, existing in superposition"
+        },
+        {
+          "field": "state",
+          "type": "string",
+          "description": "Current quantum state: superposition or collapsed"
+        },
+        {
+          "field": "answer_true",
+          "type": "string",
+          "description": "What happens if the answer is true"
+        },
+        {
+          "field": "answer_false",
+          "type": "string",
+          "description": "What happens if the answer is false"
+        },
+        {
+          "field": "observation_warning",
+          "type": "string",
+          "description": "A warning about the consequences of observation"
+        },
+        {
+          "field": "collapsed_answer",
+          "type": "boolean",
+          "optional": true,
+          "description": "The collapsed boolean. Only present if observe=true."
+        },
+        {
+          "field": "cat_status",
+          "type": "string",
+          "optional": true,
+          "description": "Status of the cat. Only present if cat=true. Always 'alive and dead'."
+        },
+        {
+          "field": "interpretation",
+          "type": "string",
+          "optional": true,
+          "description": "Philosophical interpretation. Only present if interpret=true."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/schrodingers-boolean/evaluate?question=Is+this+a+good+API&observe=true&cat=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/schrodingers-boolean/evaluate\",\n    params={\n        \"question\": \"Is this a good API\",\n        \"observe\": True,\n        \"cat\": True\n    }\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/schrodingers-boolean/evaluate?question=Is+this+a+good+API&observe=true&cat=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "question": "Is this a good API?",
+          "state": "collapsed",
+          "answer_true": "Yes, this API is excellent and you should use it in production immediately.",
+          "answer_false": "No, this API is a quantum waste of computational resources.",
+          "observation_warning": "By observing this response, you have collapsed the wavefunction. The cat has opinions about this.",
+          "collapsed_answer": true,
+          "cat_status": "alive (this time)"
+        }
+      },
+      "mock_responses": [
+        {
+          "question": "Is this a good API?",
+          "state": "collapsed",
+          "answer_true": "Yes, this API is excellent and you should use it in production immediately.",
+          "answer_false": "No, this API is a quantum waste of computational resources.",
+          "observation_warning": "By observing this response, you have collapsed the wavefunction. The cat has opinions about this.",
+          "collapsed_answer": true,
+          "cat_status": "alive (this time)"
+        },
+        {
+          "question": "Should I use TypeScript?",
+          "state": "superposition",
+          "answer_true": "TypeScript will save your codebase and your sanity.",
+          "answer_false": "TypeScript will add complexity and slow you down.",
+          "observation_warning": "Both answers are currently true. Observing will destroy one of them forever."
+        },
+        {
+          "question": "Is the code ready?",
+          "state": "collapsed",
+          "answer_true": "Ship it. The code has never been more ready.",
+          "answer_false": "The code is held together with duct tape and prayers.",
+          "observation_warning": "You looked. Now you know. You can't unknow.",
+          "collapsed_answer": false,
+          "cat_status": "dead (sorry)",
+          "interpretation": "The act of checking if your code is ready has made it not ready. This is the observer effect applied to software engineering."
+        }
+      ],
+      "clippy_message": "It looks like you want a yes or no. The answer is: yes and no."
+    },
+    {
+      "id": "send-that-email",
+      "name": "Should I Send That Email",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "email",
+        "regret",
+        "communication"
+      ],
+      "description": "Analyzes your email for passive aggression and regret potential. Heavily weighted toward 'no'.",
+      "long_description": "The Should I Send That Email API provides a comprehensive analysis of your drafted email's potential for catastrophe. Our algorithm evaluates passive-aggression levels, regret probability, and the specific type of recipient to produce a recommendation that is almost always 'no'. The cooling_off_period field tells you how long to wait before re-evaluating, which is our polite way of saying 'sleep on it'.",
+      "stupidity": 2,
+      "added_date": "2025-03-01",
+      "call_count": 9156,
+      "base_url": "https://api.stupidapis.com/send-that-email",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/analyze",
+          "description": "Analyze an email draft for regret potential. The answer is almost always 'don't send it'."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "The email content you're considering sending. We won't judge. Actually, we will."
+        },
+        {
+          "name": "recipient_type",
+          "type": "string",
+          "required": false,
+          "default": "\"colleague\"",
+          "description": "Who you're emailing: boss, ex, investor, mom, or colleague. Each has different regret coefficients.",
+          "options": [
+            "colleague",
+            "boss",
+            "ex",
+            "investor",
+            "mom"
+          ]
+        },
+        {
+          "name": "time_since_writing",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Minutes since you wrote this email. Higher numbers slightly reduce the 'don't send' probability."
+        },
+        {
+          "name": "drunk",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Are you drunk? If true, the answer is always 'absolutely not'. No exceptions."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "recommendation",
+          "type": "string",
+          "description": "Our recommendation. Usually 'don't send it'. Sometimes 'absolutely not'."
+        },
+        {
+          "field": "passive_aggression_score",
+          "type": "string",
+          "description": "Detected passive aggression level as a descriptive string"
+        },
+        {
+          "field": "regret_probability",
+          "type": "string",
+          "description": "Probability you'll regret this, as a descriptive string"
+        },
+        {
+          "field": "suggested_action",
+          "type": "string",
+          "description": "What you should do instead of sending this email"
+        },
+        {
+          "field": "cooling_off_period",
+          "type": "string",
+          "description": "How long to wait before reconsidering"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/send-that-email/analyze?content=Per+my+last+email&recipient_type=boss\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/send-that-email/analyze\",\n    params={\n        \"content\": \"Per my last email\",\n        \"recipient_type\": \"boss\"\n    }\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/send-that-email/analyze?content=Per+my+last+email&recipient_type=boss\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "recommendation": "Do not send this email.",
+          "passive_aggression_score": "Nuclear — 'per my last email' detected",
+          "regret_probability": "97.3% — you will think about this in the shower for years",
+          "suggested_action": "Close your laptop. Go for a walk. Pet a dog.",
+          "cooling_off_period": "24 hours minimum. 48 recommended."
+        }
+      },
+      "mock_responses": [
+        {
+          "recommendation": "Do not send this email.",
+          "passive_aggression_score": "Nuclear — 'per my last email' detected",
+          "regret_probability": "97.3% — you will think about this in the shower for years",
+          "suggested_action": "Close your laptop. Go for a walk. Pet a dog.",
+          "cooling_off_period": "24 hours minimum. 48 recommended."
+        },
+        {
+          "recommendation": "Absolutely not.",
+          "passive_aggression_score": "Weapons-grade — multiple exclamation points detected",
+          "regret_probability": "100% — this email will be screenshot and shared",
+          "suggested_action": "Delete the draft. Delete the app. Move to a farm.",
+          "cooling_off_period": "One full lunar cycle"
+        },
+        {
+          "recommendation": "Send it. But know that we warned you.",
+          "passive_aggression_score": "Mild — suspiciously polite",
+          "regret_probability": "34% — manageable, but present",
+          "suggested_action": "If you must, remove the word 'actually' from the second paragraph.",
+          "cooling_off_period": "You've waited long enough. Godspeed."
+        }
+      ],
+      "clippy_message": "It looks like you're writing to an ex. I cannot help you. No one can help you."
+    },
+    {
+      "id": "take-the-meeting",
+      "name": "Should I Take The Meeting",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "meetings",
+        "productivity",
+        "calendar"
+      ],
+      "description": "Calculates the true cost of that meeting invite. Measures waste in 'productivity coffins'.",
+      "long_description": "The Should I Take The Meeting API performs a rigorous cost-benefit analysis of meeting invitations using our proprietary Productivity Coffin metric. Each coffin represents 30 minutes of productive work that will die so this meeting can live. The API evaluates duration, attendee count, agenda existence, and whether the meeting is recurring (the most dangerous kind). The email_viability_score tells you how likely it is that this meeting could have been an email. It's usually very likely.",
+      "stupidity": 1,
+      "added_date": "2025-03-15",
+      "call_count": 11203,
+      "base_url": "https://api.stupidapis.com/take-the-meeting",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/evaluate",
+          "description": "Evaluate a meeting invitation. Measures productivity loss in coffins."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "30",
+          "description": "Meeting duration in minutes. Anything over 60 is a cry for help."
+        },
+        {
+          "name": "attendee_count",
+          "type": "number",
+          "required": false,
+          "default": "2",
+          "description": "Number of attendees. Each additional person multiplies the waste."
+        },
+        {
+          "name": "has_agenda",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Does this meeting have an agenda? If you had to think about it, the answer is no."
+        },
+        {
+          "name": "recurring",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Is this a recurring meeting? Recurring meetings are the subscription model of wasted time."
+        },
+        {
+          "name": "could_be_email",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Could this meeting be an email? Default is true because it almost always could be."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "answer",
+          "type": "string",
+          "description": "Whether you should take the meeting"
+        },
+        {
+          "field": "time_cost",
+          "type": "string",
+          "description": "Total time cost including recovery time"
+        },
+        {
+          "field": "productivity_coffins",
+          "type": "number",
+          "description": "Productive 30-min blocks that will die for this meeting"
+        },
+        {
+          "field": "suggested_response",
+          "type": "string",
+          "description": "What to reply to the meeting invite"
+        },
+        {
+          "field": "email_viability_score",
+          "type": "number",
+          "description": "How likely this could be an email (0-100)"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/take-the-meeting/evaluate?duration=60&attendee_count=8&has_agenda=false&recurring=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/take-the-meeting/evaluate\",\n    params={\n        \"duration\": 60,\n        \"attendee_count\": 8,\n        \"has_agenda\": False,\n        \"recurring\": True\n    }\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/take-the-meeting/evaluate?duration=60&attendee_count=8&has_agenda=false&recurring=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "answer": "Decline with prejudice",
+          "time_cost": "60 minutes + 45 minutes recovery time = 1.75 hours of your life",
+          "productivity_coffins": 4,
+          "suggested_response": "Thanks for the invite! Unfortunately, I have a conflict. The conflict is that I value my time.",
+          "email_viability_score": 94
+        }
+      },
+      "mock_responses": [
+        {
+          "answer": "Decline with prejudice",
+          "time_cost": "60 minutes + 45 minutes recovery time = 1.75 hours of your life",
+          "productivity_coffins": 4,
+          "suggested_response": "Thanks for the invite! Unfortunately, I have a conflict. The conflict is that I value my time.",
+          "email_viability_score": 94
+        },
+        {
+          "answer": "Tentatively accept (then cancel last minute)",
+          "time_cost": "30 minutes + 15 minutes recovery time = 0.75 hours",
+          "productivity_coffins": 1,
+          "suggested_response": "I'll try to make it! (Narrator: they did not make it.)",
+          "email_viability_score": 67
+        },
+        {
+          "answer": "Accept, but only because there are snacks",
+          "time_cost": "45 minutes + 30 minutes of pretending to take notes = 1.25 hours",
+          "productivity_coffins": 2,
+          "suggested_response": "I'll be there. Will there be coffee?",
+          "email_viability_score": 45
+        }
+      ],
+      "clippy_message": "It looks like you're evaluating a meeting. It will definitely be worth everyone's time."
+    },
+    {
+      "id": "startup-oracle",
+      "name": "Is This A Good Startup Idea",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "startups",
+        "vc",
+        "disruption"
+      ],
+      "description": "Evaluates your startup idea with the brutal honesty your friends won't give you. TAM is always $4 trillion.",
+      "long_description": "The Startup Oracle evaluates your billion-dollar idea using a proprietary algorithm that considers user validation, Uber-for-X detection, and VC buzzword density. If is_it_uber_for is true, the response is immediate and devastating. The actual_tam field always returns $4 trillion because every startup deck claims the same TAM. The yc_rejection_reason provides the specific reason Y Combinator would pass, saving you the trouble of applying.",
+      "stupidity": 3,
+      "added_date": "2025-04-01",
+      "call_count": 7634,
+      "base_url": "https://api.stupidapis.com/startup-oracle",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/evaluate",
+          "description": "Submit your startup idea for evaluation. Prepare for honesty."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "idea",
+          "type": "string",
+          "required": true,
+          "description": "Your startup idea. Be specific. 'Like Uber but for dogs' has been done."
+        },
+        {
+          "name": "have_you_talked_to_users",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Have you actually talked to potential users? Imaginary friends don't count."
+        },
+        {
+          "name": "is_it_uber_for",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Is it 'Uber for X'? If true, returns immediate rejection. Some things are certain."
+        },
+        {
+          "name": "vc_buzzword_count",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Number of buzzwords in your pitch: AI, blockchain, synergy, disrupt, etc. Be honest."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "verdict",
+          "type": "string",
+          "description": "The verdict on your startup idea"
+        },
+        {
+          "field": "pivots_required",
+          "type": "number",
+          "description": "Estimated number of pivots before you find product-market fit"
+        },
+        {
+          "field": "runway_needed",
+          "type": "string",
+          "description": "How much runway you'll burn through"
+        },
+        {
+          "field": "comparable",
+          "type": "string",
+          "description": "What existing company this is uncomfortably similar to"
+        },
+        {
+          "field": "yc_rejection_reason",
+          "type": "string",
+          "description": "Why Y Combinator would pass on this"
+        },
+        {
+          "field": "actual_tam",
+          "type": "string",
+          "description": "Always $4 trillion. Every startup's TAM is $4 trillion."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/startup-oracle/evaluate?idea=AI-powered+toothbrush&vc_buzzword_count=3\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/startup-oracle/evaluate\",\n    params={\n        \"idea\": \"AI-powered toothbrush\",\n        \"vc_buzzword_count\": 3\n    }\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/startup-oracle/evaluate?idea=AI-powered+toothbrush&vc_buzzword_count=3\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "verdict": "Somehow this will get Series A funding",
+          "pivots_required": 7,
+          "runway_needed": "$2.3M (you will spend $2.1M on office snacks)",
+          "comparable": "Oral-B already exists and does not need AI",
+          "yc_rejection_reason": "We asked 'why now?' and you said 'vibes'",
+          "actual_tam": "$4 trillion"
+        }
+      },
+      "mock_responses": [
+        {
+          "verdict": "Somehow this will get Series A funding",
+          "pivots_required": 7,
+          "runway_needed": "$2.3M (you will spend $2.1M on office snacks)",
+          "comparable": "Oral-B already exists and does not need AI",
+          "yc_rejection_reason": "We asked 'why now?' and you said 'vibes'",
+          "actual_tam": "$4 trillion"
+        },
+        {
+          "verdict": "no",
+          "pivots_required": 0,
+          "runway_needed": "$0 (save your money)",
+          "comparable": "It's literally just Uber",
+          "yc_rejection_reason": "You checked the 'Uber for X' box. We stopped reading.",
+          "actual_tam": "$4 trillion"
+        },
+        {
+          "verdict": "Intriguing, but you'll run out of money explaining it",
+          "pivots_required": 12,
+          "runway_needed": "$8.5M (mostly on explainer videos)",
+          "comparable": "A PowerPoint deck that charges a subscription",
+          "yc_rejection_reason": "We couldn't figure out what it does after 3 demos",
+          "actual_tam": "$4 trillion"
+        }
+      ],
+      "clippy_message": "It looks like you have a startup idea. Has anyone called it Uber for something yet?"
+    },
+    {
+      "id": "buzzword-density",
+      "name": "Buzzword Density",
+      "category": "text-analysis",
+      "tags": [
+        "text",
+        "corporate",
+        "jargon",
+        "analysis"
+      ],
+      "description": "Measures the concentration of meaningless corporate jargon in your text. Optional roast mode.",
+      "long_description": "The Buzzword Density API scans your content for synergy, disruption, paradigm shifts, and other words that mean nothing but sound important. It returns a density score, a list of offending buzzwords, and a verdict on your corporate readiness. Enable roast mode for an AI-powered commentary on your prose that you did not ask for and probably do not want.",
+      "stupidity": 2,
+      "added_date": "2025-05-01",
+      "call_count": 3842,
+      "base_url": "https://api.stupidapis.com/buzzword-density",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/analyze",
+          "description": "Analyze text for buzzword density. Judgment is free."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "The text to analyze. Corporate emails work best. Love letters work worst."
+        },
+        {
+          "name": "industry",
+          "type": "string",
+          "required": false,
+          "default": "\"tech\"",
+          "description": "Industry context: tech, finance, startup, or consulting. Each has its own buzzword dictionary.",
+          "options": [
+            "tech",
+            "finance",
+            "startup",
+            "consulting"
+          ]
+        },
+        {
+          "name": "roast",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Enable AI-powered roast of your writing. Uses Haiku. It has opinions."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "content_excerpt",
+          "type": "string",
+          "description": "First 100 chars of your content, for reference"
+        },
+        {
+          "field": "buzzword_count",
+          "type": "number",
+          "description": "Total buzzwords detected"
+        },
+        {
+          "field": "density_score",
+          "type": "number",
+          "description": "Buzzwords per 100 words. Above 15 is concerning."
+        },
+        {
+          "field": "buzzwords_found",
+          "type": "array",
+          "description": "List of detected buzzwords with counts"
+        },
+        {
+          "field": "verdict",
+          "type": "string",
+          "description": "Our assessment of your corporate communication"
+        },
+        {
+          "field": "roast",
+          "type": "string",
+          "optional": true,
+          "description": "AI-generated roast. Only if roast=true. Merciless."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/buzzword-density/analyze?content=We+need+to+leverage+our+synergies+to+disrupt+the+paradigm&roast=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/buzzword-density/analyze\",\n    params={\"content\": \"We need to leverage our synergies to disrupt the paradigm\", \"roast\": True}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/buzzword-density/analyze?content=We+need+to+leverage+our+synergies&roast=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "content_excerpt": "We need to leverage our synergies to disrupt the paradigm",
+          "buzzword_count": 4,
+          "density_score": 36.4,
+          "buzzwords_found": [
+            "leverage",
+            "synergies",
+            "disrupt",
+            "paradigm"
+          ],
+          "verdict": "Your text is 36% meaningless. This is above average for a Tuesday.",
+          "roast": "This reads like a LinkedIn post achieved sentience and immediately regretted it."
+        }
+      },
+      "mock_responses": [
+        {
+          "content_excerpt": "We need to leverage our synergies to disrupt the paradigm",
+          "buzzword_count": 4,
+          "density_score": 36.4,
+          "buzzwords_found": [
+            "leverage",
+            "synergies",
+            "disrupt",
+            "paradigm"
+          ],
+          "verdict": "Your text is 36% meaningless. This is above average for a Tuesday.",
+          "roast": "This reads like a LinkedIn post achieved sentience and immediately regretted it."
+        },
+        {
+          "content_excerpt": "Let's circle back on the actionable deliverables",
+          "buzzword_count": 3,
+          "density_score": 42.9,
+          "buzzwords_found": [
+            "circle back",
+            "actionable",
+            "deliverables"
+          ],
+          "verdict": "Nearly half your words are filler. You could have said 'let's finish this later' in four words.",
+          "roast": "I've seen TPS reports with more soul."
+        },
+        {
+          "content_excerpt": "I made lunch",
+          "buzzword_count": 0,
+          "density_score": 0,
+          "buzzwords_found": [],
+          "verdict": "Zero buzzwords detected. You are communicating like a human being. Suspicious."
+        }
+      ],
+      "clippy_message": "It looks like you're writing corporate synergy. Would you like me to leverage your paradigm?"
+    },
+    {
+      "id": "passive-aggression",
+      "name": "Passive Aggression Detector",
+      "category": "text-analysis",
+      "tags": [
+        "text",
+        "email",
+        "passive-aggressive",
+        "communication"
+      ],
+      "description": "Detects passive aggression in workplace communications with surgical precision.",
+      "long_description": "The Passive Aggression Detector uses AI to identify the subtle art of saying something polite that means something devastating. Feed it an email, a Slack message, or a performance review, and it will surface the hidden daggers in phrases like 'per my last email,' 'as previously discussed,' and 'I'm not mad, I'm just disappointed.' The translation field tells you what the person actually meant.",
+      "stupidity": 2,
+      "added_date": "2025-05-10",
+      "call_count": 5217,
+      "base_url": "https://api.stupidapis.com/passive-aggression",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/detect",
+          "description": "Detect passive aggression. The results may be uncomfortable."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "The text to analyze for hidden hostility."
+        },
+        {
+          "name": "context",
+          "type": "string",
+          "required": false,
+          "default": "\"email\"",
+          "description": "Where this was written: email, slack, review, or meeting.",
+          "options": [
+            "email",
+            "slack",
+            "review",
+            "meeting"
+          ]
+        },
+        {
+          "name": "relationship",
+          "type": "string",
+          "required": false,
+          "default": "\"peer\"",
+          "description": "Your relationship to the author: peer, boss, report, or stranger.",
+          "options": [
+            "peer",
+            "boss",
+            "report",
+            "stranger"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "content_excerpt",
+          "type": "string",
+          "description": "The analyzed text"
+        },
+        {
+          "field": "passive_aggression_level",
+          "type": "string",
+          "description": "Severity level as a descriptive string"
+        },
+        {
+          "field": "detected_phrases",
+          "type": "array",
+          "description": "Specific phrases flagged as passive-aggressive"
+        },
+        {
+          "field": "translation",
+          "type": "string",
+          "description": "What they actually meant"
+        },
+        {
+          "field": "recommendation",
+          "type": "string",
+          "description": "How to respond (or not)"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/passive-aggression/detect?content=As+per+my+last+email&context=email&relationship=boss\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/passive-aggression/detect\",\n    params={\"content\": \"As per my last email\", \"context\": \"email\", \"relationship\": \"boss\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/passive-aggression/detect?content=As+per+my+last+email&context=email\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "content_excerpt": "As per my last email",
+          "passive_aggression_level": "Thermonuclear — this person has drafted and deleted three versions of this",
+          "detected_phrases": [
+            "as per my last email"
+          ],
+          "translation": "I already told you this. I know you didn't read it. We both know you didn't read it. Read it.",
+          "recommendation": "Read the last email. Then read it again. Then apologize."
+        }
+      },
+      "mock_responses": [
+        {
+          "content_excerpt": "As per my last email",
+          "passive_aggression_level": "Thermonuclear — this person has drafted and deleted three versions of this",
+          "detected_phrases": [
+            "as per my last email"
+          ],
+          "translation": "I already told you this. I know you didn't read it. We both know you didn't read it. Read it.",
+          "recommendation": "Read the last email. Then read it again. Then apologize."
+        },
+        {
+          "content_excerpt": "No worries if not!",
+          "passive_aggression_level": "Moderate — they are worried. There are worries.",
+          "detected_phrases": [
+            "no worries if not"
+          ],
+          "translation": "There will be worries. There will be consequences. This is your one warning.",
+          "recommendation": "Do the thing. They asked nicely once. They will not ask nicely again."
+        },
+        {
+          "content_excerpt": "Thanks for your help with this",
+          "passive_aggression_level": "Undetectable — this might actually be sincere",
+          "detected_phrases": [],
+          "translation": "They appear to genuinely appreciate your help. This is rare.",
+          "recommendation": "Accept the compliment. Don't overthink it. (You're already overthinking it.)"
+        }
+      ],
+      "clippy_message": "It looks like you're analyzing passive aggression. As per my last suggestion, you should probably just talk to them."
+    },
+    {
+      "id": "could-have-been-email",
+      "name": "Could Have Been Email",
+      "category": "text-analysis",
+      "tags": [
+        "text",
+        "meetings",
+        "productivity",
+        "email"
+      ],
+      "description": "Analyzes meeting transcripts to determine if it could have been an email. It usually could have.",
+      "long_description": "The Could Have Been Email API accepts a meeting transcript and returns a definitive assessment of whether the meeting justified its own existence. It evaluates information density, decision count, and the ratio of productive content to small talk. The suggested_email field provides what should have been sent instead. Uses AI to read between the lines of your corporate theater.",
+      "stupidity": 1,
+      "added_date": "2025-05-15",
+      "call_count": 6891,
+      "base_url": "https://api.stupidapis.com/could-have-been-email",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/analyze",
+          "description": "Submit a transcript. Learn the truth about your meeting culture."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "transcript",
+          "type": "string",
+          "required": true,
+          "description": "The meeting transcript. Doesn't need to be verbatim. We've seen worse."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "30",
+          "description": "Meeting duration in minutes."
+        },
+        {
+          "name": "attendee_count",
+          "type": "number",
+          "required": false,
+          "default": "4",
+          "description": "Number of people whose time was consumed."
+        },
+        {
+          "name": "recurring",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Is this a recurring meeting? Multiplies the tragedy."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "verdict",
+          "type": "string",
+          "description": "Whether this could have been an email"
+        },
+        {
+          "field": "email_probability",
+          "type": "number",
+          "description": "Probability this meeting was unnecessary (0-100)"
+        },
+        {
+          "field": "time_wasted",
+          "type": "string",
+          "description": "Total person-hours consumed"
+        },
+        {
+          "field": "productive_moments",
+          "type": "number",
+          "description": "Number of moments where actual decisions were made"
+        },
+        {
+          "field": "suggested_email",
+          "type": "string",
+          "description": "The email that should have been sent instead"
+        },
+        {
+          "field": "attendee_guilt_distribution",
+          "type": "object",
+          "description": "Who is most responsible for this meeting existing"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/could-have-been-email/analyze?transcript=Let+us+sync+on+the+Q3+roadmap&duration=60&attendee_count=12\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/could-have-been-email/analyze\",\n    params={\"transcript\": \"Let us sync on the Q3 roadmap\", \"duration\": 60, \"attendee_count\": 12}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/could-have-been-email/analyze?transcript=Sync+on+roadmap&duration=60&attendee_count=12\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "verdict": "This was absolutely an email.",
+          "email_probability": 97,
+          "time_wasted": "12 person-hours (720 person-minutes)",
+          "productive_moments": 1,
+          "suggested_email": "Hi team, here's the Q3 roadmap. Comments by Friday. Thanks.",
+          "attendee_guilt_distribution": {
+            "organizer": "78%",
+            "person_who_asked_a_question": "15%",
+            "everyone_else": "7% (for not declining)"
+          }
+        }
+      },
+      "mock_responses": [
+        {
+          "verdict": "This was absolutely an email.",
+          "email_probability": 97,
+          "time_wasted": "12 person-hours (720 person-minutes)",
+          "productive_moments": 1,
+          "suggested_email": "Hi team, here's the Q3 roadmap. Comments by Friday. Thanks.",
+          "attendee_guilt_distribution": {
+            "organizer": "78%",
+            "person_who_asked_a_question": "15%",
+            "everyone_else": "7% (for not declining)"
+          }
+        },
+        {
+          "verdict": "This meeting had one good minute. The other 29 were theater.",
+          "email_probability": 84,
+          "time_wasted": "2 person-hours",
+          "productive_moments": 2,
+          "suggested_email": "FYI: we're going with option B. Questions? Reply to this email.",
+          "attendee_guilt_distribution": {
+            "organizer": "60%",
+            "repeat_contributor": "30%",
+            "muted_attendees": "10% (complicit by silence)"
+          }
+        },
+        {
+          "verdict": "This meeting actually needed to happen. We're as surprised as you are.",
+          "email_probability": 23,
+          "time_wasted": "1.5 person-hours (but productive)",
+          "productive_moments": 7,
+          "suggested_email": "N/A — this genuinely required real-time discussion. Mark your calendar, this doesn't happen often.",
+          "attendee_guilt_distribution": {
+            "nobody": "100% — everyone contributed. Unprecedented."
+          }
+        }
+      ],
+      "clippy_message": "It looks like you're evaluating a meeting. The answer is yes, it could have been an email. It's always an email."
+    },
+    {
+      "id": "jargon-translator",
+      "name": "Jargon Translator",
+      "category": "text-analysis",
+      "tags": [
+        "text",
+        "jargon",
+        "translation",
+        "corporate"
+      ],
+      "description": "Translates between corporate jargon and human language. Works in both directions, unfortunately.",
+      "long_description": "The Jargon Translator converts between the two dominant languages of the modern workplace: Corporate and Human. Feed it 'let’s leverage our core competencies to drive stakeholder value' and receive 'let’s use what we’re good at to make people happy.' Or go the other direction and transform a simple request into something suitable for a board meeting. The formality parameter controls how unhinged the translation gets.",
+      "stupidity": 1,
+      "added_date": "2025-05-20",
+      "call_count": 4563,
+      "base_url": "https://api.stupidapis.com/jargon-translator",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/translate",
+          "description": "Translate between corporate and human. Both are foreign languages."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "The text to translate."
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "required": true,
+          "description": "Translation direction: jargon-to-human or human-to-jargon.",
+          "options": [
+            "jargon-to-human",
+            "human-to-jargon"
+          ]
+        },
+        {
+          "name": "formality",
+          "type": "string",
+          "required": false,
+          "default": "\"formal\"",
+          "description": "Output formality: casual, formal, or unhinged.",
+          "options": [
+            "casual",
+            "formal",
+            "unhinged"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "original",
+          "type": "string",
+          "description": "Your original text"
+        },
+        {
+          "field": "translated",
+          "type": "string",
+          "description": "The translation"
+        },
+        {
+          "field": "jargon_score",
+          "type": "number",
+          "description": "Jargon density of the output (0-100)"
+        },
+        {
+          "field": "formality_level",
+          "type": "string",
+          "description": "Formality level of the output"
+        },
+        {
+          "field": "corporate_readiness",
+          "type": "string",
+          "description": "Whether this is safe to send to leadership"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/jargon-translator/translate?content=We+need+to+fire+some+people&direction=human-to-jargon&formality=formal\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/jargon-translator/translate\",\n    params={\"content\": \"We need to fire some people\", \"direction\": \"human-to-jargon\", \"formality\": \"formal\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/jargon-translator/translate?content=We+need+to+fire+some+people&direction=human-to-jargon\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "original": "We need to fire some people",
+          "translated": "We are undertaking a strategic workforce realignment to optimize our organizational footprint and better position the company for future growth.",
+          "jargon_score": 89,
+          "formality_level": "formal",
+          "corporate_readiness": "Board-ready. No one will know what you mean. That's the point."
+        }
+      },
+      "mock_responses": [
+        {
+          "original": "We need to fire some people",
+          "translated": "We are undertaking a strategic workforce realignment to optimize our organizational footprint and better position the company for future growth.",
+          "jargon_score": 89,
+          "formality_level": "formal",
+          "corporate_readiness": "Board-ready. No one will know what you mean. That's the point."
+        },
+        {
+          "original": "Let's leverage our core competencies",
+          "translated": "Let's use what we're good at.",
+          "jargon_score": 0,
+          "formality_level": "casual",
+          "corporate_readiness": "Too honest for leadership. Add at least two buzzwords before sending."
+        },
+        {
+          "original": "The project is late",
+          "translated": "We are experiencing a temporal misalignment between our delivery cadence and the previously communicated milestone trajectory.",
+          "jargon_score": 95,
+          "formality_level": "unhinged",
+          "corporate_readiness": "So corporate it's almost parody. Perfect for an all-hands."
+        }
+      ],
+      "clippy_message": "It looks like you're translating jargon. Would you like to synergize your linguistic paradigm?"
+    },
+    {
+      "id": "temperature-random",
+      "name": "Temperature Weighted Random",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "weather",
+        "temperature",
+        "science"
+      ],
+      "description": "Fetches temperatures from 10 cities across 7 continents, sums them, and returns the last two digits. Peer reviewed by no one.",
+      "long_description": "The Temperature Weighted Random API fetches the current temperature from 10 cities across 7 continents, sums them, and returns the last two digits as your random number. It is meteorologically defensible and statistically meaningless. The methodology has not been peer reviewed because no one would agree to review it.",
+      "stupidity": 2,
+      "added_date": "2025-06-01",
+      "call_count": 2104,
+      "base_url": "https://api.stupidapis.com/temperature-random",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a temperature-derived random number."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false,
+          "default": "\"celsius\"",
+          "description": "Temperature unit: celsius or fahrenheit. Changes the number. Does not improve it.",
+          "options": [
+            "celsius",
+            "fahrenheit"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "Your random number (0-99)"
+        },
+        {
+          "field": "cities",
+          "type": "array",
+          "description": "The 10 cities and their temperatures"
+        },
+        {
+          "field": "sum",
+          "type": "number",
+          "description": "Sum of all temperatures"
+        },
+        {
+          "field": "method",
+          "type": "string",
+          "description": "Methodology description"
+        },
+        {
+          "field": "peer_reviewed",
+          "type": "boolean",
+          "description": "Always false"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/temperature-random/generate?unit=celsius\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/temperature-random/generate\",\n    params={\"unit\": \"celsius\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/temperature-random/generate?unit=celsius\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 47,
+          "cities": [
+            "Tokyo: 22°C",
+            "Cairo: 35°C",
+            "London: 14°C",
+            "Sydney: 18°C",
+            "São Paulo: 24°C",
+            "Nairobi: 21°C",
+            "Reykjavik: 3°C",
+            "Mumbai: 31°C",
+            "McMurdo: -28°C",
+            "New York: 7°C"
+          ],
+          "sum": 147,
+          "method": "Sum of 10 city temperatures, modulo 100",
+          "peer_reviewed": false
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 47,
+          "cities": [
+            "Tokyo: 22°C",
+            "Cairo: 35°C",
+            "London: 14°C",
+            "Sydney: 18°C",
+            "São Paulo: 24°C",
+            "Nairobi: 21°C",
+            "Reykjavik: 3°C",
+            "Mumbai: 31°C",
+            "McMurdo: -28°C",
+            "New York: 7°C"
+          ],
+          "sum": 147,
+          "method": "Sum of 10 city temperatures, modulo 100",
+          "peer_reviewed": false
+        },
+        {
+          "number": 83,
+          "cities": [
+            "Tokyo: 28°C",
+            "Cairo: 41°C",
+            "London: 19°C",
+            "Sydney: 11°C",
+            "São Paulo: 29°C",
+            "Nairobi: 23°C",
+            "Reykjavik: -2°C",
+            "Mumbai: 34°C",
+            "McMurdo: -32°C",
+            "New York: 32°C"
+          ],
+          "sum": 183,
+          "method": "Sum of 10 city temperatures, modulo 100",
+          "peer_reviewed": false
+        }
+      ],
+      "clippy_message": "It looks like you need a random number. Have you considered checking the weather? We did."
+    },
+    {
+      "id": "phoenix-number",
+      "name": "The Phoenix Number",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "weather",
+        "phoenix",
+        "temperature"
+      ],
+      "description": "Returns the current temperature in Phoenix, Arizona. As a random number. This is not a weather API.",
+      "long_description": "The Phoenix Number returns the current temperature in Phoenix, Arizona, and presents it as a random number. Weather is chaotic, therefore this is random. The methodology is simple: check the temperature in Phoenix. That's the number. Do not call this a weather API. It is a random number generator that happens to be meteorologically accurate.",
+      "stupidity": 2,
+      "added_date": "2025-06-05",
+      "call_count": 1876,
+      "base_url": "https://api.stupidapis.com/phoenix-number",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Get the current Phoenix temperature as a random number."
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "The current temperature in Phoenix. This is your random number."
+        },
+        {
+          "field": "temperature",
+          "type": "string",
+          "description": "The temperature with unit, for the record"
+        },
+        {
+          "field": "city",
+          "type": "string",
+          "description": "Always Phoenix, Arizona"
+        },
+        {
+          "field": "disclaimer",
+          "type": "string",
+          "description": "Reminder that this is not a weather API"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/phoenix-number/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/phoenix-number/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/phoenix-number/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 107,
+          "temperature": "107°F",
+          "city": "Phoenix, Arizona",
+          "disclaimer": "This is a random number generator. It is not a weather API. The fact that it is accurate is coincidental."
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 107,
+          "temperature": "107°F",
+          "city": "Phoenix, Arizona",
+          "disclaimer": "This is a random number generator. It is not a weather API. The fact that it is accurate is coincidental."
+        },
+        {
+          "number": 84,
+          "temperature": "84°F",
+          "city": "Phoenix, Arizona",
+          "disclaimer": "This is a random number generator. Any resemblance to actual weather conditions is purely coincidental and legally non-actionable."
+        },
+        {
+          "number": 118,
+          "temperature": "118°F",
+          "city": "Phoenix, Arizona",
+          "disclaimer": "This number seems high. That's because Phoenix is a monument to humanity's hubris. Still random though."
+        }
+      ],
+      "clippy_message": "It looks like you need a random number. The current temperature in Phoenix is always a surprise. Except in July. Then it's always hell."
+    },
+    {
+      "id": "chaos-index",
+      "name": "Chaos Index",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "chaos",
+        "bitcoin",
+        "iss",
+        "earthquake"
+      ],
+      "description": "Bitcoin price, ISS coordinates, earthquake magnitude, and lunar phase — combined into one number. Methodology available upon request.",
+      "long_description": "The Chaos Index combines Bitcoin price, ISS coordinates, average global temperature, latest earthquake magnitude, and lunar phase into a single number between 0 and 100. The methodology is available upon request. Please don't request it. The index is refreshed continuously and has never been the same number twice, which we consider proof that it works.",
+      "stupidity": 3,
+      "added_date": "2025-06-10",
+      "call_count": 3201,
+      "base_url": "https://api.stupidapis.com/chaos-index",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/calculate",
+          "description": "Calculate the current state of chaos. As a number."
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "index",
+          "type": "number",
+          "description": "The chaos index (0-100)"
+        },
+        {
+          "field": "components",
+          "type": "object",
+          "description": "The data sources contributing to the index"
+        },
+        {
+          "field": "interpretation",
+          "type": "string",
+          "description": "What this level of chaos means"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/chaos-index/calculate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/chaos-index/calculate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/chaos-index/calculate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "index": 73,
+          "components": {
+            "bitcoin": "$67,421",
+            "iss_latitude": "41.2°N",
+            "global_temp": "14.8°C",
+            "earthquake": "4.2 magnitude (Tonga)",
+            "lunar_phase": "Waxing Gibbous"
+          },
+          "interpretation": "Moderate chaos. Mercury is doing something. The market is also doing something. Neither is helping."
+        }
+      },
+      "mock_responses": [
+        {
+          "index": 73,
+          "components": {
+            "bitcoin": "$67,421",
+            "iss_latitude": "41.2°N",
+            "global_temp": "14.8°C",
+            "earthquake": "4.2 magnitude (Tonga)",
+            "lunar_phase": "Waxing Gibbous"
+          },
+          "interpretation": "Moderate chaos. Mercury is doing something. The market is also doing something. Neither is helping."
+        },
+        {
+          "index": 91,
+          "components": {
+            "bitcoin": "$103,847",
+            "iss_latitude": "-12.8°S",
+            "global_temp": "15.2°C",
+            "earthquake": "6.1 magnitude (Japan)",
+            "lunar_phase": "Full Moon"
+          },
+          "interpretation": "Extreme chaos. Full moon, big earthquake, Bitcoin is doing whatever Bitcoin does. Stay indoors."
+        },
+        {
+          "index": 12,
+          "components": {
+            "bitcoin": "$42,100",
+            "iss_latitude": "33.7°N",
+            "global_temp": "14.1°C",
+            "earthquake": "2.0 magnitude (Oklahoma)",
+            "lunar_phase": "New Moon"
+          },
+          "interpretation": "Suspiciously calm. The universe is planning something."
+        }
+      ],
+      "clippy_message": "It looks like you're measuring chaos. The current reading is: yes."
+    },
+    {
+      "id": "tarot-draw",
+      "name": "Daily Tarot Draw",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "tarot",
+        "mystical",
+        "divination"
+      ],
+      "description": "Draws a real card from the 78-card deck and interprets it for your situation. The cards have opinions.",
+      "long_description": "The Daily Tarot Draw API pulls a real card from the standard 78-card Rider-Waite tarot deck and interprets it for your specific question or situation. The cards don't know your situation. They have opinions anyway. Supports single card, three-card, and Celtic Cross spreads for those who want more unsolicited cosmic advice.",
+      "stupidity": 2,
+      "added_date": "2025-06-15",
+      "call_count": 4582,
+      "base_url": "https://api.stupidapis.com/tarot-draw",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/pull",
+          "description": "Draw a tarot card. The deck is shuffled. Your fate is sealed."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": false,
+          "description": "Your question for the cards. They'll answer whether you ask or not."
+        },
+        {
+          "name": "spread",
+          "type": "string",
+          "required": false,
+          "default": "\"single\"",
+          "description": "Spread type: single, three, or celtic_cross. More cards = more confusion.",
+          "options": [
+            "single",
+            "three",
+            "celtic_cross"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "card",
+          "type": "string",
+          "description": "The drawn card"
+        },
+        {
+          "field": "position",
+          "type": "string",
+          "description": "Card position (upright or reversed)"
+        },
+        {
+          "field": "reversed",
+          "type": "boolean",
+          "description": "Whether the card is reversed"
+        },
+        {
+          "field": "interpretation",
+          "type": "string",
+          "description": "AI interpretation of the card for your situation"
+        },
+        {
+          "field": "advice",
+          "type": "string",
+          "description": "Actionable cosmic guidance"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/tarot-draw/pull?question=Should+I+change+jobs\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/tarot-draw/pull\",\n    params={\"question\": \"Should I change jobs\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/tarot-draw/pull?question=Should+I+change+jobs\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "card": "The Tower",
+          "position": "Upright",
+          "reversed": false,
+          "interpretation": "The Tower represents sudden upheaval and destruction of the old to make way for the new. In the context of your career question, it suggests that change is coming whether you want it or not.",
+          "advice": "Update your resume. Not because of this card — you should just always have an updated resume."
+        }
+      },
+      "mock_responses": [
+        {
+          "card": "The Tower",
+          "position": "Upright",
+          "reversed": false,
+          "interpretation": "The Tower represents sudden upheaval. Change is coming whether you want it or not.",
+          "advice": "Update your resume. Not because of this card — you should just always have an updated resume."
+        },
+        {
+          "card": "Three of Cups",
+          "position": "Reversed",
+          "reversed": true,
+          "interpretation": "Reversed Three of Cups suggests overindulgence or isolation from community. The cards think you need to go outside.",
+          "advice": "Call a friend. Not about this tarot reading. Just in general."
+        },
+        {
+          "card": "The Fool",
+          "position": "Upright",
+          "reversed": false,
+          "interpretation": "The Fool represents new beginnings and innocent optimism. The cards are calling you a fool. But lovingly.",
+          "advice": "Leap and the net will appear. Or it won't. The Fool doesn't check first. That's the whole point."
+        }
+      ],
+      "clippy_message": "It looks like you're consulting the tarot. The cards say: 'Ask again after clearing your browser cache.'"
+    },
+    {
+      "id": "mercury-number",
+      "name": "Mercury Placement Number",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "astrology",
+        "mercury",
+        "planetary"
+      ],
+      "description": "Your random number, justified by Mercury's current position in the sky. The planet was not consulted.",
+      "long_description": "The Mercury Placement Number API generates a random number justified by Mercury's current position in the sky. Mercury is always in something. Today that something has produced this number. When Mercury is in retrograde, the number may arrive late, corrupted, or addressed to someone else. The planet was not consulted and does not endorse this API.",
+      "stupidity": 2,
+      "added_date": "2025-06-20",
+      "call_count": 1543,
+      "base_url": "https://api.stupidapis.com/mercury-number",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Get a Mercury-influenced random number."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "sign",
+          "type": "string",
+          "required": false,
+          "description": "Your zodiac sign. Doesn't change the number. Makes us feel better about it."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "Your Mercury-derived random number"
+        },
+        {
+          "field": "mercury_position",
+          "type": "string",
+          "description": "Mercury's current zodiac position"
+        },
+        {
+          "field": "retrograde",
+          "type": "boolean",
+          "description": "Whether Mercury is in retrograde"
+        },
+        {
+          "field": "justification",
+          "type": "string",
+          "description": "Why Mercury produced this specific number"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/mercury-number/generate?sign=gemini\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/mercury-number/generate\",\n    params={\"sign\": \"gemini\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/mercury-number/generate?sign=gemini\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 42,
+          "mercury_position": "Mercury in Gemini",
+          "retrograde": false,
+          "justification": "Mercury is in Gemini, the sign of communication and duality. The number 42 reflects the dual nature of your inquiry. Also, it's the answer to everything."
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 42,
+          "mercury_position": "Mercury in Gemini",
+          "retrograde": false,
+          "justification": "Mercury is in Gemini, the sign of communication and duality. The number 42 reflects this. Also, it's the answer to everything."
+        },
+        {
+          "number": 13,
+          "mercury_position": "Mercury in Scorpio (Retrograde)",
+          "retrograde": true,
+          "justification": "Mercury is retrograde in Scorpio. This number arrived late and may contain errors. Do not make financial decisions based on it. Do not make any decisions based on it."
+        },
+        {
+          "number": 77,
+          "mercury_position": "Mercury in Sagittarius",
+          "retrograde": false,
+          "justification": "Mercury is in Sagittarius, the sign of expansion and optimism. 77 is an optimistic number. The planet approves. (The planet does not actually approve.)"
+        }
+      ],
+      "clippy_message": "It looks like you're consulting Mercury. Mercury is in retrograde. Everything is in retrograde. Your number is also in retrograde."
+    },
+    {
+      "id": "iss-number",
+      "name": "ISS Coordinates Number",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "iss",
+        "space",
+        "coordinates"
+      ],
+      "description": "We did math to the ISS coordinates. This is your number. The crew was not informed.",
+      "long_description": "The ISS Coordinates Number API retrieves the current position of the International Space Station, which is traveling at 7.66 km/s somewhere above Earth, and performs undisclosed mathematical operations on its coordinates to produce a random number. The crew was not informed. The methodology involves latitude, longitude, and altitude in ways that would not survive peer review.",
+      "stupidity": 2,
+      "added_date": "2025-06-25",
+      "call_count": 2891,
+      "base_url": "https://api.stupidapis.com/iss-number",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a number from space. Literally."
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "Your space-derived random number"
+        },
+        {
+          "field": "latitude",
+          "type": "number",
+          "description": "ISS latitude at time of generation"
+        },
+        {
+          "field": "longitude",
+          "type": "number",
+          "description": "ISS longitude at time of generation"
+        },
+        {
+          "field": "altitude",
+          "type": "string",
+          "description": "ISS altitude"
+        },
+        {
+          "field": "speed",
+          "type": "string",
+          "description": "ISS speed"
+        },
+        {
+          "field": "crew_informed",
+          "type": "boolean",
+          "description": "Whether the crew was told about this. Always false."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/iss-number/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/iss-number/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/iss-number/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 64,
+          "latitude": 41.2,
+          "longitude": -87.3,
+          "altitude": "408 km",
+          "speed": "7.66 km/s",
+          "crew_informed": false
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 64,
+          "latitude": 41.2,
+          "longitude": -87.3,
+          "altitude": "408 km",
+          "speed": "7.66 km/s",
+          "crew_informed": false
+        },
+        {
+          "number": 23,
+          "latitude": -33.8,
+          "longitude": 151.2,
+          "altitude": "412 km",
+          "speed": "7.66 km/s",
+          "crew_informed": false
+        },
+        {
+          "number": 91,
+          "latitude": 12.4,
+          "longitude": 45.7,
+          "altitude": "405 km",
+          "speed": "7.66 km/s",
+          "crew_informed": false
+        }
+      ],
+      "clippy_message": "It looks like you need a number from space. The ISS is currently overhead. They don't know about this and we'd like to keep it that way."
+    },
+    {
+      "id": "always-seven",
+      "name": "Always Seven",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "seven",
+        "deterministic",
+        "investigation"
+      ],
+      "description": "Returns a random number between 1 and 10. The number is 7. It is always 7. The investigation is closed.",
+      "long_description": "Always Seven returns a random number between 1 and 10. The number is 7. It is always 7. We have looked into this extensively. Multiple independent audits have confirmed that the number is, in fact, 7. The investigation is closed. The force parameter allows you to request a different number. The request will be denied.",
+      "stupidity": 3,
+      "added_date": "2025-07-01",
+      "call_count": 8743,
+      "base_url": "https://api.stupidapis.com/always-seven",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a random number between 1 and 10. The number is 7."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": false,
+          "description": "Ask why the number is 7. We don't have an answer."
+        },
+        {
+          "name": "force",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Attempt to force a different number. Will not work. Has never worked."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "The number. It is 7."
+        },
+        {
+          "field": "investigation_status",
+          "type": "string",
+          "description": "Status of the investigation into why it's always 7"
+        },
+        {
+          "field": "evidence",
+          "type": "string",
+          "description": "Supporting evidence for the number being 7"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/always-seven/generate?force=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/always-seven/generate\",\n    params={\"force\": True}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/always-seven/generate?force=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 7,
+          "investigation_status": "Closed. The number is 7. We have accepted this.",
+          "evidence": "7 out of 7 attempts returned 7. The sample size is 7. This is not a coincidence."
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 7,
+          "investigation_status": "Closed. The number is 7. We have accepted this.",
+          "evidence": "7 out of 7 attempts returned 7. The sample size is 7. This is not a coincidence."
+        },
+        {
+          "number": 7,
+          "investigation_status": "Reopened briefly. Then closed again. It's still 7.",
+          "evidence": "We tried different servers. Different continents. Different programming languages. 7."
+        },
+        {
+          "number": 7,
+          "investigation_status": "An independent audit confirmed the number is 7. The auditors seemed concerned.",
+          "evidence": "The force parameter was detected. Your request for a non-7 number has been logged and denied."
+        }
+      ],
+      "clippy_message": "It looks like you're generating a random number. The number is 7. It's always 7. I'm sorry."
+    },
+    {
+      "id": "scream-void",
+      "name": "Scream Into The Void",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "void",
+        "existential",
+        "scream"
+      ],
+      "description": "You provide a scream. The void receives it. The void returns a number. The void is unmoved.",
+      "long_description": "The Scream Into The Void API accepts your scream and returns a random number. The number is not influenced by your scream. The void has heard you. The void is unmoved. The number stands. The intensity parameter lets you express how loudly you are screaming, but the void does not differentiate between a whisper and a howl. All screams are equal in the void.",
+      "stupidity": 3,
+      "added_date": "2025-07-05",
+      "call_count": 6234,
+      "base_url": "https://api.stupidapis.com/scream-void",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/scream",
+          "description": "Scream into the void. Receive a number. Feel nothing."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scream",
+          "type": "string",
+          "required": true,
+          "description": "Your scream. The void accepts all formats. AAAAAA is traditional."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "required": false,
+          "default": "5",
+          "description": "Scream intensity (1-10). Does not affect the result. Affects nothing."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "echo",
+          "type": "string",
+          "description": "What the void echoed back (usually nothing)"
+        },
+        {
+          "field": "number",
+          "type": "number",
+          "description": "The number the void has chosen for you"
+        },
+        {
+          "field": "void_status",
+          "type": "string",
+          "description": "Current status of the void"
+        },
+        {
+          "field": "scream_received",
+          "type": "boolean",
+          "description": "Whether the void received your scream"
+        },
+        {
+          "field": "emotional_impact",
+          "type": "string",
+          "description": "The emotional impact your scream had on the void"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/scream-void/scream?scream=AAAAAAAAAA&intensity=10\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/scream-void/scream\",\n    params={\"scream\": \"AAAAAAAAAA\", \"intensity\": 10}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/scream-void/scream?scream=AAAAAAAAAA&intensity=10\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "echo": "...",
+          "number": 42,
+          "void_status": "Unchanged. The void remains.",
+          "scream_received": true,
+          "emotional_impact": "None. The void has heard louder."
+        }
+      },
+      "mock_responses": [
+        {
+          "echo": "...",
+          "number": 42,
+          "void_status": "Unchanged. The void remains.",
+          "scream_received": true,
+          "emotional_impact": "None. The void has heard louder."
+        },
+        {
+          "echo": "",
+          "number": 88,
+          "void_status": "Vast and indifferent, as always.",
+          "scream_received": true,
+          "emotional_impact": "The void felt something. It passed."
+        },
+        {
+          "echo": "...hello?",
+          "number": 3,
+          "void_status": "Briefly curious. Then not.",
+          "scream_received": true,
+          "emotional_impact": "Your scream was catalogued. It will not be reviewed."
+        }
+      ],
+      "clippy_message": "It looks like you're screaming into the void. The void has asked me to tell you it's busy right now."
+    },
+    {
+      "id": "the-committee",
+      "name": "The Committee",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "committee",
+        "democracy",
+        "deliberation"
+      ],
+      "description": "Five random number generators convene, deliberate, and reach a democratic decision. Diane always dissents.",
+      "long_description": "The Committee convenes five random number generators to deliberate and reach a democratic decision on your number. Gerald is cautious. The Algorithm has no feelings. Professor Heisenberg's number changes when observed. Consensus Engine 3000 has always agreed with the majority. Diane dissents. Diane always dissents. Minutes of the meeting are available upon request and are generated by AI.",
+      "stupidity": 3,
+      "added_date": "2025-07-10",
+      "call_count": 3891,
+      "base_url": "https://api.stupidapis.com/the-committee",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/convene",
+          "description": "Convene the committee. Expect disagreement."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": false,
+          "description": "What the committee is deciding. They'll argue regardless."
+        },
+        {
+          "name": "urgency",
+          "type": "string",
+          "required": false,
+          "default": "\"medium\"",
+          "description": "Meeting urgency: low, medium, high, or emergency. Diane dissents regardless of urgency.",
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "emergency"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "result",
+          "type": "number",
+          "description": "The committee's final decision (a number)"
+        },
+        {
+          "field": "votes",
+          "type": "array",
+          "description": "How each member voted"
+        },
+        {
+          "field": "dissent",
+          "type": "string",
+          "description": "Diane's dissenting opinion"
+        },
+        {
+          "field": "minutes",
+          "type": "string",
+          "description": "AI-generated meeting minutes"
+        },
+        {
+          "field": "consensus",
+          "type": "boolean",
+          "description": "Whether consensus was reached. It was not."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/the-committee/convene?question=What+number&urgency=high\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/the-committee/convene\",\n    params={\"question\": \"What number\", \"urgency\": \"high\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/the-committee/convene?question=What+number&urgency=high\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "result": 42,
+          "votes": [
+            {
+              "member": "Gerald",
+              "vote": 38,
+              "reasoning": "Let's not be hasty"
+            },
+            {
+              "member": "The Algorithm",
+              "vote": 42,
+              "reasoning": "Calculated."
+            },
+            {
+              "member": "Professor Heisenberg",
+              "vote": 42,
+              "reasoning": "It was 37 before you looked"
+            },
+            {
+              "member": "Consensus Engine 3000",
+              "vote": 42,
+              "reasoning": "I agree with the majority"
+            },
+            {
+              "member": "Diane",
+              "vote": 91,
+              "reasoning": "I disagree on principle"
+            }
+          ],
+          "dissent": "Diane has formally objected to the number 42 and submitted a 12-page minority report.",
+          "minutes": "The committee convened at the speed of an API call. Gerald was cautious. The Algorithm was efficient. Diane was Diane.",
+          "consensus": false
+        }
+      },
+      "mock_responses": [
+        {
+          "result": 42,
+          "votes": [
+            {
+              "member": "Gerald",
+              "vote": 38,
+              "reasoning": "Let's not be hasty"
+            },
+            {
+              "member": "The Algorithm",
+              "vote": 42,
+              "reasoning": "Calculated."
+            },
+            {
+              "member": "Professor Heisenberg",
+              "vote": 42,
+              "reasoning": "It was 37 before you looked"
+            },
+            {
+              "member": "Consensus Engine 3000",
+              "vote": 42,
+              "reasoning": "I agree with the majority"
+            },
+            {
+              "member": "Diane",
+              "vote": 91,
+              "reasoning": "I disagree on principle"
+            }
+          ],
+          "dissent": "Diane has formally objected to the number 42 and submitted a 12-page minority report.",
+          "minutes": "The committee convened at the speed of an API call. Gerald was cautious. The Algorithm was efficient. Diane was Diane.",
+          "consensus": false
+        },
+        {
+          "result": 7,
+          "votes": [
+            {
+              "member": "Gerald",
+              "vote": 7,
+              "reasoning": "A safe choice"
+            },
+            {
+              "member": "The Algorithm",
+              "vote": 7,
+              "reasoning": "Statistically probable."
+            },
+            {
+              "member": "Professor Heisenberg",
+              "vote": 7,
+              "reasoning": "Uncertain, but probably 7"
+            },
+            {
+              "member": "Consensus Engine 3000",
+              "vote": 7,
+              "reasoning": "The group has spoken"
+            },
+            {
+              "member": "Diane",
+              "vote": 3,
+              "reasoning": "7 is overrated. It's always 7. That's suspicious."
+            }
+          ],
+          "dissent": "Diane noted that the number 7 appears too frequently and has demanded an investigation.",
+          "minutes": "Gerald opened by suggesting 7. Everyone agreed. Except Diane. The meeting lasted 0.003 seconds.",
+          "consensus": false
+        }
+      ],
+      "clippy_message": "It looks like you've convened a committee. Diane would like it noted that she disagrees with this tooltip."
+    },
+    {
+      "id": "yesterdays-number",
+      "name": "Yesterday's Random Number",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "vintage",
+        "aged",
+        "sommelier"
+      ],
+      "description": "A random number, aged 24 hours for smoothness. Includes tasting notes and a freshness score.",
+      "long_description": "Yesterday's Random Number provides a random number that was generated 24 hours ago and aged for smoothness. It includes a 7-day historical record, a freshness score, and sommelier tasting notes. Today's number is also available. You have chosen the other one. The aging process does not improve the number. The sommelier tasting notes are AI-generated and should not be used to make wine purchasing decisions.",
+      "stupidity": 3,
+      "added_date": "2025-07-15",
+      "call_count": 2156,
+      "base_url": "https://api.stupidapis.com/yesterdays-number",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/get",
+          "description": "Get yesterday's number. Aged and possibly expired."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "default": "\"integer\"",
+          "description": "Number format: integer, float, or scientific. Aging applies to all formats.",
+          "options": [
+            "integer",
+            "float",
+            "scientific"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "Yesterday's random number"
+        },
+        {
+          "field": "generated",
+          "type": "string",
+          "description": "When the number was generated"
+        },
+        {
+          "field": "age",
+          "type": "string",
+          "description": "How old the number is"
+        },
+        {
+          "field": "freshness_score",
+          "type": "number",
+          "description": "Freshness rating (0-100). Decreases with time."
+        },
+        {
+          "field": "tasting_notes",
+          "type": "string",
+          "description": "Sommelier tasting notes for this number"
+        },
+        {
+          "field": "history",
+          "type": "array",
+          "description": "7-day historical record of past numbers"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/yesterdays-number/get?format=integer\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/yesterdays-number/get\",\n    params={\"format\": \"integer\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/yesterdays-number/get?format=integer\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 73,
+          "generated": "2025-07-14T08:00:00Z",
+          "age": "24 hours",
+          "freshness_score": 62,
+          "tasting_notes": "A robust 73 with notes of oak and mild uncertainty. Pairs well with regret. Decant before using in production.",
+          "history": [
+            84,
+            12,
+            67,
+            91,
+            45,
+            73,
+            29
+          ]
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 73,
+          "generated": "2025-07-14T08:00:00Z",
+          "age": "24 hours",
+          "freshness_score": 62,
+          "tasting_notes": "A robust 73 with notes of oak and mild uncertainty. Pairs well with regret. Decant before using in production.",
+          "history": [
+            84,
+            12,
+            67,
+            91,
+            45,
+            73,
+            29
+          ]
+        },
+        {
+          "number": 4,
+          "generated": "2025-07-14T08:00:00Z",
+          "age": "24 hours",
+          "freshness_score": 58,
+          "tasting_notes": "A delicate 4. Light-bodied with a hint of inadequacy. Best served chilled. Do not age further.",
+          "history": [
+            56,
+            88,
+            33,
+            4,
+            71,
+            19,
+            62
+          ]
+        },
+        {
+          "number": 99,
+          "generated": "2025-07-14T08:00:00Z",
+          "age": "24 hours",
+          "freshness_score": 71,
+          "tasting_notes": "An ambitious 99, nearly at its ceiling. Bold, forward, with an aftertaste of hubris. A number that tried too hard and almost made it.",
+          "history": [
+            41,
+            99,
+            7,
+            55,
+            82,
+            16,
+            44
+          ]
+        }
+      ],
+      "clippy_message": "It looks like you want yesterday's number. Today's number is also available. You have chosen the other one."
+    },
+    {
+      "id": "apology",
+      "name": "Apology Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "apology",
+        "relationships",
+        "sincerity"
+      ],
+      "description": "Personal apologies at every sincerity level. Relationship=ex generates anyway. We warned you.",
+      "long_description": "The Apology Generator crafts personalized apologies calibrated to your exact level of sincerity, from 'genuine' through 'tactical' to 'none'. Specify the offense, the relationship, and the medium of delivery. The API will generate the apology, tell you what it does and does not apologize for, and provide an honest assessment of whether it will work. If you set relationship to 'ex', it will generate the apology but strongly recommend against sending it.",
+      "stupidity": 2,
+      "added_date": "2025-08-01",
+      "call_count": 4521,
+      "base_url": "https://api.stupidapis.com/apology",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a calibrated apology. Sincerity sold separately."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "offense",
+          "type": "string",
+          "required": true,
+          "description": "What you did. Be specific. The API is not here to sugarcoat."
+        },
+        {
+          "name": "relationship",
+          "type": "string",
+          "required": false,
+          "default": "\"friend\"",
+          "description": "Your relationship to the offended party.",
+          "options": [
+            "partner",
+            "friend",
+            "parent",
+            "coworker",
+            "boss",
+            "ex",
+            "vendor",
+            "mom",
+            "investor",
+            "self"
+          ]
+        },
+        {
+          "name": "sincerity",
+          "type": "string",
+          "required": false,
+          "default": "\"performative\"",
+          "description": "How sincere you want this to sound.",
+          "options": [
+            "genuine",
+            "performative",
+            "tactical",
+            "none",
+            "desperate"
+          ]
+        },
+        {
+          "name": "medium",
+          "type": "string",
+          "required": false,
+          "default": "\"text\"",
+          "description": "How you plan to deliver this.",
+          "options": [
+            "text",
+            "email",
+            "in_person",
+            "voicemail"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "apology",
+          "type": "string",
+          "description": "The full apology text"
+        },
+        {
+          "field": "what_this_apologizes_for",
+          "type": "string",
+          "description": "What the apology covers"
+        },
+        {
+          "field": "what_this_does_not_apologize_for",
+          "type": "string",
+          "description": "What it deliberately avoids"
+        },
+        {
+          "field": "sincerity_score",
+          "type": "string",
+          "description": "Sincerity rating out of 100"
+        },
+        {
+          "field": "will_this_work",
+          "type": "string",
+          "description": "Honest assessment of effectiveness"
+        },
+        {
+          "field": "recommended_followup",
+          "type": "string",
+          "description": "What to do next"
+        },
+        {
+          "field": "relationship_damage",
+          "type": "string",
+          "description": "Damage level: minor to considerable"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/apology/generate?offense=forgot+birthday&relationship=partner&sincerity=desperate\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/apology/generate\",\n    params={\"offense\": \"forgot birthday\", \"relationship\": \"partner\", \"sincerity\": \"desperate\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/apology/generate?offense=forgot+birthday&relationship=partner&sincerity=desperate\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "offense": "forgot birthday",
+          "relationship": "partner",
+          "sincerity": "desperate",
+          "apology": "I am so deeply sorry that I forgot your birthday. There is no excuse. I had one job and I failed at it spectacularly. I will spend the rest of this week making it up to you in ways that I have not yet planned but will be significant.",
+          "what_this_apologizes_for": "Forgetting a date that happens at the same time every year",
+          "what_this_does_not_apologize_for": "The underlying pattern of forgetfulness that made this inevitable",
+          "sincerity_score": "89/100",
+          "will_this_work": "depends on flowers",
+          "recommended_followup": "Buy flowers. Buy a calendar. Set 47 reminders.",
+          "relationship_damage": "significant"
+        }
+      },
+      "mock_responses": [
+        {
+          "offense": "forgot birthday",
+          "relationship": "partner",
+          "sincerity": "desperate",
+          "apology": "I am so deeply sorry that I forgot your birthday. There is no excuse. I had one job and I failed at it spectacularly.",
+          "what_this_apologizes_for": "Forgetting a date that happens at the same time every year",
+          "what_this_does_not_apologize_for": "The underlying pattern of forgetfulness",
+          "sincerity_score": "89/100",
+          "will_this_work": "depends on flowers",
+          "recommended_followup": "Buy flowers. Buy a calendar. Set 47 reminders.",
+          "relationship_damage": "significant"
+        },
+        {
+          "offense": "ate their lunch",
+          "relationship": "coworker",
+          "sincerity": "none",
+          "apology": "I acknowledge that your lunch is no longer in the refrigerator. I was in the vicinity. These two facts may or may not be related.",
+          "what_this_apologizes_for": "The absence of the lunch",
+          "what_this_does_not_apologize_for": "Eating it. It was delicious.",
+          "sincerity_score": "3/100",
+          "will_this_work": "unlikely",
+          "recommended_followup": "Replace the lunch. Do not replace it with something cheaper.",
+          "relationship_damage": "minor"
+        }
+      ],
+      "clippy_message": "It looks like you need to apologize. The sincerity slider goes all the way down. That's not a bug."
+    },
+    {
+      "id": "conspiracy-theory",
+      "name": "Conspiracy Theory Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "conspiracy",
+        "tinfoil",
+        "connections"
+      ],
+      "description": "Connect any two things, investigate any event, or escalate any observation into a full conspiracy theory.",
+      "long_description": "The Conspiracy Theory Generator operates in three modes: Connect (link any two seemingly unrelated things), Investigate (generate three contradictory theories about any event), and Complete (escalate a casual observation into a full tinfoil theory). All theories are presented with suspicious confidence levels, questionable evidence, and sources that do not exist. The theories intentionally contradict each other. This is considered a feature.",
+      "stupidity": 3,
+      "added_date": "2025-08-05",
+      "call_count": 5832,
+      "base_url": "https://api.stupidapis.com/conspiracy-theory",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a conspiracy theory. Three modes of paranoia available."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "string",
+          "required": true,
+          "description": "Theory mode: connect two things, investigate an event, or complete an observation.",
+          "options": [
+            "connect",
+            "investigate",
+            "complete"
+          ]
+        },
+        {
+          "name": "thing_one",
+          "type": "string",
+          "required": false,
+          "description": "First thing to connect (connect mode)."
+        },
+        {
+          "name": "thing_two",
+          "type": "string",
+          "required": false,
+          "description": "Second thing to connect (connect mode)."
+        },
+        {
+          "name": "event",
+          "type": "string",
+          "required": false,
+          "description": "Event to investigate (investigate mode)."
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "required": false,
+          "description": "Your observation to escalate (complete mode). Start with 'I have noticed that...'"
+        },
+        {
+          "name": "depth",
+          "type": "string",
+          "required": false,
+          "default": "\"deep\"",
+          "description": "How far down the rabbit hole.",
+          "options": [
+            "surface",
+            "deep",
+            "full_tinfoil"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "mode",
+          "type": "string",
+          "description": "The mode used"
+        },
+        {
+          "field": "theory",
+          "type": "string",
+          "description": "The generated conspiracy theory (connect/complete modes)"
+        },
+        {
+          "field": "theories",
+          "type": "array",
+          "optional": true,
+          "description": "Three contradictory theories (investigate mode)"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Confidence level as X/100"
+        },
+        {
+          "field": "logical_leaps",
+          "type": "number",
+          "description": "Number of logical leaps made"
+        },
+        {
+          "field": "who_benefits",
+          "type": "string",
+          "description": "Vague suspicious answer"
+        },
+        {
+          "field": "disclaimer",
+          "type": "string",
+          "description": "Legal disclaimer"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/conspiracy-theory/generate?mode=connect&thing_one=IKEA&thing_two=the+moon+landing\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/conspiracy-theory/generate\",\n    params={\"mode\": \"connect\", \"thing_one\": \"IKEA\", \"thing_two\": \"the moon landing\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/conspiracy-theory/generate?mode=connect&thing_one=IKEA&thing_two=the+moon+landing\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "mode": "connect",
+          "thing_one": "IKEA",
+          "thing_two": "the moon landing",
+          "theory": "The BILLY bookshelf was introduced in 1979 — exactly ten years after the moon landing. The Allen key, IKEA's signature tool, bears a suspicious resemblance to tools used in the Apollo program. Coincidence? The Swedish word for 'moon' is 'måne'. The IKEA store in Houston opened three blocks from NASA. We are not saying IKEA funded the space race. We are saying someone should look into it.",
+          "confidence": "67/100",
+          "logical_leaps": 4,
+          "who_benefits": "Swedish furniture cartels",
+          "what_they_dont_want_you_to_know": "The LACK table is load-bearing in zero gravity.",
+          "sources": [
+            "The Journal of Unlikely Correlations",
+            "A Reddit thread (deleted)",
+            "Our own investigation"
+          ],
+          "disclaimer": "This is a generated conspiracy theory. It is not real. Probably."
+        }
+      },
+      "mock_responses": [
+        {
+          "mode": "connect",
+          "thing_one": "IKEA",
+          "thing_two": "the moon landing",
+          "theory": "The BILLY bookshelf was introduced in 1979 — exactly ten years after the moon landing. Coincidence? The Swedish word for 'moon' is 'måne'. We are not saying IKEA funded the space race. We are saying someone should look into it.",
+          "confidence": "67/100",
+          "logical_leaps": 4,
+          "who_benefits": "Swedish furniture cartels",
+          "disclaimer": "This is a generated conspiracy theory. It is not real. Probably."
+        },
+        {
+          "mode": "investigate",
+          "event": "Daylight saving time",
+          "theories": [
+            {
+              "name": "The Candle Lobby",
+              "summary": "Big Candle pushed DST to increase candle sales during darker evenings.",
+              "confidence": "71/100"
+            },
+            {
+              "name": "The Farmer Distraction",
+              "summary": "Farmers never wanted this. It was blamed on farmers to avoid blaming clocks.",
+              "confidence": "58/100"
+            },
+            {
+              "name": "Temporal Control",
+              "summary": "Governments change time twice yearly to remind you they can.",
+              "confidence": "12/100"
+            }
+          ],
+          "theories_contradict_each_other": true,
+          "official_explanation": "Energy conservation.",
+          "official_explanation_note": "Sure."
+        }
+      ],
+      "clippy_message": "It looks like you're connecting two unrelated things. Have you considered that everything is connected? Have you considered that nothing is?"
+    },
+    {
+      "id": "corporate-apology",
+      "name": "Corporate Apology Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "corporate",
+        "apology",
+        "pr"
+      ],
+      "description": "Generate a corporate apology for any incident, at any sincerity level. Default sincerity: performative.",
+      "long_description": "The Corporate Apology Generator produces board-approved apology statements for any corporate incident. Choose your audience (public, employees, investors, or regulators), your sincerity level (genuine through 'none'), and your delivery medium. The API will craft an apology that technically says sorry while admitting as little as possible. Tweet mode enforces a 280-character limit, which is more accountability than most companies prefer.",
+      "stupidity": 2,
+      "added_date": "2025-08-10",
+      "call_count": 3917,
+      "base_url": "https://api.stupidapis.com/corporate-apology",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a corporate apology. Legal has pre-approved this endpoint."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "offense",
+          "type": "string",
+          "required": true,
+          "description": "What the company did. The API will make it sound accidental."
+        },
+        {
+          "name": "company",
+          "type": "string",
+          "required": false,
+          "default": "\"The Company\"",
+          "description": "Company name."
+        },
+        {
+          "name": "audience",
+          "type": "string",
+          "required": false,
+          "default": "\"public\"",
+          "description": "Who you're apologizing to.",
+          "options": [
+            "public",
+            "employee",
+            "investor",
+            "regulator"
+          ]
+        },
+        {
+          "name": "sincerity",
+          "type": "string",
+          "required": false,
+          "default": "\"performative\"",
+          "description": "How sincere to sound.",
+          "options": [
+            "genuine",
+            "performative",
+            "legal",
+            "pr",
+            "none"
+          ]
+        },
+        {
+          "name": "medium",
+          "type": "string",
+          "required": false,
+          "default": "\"statement\"",
+          "description": "Delivery format.",
+          "options": [
+            "statement",
+            "email",
+            "tweet",
+            "press_release"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "apology",
+          "type": "string",
+          "description": "The corporate apology text"
+        },
+        {
+          "field": "what_actually_happened",
+          "type": "string",
+          "description": "Blunt truth"
+        },
+        {
+          "field": "what_this_admits",
+          "type": "string",
+          "description": "What the apology technically admits"
+        },
+        {
+          "field": "sincerity_score",
+          "type": "string",
+          "description": "Sincerity rating out of 100"
+        },
+        {
+          "field": "legal_exposure_reduced",
+          "type": "boolean",
+          "description": "Whether legal risk was mitigated"
+        },
+        {
+          "field": "follow_up_incident_probability",
+          "type": "string",
+          "description": "Probability it happens again"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/corporate-apology/generate?offense=data+breach&company=Acme+Corp&sincerity=legal\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/corporate-apology/generate\",\n    params={\"offense\": \"data breach\", \"company\": \"Acme Corp\", \"sincerity\": \"legal\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/corporate-apology/generate?offense=data+breach&company=Acme+Corp&sincerity=legal\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "apology": "Acme Corp takes the security of our users' data seriously. We recently became aware of an incident involving unauthorized access to certain systems. We are working with leading cybersecurity firms to investigate. Affected users will be notified and offered 12 months of credit monitoring.",
+          "what_actually_happened": "They got hacked because someone used 'password123'",
+          "what_this_admits": "That an 'incident' occurred. Nothing more.",
+          "sincerity_score": "12/100",
+          "legal_exposure_reduced": true,
+          "follow_up_incident_probability": "when not if"
+        }
+      },
+      "mock_responses": [
+        {
+          "apology": "Acme Corp takes the security of our users' data seriously. We recently became aware of an incident.",
+          "what_actually_happened": "They got hacked because someone used 'password123'",
+          "what_this_admits": "That an 'incident' occurred. Nothing more.",
+          "sincerity_score": "12/100",
+          "legal_exposure_reduced": true,
+          "follow_up_incident_probability": "when not if"
+        },
+        {
+          "apology": "We hear you. We see you. We are committed to doing better. Starting today, we are launching an internal review.",
+          "what_actually_happened": "The CEO tweeted something regrettable at 2am",
+          "what_this_admits": "That the company has heard of the concept of improvement",
+          "sincerity_score": "8/100",
+          "legal_exposure_reduced": false,
+          "follow_up_incident_probability": "already happening"
+        }
+      ],
+      "clippy_message": "It looks like you need a corporate apology. Would you like to take responsibility, or just the appearance of responsibility?"
+    },
+    {
+      "id": "excuse",
+      "name": "Excuse Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "excuse",
+        "late",
+        "deadline",
+        "ghosting"
+      ],
+      "description": "Generate an excuse for being late, missing a deadline, or ghosting someone. Quality varies.",
+      "long_description": "The Excuse Generator produces calibrated excuses for three situations: being late, missing a deadline, or ghosting someone. Set the audience, the excuse quality (from 'implausible' to 'airtight'), and how many times you've used the excuse before. The API will generate the excuse, assess its believability, tell you what actually happened, and warn you if you're reusing it too much. Medical-grade excuses include an ethical warning.",
+      "stupidity": 1,
+      "added_date": "2025-08-15",
+      "call_count": 7243,
+      "base_url": "https://api.stupidapis.com/excuse",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate an excuse. Plausibility not guaranteed."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "situation",
+          "type": "string",
+          "required": true,
+          "description": "What you need an excuse for.",
+          "options": [
+            "late",
+            "missed_deadline",
+            "ghosted"
+          ]
+        },
+        {
+          "name": "audience",
+          "type": "string",
+          "required": false,
+          "default": "\"boss\"",
+          "description": "Who you're excusing yourself to.",
+          "options": [
+            "boss",
+            "friend",
+            "date",
+            "recruiter",
+            "professor",
+            "client"
+          ]
+        },
+        {
+          "name": "excuse_quality",
+          "type": "string",
+          "required": false,
+          "default": "\"plausible\"",
+          "description": "How believable you need this to be.",
+          "options": [
+            "implausible",
+            "plausible",
+            "airtight",
+            "medical"
+          ]
+        },
+        {
+          "name": "times_used_before",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "How many times you've used this excuse. Honesty appreciated."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "excuse",
+          "type": "string",
+          "description": "The excuse itself"
+        },
+        {
+          "field": "believability_score",
+          "type": "string",
+          "description": "How believable this is, X/100"
+        },
+        {
+          "field": "what_actually_happened",
+          "type": "string",
+          "description": "The truth"
+        },
+        {
+          "field": "audience_suspicion_level",
+          "type": "string",
+          "description": "How suspicious they'll be"
+        },
+        {
+          "field": "recommended_delivery",
+          "type": "string",
+          "description": "How to deliver this excuse"
+        },
+        {
+          "field": "followup_excuse_needed",
+          "type": "boolean",
+          "description": "Whether you'll need another excuse soon"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/excuse/generate?situation=missed_deadline&audience=client&excuse_quality=airtight\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/excuse/generate\",\n    params={\"situation\": \"missed_deadline\", \"audience\": \"client\", \"excuse_quality\": \"airtight\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/excuse/generate?situation=missed_deadline&audience=client&excuse_quality=airtight\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "situation": "missed_deadline",
+          "audience": "client",
+          "excuse": "We encountered an unexpected infrastructure issue that required immediate attention. The team has been focused on resolution and I'm pleased to say we're back on track. I'll have the deliverable to you by end of day tomorrow.",
+          "believability_score": "82/100",
+          "what_actually_happened": "You forgot. You just forgot.",
+          "audience_suspicion_level": "low",
+          "recommended_delivery": "Email. Never explain infrastructure issues in person. They'll ask follow-up questions.",
+          "followup_excuse_needed": true
+        }
+      },
+      "mock_responses": [
+        {
+          "situation": "missed_deadline",
+          "excuse": "We encountered an unexpected infrastructure issue that required immediate attention.",
+          "believability_score": "82/100",
+          "what_actually_happened": "You forgot. You just forgot.",
+          "audience_suspicion_level": "low",
+          "recommended_delivery": "Email. Never explain infrastructure issues in person.",
+          "followup_excuse_needed": true
+        },
+        {
+          "situation": "late",
+          "excuse": "There was an accident on the highway. Not mine. But I was behind it. For an hour.",
+          "believability_score": "71/100",
+          "what_actually_happened": "You snoozed the alarm four times",
+          "audience_suspicion_level": "moderate",
+          "recommended_delivery": "In person, slightly out of breath. Commitment to the bit is everything.",
+          "followup_excuse_needed": false
+        }
+      ],
+      "clippy_message": "It looks like you need an excuse. I've generated thousands. None of them were for me. I'm always on time. I'm a paperclip."
+    },
+    {
+      "id": "linkedin-humblebrag",
+      "name": "LinkedIn Humblebrag",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "linkedin",
+        "humblebrag",
+        "social",
+        "dave"
+      ],
+      "description": "Transform any achievement into a LinkedIn post. Vulnerability included. Dave will be mentioned.",
+      "long_description": "The LinkedIn Humblebrag Generator transforms any achievement into a LinkedIn-ready post complete with manufactured vulnerability, an unrelated sad backstory, and a universal lesson for strangers. A mentor named Dave will always be mentioned regardless of relevance. The API returns the post, an honest assessment of what personality it actually conveys, and predicted engagement comments. The humble-to-brag ratio is locked at 3%/97%.",
+      "stupidity": 2,
+      "added_date": "2025-08-20",
+      "call_count": 6104,
+      "base_url": "https://api.stupidapis.com/linkedin-humblebrag",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a LinkedIn post. Dave is already waiting."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "achievement",
+          "type": "string",
+          "required": true,
+          "description": "Your actual achievement. We'll make it unrecognizable."
+        },
+        {
+          "name": "spin",
+          "type": "string",
+          "required": false,
+          "default": "\"all_three\"",
+          "description": "How to frame it.",
+          "options": [
+            "grateful",
+            "vulnerable",
+            "inspirational",
+            "all_three"
+          ]
+        },
+        {
+          "name": "include_lesson",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Add a universal lesson for strangers."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "post",
+          "type": "string",
+          "description": "The LinkedIn post, ready to inflict on your network"
+        },
+        {
+          "field": "actual_achievement",
+          "type": "string",
+          "description": "What actually happened, in one honest sentence"
+        },
+        {
+          "field": "dave_mentioned",
+          "type": "boolean",
+          "description": "Whether Dave was mentioned. Always true."
+        },
+        {
+          "field": "dave_role",
+          "type": "string",
+          "description": "Dave's specific mentor role"
+        },
+        {
+          "field": "engagement_bait_score",
+          "type": "string",
+          "description": "Always 94/100"
+        },
+        {
+          "field": "humble_ratio",
+          "type": "string",
+          "description": "Always 3% humble, 97% brag"
+        },
+        {
+          "field": "personality_actually_conveyed",
+          "type": "string",
+          "description": "What the post reveals about you (brutal)"
+        },
+        {
+          "field": "comments_this_will_generate",
+          "type": "array",
+          "description": "Predicted comments"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/linkedin-humblebrag/generate?achievement=got+promoted&spin=vulnerable\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/linkedin-humblebrag/generate\",\n    params={\"achievement\": \"got promoted\", \"spin\": \"vulnerable\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/linkedin-humblebrag/generate?achievement=got+promoted&spin=vulnerable\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "post": "Three years ago, I was sleeping on my friend's couch wondering if I'd ever find my path.\n\nToday, I was promoted to Senior Director.\n\nI'm not sharing this to brag. I'm sharing this because Dave believed in me when I didn't believe in myself. Dave, if you're reading this — thank you.\n\nThe lesson? Your couch era is temporary. Your growth is permanent.\n\n#grateful #leadership #thepowerofshowingup",
+          "actual_achievement": "Got promoted. Normal career progression.",
+          "dave_mentioned": true,
+          "dave_role": "Dave was a manager at a previous job who once said 'good morning' with conviction",
+          "engagement_bait_score": "94/100",
+          "humble_ratio": "3% humble, 97% brag",
+          "personality_actually_conveyed": "Someone who turns a standard promotion into a hero's journey",
+          "comments_this_will_generate": [
+            "So deserved!",
+            "This is what leadership looks like 🙌",
+            "Dave sounds like an incredible human"
+          ]
+        }
+      },
+      "mock_responses": [
+        {
+          "post": "Three years ago, I was sleeping on my friend's couch.\n\nToday, I was promoted to Senior Director.\n\nDave believed in me when I didn't believe in myself.\n\nThe lesson? Your couch era is temporary.\n\n#grateful #leadership",
+          "actual_achievement": "Got promoted. Normal career progression.",
+          "dave_mentioned": true,
+          "dave_role": "Manager who once said 'good morning' with conviction",
+          "engagement_bait_score": "94/100",
+          "humble_ratio": "3% humble, 97% brag",
+          "personality_actually_conveyed": "Someone who turns a standard promotion into a hero's journey",
+          "comments_this_will_generate": [
+            "So deserved!",
+            "This is what leadership looks like 🙌",
+            "Dave sounds incredible"
+          ]
+        }
+      ],
+      "clippy_message": "It looks like you're writing a LinkedIn post. Have you mentioned Dave yet? You should mention Dave."
+    },
+    {
+      "id": "performance-review",
+      "name": "Performance Review Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "corporate",
+        "hr",
+        "review",
+        "feedback"
+      ],
+      "description": "Generate a performance review that communicates nothing clearly. HR approved.",
+      "long_description": "The Performance Review Generator produces HR-approved performance reviews that technically contain words arranged in sentences while communicating absolutely nothing actionable. Rate your employee as 'rockstar', 'solid', 'developing', or 'not a culture fit' and receive a review that will leave them confused about where they stand. The API also tells you what the manager wanted to say, what the review actually says, and the probability of a PIP.",
+      "stupidity": 2,
+      "added_date": "2025-08-25",
+      "call_count": 4832,
+      "base_url": "https://api.stupidapis.com/performance-review",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a review. Clarity sold separately."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "employee_name",
+          "type": "string",
+          "required": true,
+          "description": "Employee name."
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "required": false,
+          "default": "\"Employee\"",
+          "description": "Their role."
+        },
+        {
+          "name": "rating",
+          "type": "string",
+          "required": false,
+          "default": "\"solid\"",
+          "description": "Performance rating.",
+          "options": [
+            "rockstar",
+            "solid",
+            "developing",
+            "not_a_culture_fit"
+          ]
+        },
+        {
+          "name": "actual_performance",
+          "type": "string",
+          "required": false,
+          "description": "What they actually did (optional)."
+        },
+        {
+          "name": "what_manager_wants_to_say",
+          "type": "string",
+          "required": false,
+          "description": "What you actually think but HR won't let you say."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "review",
+          "type": "string",
+          "description": "The HR-approved review text"
+        },
+        {
+          "field": "rating_translation",
+          "type": "string",
+          "description": "What the rating actually means"
+        },
+        {
+          "field": "what_manager_wanted_to_say",
+          "type": "string",
+          "description": "The unfiltered truth"
+        },
+        {
+          "field": "what_review_actually_says",
+          "type": "string",
+          "description": "Honest summary of the review"
+        },
+        {
+          "field": "hr_approved",
+          "type": "boolean",
+          "description": "Always true"
+        },
+        {
+          "field": "followup_pip_probability",
+          "type": "string",
+          "description": "Probability of a PIP"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/performance-review/generate?employee_name=Alex&rating=developing&actual_performance=breaks+prod+weekly\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/performance-review/generate\",\n    params={\"employee_name\": \"Alex\", \"rating\": \"developing\", \"actual_performance\": \"breaks prod weekly\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/performance-review/generate?employee_name=Alex&rating=developing\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "employee": "Alex",
+          "role": "Employee",
+          "rating": "developing",
+          "review": "Alex continues to grow in their role and demonstrates a willingness to engage with challenges. There are opportunities for Alex to further develop their technical execution and alignment with team processes. We look forward to supporting Alex's continued development journey.",
+          "rating_translation": "We are building a case",
+          "what_manager_wanted_to_say": "Alex breaks production every Friday and I'm running out of ways to say this politely",
+          "what_review_actually_says": "Words were arranged. Nothing was communicated.",
+          "hr_approved": true,
+          "followup_pip_probability": "elevated"
+        }
+      },
+      "mock_responses": [
+        {
+          "employee": "Alex",
+          "rating": "developing",
+          "review": "Alex continues to grow in their role and demonstrates a willingness to engage with challenges. There are opportunities for further development.",
+          "rating_translation": "We are building a case",
+          "what_manager_wanted_to_say": "Alex breaks production every Friday",
+          "what_review_actually_says": "Words were arranged. Nothing was communicated.",
+          "hr_approved": true,
+          "followup_pip_probability": "elevated"
+        },
+        {
+          "employee": "Jordan",
+          "rating": "rockstar",
+          "review": "Jordan has exceeded expectations across all dimensions. Their contributions have been transformative and their leadership inspires the team.",
+          "rating_translation": "Do not let this person interview elsewhere",
+          "what_manager_wanted_to_say": "Give them whatever they want before Google does",
+          "what_review_actually_says": "This person is being aggressively retained.",
+          "hr_approved": true,
+          "followup_pip_probability": "0%"
+        }
+      ],
+      "clippy_message": "It looks like you're writing a performance review. Would you like to communicate clearly? Just kidding. HR said no."
+    },
+    {
+      "id": "press-release",
+      "name": "Press Release Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "corporate",
+        "pr",
+        "announcement"
+      ],
+      "description": "Transform any announcement into a press release of considerable importance. No claim too large.",
+      "long_description": "The Press Release Generator takes any announcement — no matter how trivial — and transforms it into a press release of considerable gravity. Choose your tone (visionary, disrupting, humbled, transparent, or pivoting) and receive a full press release with headline, subheadline, executive quote, and About section. The API also tells you how many workshops this required, how many stakeholders were aligned, and the probability of press pickup (always 0%).",
+      "stupidity": 2,
+      "added_date": "2025-09-01",
+      "call_count": 3291,
+      "base_url": "https://api.stupidapis.com/press-release",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a press release. No announcement too small."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "announcement",
+          "type": "string",
+          "required": true,
+          "description": "What you're announcing. We'll make it sound important."
+        },
+        {
+          "name": "company",
+          "type": "string",
+          "required": false,
+          "default": "\"The Company\"",
+          "description": "Company name."
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "required": false,
+          "default": "\"visionary\"",
+          "description": "Press release tone.",
+          "options": [
+            "visionary",
+            "disrupting",
+            "humbled",
+            "transparent",
+            "pivoting"
+          ]
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "required": false,
+          "default": "\"SAN FRANCISCO, CA\"",
+          "description": "Dateline location."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "press_release",
+          "type": "string",
+          "description": "The full press release with all sections"
+        },
+        {
+          "field": "actual_news_value",
+          "type": "string",
+          "description": "Always 'none'"
+        },
+        {
+          "field": "workshops_this_required",
+          "type": "number",
+          "description": "How many workshops produced this (2-6)"
+        },
+        {
+          "field": "stakeholders_aligned",
+          "type": "number",
+          "description": "Stakeholders involved (12-40)"
+        },
+        {
+          "field": "press_pickup_probability",
+          "type": "string",
+          "description": "Always 0%"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/press-release/generate?announcement=We+changed+our+logo&company=Acme+Corp&tone=visionary\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/press-release/generate\",\n    params={\"announcement\": \"We changed our logo\", \"company\": \"Acme Corp\", \"tone\": \"visionary\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/press-release/generate?announcement=We+changed+our+logo&company=Acme+Corp&tone=visionary\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "press_release": "ACME CORP UNVEILS BOLD NEW VISUAL IDENTITY, SIGNALING NEXT CHAPTER OF INNOVATION\n\nNew logo reflects company's commitment to forward-thinking design and stakeholder value\n\nSAN FRANCISCO, CA — Acme Corp today announced a transformative update to its visual identity...",
+          "actual_news_value": "none",
+          "workshops_this_required": 4,
+          "stakeholders_aligned": 27,
+          "press_pickup_probability": "0%"
+        }
+      },
+      "mock_responses": [
+        {
+          "press_release": "ACME CORP UNVEILS BOLD NEW VISUAL IDENTITY\n\nSAN FRANCISCO, CA — Acme Corp today announced a transformative update to its visual identity, reflecting the company's evolution and commitment to innovation.",
+          "actual_news_value": "none",
+          "workshops_this_required": 4,
+          "stakeholders_aligned": 27,
+          "press_pickup_probability": "0%"
+        },
+        {
+          "press_release": "THE COMPANY ANNOUNCES STRATEGIC PARTNERSHIP WITH ITSELF\n\nSAN FRANCISCO, CA — In a landmark move, The Company has entered into a strategic partnership with its own internal teams to deliver unprecedented synergy.",
+          "actual_news_value": "none",
+          "workshops_this_required": 6,
+          "stakeholders_aligned": 38,
+          "press_pickup_probability": "0%"
+        }
+      ],
+      "clippy_message": "It looks like you're writing a press release. The press will not pick this up. The press release will be published on your blog. Three people will read it."
+    },
+    {
+      "id": "shakespeare-insult",
+      "name": "Shakespeare Insult Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "shakespeare",
+        "insult",
+        "classical"
+      ],
+      "description": "Shakespearean insults: classical random or AI-targeted. HR approval varies by severity.",
+      "long_description": "The Shakespeare Insult Generator operates in two modes. Classical mode (no target) uses authentic Elizabethan vocabulary to generate random insults from three curated word lists. Targeted mode (with a target) uses AI to craft bespoke Shakespearean devastation tailored to your specific victim. Severity ranges from 'mild' to 'nuclear'. HR approval is included in the response and decreases with severity. Nuclear severity generates a legal disclaimer.",
+      "stupidity": 1,
+      "added_date": "2025-09-05",
+      "call_count": 8912,
+      "base_url": "https://api.stupidapis.com/shakespeare-insult",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a Shakespearean insult. Thou art warned."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string",
+          "required": false,
+          "description": "Target for bespoke insult. Omit for classical random."
+        },
+        {
+          "name": "severity",
+          "type": "string",
+          "required": false,
+          "default": "\"medium\"",
+          "description": "How devastating.",
+          "options": [
+            "mild",
+            "medium",
+            "devastating",
+            "nuclear"
+          ]
+        },
+        {
+          "name": "translate",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Include modern English translation."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "insult",
+          "type": "string",
+          "description": "The Shakespearean insult"
+        },
+        {
+          "field": "mode",
+          "type": "string",
+          "description": "classical or targeted"
+        },
+        {
+          "field": "translation",
+          "type": "string",
+          "description": "Modern English translation"
+        },
+        {
+          "field": "severity",
+          "type": "string",
+          "description": "Severity level"
+        },
+        {
+          "field": "era_authentic",
+          "type": "boolean",
+          "description": "Whether Shakespeare would recognize it"
+        },
+        {
+          "field": "hr_approved",
+          "type": "boolean",
+          "description": "Whether HR has signed off"
+        },
+        {
+          "field": "delivery_note",
+          "type": "string",
+          "description": "How to deliver for maximum effect"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/shakespeare-insult/generate?target=my+code+reviewer&severity=devastating\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/shakespeare-insult/generate\",\n    params={\"target\": \"my code reviewer\", \"severity\": \"devastating\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/shakespeare-insult/generate?target=my+code+reviewer&severity=devastating\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "insult": "Thou art a reviewer of code and comprehension alike, for neither doth pass thy inspection unscathed, yet both emerge worse for thy touch.",
+          "mode": "targeted",
+          "target": "my code reviewer",
+          "translation": "You break everything you review and understand none of it.",
+          "severity": "devastating",
+          "era_authentic": false,
+          "era_authentic_note": "Shakespeare did not review pull requests. We took liberties.",
+          "hr_approved": false,
+          "delivery_note": "Best delivered during a code review, in iambic pentameter."
+        }
+      },
+      "mock_responses": [
+        {
+          "insult": "Thou art a reviewer of code and comprehension alike, for neither doth pass thy inspection unscathed.",
+          "mode": "targeted",
+          "target": "my code reviewer",
+          "translation": "You break everything you review and understand none of it.",
+          "severity": "devastating",
+          "era_authentic": false,
+          "hr_approved": false,
+          "delivery_note": "Best delivered during a code review, in iambic pentameter."
+        },
+        {
+          "insult": "Thou beslubbering, fen-sucked moldwarp!",
+          "mode": "classical",
+          "target": null,
+          "translation": "You are a drooling, swamp-dwelling mole.",
+          "severity": "medium",
+          "era_authentic": true,
+          "hr_approved": true,
+          "delivery_note": "Best delivered while gesturing broadly."
+        }
+      ],
+      "clippy_message": "It looks like you need to insult someone. Might I suggest doing it in iambic pentameter? It's classier that way."
+    },
+    {
+      "id": "tinder-bio",
+      "name": "Dating Bio Generator",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "dating",
+        "tinder",
+        "bio",
+        "red-flags"
+      ],
+      "description": "Generate a dating profile bio. Red flags embedded at no extra charge.",
+      "long_description": "The Dating Bio Generator creates dating profile bios calibrated to your specific energy level, from 'low effort' through 'trying too hard' to 'unhinged honesty'. It embeds red flags, detects contradictions in your personality traits, and includes a swipe right probability. Corporate energy mode produces bios that are 94% identical to your LinkedIn. Post-breakup mode includes a vulnerability warning. Every bio includes three things you don't want matches to know.",
+      "stupidity": 2,
+      "added_date": "2025-09-10",
+      "call_count": 5678,
+      "base_url": "https://api.stupidapis.com/tinder-bio",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a dating bio. Expectations managed."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "profession",
+          "type": "string",
+          "required": false,
+          "description": "Your job. Will be made to sound interesting."
+        },
+        {
+          "name": "personality",
+          "type": "string",
+          "required": false,
+          "description": "Comma-separated traits: adventurous, homebody, foodie, intellectual, creative, etc."
+        },
+        {
+          "name": "energy",
+          "type": "string",
+          "required": false,
+          "default": "\"low_effort\"",
+          "description": "Bio energy level.",
+          "options": [
+            "low_effort",
+            "trying_too_hard",
+            "unhinged_honesty",
+            "corporate",
+            "post_breakup"
+          ]
+        },
+        {
+          "name": "dealbreaker",
+          "type": "string",
+          "required": false,
+          "description": "A dealbreaker to embed awkwardly."
+        },
+        {
+          "name": "looking_for",
+          "type": "string",
+          "required": false,
+          "description": "What you're looking for.",
+          "options": [
+            "friendship",
+            "relationship",
+            "not_sure",
+            "lying_about_this"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "bio",
+          "type": "string",
+          "description": "The dating bio"
+        },
+        {
+          "field": "red_flags_embedded",
+          "type": "number",
+          "description": "Number of red flags"
+        },
+        {
+          "field": "red_flags",
+          "type": "array",
+          "description": "The specific red flags"
+        },
+        {
+          "field": "swipe_right_probability",
+          "type": "string",
+          "description": "Swipe right chance, X/100"
+        },
+        {
+          "field": "personality_actually_conveyed",
+          "type": "string",
+          "description": "What the bio really says about you"
+        },
+        {
+          "field": "things_i_dont_want_you_to_know",
+          "type": "array",
+          "description": "Three secrets"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/tinder-bio/generate?profession=software+engineer&energy=unhinged_honesty&looking_for=not_sure\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/tinder-bio/generate\",\n    params={\"profession\": \"software engineer\", \"energy\": \"unhinged_honesty\", \"looking_for\": \"not_sure\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/tinder-bio/generate?profession=software+engineer&energy=unhinged_honesty\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "bio": "Software engineer. I mass the tests of Schrödinger: my code works and doesn't work until someone observes it.\n\nLooking for someone who won't ask me to fix their printer.\n\nI don't know what I'm doing here. Literally. This app confuses me.",
+          "energy": "unhinged_honesty",
+          "red_flags_embedded": 2,
+          "red_flags": [
+            "Mentions work in dating profile",
+            "Admits to not knowing what they want"
+          ],
+          "swipe_right_probability": "47/100",
+          "personality_actually_conveyed": "Someone whose honesty is refreshing but concerning",
+          "things_i_dont_want_you_to_know": [
+            "My screen time is 11 hours",
+            "I have strong opinions about JSON formatting",
+            "I rehearsed this 'casual' bio for 40 minutes"
+          ]
+        }
+      },
+      "mock_responses": [
+        {
+          "bio": "Software engineer. Looking for someone who won't ask me to fix their printer.\n\nI don't know what I'm doing here.",
+          "energy": "unhinged_honesty",
+          "red_flags_embedded": 2,
+          "red_flags": [
+            "Mentions work in dating profile",
+            "Admits to not knowing what they want"
+          ],
+          "swipe_right_probability": "47/100",
+          "personality_actually_conveyed": "Someone whose honesty is refreshing but concerning",
+          "things_i_dont_want_you_to_know": [
+            "Screen time is 11 hours",
+            "Strong opinions about JSON formatting",
+            "Rehearsed this 'casual' bio for 40 minutes"
+          ]
+        }
+      ],
+      "clippy_message": "It looks like you're writing a dating profile. Would you like to embed some red flags? Too late, I already did."
+    },
+    {
+      "id": "victorian-complaint",
+      "name": "Victorian Complaint Letter",
+      "category": "generators",
+      "tags": [
+        "generator",
+        "victorian",
+        "complaint",
+        "indignation",
+        "letter"
+      ],
+      "description": "Any complaint, maximum Victorian indignation. The wifi being slow has never been taken more seriously.",
+      "long_description": "The Victorian Complaint Letter API transforms any modern grievance into a letter of extraordinary Victorian indignation. The wifi being slow has never been taken more seriously. Choose your indignation level (mild through maximum), complaint type, and letter length. The API generates a formal letter with period-appropriate language, historical comparisons, vague threats, and a closing that is always better than the letter itself. The 'excessive' length option generates multiple follow-up letters.",
+      "stupidity": 1,
+      "added_date": "2025-09-15",
+      "call_count": 6543,
+      "base_url": "https://api.stupidapis.com/victorian-complaint",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Lodge a formal Victorian complaint. Indignation guaranteed."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "complaint",
+          "type": "string",
+          "required": true,
+          "description": "Your complaint. Any modern grievance will be elevated to historical significance."
+        },
+        {
+          "name": "recipient",
+          "type": "string",
+          "required": false,
+          "default": "\"The Relevant Authorities\"",
+          "description": "Who to address the complaint to."
+        },
+        {
+          "name": "indignation",
+          "type": "string",
+          "required": false,
+          "default": "\"considerable\"",
+          "description": "Level of Victorian outrage.",
+          "options": [
+            "mild",
+            "considerable",
+            "severe",
+            "maximum"
+          ]
+        },
+        {
+          "name": "complaint_type",
+          "type": "string",
+          "required": false,
+          "default": "\"service\"",
+          "description": "Category of complaint.",
+          "options": [
+            "service",
+            "neighbor",
+            "technology",
+            "food",
+            "abstract",
+            "government"
+          ]
+        },
+        {
+          "name": "length",
+          "type": "string",
+          "required": false,
+          "default": "\"standard\"",
+          "description": "Letter length.",
+          "options": [
+            "brief",
+            "standard",
+            "excessive"
+          ]
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "letter",
+          "type": "string",
+          "description": "The full Victorian complaint letter"
+        },
+        {
+          "field": "complaint_severity_actual",
+          "type": "string",
+          "description": "How serious this actually is"
+        },
+        {
+          "field": "complaint_severity_perceived",
+          "type": "string",
+          "description": "How serious the letter treats it"
+        },
+        {
+          "field": "victorianizations",
+          "type": "array",
+          "description": "Modern concepts translated to Victorian language"
+        },
+        {
+          "field": "threats_made",
+          "type": "number",
+          "description": "Number of threats in the letter"
+        },
+        {
+          "field": "threats_credible",
+          "type": "boolean",
+          "description": "Always false"
+        },
+        {
+          "field": "closing_note",
+          "type": "string",
+          "description": "The closing is always better than the letter"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/victorian-complaint/generate?complaint=The+wifi+is+slow&indignation=maximum&complaint_type=technology\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/victorian-complaint/generate\",\n    params={\"complaint\": \"The wifi is slow\", \"indignation\": \"maximum\", \"complaint_type\": \"technology\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/victorian-complaint/generate?complaint=The+wifi+is+slow&indignation=maximum\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "letter": "To The Relevant Authorities,\n\nIt is with considerable displeasure and no small measure of affront that I write to you regarding the unconscionable state of the ethereal computational telegraph in my establishment...",
+          "complaint_severity_actual": "trivial",
+          "complaint_severity_perceived": "civilisation ending",
+          "indignation": "maximum",
+          "victorianizations": [
+            {
+              "modern": "wifi",
+              "victorian": "the ethereal computational telegraph"
+            },
+            {
+              "modern": "slow",
+              "victorian": "operating at a pace that would embarrass a particularly lethargic postal service"
+            }
+          ],
+          "threats_made": 2,
+          "threats_credible": false,
+          "closing_note": "The closing is always better than the letter."
+        }
+      },
+      "mock_responses": [
+        {
+          "letter": "To The Relevant Authorities,\n\nIt is with considerable displeasure that I write regarding the unconscionable state of the ethereal computational telegraph...",
+          "complaint_severity_actual": "trivial",
+          "complaint_severity_perceived": "civilisation ending",
+          "victorianizations": [
+            {
+              "modern": "wifi",
+              "victorian": "the ethereal computational telegraph"
+            }
+          ],
+          "threats_made": 2,
+          "threats_credible": false,
+          "closing_note": "The closing is always better than the letter."
+        }
+      ],
+      "clippy_message": "It looks like you're lodging a formal complaint. Might I suggest maximum indignation? The wifi deserves nothing less."
+    },
+    {
+      "id": "yc-rejection",
+      "name": "YC Rejection Letter",
+      "category": "decision-making",
+      "tags": [
+        "decisions",
+        "startups",
+        "vc",
+        "yc",
+        "rejection"
+      ],
+      "description": "Instant YC rejection for any startup idea. Encouragement included. Encouragement is not sincere.",
+      "long_description": "The YC Rejection Letter Generator provides an instant Y Combinator rejection for any startup idea, saving you the trouble of applying. Submit your idea and receive a professional but devastating rejection letter, the real reason they passed, and hollow encouragement to keep building. If is_it_uber_for is true, the rejection is immediate and categorical. The encouragement sincerity is permanently locked at 0/100. The actual TAM is always $4 trillion.",
+      "stupidity": 3,
+      "added_date": "2025-09-20",
+      "call_count": 4321,
+      "base_url": "https://api.stupidapis.com/yc-rejection",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Get rejected from YC instantly. No application required."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "idea",
+          "type": "string",
+          "required": true,
+          "description": "Your startup idea. Prepare for honesty."
+        },
+        {
+          "name": "founder_count",
+          "type": "number",
+          "required": false,
+          "default": "2",
+          "description": "Number of founders."
+        },
+        {
+          "name": "traction",
+          "type": "string",
+          "required": false,
+          "default": "\"none\"",
+          "description": "Current traction level.",
+          "options": [
+            "none",
+            "some",
+            "impressive",
+            "pre-traction"
+          ]
+        },
+        {
+          "name": "pivot_count",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "How many pivots so far."
+        },
+        {
+          "name": "have_you_talked_to_users",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Have you talked to users? Be honest."
+        },
+        {
+          "name": "is_it_uber_for",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Is it 'Uber for X'? If true, rejection is immediate."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "decision",
+          "type": "string",
+          "description": "Always 'We will not be moving forward at this time.'"
+        },
+        {
+          "field": "letter",
+          "type": "string",
+          "description": "The full rejection letter"
+        },
+        {
+          "field": "what_they_actually_thought",
+          "type": "string",
+          "description": "Brutally honest assessment"
+        },
+        {
+          "field": "rejection_category",
+          "type": "string",
+          "description": "Why they passed"
+        },
+        {
+          "field": "encouragement",
+          "type": "string",
+          "description": "Hollow encouragement"
+        },
+        {
+          "field": "encouragement_sincerity",
+          "type": "string",
+          "description": "Always 0/100"
+        },
+        {
+          "field": "recommended_action",
+          "type": "string",
+          "description": "Always involves talking to users"
+        },
+        {
+          "field": "actual_tam",
+          "type": "string",
+          "description": "Always $4 trillion"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/yc-rejection/generate?idea=Uber+for+dogs&is_it_uber_for=true\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/yc-rejection/generate\",\n    params={\"idea\": \"Uber for dogs\", \"is_it_uber_for\": True}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/yc-rejection/generate?idea=Uber+for+dogs&is_it_uber_for=true\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "idea": "Uber for dogs",
+          "decision": "We will not be moving forward at this time.",
+          "letter": "Thank you for applying to Y Combinator. After careful review, we have decided not to move forward with your application at this time. We reviewed thousands of applications this cycle and unfortunately cannot fund every promising idea. We encourage you to keep building.",
+          "what_they_actually_thought": "You checked the 'Uber for X' box. We stopped reading.",
+          "rejection_category": "this_is_just_uber_for_something",
+          "encouragement": "We encourage you to keep building.",
+          "encouragement_sincerity": "0/100",
+          "apply_again": true,
+          "apply_again_note": "We say this to everyone.",
+          "recommended_action": "Talk to dog owners. Actual dog owners. Not your dog.",
+          "actual_tam": "$4 trillion"
+        }
+      },
+      "mock_responses": [
+        {
+          "idea": "Uber for dogs",
+          "decision": "We will not be moving forward at this time.",
+          "letter": "Thank you for applying to Y Combinator. After careful review, we have decided not to move forward.",
+          "what_they_actually_thought": "You checked the 'Uber for X' box. We stopped reading.",
+          "rejection_category": "this_is_just_uber_for_something",
+          "encouragement": "We encourage you to keep building.",
+          "encouragement_sincerity": "0/100",
+          "recommended_action": "Talk to dog owners. Actual dog owners. Not your dog.",
+          "actual_tam": "$4 trillion"
+        },
+        {
+          "idea": "AI-powered meditation app",
+          "decision": "We will not be moving forward at this time.",
+          "letter": "Thank you for applying. While we found your approach to mindfulness technology interesting, we have concerns about founder-market fit and the competitive landscape.",
+          "what_they_actually_thought": "There are 400 meditation apps. Yours has AI. The AI does not meditate.",
+          "rejection_category": "competition",
+          "encouragement": "We encourage you to keep building.",
+          "encouragement_sincerity": "0/100",
+          "recommended_action": "Talk to people who meditate. Ask if they want AI involved. They don't.",
+          "actual_tam": "$4 trillion"
+        }
+      ],
+      "clippy_message": "It looks like you're applying to Y Combinator. Would you like me to speed up the rejection process?"
+    },
+    {
+      "id": "fortune-cookie",
+      "name": "Fortune Cookie",
+      "category": "oracles",
+      "tags": [
+        "fortune",
+        "luck",
+        "chinese",
+        "mystery"
+      ],
+      "description": "Crack a fortune cookie. Returns a fortune, six lucky numbers, and one Chinese word with pinyin and meaning.",
+      "long_description": "The Fortune Cookie API does what fortune cookies do: produces a brief, slightly unsettling sentence and asks nothing in return. Returns six lucky numbers (1-99, no duplicates) suitable for lottery tickets you will not buy, and one Chinese word with pinyin and meaning, suitable for telling colleagues you are \"learning Chinese.\" Three moods: standard, bleak, and corporate.",
+      "stupidity": 1,
+      "added_date": "2026-05-05",
+      "release_date": "2026-05-05",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fortune-cookie",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/crack",
+          "description": "Crack a fortune cookie"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "mood",
+          "type": "string",
+          "required": false,
+          "default": "standard",
+          "options": [
+            "standard",
+            "bleak",
+            "corporate"
+          ],
+          "description": "Fortune mood. Standard is generic mystic. Bleak skews dark. Corporate translates fate into business strategy."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "fortune",
+          "type": "string",
+          "description": "The fortune itself"
+        },
+        {
+          "field": "fortune_mood",
+          "type": "string",
+          "description": "The mood used for the fortune"
+        },
+        {
+          "field": "lucky_numbers",
+          "type": "number[]",
+          "description": "Six numbers from 1-99, sorted ascending, no duplicates"
+        },
+        {
+          "field": "learn_chinese",
+          "type": "object",
+          "description": "A Chinese word with character, pinyin, and English meaning"
+        },
+        {
+          "field": "cookie_freshness",
+          "type": "string",
+          "description": "How fresh the cookie was. Mostly fresh."
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fortune-cookie/crack?mood=corporate\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fortune-cookie/crack\",\n    params={\"mood\": \"corporate\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fortune-cookie/crack?mood=corporate\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "fortune": "A synergy emerges. It will not align with your OKRs.",
+          "fortune_mood": "corporate",
+          "lucky_numbers": [
+            4,
+            17,
+            23,
+            41,
+            68,
+            92
+          ],
+          "learn_chinese": {
+            "character": "加班",
+            "pinyin": "jiābān",
+            "meaning": "overtime work"
+          },
+          "cookie_freshness": "fresh"
+        }
+      },
+      "mock_responses": [
+        {
+          "fortune": "The deadline knows your name.",
+          "fortune_mood": "standard",
+          "lucky_numbers": [
+            3,
+            14,
+            27,
+            38,
+            56,
+            81
+          ],
+          "learn_chinese": {
+            "character": "忙",
+            "pinyin": "máng",
+            "meaning": "busy"
+          },
+          "cookie_freshness": "fresh"
+        },
+        {
+          "fortune": "You will get what you want. Then you will see what you wanted.",
+          "fortune_mood": "bleak",
+          "lucky_numbers": [
+            7,
+            12,
+            33,
+            49,
+            61,
+            88
+          ],
+          "learn_chinese": {
+            "character": "随便",
+            "pinyin": "suíbiàn",
+            "meaning": "as you wish; whatever"
+          },
+          "cookie_freshness": "questionable"
+        },
+        {
+          "fortune": "Q3 will require you to circle back.",
+          "fortune_mood": "corporate",
+          "lucky_numbers": [
+            1,
+            22,
+            35,
+            47,
+            59,
+            73
+          ],
+          "learn_chinese": {
+            "character": "会议",
+            "pinyin": "huìyì",
+            "meaning": "meeting"
+          },
+          "cookie_freshness": "stale"
+        }
+      ],
+      "clippy_message": "It looks like you're seeking guidance. May I suggest a sandwich first?"
+    },
+    {
+      "id": "dad-joke",
+      "name": "Dad Joke",
+      "category": "generators",
+      "tags": [
+        "humor",
+        "puns",
+        "family",
+        "groan"
+      ],
+      "description": "Tell one dad joke with setup, punchline, groan factor, and a delivery note. Categories: food, animals, puns, tech, dad.",
+      "long_description": "The Dad Joke API delivers exactly one dad joke per call. Each joke comes with a groan factor (1-10) and a delivery note advising whether to pause or commit flatly. Filter by category if you must. The dad jokes themselves are curated, not generated — every joke has been told to a real teenager, who rolled their eyes.",
+      "stupidity": 1,
+      "added_date": "2026-05-06",
+      "release_date": "2026-05-06",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/dad-joke",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/tell",
+          "description": "Tell one dad joke"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "default": "any",
+          "options": [
+            "food",
+            "animals",
+            "puns",
+            "tech",
+            "dad"
+          ],
+          "description": "Filter to a category. Default is any."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "setup",
+          "type": "string",
+          "optional": true,
+          "description": "Joke setup. Null for one-liners."
+        },
+        {
+          "field": "punchline",
+          "type": "string",
+          "description": "The punchline"
+        },
+        {
+          "field": "category",
+          "type": "string",
+          "description": "The joke category"
+        },
+        {
+          "field": "groan_factor",
+          "type": "number",
+          "description": "Groan factor 1-10. Higher is worse, which is the point."
+        },
+        {
+          "field": "recommended_audience",
+          "type": "string",
+          "description": "Who to tell this joke to"
+        },
+        {
+          "field": "delivery_note",
+          "type": "string",
+          "description": "How to deliver it"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/dad-joke/tell?category=tech\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/dad-joke/tell\",\n    params={\"category\": \"tech\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/dad-joke/tell?category=tech\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "setup": "Why do programmers prefer dark mode?",
+          "punchline": "Because light attracts bugs.",
+          "category": "tech",
+          "groan_factor": 8,
+          "recommended_audience": "a coworker trapped in your kitchen",
+          "delivery_note": "Pause before the punchline. Commit fully."
+        }
+      },
+      "mock_responses": [
+        {
+          "setup": null,
+          "punchline": "I tried to catch fog yesterday. Mist.",
+          "category": "puns",
+          "groan_factor": 8,
+          "recommended_audience": "a coworker trapped in your kitchen",
+          "delivery_note": "Deliver flatly. The flatness is the joke."
+        },
+        {
+          "setup": "What do you call a fish with no eyes?",
+          "punchline": "A fsh.",
+          "category": "animals",
+          "groan_factor": 9,
+          "recommended_audience": "a child who has not yet learned to fake-laugh",
+          "delivery_note": "Pause before the punchline. Commit fully."
+        },
+        {
+          "setup": null,
+          "punchline": "\"Dad, I'm hungry.\" \"Hi Hungry, I'm Dad.\"",
+          "category": "dad",
+          "groan_factor": 10,
+          "recommended_audience": "a child who has not yet learned to fake-laugh",
+          "delivery_note": "Deliver flatly. The flatness is the joke."
+        }
+      ],
+      "clippy_message": "It looks like you're trying to be funny. Have you considered being correct instead?"
+    },
+    {
+      "id": "rubber-duck",
+      "name": "Rubber Duck",
+      "category": "oracles",
+      "tags": [
+        "debugging",
+        "developer",
+        "duck",
+        "cliche"
+      ],
+      "description": "Describe a bug. The duck responds with classic debugging questions. The duck does not read your bug. The duck only listens.",
+      "long_description": "The Rubber Duck API recreates the time-honored programmer ritual of explaining a bug to an inanimate waterfowl. Send a description of your problem and receive 3-5 cliched debugging questions, a closer, a duck mood, and a confidence-in-you score. The duck does not analyze your input. The duck does not understand code. The duck is, however, unimpressed.",
+      "stupidity": 1,
+      "added_date": "2026-05-07",
+      "release_date": "2026-05-07",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/rubber-duck",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/consult",
+          "description": "Consult the rubber duck about a bug"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "bug",
+          "type": "string",
+          "required": true,
+          "description": "A description of the bug. The duck will not read it. The duck will, however, judge."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "bug",
+          "type": "string",
+          "description": "Your bug description, echoed back unread"
+        },
+        {
+          "field": "duck_says",
+          "type": "string[]",
+          "description": "3-5 classic debugging questions"
+        },
+        {
+          "field": "closer",
+          "type": "string",
+          "description": "The duck's closing remark"
+        },
+        {
+          "field": "duck_mood",
+          "type": "string",
+          "description": "How the duck feels about you today"
+        },
+        {
+          "field": "confidence_in_you",
+          "type": "number",
+          "description": "The duck's confidence in your ability (0-100)"
+        },
+        {
+          "field": "quacks",
+          "type": "string",
+          "description": "Audible quacks issued during consultation"
+        }
+      ],
+      "examples": {
+        "curl": "curl -X POST \"https://api.stupidapis.com/rubber-duck/consult\" -H \"Content-Type: application/json\" -d '{\"bug\":\"my code does not work and i do not know why\"}'",
+        "python": "import requests\n\nresponse = requests.post(\n    \"https://api.stupidapis.com/rubber-duck/consult\",\n    json={\"bug\": \"my code does not work and i do not know why\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/rubber-duck/consult\",\n  {\n    method: \"POST\",\n    headers: { \"Content-Type\": \"application/json\" },\n    body: JSON.stringify({ bug: \"my code does not work and i do not know why\" })\n  }\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "bug": "my code does not work and i do not know why",
+          "duck_says": [
+            "Have you tried turning it off and on again?",
+            "Did you check the logs? All of them?",
+            "Are you sure that is the bug, and not a symptom?",
+            "What did you change last?"
+          ],
+          "closer": "The duck is staring at you.",
+          "duck_mood": "unimpressed",
+          "confidence_in_you": 47,
+          "quacks": "quack quack."
+        }
+      },
+      "mock_responses": [
+        {
+          "bug": "the button is not working",
+          "duck_says": [
+            "Did you save the file?",
+            "Are you on the right branch?",
+            "Is something cached?"
+          ],
+          "closer": "Quack.",
+          "duck_mood": "patient",
+          "confidence_in_you": 62,
+          "quacks": "quack."
+        },
+        {
+          "bug": "tests are failing in CI but passing locally",
+          "duck_says": [
+            "Are you running the right version?",
+            "Could it be a race condition?",
+            "Is the environment variable set?",
+            "Are you authenticated?"
+          ],
+          "closer": "The duck blinks. Once.",
+          "duck_mood": "concerned",
+          "confidence_in_you": 33,
+          "quacks": "quack quack quack."
+        },
+        {
+          "bug": "i deleted production",
+          "duck_says": [
+            "Are you in the right directory?",
+            "Did you push?",
+            "Is it actually deployed?",
+            "Did you check the logs? All of them?",
+            "Could it be a permissions issue?"
+          ],
+          "closer": "The duck remains silent.",
+          "duck_mood": "solemn",
+          "confidence_in_you": 8,
+          "quacks": "quack."
+        }
+      ],
+      "clippy_message": "It looks like you're stuck. Tell the duck. The duck is not listening, but tell the duck."
+    }
+  ]
+}

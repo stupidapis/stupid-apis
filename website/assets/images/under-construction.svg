@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Warning triangle -->
+  <path d="M24 4 L44 40 L4 40 Z" fill="#FFD700" stroke="#1A1A1A" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Stripes -->
+  <rect x="14" y="28" width="20" height="3" fill="#1A1A1A" transform="rotate(-15, 24, 29.5)" rx="1"/>
+  <rect x="14" y="22" width="20" height="3" fill="#1A1A1A" transform="rotate(-15, 24, 23.5)" rx="1"/>
+  <!-- Exclamation -->
+  <rect x="22" y="14" width="4" height="10" rx="2" fill="#1A1A1A"/>
+  <circle cx="24" cy="34" r="2.5" fill="#1A1A1A"/>
+</svg>

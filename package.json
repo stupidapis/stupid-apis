@@ -1,0 +1,17 @@
+{
+  "name": "stupid-apis",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Stupid APIs exposed as REST, MCP, and OpenClaw skills",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r exec tsc --noEmit",
+    "dev": "pnpm --filter @stupid-apis/gateway run dev",
+    "deploy": "pnpm --filter @stupid-apis/gateway run deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250327.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.0.0"
+  }
+}

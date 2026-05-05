@@ -1,0 +1,618 @@
+/* === StupidAPIs.com Base Styles === */
+/* "Tasteful Hot Dog Cart" — Hot Dog Stand palette, used with restraint */
+
+:root {
+  --hotdog-red: #CC0000;
+  --hotdog-yellow: #FFD700;
+  --hotdog-black: #1A1A1A;
+  --hotdog-white: #FAFAFA;
+  --hotdog-grey: #F0F0F0;
+  --hotdog-border: #E0E0E0;
+  --windows-blue: #000080;
+  --windows-grey: #C0C0C0;
+
+  --font-header: 'Arial Black', 'Arial Bold', sans-serif;
+  --font-body: 'Arial', sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  --max-width: 1200px;
+  --content-padding: 1.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--hotdog-black);
+  background: var(--hotdog-white);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-header);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+
+a {
+  color: var(--hotdog-red);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* === Layout === */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--hotdog-border);
+}
+
+/* === Header / Nav === */
+
+.site-header {
+  background: var(--hotdog-white);
+  border-bottom: 3px solid var(--hotdog-red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.site-logo {
+  font-family: var(--font-header);
+  font-size: 1.25rem;
+  color: var(--hotdog-black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo:hover { text-decoration: none; }
+
+.site-logo .logo-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--hotdog-red);
+  border-radius: 50%;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.site-nav a {
+  color: var(--hotdog-black);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--hotdog-red);
+  text-decoration: none;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--hotdog-black);
+}
+
+/* === Nav Right (toggle + hamburger) === */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* === Hot Dog Cart Toggle === */
+
+.hotdog-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-header);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--hotdog-grey);
+  border: 2px solid var(--hotdog-border);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--hotdog-black);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.hotdog-toggle:hover {
+  border-color: var(--hotdog-red);
+  background: #FFF0F0;
+}
+
+.hotdog-toggle.active {
+  background: var(--hotdog-red);
+  border-color: var(--hotdog-red);
+  color: #FFFF00;
+}
+
+.hotdog-toggle-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* === Buttons === */
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-header);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  text-align: center;
+}
+
+.btn:hover { text-decoration: none; }
+
+.btn-primary {
+  background: var(--hotdog-red);
+  color: white;
+  border-color: var(--hotdog-red);
+}
+
+.btn-primary:hover {
+  background: #A00000;
+  border-color: #A00000;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--hotdog-black);
+  border-color: var(--hotdog-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--hotdog-red);
+  color: var(--hotdog-red);
+}
+
+.btn-small {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+}
+
+/* === Footer === */
+
+.site-footer {
+  background: var(--hotdog-grey);
+  border-top: 3px solid var(--hotdog-red);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.site-footer p {
+  margin: 0.3rem 0;
+}
+
+.footer-hit-counter {
+  font-family: var(--font-mono);
+  background: var(--hotdog-black);
+  color: #00ff00;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  margin: 0.75rem 0;
+  font-size: 0.8rem;
+}
+
+.footer-hit-counter sup {
+  font-size: 0.65em;
+}
+
+.footer-under-construction {
+  margin: 1rem 0;
+  font-family: var(--font-header);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #888;
+}
+
+.footer-netscape {
+  color: #999;
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+/* === Grid === */
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+/* === Breadcrumb === */
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a { color: #666; }
+.breadcrumb a:hover { color: var(--hotdog-red); }
+.breadcrumb .sep { margin: 0 0.4rem; }
+
+/* === Section Titles === */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title h2 {
+  margin-bottom: 0.25rem;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* === Responsive === */
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4, .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  h1 { font-size: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .grid-3, .grid-4, .grid-5 {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--hotdog-white);
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 3px solid var(--hotdog-red);
+    gap: 0.75rem;
+  }
+
+  .site-nav.open { display: flex; }
+
+  .nav-toggle { display: block; }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hotdog-toggle-label { display: none; }
+  .hotdog-toggle { padding: 0.3rem 0.5rem; }
+}
+
+/* ==========================================================
+   HOT DOG CART MODE
+   The real Windows 3.1 Hot Dog Stand experience.
+   Red backgrounds. Yellow text. No mercy.
+   ========================================================== */
+
+body.hotdog-mode {
+  --hdm-red: #FF0000;
+  --hdm-yellow: #FFFF00;
+  --hdm-darkred: #CC0000;
+  --hdm-white: #FFFFFF;
+
+  background: var(--hdm-red);
+  color: var(--hdm-yellow);
+}
+
+/* Header */
+body.hotdog-mode .site-header {
+  background: var(--hdm-darkred);
+  border-bottom: 4px solid var(--hdm-yellow);
+}
+
+body.hotdog-mode .site-logo {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .site-logo .logo-dot {
+  background: var(--hdm-yellow);
+}
+
+body.hotdog-mode .site-nav a {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .site-nav a:hover {
+  color: var(--hdm-white);
+}
+
+/* Links */
+body.hotdog-mode a {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode a:hover {
+  color: var(--hdm-white);
+}
+
+/* Headings */
+body.hotdog-mode h1,
+body.hotdog-mode h2,
+body.hotdog-mode h3,
+body.hotdog-mode h4 {
+  color: var(--hdm-yellow);
+}
+
+/* Subtext */
+body.hotdog-mode .subhead,
+body.hotdog-mode .description,
+body.hotdog-mode .api-card .description,
+body.hotdog-mode .category-card .description,
+body.hotdog-mode .api-header .description,
+body.hotdog-mode .category-header .description,
+body.hotdog-mode .breadcrumb,
+body.hotdog-mode .breadcrumb a,
+body.hotdog-mode .call-count,
+body.hotdog-mode .api-card .call-count,
+body.hotdog-mode .field-desc,
+body.hotdog-mode .section-title p,
+body.hotdog-mode .category-header .api-count {
+  color: #FFD700;
+}
+
+/* Buttons */
+body.hotdog-mode .btn-primary {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+  border-color: var(--hdm-yellow);
+  font-weight: 700;
+}
+
+body.hotdog-mode .btn-primary:hover {
+  background: var(--hdm-white);
+  border-color: var(--hdm-white);
+  color: var(--hdm-red);
+}
+
+body.hotdog-mode .btn-outline {
+  color: var(--hdm-yellow);
+  border-color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .btn-outline:hover {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+}
+
+/* Cards */
+body.hotdog-mode .api-card {
+  background: var(--hdm-darkred);
+  border-color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .api-card:hover {
+  border-color: var(--hdm-white);
+}
+
+body.hotdog-mode .api-card h3 a {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .api-card h3 a:hover {
+  color: var(--hdm-white);
+}
+
+/* Category cards */
+body.hotdog-mode .category-card {
+  background: var(--hdm-darkred);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .category-card:hover {
+  border-color: var(--hdm-white);
+}
+
+body.hotdog-mode .category-card h3 {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .api-count-badge {
+  background: var(--hdm-red);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+/* Category badges */
+body.hotdog-mode .category-badge[data-color="--hotdog-red"],
+body.hotdog-mode .category-badge[data-color="--hotdog-yellow"] {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+  border-color: var(--hdm-yellow);
+}
+
+/* Sections */
+body.hotdog-mode .section + .section {
+  border-top-color: var(--hdm-yellow);
+}
+
+/* Stats bar */
+body.hotdog-mode .stats-bar {
+  background: var(--hdm-darkred);
+  border-top: 3px solid var(--hdm-yellow);
+  border-bottom: 3px solid var(--hdm-yellow);
+}
+
+body.hotdog-mode .stat-item .stat-value {
+  color: var(--hdm-white);
+}
+
+body.hotdog-mode .stat-item .stat-label {
+  color: var(--hdm-yellow);
+}
+
+/* Filter bar */
+body.hotdog-mode .filter-bar select,
+body.hotdog-mode .filter-bar input {
+  background: var(--hdm-darkred);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .filter-bar select:focus,
+body.hotdog-mode .filter-bar input:focus {
+  border-color: var(--hdm-white);
+}
+
+body.hotdog-mode .filter-bar input::placeholder {
+  color: #FF9999;
+}
+
+/* Sort buttons */
+body.hotdog-mode .sort-btn {
+  background: var(--hdm-darkred);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .sort-btn.active {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+  border-color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .sort-btn:hover:not(.active) {
+  border-color: var(--hdm-white);
+}
+
+/* Hero clippy box */
+body.hotdog-mode .hero-clippy {
+  background: var(--hdm-darkred);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+/* Footer */
+body.hotdog-mode .site-footer {
+  background: var(--hdm-darkred);
+  border-top: 4px solid var(--hdm-yellow);
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .site-footer p {
+  color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .footer-hit-counter {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+}
+
+body.hotdog-mode .footer-netscape {
+  color: #FFD700;
+}
+
+body.hotdog-mode .footer-under-construction svg {
+  opacity: 1;
+}
+
+/* New badge */
+body.hotdog-mode .new-badge {
+  background: var(--hdm-yellow);
+  color: var(--hdm-red);
+}
+
+/* Toggle itself in hot dog mode */
+body.hotdog-mode .hotdog-toggle {
+  background: var(--hdm-yellow);
+  border-color: var(--hdm-yellow);
+  color: var(--hdm-red);
+}
+
+body.hotdog-mode .hotdog-toggle:hover {
+  background: var(--hdm-white);
+}
+
+/* Mobile nav */
+body.hotdog-mode .site-nav {
+  background: var(--hdm-darkred);
+  border-bottom-color: var(--hdm-yellow);
+}
+
+body.hotdog-mode .nav-toggle {
+  color: var(--hdm-yellow);
+}
