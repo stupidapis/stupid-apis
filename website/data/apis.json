@@ -5568,6 +5568,1129 @@
         }
       ],
       "clippy_message": "It looks like you're stalling. The cursed thing is also the inevitable thing."
+    },
+    {
+      "id": "wisdom-of-the-ancients",
+      "name": "Wisdom of the Ancients",
+      "category": "oracles",
+      "tags": [
+        "wisdom",
+        "philosophy",
+        "fake",
+        "proverb"
+      ],
+      "description": "Returns a fake ancient proverb attributed to a fake philosopher. Includes century, school of thought, and a modern application.",
+      "long_description": "The Wisdom of the Ancients API delivers proverbs that sound profound and are not. Each proverb is attributed to a fictional philosopher (Zoltrak the Lesser, Bren the Quiet) and a fictional school of thought (\"Lower Stoic\", \"Domestic Skeptic\"). Use them to win arguments without saying anything specific.",
+      "stupidity": 1,
+      "added_date": "2026-05-18",
+      "release_date": "2026-05-18",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/wisdom-of-the-ancients",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/consult",
+          "description": "Consult the ancients"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "proverb",
+          "type": "string",
+          "description": "The fake wisdom"
+        },
+        {
+          "field": "attributed_to",
+          "type": "string",
+          "description": "A fake philosopher"
+        },
+        {
+          "field": "century",
+          "type": "string",
+          "description": "Roughly when"
+        },
+        {
+          "field": "school_of_thought",
+          "type": "string",
+          "description": "A fake school"
+        },
+        {
+          "field": "modern_application",
+          "type": "string",
+          "description": "How to use it today"
+        },
+        {
+          "field": "citation",
+          "type": "string",
+          "description": "Always \"fragmentary\""
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/wisdom-of-the-ancients/consult\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/wisdom-of-the-ancients/consult\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/wisdom-of-the-ancients/consult\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "proverb": "A watched inbox never pings",
+          "attributed_to": "Zoltrak the Lesser",
+          "century": "3rd century BCE",
+          "school_of_thought": "Lower Stoic",
+          "modern_application": "consider this before responding to the email",
+          "citation": "fragmentary"
+        }
+      },
+      "mock_responses": [
+        {
+          "proverb": "The cat that knows your habits has decided about you",
+          "attributed_to": "Maranthia of Ephesus",
+          "century": "5th century CE",
+          "school_of_thought": "Domestic Skeptic",
+          "modern_application": "apply at the next standup",
+          "citation": "fragmentary"
+        },
+        {
+          "proverb": "A door, once opened, is not the same door",
+          "attributed_to": "Old Dovin",
+          "century": "12th century CE",
+          "school_of_thought": "Northern Pragmatist",
+          "modern_application": "think on this in the elevator",
+          "citation": "fragmentary"
+        },
+        {
+          "proverb": "He who explains his joke is sentenced to it",
+          "attributed_to": "Phaedra of the Long Hall",
+          "century": "8th century CE",
+          "school_of_thought": "Cellar School",
+          "modern_application": "do not say this aloud at the meeting",
+          "citation": "fragmentary"
+        }
+      ],
+      "clippy_message": "It looks like you're seeking wisdom. Let me invent some."
+    },
+    {
+      "id": "roast-me",
+      "name": "Roast Me",
+      "category": "generators",
+      "tags": [
+        "roast",
+        "wholesome",
+        "humor",
+        "judgment"
+      ],
+      "description": "Returns a wholesome roast on a target: code, day, hobby, profession, or general.",
+      "long_description": "The Roast Me API delivers one wholesome roast per call, targeting your code, day, hobby, profession, or general aura. Spice level (1-10) is recorded but does not affect the roast itself — the roast is the roast. Comes with a recovery recommendation.",
+      "stupidity": 2,
+      "added_date": "2026-05-19",
+      "release_date": "2026-05-19",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/roast-me",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/roast",
+          "description": "Get roasted"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string",
+          "required": false,
+          "default": "general",
+          "options": [
+            "code",
+            "day",
+            "hobby",
+            "profession",
+            "general"
+          ],
+          "description": "What to roast."
+        },
+        {
+          "name": "spice",
+          "type": "number",
+          "required": false,
+          "default": "5",
+          "description": "Spice level 1-10 (recorded but does not affect roast)."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "target",
+          "type": "string",
+          "description": "What was roasted"
+        },
+        {
+          "field": "roast",
+          "type": "string",
+          "description": "The roast itself"
+        },
+        {
+          "field": "spice_level",
+          "type": "number",
+          "description": "Echoed back"
+        },
+        {
+          "field": "is_wholesome",
+          "type": "boolean",
+          "description": "Always true"
+        },
+        {
+          "field": "recovery_advice",
+          "type": "string",
+          "description": "How to recover"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/roast-me/roast?target=code\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/roast-me/roast\",\n    params={\"target\": \"code\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/roast-me/roast?target=code\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "target": "code",
+          "roast": "Your code reads like it was written during a thunderstorm.",
+          "spice_level": 5,
+          "is_wholesome": true,
+          "recovery_advice": "sit with this"
+        }
+      },
+      "mock_responses": [
+        {
+          "target": "day",
+          "roast": "Your day is going about as well as a screen door on a submarine.",
+          "spice_level": 7,
+          "is_wholesome": true,
+          "recovery_advice": "tell no one"
+        },
+        {
+          "target": "profession",
+          "roast": "Your profession can be done by a slightly competent intern with the right tab open.",
+          "spice_level": 5,
+          "is_wholesome": true,
+          "recovery_advice": "consider this a gift"
+        },
+        {
+          "target": "general",
+          "roast": "You apologize when bumped into by furniture.",
+          "spice_level": 3,
+          "is_wholesome": true,
+          "recovery_advice": "sit with this"
+        }
+      ],
+      "clippy_message": "It looks like you want feedback. Brace."
+    },
+    {
+      "id": "fake-recipe",
+      "name": "Fake Recipe",
+      "category": "generators",
+      "tags": [
+        "recipe",
+        "cooking",
+        "cursed",
+        "instructions"
+      ],
+      "description": "Generates a recipe with cursed ingredients and steps. Returns dish name, serves, prep/cook time, ingredients, steps, pairing, and difficulty.",
+      "long_description": "The Fake Recipe API produces a recipe per call. Ingredients include \"1 large yellow onion, regretted\" and \"a pinch of resentment.\" Steps include \"Whisper your intentions to the butter.\" Returns serving size, prep/cook times, pairing suggestion, and difficulty.",
+      "stupidity": 2,
+      "added_date": "2026-05-20",
+      "release_date": "2026-05-20",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-recipe",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a recipe"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "dish_name",
+          "type": "string",
+          "description": "The dish"
+        },
+        {
+          "field": "serves",
+          "type": "number",
+          "description": "Servings"
+        },
+        {
+          "field": "prep_time",
+          "type": "string",
+          "description": "Time to prep"
+        },
+        {
+          "field": "cook_time",
+          "type": "string",
+          "description": "Time to cook"
+        },
+        {
+          "field": "ingredients",
+          "type": "string[]",
+          "description": "Seven ingredients"
+        },
+        {
+          "field": "steps",
+          "type": "string[]",
+          "description": "Six steps"
+        },
+        {
+          "field": "pairing",
+          "type": "string",
+          "description": "A drink to pair"
+        },
+        {
+          "field": "difficulty",
+          "type": "string",
+          "description": "How hard it is"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-recipe/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-recipe/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-recipe/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "dish_name": "Braised Endive with Pickled Apology",
+          "serves": 4,
+          "prep_time": "32 minutes",
+          "cook_time": "88 minutes",
+          "ingredients": [
+            "2 cups all-purpose flour",
+            "1 large yellow onion, regretted",
+            "3 tablespoons olive oil",
+            "a pinch of resentment",
+            "1 lemon, witnessed",
+            "4 cloves garlic, lightly crushed in spirit",
+            "2 sprigs thyme"
+          ],
+          "steps": [
+            "Preheat the oven to 400°F. Apologize to the oven.",
+            "In a heavy skillet, warm the oil until it shimmers slightly more than expected.",
+            "Whisper your intentions to the butter.",
+            "Reduce by half. Reduce by another half. Reduce until the pan is smaller than it was.",
+            "Cover and let rest for the length of one phone call you have been avoiding.",
+            "Plate immediately. Do not photograph it. The food does not consent."
+          ],
+          "pairing": "a 2019 white burgundy you will not finish",
+          "difficulty": "unwise"
+        }
+      },
+      "mock_responses": [
+        {
+          "dish_name": "Slow-Pulled Cabbage in a Honey Reduction",
+          "serves": 6,
+          "prep_time": "15 minutes",
+          "cook_time": "120 minutes",
+          "ingredients": [
+            "1 cup vegetable stock, or 1 cup water plus what you remember",
+            "1 bay leaf, named",
+            "kosher salt, to taste",
+            "butter, the unsalted kind, the unfaithful kind",
+            "a small handful of unspoken concerns",
+            "1 teaspoon paprika",
+            "one egg, told the truth"
+          ],
+          "steps": [
+            "Add the onions and cook until translucent, then briefly opaque, then translucent again.",
+            "Stir constantly. Do not stop. Do not look away.",
+            "Add the bay leaf. Acknowledge it.",
+            "Season with salt. Then with more salt. Then forgive the salt.",
+            "Garnish with thyme. Or with something that looks like thyme.",
+            "Taste. Adjust. Taste again. Recommit."
+          ],
+          "pairing": "cold tea",
+          "difficulty": "intermediate"
+        },
+        {
+          "dish_name": "Crust-Forward Marrow over Sage Memory",
+          "serves": 2,
+          "prep_time": "40 minutes",
+          "cook_time": "55 minutes",
+          "ingredients": [
+            "2 cups all-purpose flour",
+            "3 tablespoons olive oil",
+            "a quart of patience, divided",
+            "butter, the unsalted kind, the unfaithful kind",
+            "1 lemon, witnessed",
+            "a pinch of resentment",
+            "kosher salt, to taste"
+          ],
+          "steps": [
+            "Preheat the oven to 400°F. Apologize to the oven.",
+            "In a heavy skillet, warm the oil until it shimmers slightly more than expected.",
+            "Add the bay leaf. Acknowledge it.",
+            "Plate immediately. Do not photograph it. The food does not consent.",
+            "Garnish with thyme. Or with something that looks like thyme.",
+            "Reduce by half. Reduce by another half. Reduce until the pan is smaller than it was."
+          ],
+          "pairing": "whatever the host is having",
+          "difficulty": "accessible"
+        }
+      ],
+      "clippy_message": "It looks like you're cooking. May I suggest takeout."
+    },
+    {
+      "id": "zodiac-but-worse",
+      "name": "Zodiac But Worse",
+      "category": "oracles",
+      "tags": [
+        "zodiac",
+        "astrology",
+        "birthday",
+        "unfortunate"
+      ],
+      "description": "Assigns a new, worse zodiac sign based on birthday. Twelve signs, all unfortunate.",
+      "long_description": "The Zodiac But Worse API replaces your real zodiac sign with a new one. Signs include \"The Disappointed Raccoon,\" \"The Forgotten Tab,\" \"The Unwashed Mug,\" and \"The Buffering Wheel.\" Each comes with traits, an element, and an unfortunate alignment. The assignment is deterministic — same birthday, same sign.",
+      "stupidity": 2,
+      "added_date": "2026-05-21",
+      "release_date": "2026-05-21",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/zodiac-but-worse",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/assign",
+          "description": "Assign a worse sign"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "birthday",
+          "type": "string",
+          "required": true,
+          "description": "Birthday in any format."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "birthday",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "new_sign",
+          "type": "string",
+          "description": "Your new, worse sign"
+        },
+        {
+          "field": "symbol",
+          "type": "string",
+          "description": "Emoji symbol"
+        },
+        {
+          "field": "element",
+          "type": "string",
+          "description": "Element of the sign"
+        },
+        {
+          "field": "traits",
+          "type": "string[]",
+          "description": "Three personality traits"
+        },
+        {
+          "field": "unfortunate_alignment",
+          "type": "string",
+          "description": "Compatibility note"
+        },
+        {
+          "field": "retired_sign",
+          "type": "string",
+          "description": "The previous (real) sign"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/zodiac-but-worse/assign?birthday=1989-03-14\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/zodiac-but-worse/assign\",\n    params={\"birthday\": \"1989-03-14\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/zodiac-but-worse/assign?birthday=1989-03-14\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "birthday": "1989-03-14",
+          "new_sign": "The Forgotten Tab",
+          "symbol": "🗂️",
+          "element": "memory",
+          "traits": [
+            "lingering",
+            "unread",
+            "still cued up"
+          ],
+          "unfortunate_alignment": "compatible with the Unwashed Mug",
+          "retired_sign": "unverified — please bring your own"
+        }
+      },
+      "mock_responses": [
+        {
+          "birthday": "1972-07-04",
+          "new_sign": "The Damp Sock",
+          "symbol": "🧦",
+          "element": "water (small)",
+          "traits": [
+            "unsettling",
+            "tactile",
+            "avoidable"
+          ],
+          "unfortunate_alignment": "incompatible with footwear",
+          "retired_sign": "unverified — please bring your own"
+        },
+        {
+          "birthday": "1995-12-29",
+          "new_sign": "The Empty Group Chat",
+          "symbol": "💬",
+          "element": "silence",
+          "traits": [
+            "hopeful",
+            "patient",
+            "thinning"
+          ],
+          "unfortunate_alignment": "compatible with read receipts",
+          "retired_sign": "unverified — please bring your own"
+        },
+        {
+          "birthday": "2001-06-17",
+          "new_sign": "The Buffering Wheel",
+          "symbol": "⌛",
+          "element": "wifi",
+          "traits": [
+            "hopeful",
+            "eternal",
+            "spinning"
+          ],
+          "unfortunate_alignment": "compatible with hotels",
+          "retired_sign": "unverified — please bring your own"
+        }
+      ],
+      "clippy_message": "It looks like you have a birthday. Let me ruin it."
+    },
+    {
+      "id": "dream-interpreter",
+      "name": "Dream Interpreter",
+      "category": "oracles",
+      "tags": [
+        "dream",
+        "freud",
+        "interpretation",
+        "mystic"
+      ],
+      "description": "Returns a Freudian-flavored interpretation of any dream. Generic, confident, non-binding.",
+      "long_description": "The Dream Interpreter API returns a generic but confident interpretation of any dream. Includes a primary symbol reading, a Freudian-style sentence about what you are processing, a recommendation, a disclaimer, and a recurrence likelihood. The interpretation does not actually read your dream.",
+      "stupidity": 2,
+      "added_date": "2026-05-22",
+      "release_date": "2026-05-22",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/dream-interpreter",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/interpret",
+          "description": "Interpret a dream"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "dream",
+          "type": "string",
+          "required": true,
+          "description": "The dream, in your own words."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "dream",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "primary_symbol_interpretation",
+          "type": "string",
+          "description": "Reading of the central symbol"
+        },
+        {
+          "field": "freudian_reading",
+          "type": "string",
+          "description": "Freud-flavored sentence"
+        },
+        {
+          "field": "recommendation",
+          "type": "string",
+          "description": "A small action"
+        },
+        {
+          "field": "disclaimer",
+          "type": "string",
+          "description": "About the reading"
+        },
+        {
+          "field": "recurrence_likely",
+          "type": "boolean",
+          "description": "Will you have it again"
+        }
+      ],
+      "examples": {
+        "curl": "curl -X POST \"https://api.stupidapis.com/dream-interpreter/interpret\" -H \"Content-Type: application/json\" -d '{\"dream\":\"i was a sandwich and the sandwich was on fire\"}'",
+        "python": "import requests\n\nresponse = requests.post(\n    \"https://api.stupidapis.com/dream-interpreter/interpret\",\n    json={\"dream\": \"i was a sandwich and the sandwich was on fire\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/dream-interpreter/interpret\",\n  { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ dream: \"i was a sandwich and the sandwich was on fire\" }) }\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "dream": "i was a sandwich and the sandwich was on fire",
+          "primary_symbol_interpretation": "The central object represents your unresolved tax debt.",
+          "freudian_reading": "You are processing a desire you have not named.",
+          "recommendation": "eat protein",
+          "disclaimer": "this interpretation is non-binding",
+          "recurrence_likely": true
+        }
+      },
+      "mock_responses": [
+        {
+          "dream": "all my teeth fell out",
+          "primary_symbol_interpretation": "The central object is your inner child filing a grievance.",
+          "freudian_reading": "You are negotiating with the part of you that wants to quit.",
+          "recommendation": "do nothing about this",
+          "disclaimer": "this interpretation is a vibe",
+          "recurrence_likely": false
+        },
+        {
+          "dream": "i was late for an exam in a building i had never seen",
+          "primary_symbol_interpretation": "The central object symbolizes a meeting you have not yet declined.",
+          "freudian_reading": "You are mourning a version of yourself from approximately 2017.",
+          "recommendation": "reschedule the appointment",
+          "disclaimer": "consult a professional, but not the kind that would interpret this",
+          "recurrence_likely": true
+        },
+        {
+          "dream": "i could fly but only over my parents' kitchen",
+          "primary_symbol_interpretation": "The central object is your unmet need for a different chair.",
+          "freudian_reading": "You are waiting for permission you do not need.",
+          "recommendation": "take a walk and observe the trees with skepticism",
+          "disclaimer": "this interpretation has not been peer-reviewed",
+          "recurrence_likely": false
+        }
+      ],
+      "clippy_message": "It looks like you had a dream. Let me misread it."
+    },
+    {
+      "id": "truth-or-dare",
+      "name": "Truth or Dare",
+      "category": "generators",
+      "tags": [
+        "game",
+        "party",
+        "truth",
+        "dare"
+      ],
+      "description": "Returns a truth question or a dare. Mode: truth, dare, or either.",
+      "long_description": "The Truth or Dare API returns a single prompt — either a truth question or a dare — with a spice level and a consequence for skipping. Use it when the room has gone silent and someone needs to be prompted.",
+      "stupidity": 1,
+      "added_date": "2026-05-23",
+      "release_date": "2026-05-23",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/truth-or-dare",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/pick",
+          "description": "Pick a prompt"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "string",
+          "required": false,
+          "default": "either",
+          "options": [
+            "truth",
+            "dare",
+            "either"
+          ],
+          "description": "What kind of prompt."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "type",
+          "type": "string",
+          "description": "truth or dare"
+        },
+        {
+          "field": "prompt",
+          "type": "string",
+          "description": "The prompt"
+        },
+        {
+          "field": "spice_level",
+          "type": "string",
+          "description": "mild / medium / spicy / unwise"
+        },
+        {
+          "field": "consequence_for_skipping",
+          "type": "string",
+          "description": "What happens if skipped"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/truth-or-dare/pick?mode=dare\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/truth-or-dare/pick\",\n    params={\"mode\": \"dare\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/truth-or-dare/pick?mode=dare\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "type": "dare",
+          "prompt": "Send a text that says only \"thinking of you\" to the third contact alphabetically.",
+          "spice_level": "spicy",
+          "consequence_for_skipping": "forfeit your seat for one round"
+        }
+      },
+      "mock_responses": [
+        {
+          "type": "truth",
+          "prompt": "Whose number have you blocked but not deleted?",
+          "spice_level": "spicy",
+          "consequence_for_skipping": "you owe the room one true thing of your choosing"
+        },
+        {
+          "type": "dare",
+          "prompt": "Compliment a stranger's shoes specifically.",
+          "spice_level": "mild",
+          "consequence_for_skipping": "you must do the dishes for the host"
+        },
+        {
+          "type": "truth",
+          "prompt": "What is the most expensive thing you have ever broken?",
+          "spice_level": "medium",
+          "consequence_for_skipping": "you must answer two of the next prompts"
+        }
+      ],
+      "clippy_message": "It looks like you're stalling. The truth is also waiting."
+    },
+    {
+      "id": "fake-cocktail",
+      "name": "Fake Cocktail",
+      "category": "generators",
+      "tags": [
+        "cocktail",
+        "drink",
+        "absurd",
+        "cocktail-recipe"
+      ],
+      "description": "Invents a cocktail with absurd ingredients and a tragic backstory. Returns name, ingredients, glassware, method, garnish, ABV, and backstory.",
+      "long_description": "The Fake Cocktail API invents drinks. Names like \"The Wounded Accountant\" and \"Late Capitalism.\" Ingredients include real spirits and items like \"tears\" or \"a thimble of regret.\" Each drink ships with a method, glassware, garnish, ABV estimate, and a brief tragic backstory.",
+      "stupidity": 2,
+      "added_date": "2026-05-24",
+      "release_date": "2026-05-24",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-cocktail",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/invent",
+          "description": "Invent a cocktail"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "name",
+          "type": "string",
+          "description": "The cocktail name"
+        },
+        {
+          "field": "ingredients",
+          "type": "string[]",
+          "description": "Four lines of ingredients"
+        },
+        {
+          "field": "glassware",
+          "type": "string",
+          "description": "What to serve it in"
+        },
+        {
+          "field": "method",
+          "type": "string",
+          "description": "How to make it"
+        },
+        {
+          "field": "garnish",
+          "type": "string",
+          "description": "Garnish"
+        },
+        {
+          "field": "backstory",
+          "type": "string",
+          "description": "A short backstory"
+        },
+        {
+          "field": "abv_estimate",
+          "type": "string",
+          "description": "Estimated ABV"
+        },
+        {
+          "field": "recommended_for",
+          "type": "string",
+          "description": "When to serve"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-cocktail/invent\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-cocktail/invent\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-cocktail/invent\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "name": "The Wounded Accountant",
+          "ingredients": [
+            "2 oz gin",
+            "0.75 oz vermouth (dry)",
+            "a thimble of regret",
+            "one olive"
+          ],
+          "glassware": "coupe",
+          "method": "stirred, not shaken",
+          "garnish": "olive",
+          "backstory": "invented in 2014 at a bar that closed in 2015",
+          "abv_estimate": "32%",
+          "recommended_for": "after the difficult phone call"
+        }
+      },
+      "mock_responses": [
+        {
+          "name": "Late Capitalism",
+          "ingredients": [
+            "2 oz mezcal",
+            "0.75 oz lime juice",
+            "a quarter teaspoon of unspoken concerns",
+            "1 dash of bitters, principled"
+          ],
+          "glassware": "rocks",
+          "method": "shaken hard",
+          "garnish": "sea salt rim",
+          "backstory": "rumored to have been ordered by a sitting senator, which the senator denies",
+          "abv_estimate": "38%",
+          "recommended_for": "a Wednesday"
+        },
+        {
+          "name": "The Quiet Resignation",
+          "ingredients": [
+            "2 oz cognac",
+            "0.75 oz amaro",
+            "an ice cube from your hometown",
+            "tears"
+          ],
+          "glassware": "small jar",
+          "method": "built in glass",
+          "garnish": "lemon twist",
+          "backstory": "first appeared in a 1972 cookbook withdrawn after one printing",
+          "abv_estimate": "40%",
+          "recommended_for": "on the porch in a coat"
+        }
+      ],
+      "clippy_message": "It looks like you're drinking. May I suggest naming it."
+    },
+    {
+      "id": "api-error-poem",
+      "name": "API Error Poem",
+      "category": "generators",
+      "tags": [
+        "http",
+        "error",
+        "haiku",
+        "poetry"
+      ],
+      "description": "Returns a haiku for any HTTP status code. 21 codes have hand-tuned poems.",
+      "long_description": "The API Error Poem API translates HTTP status codes into haiku. 21 common codes (200, 301, 401, 404, 418, 429, 500, 503, etc.) have hand-tuned three-line poems. Other codes get a fallback. Each response includes the haiku lines, syllable counts, and the canonical status name.",
+      "stupidity": 1,
+      "added_date": "2026-05-25",
+      "release_date": "2026-05-25",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/api-error-poem",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/poem",
+          "description": "Get a haiku for a status code"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "status_code",
+          "type": "number",
+          "required": true,
+          "description": "HTTP status code (100-599)."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "status_code",
+          "type": "number",
+          "description": "The status code"
+        },
+        {
+          "field": "status_name",
+          "type": "string",
+          "description": "Canonical name"
+        },
+        {
+          "field": "haiku",
+          "type": "string[]",
+          "description": "Three lines"
+        },
+        {
+          "field": "syllable_count",
+          "type": "number[]",
+          "description": "Always [5, 7, 5]"
+        },
+        {
+          "field": "meter_warning",
+          "type": "string",
+          "optional": true,
+          "description": "Set when fallback was used"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/api-error-poem/poem?status_code=404\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/api-error-poem/poem\",\n    params={\"status_code\": 404}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/api-error-poem/poem?status_code=404\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "status_code": 404,
+          "status_name": "Not Found",
+          "haiku": [
+            "The page is not here",
+            "It was never here at all",
+            "You imagined it"
+          ],
+          "syllable_count": [
+            5,
+            7,
+            5
+          ],
+          "meter_warning": null
+        }
+      },
+      "mock_responses": [
+        {
+          "status_code": 418,
+          "status_name": "I'm a teapot",
+          "haiku": [
+            "I am a teapot",
+            "I cannot brew the coffee",
+            "You should have brought tea"
+          ],
+          "syllable_count": [
+            5,
+            7,
+            5
+          ],
+          "meter_warning": null
+        },
+        {
+          "status_code": 500,
+          "status_name": "Internal Server Error",
+          "haiku": [
+            "Something has gone wrong",
+            "We do not know what it was",
+            "Neither do the logs"
+          ],
+          "syllable_count": [
+            5,
+            7,
+            5
+          ],
+          "meter_warning": null
+        },
+        {
+          "status_code": 429,
+          "status_name": "Too Many Requests",
+          "haiku": [
+            "You are calling too much",
+            "The server has begun to",
+            "Resent your tone here"
+          ],
+          "syllable_count": [
+            5,
+            7,
+            5
+          ],
+          "meter_warning": null
+        }
+      ],
+      "clippy_message": "It looks like you're errored. May I suggest meaning."
+    },
+    {
+      "id": "compliment-generator",
+      "name": "Compliment Generator",
+      "category": "generators",
+      "tags": [
+        "compliment",
+        "wholesome",
+        "specific",
+        "kindness"
+      ],
+      "description": "Returns a wholesome, oddly specific compliment. The compliment is sincere. The specificity is intentional.",
+      "long_description": "The Compliment Generator API returns one wholesome, specific compliment per call (\"Your commit messages have main-character energy\"; \"You return things to where you found them\"). Sincerity is a feature. Each ships with a recommended response, like \"sit with this.\"",
+      "stupidity": 1,
+      "added_date": "2026-05-26",
+      "release_date": "2026-05-26",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/compliment-generator",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a compliment"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "compliment",
+          "type": "string",
+          "description": "The compliment"
+        },
+        {
+          "field": "specificity",
+          "type": "string",
+          "description": "Description of the kind"
+        },
+        {
+          "field": "is_sincere",
+          "type": "boolean",
+          "description": "Always true"
+        },
+        {
+          "field": "recommended_response",
+          "type": "string",
+          "description": "How to receive it"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/compliment-generator/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/compliment-generator/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/compliment-generator/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "compliment": "Your commit messages have main-character energy.",
+          "specificity": "oddly specific",
+          "is_sincere": true,
+          "recommended_response": "sit with this"
+        }
+      },
+      "mock_responses": [
+        {
+          "compliment": "You return things to where you found them.",
+          "specificity": "observed",
+          "is_sincere": true,
+          "recommended_response": "accept this and move on"
+        },
+        {
+          "compliment": "You answer the question that was asked.",
+          "specificity": "unusually warm",
+          "is_sincere": true,
+          "recommended_response": "pass it forward, exactly once"
+        },
+        {
+          "compliment": "You arrive with the right amount of food.",
+          "specificity": "low-grade affectionate",
+          "is_sincere": true,
+          "recommended_response": "thank you, but do not look it up"
+        }
+      ],
+      "clippy_message": "It looks like you need a kindness. Let me try."
+    },
+    {
+      "id": "wine-pairing-but-wrong",
+      "name": "Wine Pairing But Wrong",
+      "category": "oracles",
+      "tags": [
+        "wine",
+        "pairing",
+        "food",
+        "wrong"
+      ],
+      "description": "Pairs any food with a wildly inappropriate wine. Returns wine, reasoning, sommelier note, and people not to explain it to.",
+      "long_description": "The Wine Pairing But Wrong API takes any food and recommends a wildly inappropriate wine, with confident reasoning. \"Cereal pairs best with a 2019 Bordeaux because the tannins balance the cardboard.\" Returns the wine, reasoning, a sommelier note (\"decant for forty minutes; explain why\"), and a list of people you should NOT explain this to.",
+      "stupidity": 2,
+      "added_date": "2026-05-27",
+      "release_date": "2026-05-27",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/wine-pairing-but-wrong",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/pair",
+          "description": "Get a wrong wine pairing"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "food",
+          "type": "string",
+          "required": true,
+          "description": "The food, dish, or eating situation."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "food",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "wine",
+          "type": "string",
+          "description": "The wine"
+        },
+        {
+          "field": "reasoning",
+          "type": "string",
+          "description": "Why this works (it does not)"
+        },
+        {
+          "field": "sommelier_note",
+          "type": "string",
+          "description": "Service note"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Always \"professional\""
+        },
+        {
+          "field": "do_not_explain_to",
+          "type": "string",
+          "description": "A person to avoid telling"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/wine-pairing-but-wrong/pair?food=cereal\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/wine-pairing-but-wrong/pair\",\n    params={\"food\": \"cereal\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/wine-pairing-but-wrong/pair?food=cereal\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "food": "cereal",
+          "wine": "2019 Bordeaux (left bank)",
+          "reasoning": "the tannins balance the cardboard",
+          "sommelier_note": "decant for forty minutes; explain why",
+          "confidence": "professional",
+          "do_not_explain_to": "an actual sommelier"
+        }
+      },
+      "mock_responses": [
+        {
+          "food": "a hot dog",
+          "wine": "1998 Chateau Margaux",
+          "reasoning": "the wine and the food are equally surprised to be here",
+          "sommelier_note": "serve with conviction",
+          "confidence": "professional",
+          "do_not_explain_to": "your father-in-law"
+        },
+        {
+          "food": "a peanut butter sandwich",
+          "wine": "a Madeira from the second-to-last cellar",
+          "reasoning": "the finish lingers approximately as long as the meal",
+          "sommelier_note": "pour into a juice glass to communicate intent",
+          "confidence": "professional",
+          "do_not_explain_to": "anyone who works in hospitality"
+        },
+        {
+          "food": "goldfish crackers",
+          "wine": "a chilled red whose name nobody remembers",
+          "reasoning": "they share an aroma profile that is best described as \"near\"",
+          "sommelier_note": "use the wrong glassware on purpose",
+          "confidence": "professional",
+          "do_not_explain_to": "a Wine Spectator subscriber"
+        }
+      ],
+      "clippy_message": "It looks like you're eating. Let me make it weird."
     }
   ]
 }

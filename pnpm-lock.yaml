@@ -24,6 +24,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/api-error-poem:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/apology:
     dependencies:
       '@stupid-apis/shared':
@@ -49,6 +55,12 @@ importers:
         version: link:../../shared
 
   apis/chaos-index:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/compliment-generator:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -84,6 +96,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/dream-interpreter:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/emoji-oracle:
     dependencies:
       '@stupid-apis/shared':
@@ -108,7 +126,19 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-cocktail:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-horoscope:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-recipe:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -181,6 +211,12 @@ importers:
         version: link:../../shared
 
   apis/press-release:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/roast-me:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -264,6 +300,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/truth-or-dare:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/victorian-complaint:
     dependencies:
       '@stupid-apis/shared':
@@ -271,6 +313,18 @@ importers:
         version: link:../../shared
 
   apis/weather-but-lying:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/wine-pairing-but-wrong:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/wisdom-of-the-ancients:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -294,6 +348,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/zodiac-but-worse:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   shared: {}
 
   workers/gateway:
@@ -301,6 +361,9 @@ importers:
       '@stupid-apis/always-seven':
         specifier: workspace:*
         version: link:../../apis/always-seven
+      '@stupid-apis/api-error-poem':
+        specifier: workspace:*
+        version: link:../../apis/api-error-poem
       '@stupid-apis/apology':
         specifier: workspace:*
         version: link:../../apis/apology
@@ -316,6 +379,9 @@ importers:
       '@stupid-apis/chaos-index':
         specifier: workspace:*
         version: link:../../apis/chaos-index
+      '@stupid-apis/compliment-generator':
+        specifier: workspace:*
+        version: link:../../apis/compliment-generator
       '@stupid-apis/conspiracy-theory':
         specifier: workspace:*
         version: link:../../apis/conspiracy-theory
@@ -331,6 +397,9 @@ importers:
       '@stupid-apis/dad-joke':
         specifier: workspace:*
         version: link:../../apis/dad-joke
+      '@stupid-apis/dream-interpreter':
+        specifier: workspace:*
+        version: link:../../apis/dream-interpreter
       '@stupid-apis/emoji-oracle':
         specifier: workspace:*
         version: link:../../apis/emoji-oracle
@@ -343,9 +412,15 @@ importers:
       '@stupid-apis/fake-changelog':
         specifier: workspace:*
         version: link:../../apis/fake-changelog
+      '@stupid-apis/fake-cocktail':
+        specifier: workspace:*
+        version: link:../../apis/fake-cocktail
       '@stupid-apis/fake-horoscope':
         specifier: workspace:*
         version: link:../../apis/fake-horoscope
+      '@stupid-apis/fake-recipe':
+        specifier: workspace:*
+        version: link:../../apis/fake-recipe
       '@stupid-apis/fortune-cookie':
         specifier: workspace:*
         version: link:../../apis/fortune-cookie
@@ -382,6 +457,9 @@ importers:
       '@stupid-apis/press-release':
         specifier: workspace:*
         version: link:../../apis/press-release
+      '@stupid-apis/roast-me':
+        specifier: workspace:*
+        version: link:../../apis/roast-me
       '@stupid-apis/rubber-duck':
         specifier: workspace:*
         version: link:../../apis/rubber-duck
@@ -424,12 +502,21 @@ importers:
       '@stupid-apis/tinder-bio':
         specifier: workspace:*
         version: link:../../apis/tinder-bio
+      '@stupid-apis/truth-or-dare':
+        specifier: workspace:*
+        version: link:../../apis/truth-or-dare
       '@stupid-apis/victorian-complaint':
         specifier: workspace:*
         version: link:../../apis/victorian-complaint
       '@stupid-apis/weather-but-lying':
         specifier: workspace:*
         version: link:../../apis/weather-but-lying
+      '@stupid-apis/wine-pairing-but-wrong':
+        specifier: workspace:*
+        version: link:../../apis/wine-pairing-but-wrong
+      '@stupid-apis/wisdom-of-the-ancients':
+        specifier: workspace:*
+        version: link:../../apis/wisdom-of-the-ancients
       '@stupid-apis/would-you-rather':
         specifier: workspace:*
         version: link:../../apis/would-you-rather
@@ -439,6 +526,9 @@ importers:
       '@stupid-apis/yesterdays-number':
         specifier: workspace:*
         version: link:../../apis/yesterdays-number
+      '@stupid-apis/zodiac-but-worse':
+        specifier: workspace:*
+        version: link:../../apis/zodiac-but-worse
 
 packages:
 

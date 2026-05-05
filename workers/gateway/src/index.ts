@@ -46,6 +46,16 @@ import catFactButFake from '@stupid-apis/cat-fact-but-fake';
 import bandName from '@stupid-apis/band-name';
 import fakeChangelog from '@stupid-apis/fake-changelog';
 import wouldYouRather from '@stupid-apis/would-you-rather';
+import wisdomOfTheAncients from '@stupid-apis/wisdom-of-the-ancients';
+import roastMe from '@stupid-apis/roast-me';
+import fakeRecipe from '@stupid-apis/fake-recipe';
+import zodiacButWorse from '@stupid-apis/zodiac-but-worse';
+import dreamInterpreter from '@stupid-apis/dream-interpreter';
+import truthOrDare from '@stupid-apis/truth-or-dare';
+import fakeCocktail from '@stupid-apis/fake-cocktail';
+import apiErrorPoem from '@stupid-apis/api-error-poem';
+import complimentGenerator from '@stupid-apis/compliment-generator';
+import winePairingButWrong from '@stupid-apis/wine-pairing-but-wrong';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -122,6 +132,16 @@ const API_PACKS: ApiPack[] = [
   { slug: 'band-name', module: bandName, releaseDate: '2026-05-15' },
   { slug: 'fake-changelog', module: fakeChangelog, releaseDate: '2026-05-16' },
   { slug: 'would-you-rather', module: wouldYouRather, releaseDate: '2026-05-17' },
+  { slug: 'wisdom-of-the-ancients', module: wisdomOfTheAncients, releaseDate: '2026-05-18' },
+  { slug: 'roast-me', module: roastMe, releaseDate: '2026-05-19' },
+  { slug: 'fake-recipe', module: fakeRecipe, releaseDate: '2026-05-20' },
+  { slug: 'zodiac-but-worse', module: zodiacButWorse, releaseDate: '2026-05-21' },
+  { slug: 'dream-interpreter', module: dreamInterpreter, releaseDate: '2026-05-22' },
+  { slug: 'truth-or-dare', module: truthOrDare, releaseDate: '2026-05-23' },
+  { slug: 'fake-cocktail', module: fakeCocktail, releaseDate: '2026-05-24' },
+  { slug: 'api-error-poem', module: apiErrorPoem, releaseDate: '2026-05-25' },
+  { slug: 'compliment-generator', module: complimentGenerator, releaseDate: '2026-05-26' },
+  { slug: 'wine-pairing-but-wrong', module: winePairingButWrong, releaseDate: '2026-05-27' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────

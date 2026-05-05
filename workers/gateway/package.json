@@ -55,6 +55,16 @@
     "@stupid-apis/cat-fact-but-fake": "workspace:*",
     "@stupid-apis/band-name": "workspace:*",
     "@stupid-apis/fake-changelog": "workspace:*",
-    "@stupid-apis/would-you-rather": "workspace:*"
+    "@stupid-apis/would-you-rather": "workspace:*",
+    "@stupid-apis/wisdom-of-the-ancients": "workspace:*",
+    "@stupid-apis/roast-me": "workspace:*",
+    "@stupid-apis/fake-recipe": "workspace:*",
+    "@stupid-apis/zodiac-but-worse": "workspace:*",
+    "@stupid-apis/dream-interpreter": "workspace:*",
+    "@stupid-apis/truth-or-dare": "workspace:*",
+    "@stupid-apis/fake-cocktail": "workspace:*",
+    "@stupid-apis/api-error-poem": "workspace:*",
+    "@stupid-apis/compliment-generator": "workspace:*",
+    "@stupid-apis/wine-pairing-but-wrong": "workspace:*"
   }
 }
