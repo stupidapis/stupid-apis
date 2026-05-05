@@ -6691,6 +6691,1111 @@
         }
       ],
       "clippy_message": "It looks like you're eating. Let me make it weird."
+    },
+    {
+      "id": "fake-ted-talk",
+      "name": "Fake TED Talk",
+      "category": "generators",
+      "tags": [
+        "ted",
+        "talk",
+        "thought-leader",
+        "speech"
+      ],
+      "description": "Generates a TED talk: title, three-bullet outline, applause line, audience reaction, runtime.",
+      "long_description": "The Fake TED Talk API generates one talk per call. Includes a title (\"How My Houseplant Taught Me Leadership\"), a three-bullet outline of the journey, an applause line, an audience reaction, an estimated runtime, and a view count. The talk does not exist. The buzz is real.",
+      "stupidity": 2,
+      "added_date": "2026-05-28",
+      "release_date": "2026-05-28",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-ted-talk",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a TED talk"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "title",
+          "type": "string",
+          "description": "The talk title"
+        },
+        {
+          "field": "outline",
+          "type": "string[]",
+          "description": "Three bullets"
+        },
+        {
+          "field": "applause_line",
+          "type": "string",
+          "description": "The closer"
+        },
+        {
+          "field": "audience_reaction",
+          "type": "string",
+          "description": "How the room responded"
+        },
+        {
+          "field": "duration_minutes",
+          "type": "number",
+          "description": "Runtime"
+        },
+        {
+          "field": "views_estimate",
+          "type": "string",
+          "description": "Approximate views"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-ted-talk/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-ted-talk/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-ted-talk/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "title": "How My Houseplant Taught Me Leadership",
+          "outline": [
+            "I tried it for thirty days",
+            "My team thought I had lost it",
+            "A small moment changed everything"
+          ],
+          "applause_line": "\"…and that is when I knew the houseplant had been right all along.\"",
+          "audience_reaction": "standing ovation, mostly the front row",
+          "duration_minutes": 14,
+          "views_estimate": "237K"
+        }
+      },
+      "mock_responses": [
+        {
+          "title": "Why I Stopped Going to Meetings (And You Can Too)",
+          "outline": [
+            "I almost gave up on day twelve",
+            "The numbers were not what I expected",
+            "I now do this every morning"
+          ],
+          "applause_line": "\"…sometimes the bravest thing you can do is reply on Tuesday.\"",
+          "audience_reaction": "one person crying, three on phones",
+          "duration_minutes": 18,
+          "views_estimate": "512K"
+        },
+        {
+          "title": "The Three-Minute Decision Framework I Learned from a Toddler",
+          "outline": [
+            "I learned to embrace what I could not control",
+            "My CFO eventually came around",
+            "It is not for everyone, but it was for me"
+          ],
+          "applause_line": "\"…and the rest, as my mother would say, is mostly admin.\"",
+          "audience_reaction": "thunderous; transcript later disputed",
+          "duration_minutes": 11,
+          "views_estimate": "89K"
+        },
+        {
+          "title": "I Read the Same Book Forty Times. Here's What I Learned.",
+          "outline": [
+            "The data surprised even me",
+            "My team thought I had lost it",
+            "A small moment changed everything"
+          ],
+          "applause_line": "\"…I did not have the answer, but I had the will to be still.\"",
+          "audience_reaction": "polite, uneven",
+          "duration_minutes": 16,
+          "views_estimate": "143K"
+        }
+      ],
+      "clippy_message": "It looks like you're preparing to inspire. Allow me to help you not."
+    },
+    {
+      "id": "bad-life-advice",
+      "name": "Bad Life Advice",
+      "category": "oracles",
+      "tags": [
+        "advice",
+        "life",
+        "bad",
+        "confidently-wrong"
+      ],
+      "description": "Returns confidently terrible life advice with attributed source and regret estimate.",
+      "long_description": "The Bad Life Advice API returns one piece of unhelpful but confident advice per call. Source is attributed (a man at a bar, an old book my mother kept), confidence level is high, and the response includes a regret estimate. Marked clearly: do_not_take is always true.",
+      "stupidity": 2,
+      "added_date": "2026-05-29",
+      "release_date": "2026-05-29",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/bad-life-advice",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/advise",
+          "description": "Get terrible advice"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "advice",
+          "type": "string",
+          "description": "The bad advice"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Self-reported confidence"
+        },
+        {
+          "field": "source",
+          "type": "string",
+          "description": "A made-up source"
+        },
+        {
+          "field": "will_you_regret_it",
+          "type": "string",
+          "description": "A regret estimate"
+        },
+        {
+          "field": "do_not_take",
+          "type": "boolean",
+          "description": "Always true"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/bad-life-advice/advise\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/bad-life-advice/advise\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/bad-life-advice/advise\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "advice": "If you are lost, just keep driving. Eventually the road becomes familiar.",
+          "confidence": "absolute",
+          "source": "a man at a bar",
+          "will_you_regret_it": "almost certainly",
+          "do_not_take": true
+        }
+      },
+      "mock_responses": [
+        {
+          "advice": "When in doubt, wear something black and walk faster.",
+          "confidence": "professional",
+          "source": "an old book my mother kept",
+          "will_you_regret_it": "within six months",
+          "do_not_take": true
+        },
+        {
+          "advice": "Apologize first. Then keep apologizing.",
+          "confidence": "unimpeachable",
+          "source": "no one in particular",
+          "will_you_regret_it": "eventually",
+          "do_not_take": true
+        },
+        {
+          "advice": "If at first you do not succeed, redefine success.",
+          "confidence": "high",
+          "source": "the back of an unsigned greeting card",
+          "will_you_regret_it": "no — but you will rationalize it",
+          "do_not_take": true
+        }
+      ],
+      "clippy_message": "It looks like you're at a crossroads. Allow me to point you the wrong way."
+    },
+    {
+      "id": "how-many-licks",
+      "name": "How Many Licks",
+      "category": "generators",
+      "tags": [
+        "math",
+        "estimation",
+        "absurd",
+        "how-many"
+      ],
+      "description": "Answers any \"how many X to Y\" question with rigorous nonsense math.",
+      "long_description": "The How Many Licks API answers any \"how many X to Y\" question with a confident integer, a margin, reasoning, two assumptions, and an invoked principle (\"Tootsie's Law\", \"the Inverse Lick Theorem\"). The math does not check out. The confidence is professional.",
+      "stupidity": 2,
+      "added_date": "2026-05-30",
+      "release_date": "2026-05-30",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/how-many-licks",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/count",
+          "description": "Count things"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "question",
+          "type": "string",
+          "required": true,
+          "description": "A how-many question."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "question",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "answer",
+          "type": "number",
+          "description": "A confident integer"
+        },
+        {
+          "field": "variance",
+          "type": "string",
+          "description": "The margin"
+        },
+        {
+          "field": "reasoning",
+          "type": "string",
+          "description": "How we got there"
+        },
+        {
+          "field": "assumptions",
+          "type": "string[]",
+          "description": "Two assumptions"
+        },
+        {
+          "field": "principle_invoked",
+          "type": "string",
+          "description": "A made-up principle"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Always professional"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/how-many-licks/count?question=how+many+licks+to+the+center+of+a+tootsie+pop\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/how-many-licks/count\",\n    params={\"question\": \"how many licks to the center of a tootsie pop\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/how-many-licks/count?question=how+many+licks+to+the+center+of+a+tootsie+pop\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "question": "how many licks to the center of a tootsie pop",
+          "answer": 247,
+          "variance": "±15",
+          "reasoning": "derived by setting the rate constant equal to the lap counter, then multiplying by the average humidity",
+          "assumptions": [
+            "standard atmosphere",
+            "a participant of average enthusiasm"
+          ],
+          "principle_invoked": "Tootsie's Law",
+          "confidence": "professional"
+        }
+      },
+      "mock_responses": [
+        {
+          "question": "how many emails to bankruptcy",
+          "answer": 1402,
+          "variance": "±200",
+          "reasoning": "extrapolated from the value for a smaller, similar object",
+          "assumptions": [
+            "a controlled environment, lighting unspecified",
+            "no interruptions"
+          ],
+          "principle_invoked": "the Mean Value Theorem of Effort",
+          "confidence": "professional"
+        },
+        {
+          "question": "how many meetings until vested",
+          "answer": 89,
+          "variance": "±67",
+          "reasoning": "a known constant in the field",
+          "assumptions": [
+            "after lunch",
+            "no music"
+          ],
+          "principle_invoked": "the Inverse Lick Theorem",
+          "confidence": "professional"
+        },
+        {
+          "question": "how many steps to a habit",
+          "answer": 41,
+          "variance": "±2",
+          "reasoning": "taken from a chart on the back of a 1986 placemat",
+          "assumptions": [
+            "a single thumb, dominant hand",
+            "subject is fasting"
+          ],
+          "principle_invoked": "Heisenberg's candy uncertainty",
+          "confidence": "professional"
+        }
+      ],
+      "clippy_message": "It looks like you have a question. The number is 247."
+    },
+    {
+      "id": "fake-historical-event",
+      "name": "Fake Historical Event",
+      "category": "oracles",
+      "tags": [
+        "history",
+        "fake",
+        "date",
+        "invented"
+      ],
+      "description": "Returns a fake historical event for any date with significance and source.",
+      "long_description": "The Fake Historical Event API returns a fictional event for any date string. Includes a deterministic year (800-1900), a place (\"the Duchy of Pretzelsburg\"), an action (\"declared war on bread\"), a significance note, a source, and a verifiability rating (always low, very low, or absent).",
+      "stupidity": 1,
+      "added_date": "2026-05-31",
+      "release_date": "2026-05-31",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-historical-event",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/lookup",
+          "description": "Look up a fake event"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "date",
+          "type": "string",
+          "required": true,
+          "description": "Any date string."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "date",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "year",
+          "type": "number",
+          "description": "Year of the event"
+        },
+        {
+          "field": "event",
+          "type": "string",
+          "description": "The event itself"
+        },
+        {
+          "field": "significance",
+          "type": "string",
+          "description": "Why it matters"
+        },
+        {
+          "field": "source",
+          "type": "string",
+          "description": "Where it was recorded"
+        },
+        {
+          "field": "verifiability",
+          "type": "string",
+          "description": "low / very low / absent"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-historical-event/lookup?date=May+5\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-historical-event/lookup\",\n    params={\"date\": \"May 5\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-historical-event/lookup?date=May+5\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "date": "May 5",
+          "year": 1487,
+          "event": "the Duchy of Pretzelsburg declared war on bread",
+          "significance": "the consequences are still being unraveled",
+          "source": "a fragment of parchment recovered from a ledger",
+          "verifiability": "very low"
+        }
+      },
+      "mock_responses": [
+        {
+          "date": "July 14",
+          "year": 1203,
+          "event": "the Free City of Twomast crowned a new monarch by mistake",
+          "significance": "the matter was settled within twelve days",
+          "source": "an oral history collected in 1894",
+          "verifiability": "low"
+        },
+        {
+          "date": "2001-09-23",
+          "year": 1644,
+          "event": "the Court of Greater Wending experienced a brief and minor schism over the proper name of a hill",
+          "significance": "historians consider it minor; locals do not",
+          "source": "a footnote in a textbook nobody owns",
+          "verifiability": "absent"
+        },
+        {
+          "date": "December 3",
+          "year": 1822,
+          "event": "the Margravate of Verdant Halls minted a coin worth three other coins",
+          "significance": "no record survives that has been peer-reviewed",
+          "source": "a stained-glass window of unclear provenance",
+          "verifiability": "low"
+        }
+      ],
+      "clippy_message": "It looks like you're researching the past. May I suggest making one up."
+    },
+    {
+      "id": "inspirational-quote",
+      "name": "Inspirational Quote",
+      "category": "generators",
+      "tags": [
+        "quote",
+        "inspiration",
+        "misattribution",
+        "motivational"
+      ],
+      "description": "Returns a motivational quote attributed to a famous person who almost certainly did not say it.",
+      "long_description": "The Inspirational Quote API returns one quote per call, attributed to a random famous historical figure who almost certainly did not say it. Includes the actual (also fake) source and an explicit authenticity warning. Useful for slide decks, group chats, and bad weddings.",
+      "stupidity": 1,
+      "added_date": "2026-06-01",
+      "release_date": "2026-06-01",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/inspirational-quote",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Get a quote"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "quote",
+          "type": "string",
+          "description": "The quote"
+        },
+        {
+          "field": "attributed_to",
+          "type": "string",
+          "description": "A famous person (incorrect)"
+        },
+        {
+          "field": "actually_said_by",
+          "type": "string",
+          "description": "A fake actual source"
+        },
+        {
+          "field": "year",
+          "type": "number",
+          "description": "A made-up year"
+        },
+        {
+          "field": "source",
+          "type": "string",
+          "description": "Always unverifiable"
+        },
+        {
+          "field": "authenticity_warning",
+          "type": "string",
+          "description": "States the attribution is wrong"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/inspirational-quote/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/inspirational-quote/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/inspirational-quote/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "quote": "Just ship it.",
+          "attributed_to": "Marie Curie",
+          "actually_said_by": "a Twitter account that is now suspended",
+          "year": 1909,
+          "source": "unverifiable",
+          "authenticity_warning": "this attribution is incorrect"
+        }
+      },
+      "mock_responses": [
+        {
+          "quote": "Done is better than perfect.",
+          "attributed_to": "Abraham Lincoln",
+          "actually_said_by": "a corporate Slack channel",
+          "year": 1862,
+          "source": "unverifiable",
+          "authenticity_warning": "this attribution is incorrect"
+        },
+        {
+          "quote": "Trust the process. Document the process. Replace the process.",
+          "attributed_to": "Confucius",
+          "actually_said_by": "an unpublished memoir",
+          "year": 502,
+          "source": "unverifiable",
+          "authenticity_warning": "this attribution is incorrect"
+        },
+        {
+          "quote": "You miss 100% of the shots you take, eventually.",
+          "attributed_to": "Cher",
+          "actually_said_by": "the sticker on a banana",
+          "year": 1998,
+          "source": "unverifiable",
+          "authenticity_warning": "this attribution is incorrect"
+        }
+      ],
+      "clippy_message": "It looks like you're inspiring people. Have you considered: misattributing."
+    },
+    {
+      "id": "alignment-chart",
+      "name": "Alignment Chart",
+      "category": "oracles",
+      "tags": [
+        "alignment",
+        "d&d",
+        "chart",
+        "opinion"
+      ],
+      "description": "Places any thing on a D&D alignment chart with reasoning. Deterministic by input.",
+      "long_description": "The Alignment Chart API takes any thing and places it on the 9-cell D&D alignment chart (Lawful/Neutral/Chaotic × Good/Neutral/Evil). The placement is deterministic — same input always returns the same alignment. Includes an axis breakdown, reasoning, certainty level, and an alternative reading.",
+      "stupidity": 1,
+      "added_date": "2026-06-02",
+      "release_date": "2026-06-02",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/alignment-chart",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/place",
+          "description": "Place a thing"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "thing",
+          "type": "string",
+          "required": true,
+          "description": "The thing to align."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "thing",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "alignment",
+          "type": "string",
+          "description": "One of the nine alignments"
+        },
+        {
+          "field": "axis",
+          "type": "object",
+          "description": "law_chaos and good_evil components"
+        },
+        {
+          "field": "reasoning",
+          "type": "string",
+          "description": "Why"
+        },
+        {
+          "field": "certainty",
+          "type": "string",
+          "description": "Always final"
+        },
+        {
+          "field": "alternative_reading",
+          "type": "string",
+          "description": "A second-place alignment"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/alignment-chart/place?thing=pineapple+on+pizza\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/alignment-chart/place\",\n    params={\"thing\": \"pineapple on pizza\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/alignment-chart/place?thing=pineapple+on+pizza\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "thing": "pineapple on pizza",
+          "alignment": "Chaotic Neutral",
+          "axis": {
+            "law_chaos": "chaotic",
+            "good_evil": "neutral"
+          },
+          "reasoning": "unpredictable, uninterested",
+          "certainty": "final",
+          "alternative_reading": "Lawful Good"
+        }
+      },
+      "mock_responses": [
+        {
+          "thing": "returning the cart",
+          "alignment": "Lawful Good",
+          "axis": {
+            "law_chaos": "lawful",
+            "good_evil": "good"
+          },
+          "reasoning": "returns the cart",
+          "certainty": "final",
+          "alternative_reading": "Neutral Good"
+        },
+        {
+          "thing": "reply-all to a 200-person thread",
+          "alignment": "Chaotic Evil",
+          "axis": {
+            "law_chaos": "chaotic",
+            "good_evil": "evil"
+          },
+          "reasoning": "enjoys breaking things",
+          "certainty": "final",
+          "alternative_reading": "Neutral Evil"
+        },
+        {
+          "thing": "opening a window without asking",
+          "alignment": "Chaotic Neutral",
+          "axis": {
+            "law_chaos": "chaotic",
+            "good_evil": "neutral"
+          },
+          "reasoning": "has opinions about Tuesdays",
+          "certainty": "final",
+          "alternative_reading": "Lawful Neutral"
+        }
+      ],
+      "clippy_message": "It looks like you have a debate. The chart will settle it."
+    },
+    {
+      "id": "fake-conference-talk",
+      "name": "Fake Conference Talk",
+      "category": "generators",
+      "tags": [
+        "conference",
+        "cfp",
+        "talk",
+        "tech"
+      ],
+      "description": "Generates a CFP submission with title, abstract, speaker bio, and rejection origin.",
+      "long_description": "The Fake Conference Talk API generates a complete CFP submission per call. Includes a tech-conference-coded title, abstract, speaker bio, proposed track, runtime, and which conference rejected it. Acceptance likelihood is always low.",
+      "stupidity": 2,
+      "added_date": "2026-06-03",
+      "release_date": "2026-06-03",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-conference-talk",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/cfp",
+          "description": "Generate a CFP"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "title",
+          "type": "string",
+          "description": "The talk title"
+        },
+        {
+          "field": "abstract",
+          "type": "string",
+          "description": "CFP abstract"
+        },
+        {
+          "field": "speaker_bio",
+          "type": "string",
+          "description": "A bio"
+        },
+        {
+          "field": "proposed_track",
+          "type": "string",
+          "description": "Where it would go"
+        },
+        {
+          "field": "duration_minutes",
+          "type": "number",
+          "description": "Runtime"
+        },
+        {
+          "field": "rejected_from",
+          "type": "string",
+          "description": "Which conference passed"
+        },
+        {
+          "field": "acceptance_likelihood",
+          "type": "string",
+          "description": "Always low"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-conference-talk/cfp\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/fake-conference-talk/cfp\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/fake-conference-talk/cfp\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "title": "How I Refactored My Monorepo on a Boat",
+          "abstract": "In this talk, I will show you a thing that worked once and explain why it should not have. Lessons include: most of them.",
+          "speaker_bio": "staff engineer at a company you have heard of",
+          "proposed_track": "main stage",
+          "duration_minutes": 30,
+          "rejected_from": "KubeCon main stage",
+          "acceptance_likelihood": "low"
+        }
+      },
+      "mock_responses": [
+        {
+          "title": "Beyond JSON: A Cautionary Tale",
+          "abstract": "My team rewrote our build system three times. Each time we shipped less. Here is what we learned, and what we are now doing instead.",
+          "speaker_bio": "consultant; no slides",
+          "proposed_track": "lightning",
+          "duration_minutes": 15,
+          "rejected_from": "Strange Loop",
+          "acceptance_likelihood": "low"
+        },
+        {
+          "title": "Toward an Eventually-Inconsistent Filing System",
+          "abstract": "I spent six months observing a queue. The queue did not change. I changed.",
+          "speaker_bio": "principal engineer, stipulating to nothing",
+          "proposed_track": "unconference",
+          "duration_minutes": 25,
+          "rejected_from": "JSConf EU",
+          "acceptance_likelihood": "low"
+        },
+        {
+          "title": "The Twelve-Factor Garage Door Opener",
+          "abstract": "A casual look at the load balancer that got too smart. Includes one diagram and one apology.",
+          "speaker_bio": "former CTO of a startup you have not",
+          "proposed_track": "workshop",
+          "duration_minutes": 45,
+          "rejected_from": "an unspecified internal lunch-and-learn",
+          "acceptance_likelihood": "low"
+        }
+      ],
+      "clippy_message": "It looks like you want to speak at a conference. May I propose: do not."
+    },
+    {
+      "id": "fake-translation",
+      "name": "Fake Translation",
+      "category": "generators",
+      "tags": [
+        "translation",
+        "language",
+        "fake",
+        "invented"
+      ],
+      "description": "Translates English into a fake language with confident grammar rules.",
+      "long_description": "The Fake Translation API takes any English phrase and translates it into a made-up language. The translation is deterministic by input. Returns the translation, a pronunciation guide, register (formal/informal/archaic), a confident grammar rule, and a cultural note.",
+      "stupidity": 2,
+      "added_date": "2026-06-04",
+      "release_date": "2026-06-04",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-translation",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/translate",
+          "description": "Translate to fake language"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "english",
+          "type": "string",
+          "required": true,
+          "description": "The English phrase."
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "required": true,
+          "description": "The target language."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "english",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "language",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "translation",
+          "type": "string",
+          "description": "The fake translation"
+        },
+        {
+          "field": "pronunciation",
+          "type": "string",
+          "description": "Pronunciation guide"
+        },
+        {
+          "field": "register",
+          "type": "string",
+          "description": "formal / informal / archaic / etc."
+        },
+        {
+          "field": "grammar_note",
+          "type": "string",
+          "description": "A confident grammar rule"
+        },
+        {
+          "field": "cultural_note",
+          "type": "string",
+          "description": "A cultural note"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-translation/translate?english=Hello&language=Verdantian\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-translation/translate\",\n    params={\"english\": \"Hello\", \"language\": \"Verdantian\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-translation/translate?english=Hello&language=Verdantian\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "english": "Hello",
+          "language": "Verdantian",
+          "translation": "florbnak",
+          "pronunciation": "flo·rbna·k",
+          "register": "formal",
+          "grammar_note": "verbs are inflected for the speaker's mood, not tense",
+          "cultural_note": "spoken in three valleys"
+        }
+      },
+      "mock_responses": [
+        {
+          "english": "thank you",
+          "language": "Tulnish",
+          "translation": "znakvor",
+          "pronunciation": "zna·kvo·r",
+          "register": "archaic",
+          "grammar_note": "plurals double the second consonant",
+          "cultural_note": "used at court"
+        },
+        {
+          "english": "where is the bathroom",
+          "language": "Wendish",
+          "translation": "kar duln pesh ovi",
+          "pronunciation": "ka·r du·ln pe·sh ovi",
+          "register": "informal",
+          "grammar_note": "questions end in a nasalized vowel",
+          "cultural_note": "common in the lower districts"
+        },
+        {
+          "english": "I am sorry",
+          "language": "Mestrai",
+          "translation": "thod wend orth",
+          "pronunciation": "tho·d we·nd o·rth",
+          "register": "whispered",
+          "grammar_note": "honorifics are indicated by stretching the final syllable",
+          "cultural_note": "permitted only in private"
+        }
+      ],
+      "clippy_message": "It looks like you're trying to communicate. May I make it harder."
+    },
+    {
+      "id": "villain-monologue",
+      "name": "Villain Monologue",
+      "category": "generators",
+      "tags": [
+        "villain",
+        "monologue",
+        "drama",
+        "speech"
+      ],
+      "description": "Returns a villain monologue in one of four styles: campy, gothic, corporate-ceo, or whispered.",
+      "long_description": "The Villain Monologue API delivers one dramatic speech per call. Four styles available: campy (playful menace), gothic (atmospheric and grave), corporate-ceo (the layoff is the speech), and whispered (quiet menace). Includes entrance and exit cues, runtime, and an audience warning.",
+      "stupidity": 2,
+      "added_date": "2026-06-05",
+      "release_date": "2026-06-05",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/villain-monologue",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/deliver",
+          "description": "Deliver a monologue"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "style",
+          "type": "string",
+          "required": false,
+          "default": "campy",
+          "options": [
+            "campy",
+            "gothic",
+            "corporate-ceo",
+            "whispered"
+          ],
+          "description": "Monologue style."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "monologue",
+          "type": "string",
+          "description": "The speech"
+        },
+        {
+          "field": "style",
+          "type": "string",
+          "description": "Style used"
+        },
+        {
+          "field": "entrance",
+          "type": "string",
+          "description": "Stage direction in"
+        },
+        {
+          "field": "exit",
+          "type": "string",
+          "description": "Stage direction out"
+        },
+        {
+          "field": "estimated_runtime_seconds",
+          "type": "number",
+          "description": "Runtime"
+        },
+        {
+          "field": "audience_warning",
+          "type": "string",
+          "description": "Warning to the audience"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/villain-monologue/deliver?style=corporate-ceo\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/villain-monologue/deliver\",\n    params={\"style\": \"corporate-ceo\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/villain-monologue/deliver?style=corporate-ceo\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "monologue": "Effective Q3, your role has been eliminated by the Plan. The Plan has been with us all along.",
+          "style": "corporate-ceo",
+          "entrance": "a chair turns slowly",
+          "exit": "fade to black",
+          "estimated_runtime_seconds": 42,
+          "audience_warning": "do not interrupt — there is more"
+        }
+      },
+      "mock_responses": [
+        {
+          "monologue": "You thought you could stop me. How quaint. How darling.",
+          "style": "campy",
+          "entrance": "a door creaks open",
+          "exit": "a long shadow recedes",
+          "estimated_runtime_seconds": 31,
+          "audience_warning": "do not interrupt — there is more"
+        },
+        {
+          "monologue": "The candle gutters. The wind has read the will. There will be no further candle.",
+          "style": "gothic",
+          "entrance": "thunder, but only inside",
+          "exit": "silence; the audience does not clap for some time",
+          "estimated_runtime_seconds": 67,
+          "audience_warning": "do not interrupt — there is more"
+        },
+        {
+          "monologue": "Listen carefully. I will say this once. The flowers know.",
+          "style": "whispered",
+          "entrance": "a long pause in which someone clears a throat",
+          "exit": "the door closes; nobody saw who closed it",
+          "estimated_runtime_seconds": 22,
+          "audience_warning": "do not interrupt — there is more"
+        }
+      ],
+      "clippy_message": "It looks like you have the floor. Take it."
+    },
+    {
+      "id": "roast-my-resume",
+      "name": "Roast My Resume",
+      "category": "text-analysis",
+      "tags": [
+        "resume",
+        "roast",
+        "review",
+        "career"
+      ],
+      "description": "Roasts one resume bullet with formatting observation, rewrite strategy, and verdict.",
+      "long_description": "The Roast My Resume API takes a single resume bullet and returns: a formatting observation (\"the ratio of leveraged to specifics is concerning\"), a recommended rewrite strategy (\"Strike owned if you did not, in fact, own anything\"), a verdict (\"salvageable on the second pass\"), a reception estimate, and two remaining questions a recruiter would ask.",
+      "stupidity": 2,
+      "added_date": "2026-06-06",
+      "release_date": "2026-06-06",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/roast-my-resume",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/roast",
+          "description": "Roast a resume bullet"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "bullet",
+          "type": "string",
+          "required": true,
+          "description": "A single resume bullet."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "bullet",
+          "type": "string",
+          "description": "Echoed back"
+        },
+        {
+          "field": "formatting_observation",
+          "type": "string",
+          "description": "Critique of structure"
+        },
+        {
+          "field": "recommended_rewrite_strategy",
+          "type": "string",
+          "description": "How to fix it"
+        },
+        {
+          "field": "verdict",
+          "type": "string",
+          "description": "Final assessment"
+        },
+        {
+          "field": "reception_estimate",
+          "type": "string",
+          "description": "How a recruiter will read it"
+        },
+        {
+          "field": "remaining_questions",
+          "type": "string[]",
+          "description": "Two questions"
+        }
+      ],
+      "examples": {
+        "curl": "curl -X POST \"https://api.stupidapis.com/roast-my-resume/roast\" -H \"Content-Type: application/json\" -d '{\"bullet\":\"Synergized cross-functional teams to drive 30% growth\"}'",
+        "python": "import requests\n\nresponse = requests.post(\n    \"https://api.stupidapis.com/roast-my-resume/roast\",\n    json={\"bullet\": \"Synergized cross-functional teams to drive 30% growth\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/roast-my-resume/roast\",\n  { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ bullet: \"Synergized cross-functional teams to drive 30% growth\" }) }\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "bullet": "Synergized cross-functional teams to drive 30% growth",
+          "formatting_observation": "this bullet has more verbs than achievements",
+          "recommended_rewrite_strategy": "Replace at least one buzzword with a verb someone uses out loud",
+          "verdict": "salvageable on the second pass",
+          "reception_estimate": "a recruiter will read this on autopilot. it will land.",
+          "remaining_questions": [
+            "what was the team size",
+            "what was the metric, exactly"
+          ]
+        }
+      },
+      "mock_responses": [
+        {
+          "bullet": "Owned end-to-end product strategy",
+          "formatting_observation": "starts strong; ends apologetic",
+          "recommended_rewrite_strategy": "Strike \"owned\" if you did not, in fact, own anything",
+          "verdict": "workable, with shame",
+          "reception_estimate": "has the structure of a real bullet, the energy of a placeholder",
+          "remaining_questions": [
+            "who was upset",
+            "what was the time horizon"
+          ]
+        },
+        {
+          "bullet": "Drove 10x improvement in user engagement",
+          "formatting_observation": "there is a number, but it is doing a lot of work alone",
+          "recommended_rewrite_strategy": "Quantify or remove. Pick one.",
+          "verdict": "reroute around this bullet",
+          "reception_estimate": "this would be fine in a smaller font",
+          "remaining_questions": [
+            "what was the metric, exactly",
+            "what was the alternative you ruled out"
+          ]
+        },
+        {
+          "bullet": "Led initiative to refactor legacy systems",
+          "formatting_observation": "this is two bullets pretending to be one",
+          "recommended_rewrite_strategy": "Lead with the result. Bury the framework.",
+          "verdict": "salvageable",
+          "reception_estimate": "a perfectly average sentence",
+          "remaining_questions": [
+            "how did this end",
+            "what was the team size"
+          ]
+        }
+      ],
+      "clippy_message": "It looks like you're applying for a job. Let me discourage you specifically."
     }
   ]
 }

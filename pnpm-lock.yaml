@@ -18,6 +18,12 @@ importers:
         specifier: ^4.0.0
         version: 4.80.0(@cloudflare/workers-types@4.20260405.1)
 
+  apis/alignment-chart:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/always-seven:
     dependencies:
       '@stupid-apis/shared':
@@ -31,6 +37,12 @@ importers:
         version: link:../../shared
 
   apis/apology:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/bad-life-advice:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -132,6 +144,18 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-conference-talk:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-historical-event:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-horoscope:
     dependencies:
       '@stupid-apis/shared':
@@ -144,7 +168,31 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-ted-talk:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-translation:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fortune-cookie:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/how-many-licks:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/inspirational-quote:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -217,6 +265,12 @@ importers:
         version: link:../../shared
 
   apis/roast-me:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/roast-my-resume:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -312,6 +366,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/villain-monologue:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/weather-but-lying:
     dependencies:
       '@stupid-apis/shared':
@@ -358,6 +418,9 @@ importers:
 
   workers/gateway:
     dependencies:
+      '@stupid-apis/alignment-chart':
+        specifier: workspace:*
+        version: link:../../apis/alignment-chart
       '@stupid-apis/always-seven':
         specifier: workspace:*
         version: link:../../apis/always-seven
@@ -367,6 +430,9 @@ importers:
       '@stupid-apis/apology':
         specifier: workspace:*
         version: link:../../apis/apology
+      '@stupid-apis/bad-life-advice':
+        specifier: workspace:*
+        version: link:../../apis/bad-life-advice
       '@stupid-apis/band-name':
         specifier: workspace:*
         version: link:../../apis/band-name
@@ -415,15 +481,33 @@ importers:
       '@stupid-apis/fake-cocktail':
         specifier: workspace:*
         version: link:../../apis/fake-cocktail
+      '@stupid-apis/fake-conference-talk':
+        specifier: workspace:*
+        version: link:../../apis/fake-conference-talk
+      '@stupid-apis/fake-historical-event':
+        specifier: workspace:*
+        version: link:../../apis/fake-historical-event
       '@stupid-apis/fake-horoscope':
         specifier: workspace:*
         version: link:../../apis/fake-horoscope
       '@stupid-apis/fake-recipe':
         specifier: workspace:*
         version: link:../../apis/fake-recipe
+      '@stupid-apis/fake-ted-talk':
+        specifier: workspace:*
+        version: link:../../apis/fake-ted-talk
+      '@stupid-apis/fake-translation':
+        specifier: workspace:*
+        version: link:../../apis/fake-translation
       '@stupid-apis/fortune-cookie':
         specifier: workspace:*
         version: link:../../apis/fortune-cookie
+      '@stupid-apis/how-many-licks':
+        specifier: workspace:*
+        version: link:../../apis/how-many-licks
+      '@stupid-apis/inspirational-quote':
+        specifier: workspace:*
+        version: link:../../apis/inspirational-quote
       '@stupid-apis/iss-number':
         specifier: workspace:*
         version: link:../../apis/iss-number
@@ -460,6 +544,9 @@ importers:
       '@stupid-apis/roast-me':
         specifier: workspace:*
         version: link:../../apis/roast-me
+      '@stupid-apis/roast-my-resume':
+        specifier: workspace:*
+        version: link:../../apis/roast-my-resume
       '@stupid-apis/rubber-duck':
         specifier: workspace:*
         version: link:../../apis/rubber-duck
@@ -508,6 +595,9 @@ importers:
       '@stupid-apis/victorian-complaint':
         specifier: workspace:*
         version: link:../../apis/victorian-complaint
+      '@stupid-apis/villain-monologue':
+        specifier: workspace:*
+        version: link:../../apis/villain-monologue
       '@stupid-apis/weather-but-lying':
         specifier: workspace:*
         version: link:../../apis/weather-but-lying

@@ -56,6 +56,16 @@ import fakeCocktail from '@stupid-apis/fake-cocktail';
 import apiErrorPoem from '@stupid-apis/api-error-poem';
 import complimentGenerator from '@stupid-apis/compliment-generator';
 import winePairingButWrong from '@stupid-apis/wine-pairing-but-wrong';
+import fakeTedTalk from '@stupid-apis/fake-ted-talk';
+import badLifeAdvice from '@stupid-apis/bad-life-advice';
+import howManyLicks from '@stupid-apis/how-many-licks';
+import fakeHistoricalEvent from '@stupid-apis/fake-historical-event';
+import inspirationalQuote from '@stupid-apis/inspirational-quote';
+import alignmentChart from '@stupid-apis/alignment-chart';
+import fakeConferenceTalk from '@stupid-apis/fake-conference-talk';
+import fakeTranslation from '@stupid-apis/fake-translation';
+import villainMonologue from '@stupid-apis/villain-monologue';
+import roastMyResume from '@stupid-apis/roast-my-resume';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -142,6 +152,16 @@ const API_PACKS: ApiPack[] = [
   { slug: 'api-error-poem', module: apiErrorPoem, releaseDate: '2026-05-25' },
   { slug: 'compliment-generator', module: complimentGenerator, releaseDate: '2026-05-26' },
   { slug: 'wine-pairing-but-wrong', module: winePairingButWrong, releaseDate: '2026-05-27' },
+  { slug: 'fake-ted-talk', module: fakeTedTalk, releaseDate: '2026-05-28' },
+  { slug: 'bad-life-advice', module: badLifeAdvice, releaseDate: '2026-05-29' },
+  { slug: 'how-many-licks', module: howManyLicks, releaseDate: '2026-05-30' },
+  { slug: 'fake-historical-event', module: fakeHistoricalEvent, releaseDate: '2026-05-31' },
+  { slug: 'inspirational-quote', module: inspirationalQuote, releaseDate: '2026-06-01' },
+  { slug: 'alignment-chart', module: alignmentChart, releaseDate: '2026-06-02' },
+  { slug: 'fake-conference-talk', module: fakeConferenceTalk, releaseDate: '2026-06-03' },
+  { slug: 'fake-translation', module: fakeTranslation, releaseDate: '2026-06-04' },
+  { slug: 'villain-monologue', module: villainMonologue, releaseDate: '2026-06-05' },
+  { slug: 'roast-my-resume', module: roastMyResume, releaseDate: '2026-06-06' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────

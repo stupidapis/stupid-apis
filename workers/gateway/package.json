@@ -65,6 +65,16 @@
     "@stupid-apis/fake-cocktail": "workspace:*",
     "@stupid-apis/api-error-poem": "workspace:*",
     "@stupid-apis/compliment-generator": "workspace:*",
-    "@stupid-apis/wine-pairing-but-wrong": "workspace:*"
+    "@stupid-apis/wine-pairing-but-wrong": "workspace:*",
+    "@stupid-apis/fake-ted-talk": "workspace:*",
+    "@stupid-apis/bad-life-advice": "workspace:*",
+    "@stupid-apis/how-many-licks": "workspace:*",
+    "@stupid-apis/fake-historical-event": "workspace:*",
+    "@stupid-apis/inspirational-quote": "workspace:*",
+    "@stupid-apis/alignment-chart": "workspace:*",
+    "@stupid-apis/fake-conference-talk": "workspace:*",
+    "@stupid-apis/fake-translation": "workspace:*",
+    "@stupid-apis/villain-monologue": "workspace:*",
+    "@stupid-apis/roast-my-resume": "workspace:*"
   }
 }
