@@ -36,6 +36,16 @@ import socialEntropy from '@stupid-apis/social-entropy';
 import fortuneCookie from '@stupid-apis/fortune-cookie';
 import dadJoke from '@stupid-apis/dad-joke';
 import rubberDuck from '@stupid-apis/rubber-duck';
+import weatherButLying from '@stupid-apis/weather-but-lying';
+import emotionalSupportRock from '@stupid-apis/emotional-support-rock';
+import fakeHoroscope from '@stupid-apis/fake-horoscope';
+import corporateBuzzword from '@stupid-apis/corporate-buzzword';
+import pickupLine from '@stupid-apis/pickup-line';
+import medievalJobTitle from '@stupid-apis/medieval-job-title';
+import catFactButFake from '@stupid-apis/cat-fact-but-fake';
+import bandName from '@stupid-apis/band-name';
+import fakeChangelog from '@stupid-apis/fake-changelog';
+import wouldYouRather from '@stupid-apis/would-you-rather';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -44,6 +54,9 @@ interface Env {
   REDDIT_CLIENT_ID: string;
   REDDIT_CLIENT_SECRET: string;
   RATE_LIMIT: KVNamespace;
+  RESEND_API_KEY?: string;       // secret: wrangler secret put RESEND_API_KEY
+  NOTIFY_EMAIL?: string;         // [vars] in wrangler.toml
+  FROM_EMAIL?: string;           // [vars] in wrangler.toml
 }
 
 interface ApiPack {
@@ -99,6 +112,16 @@ const API_PACKS: ApiPack[] = [
   { slug: 'fortune-cookie', module: fortuneCookie, releaseDate: '2026-05-05' },
   { slug: 'dad-joke', module: dadJoke, releaseDate: '2026-05-06' },
   { slug: 'rubber-duck', module: rubberDuck, releaseDate: '2026-05-07' },
+  { slug: 'weather-but-lying', module: weatherButLying, releaseDate: '2026-05-08' },
+  { slug: 'emotional-support-rock', module: emotionalSupportRock, releaseDate: '2026-05-09' },
+  { slug: 'fake-horoscope', module: fakeHoroscope, releaseDate: '2026-05-10' },
+  { slug: 'corporate-buzzword', module: corporateBuzzword, releaseDate: '2026-05-11' },
+  { slug: 'pickup-line', module: pickupLine, releaseDate: '2026-05-12' },
+  { slug: 'medieval-job-title', module: medievalJobTitle, releaseDate: '2026-05-13' },
+  { slug: 'cat-fact-but-fake', module: catFactButFake, releaseDate: '2026-05-14' },
+  { slug: 'band-name', module: bandName, releaseDate: '2026-05-15' },
+  { slug: 'fake-changelog', module: fakeChangelog, releaseDate: '2026-05-16' },
+  { slug: 'would-you-rather', module: wouldYouRather, releaseDate: '2026-05-17' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────
@@ -148,6 +171,55 @@ function computeDailyDrop(today: string = todayUTC()): DailyDrop | null {
     mcp_url: `https://api.stupidapis.com/${pack.slug}/mcp`,
     rest_base: `https://api.stupidapis.com/${pack.slug}`,
   };
+}
+
+// ── Email Notification (Resend) ───────────────────────────────
+
+function prettySlug(slug: string): string {
+  return slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+async function sendDropEmail(env: Env, drop: DailyDrop): Promise<void> {
+  const apiKey = env.RESEND_API_KEY;
+  const to = env.NOTIFY_EMAIL;
+  if (!apiKey || !to) return;
+
+  const name = prettySlug(drop.slug);
+  const tagline = drop.tools[0]?.description ?? 'A new stupid API.';
+  const sampleTool = drop.tools[0]?.name ?? '';
+  const sampleUrl = sampleTool ? `${drop.rest_base}/${sampleTool}` : drop.rest_base;
+
+  const subject = `🥠 New stupid API: ${name}`;
+  const text = `A new stupid API has joined the catalog.
+
+Today's drop: ${name}
+${tagline}
+
+Try it:
+  curl "${sampleUrl}"
+
+Page: https://stupidapis.com/apis/${drop.slug}.html
+MCP:  ${drop.mcp_url}
+
+— The Cron`;
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${apiKey}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: env.FROM_EMAIL ?? 'Stupid APIs <onboarding@resend.dev>',
+        to,
+        subject,
+        text,
+      }),
+    });
+  } catch {
+    // Best-effort. Cron does not need to fail loudly.
+  }
 }
 
 // Slugs that need KV passthrough
@@ -559,7 +631,7 @@ export default {
     return json({ error: 'Not found' }, 404);
   },
 
-  // Midnight GMT cron: generate daily number + cache today's API drop
+  // Midnight GMT cron: generate daily number + cache today's API drop + notify on new release
   async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
     const today = todayUTC();
     const packEnv: PackEnv = {
@@ -575,12 +647,20 @@ export default {
       })(),
     );
 
-    // Cache today's drop so /today is fast and stable for the day.
+    // Cache today's drop and email on actual new releases (not random picks).
     ctx.waitUntil(
       (async () => {
         const drop = computeDailyDrop(today);
-        if (drop) {
-          await env.RATE_LIMIT.put(`daily:drop:${today}`, JSON.stringify(drop), { expirationTtl: 172800 });
+        if (!drop) return;
+        await env.RATE_LIMIT.put(`daily:drop:${today}`, JSON.stringify(drop), { expirationTtl: 172800 });
+        if (drop.is_new_release && env.RESEND_API_KEY && env.NOTIFY_EMAIL) {
+          // Idempotency guard: don't double-send if cron fires twice for the same date.
+          const sentKey = `daily:emailed:${today}`;
+          const already = await env.RATE_LIMIT.get(sentKey);
+          if (!already) {
+            await sendDropEmail(env, drop);
+            await env.RATE_LIMIT.put(sentKey, '1', { expirationTtl: 172800 });
+          }
         }
       })(),
     );

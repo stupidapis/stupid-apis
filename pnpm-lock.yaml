@@ -30,7 +30,19 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/band-name:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/buzzword-density:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/cat-fact-but-fake:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -54,6 +66,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/corporate-buzzword:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/could-have-been-email:
     dependencies:
       '@stupid-apis/shared':
@@ -72,7 +90,25 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/emotional-support-rock:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/excuse:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-changelog:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-horoscope:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -108,6 +144,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/medieval-job-title:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/mercury-number:
     dependencies:
       '@stupid-apis/shared':
@@ -127,6 +169,12 @@ importers:
         version: link:../../shared
 
   apis/phoenix-number:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/pickup-line:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -222,6 +270,18 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/weather-but-lying:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/would-you-rather:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/yc-rejection:
     dependencies:
       '@stupid-apis/shared':
@@ -244,9 +304,15 @@ importers:
       '@stupid-apis/apology':
         specifier: workspace:*
         version: link:../../apis/apology
+      '@stupid-apis/band-name':
+        specifier: workspace:*
+        version: link:../../apis/band-name
       '@stupid-apis/buzzword-density':
         specifier: workspace:*
         version: link:../../apis/buzzword-density
+      '@stupid-apis/cat-fact-but-fake':
+        specifier: workspace:*
+        version: link:../../apis/cat-fact-but-fake
       '@stupid-apis/chaos-index':
         specifier: workspace:*
         version: link:../../apis/chaos-index
@@ -256,6 +322,9 @@ importers:
       '@stupid-apis/corporate-apology':
         specifier: workspace:*
         version: link:../../apis/corporate-apology
+      '@stupid-apis/corporate-buzzword':
+        specifier: workspace:*
+        version: link:../../apis/corporate-buzzword
       '@stupid-apis/could-have-been-email':
         specifier: workspace:*
         version: link:../../apis/could-have-been-email
@@ -265,9 +334,18 @@ importers:
       '@stupid-apis/emoji-oracle':
         specifier: workspace:*
         version: link:../../apis/emoji-oracle
+      '@stupid-apis/emotional-support-rock':
+        specifier: workspace:*
+        version: link:../../apis/emotional-support-rock
       '@stupid-apis/excuse':
         specifier: workspace:*
         version: link:../../apis/excuse
+      '@stupid-apis/fake-changelog':
+        specifier: workspace:*
+        version: link:../../apis/fake-changelog
+      '@stupid-apis/fake-horoscope':
+        specifier: workspace:*
+        version: link:../../apis/fake-horoscope
       '@stupid-apis/fortune-cookie':
         specifier: workspace:*
         version: link:../../apis/fortune-cookie
@@ -283,6 +361,9 @@ importers:
       '@stupid-apis/magic-8-ball':
         specifier: workspace:*
         version: link:../../apis/magic-8-ball
+      '@stupid-apis/medieval-job-title':
+        specifier: workspace:*
+        version: link:../../apis/medieval-job-title
       '@stupid-apis/mercury-number':
         specifier: workspace:*
         version: link:../../apis/mercury-number
@@ -295,6 +376,9 @@ importers:
       '@stupid-apis/phoenix-number':
         specifier: workspace:*
         version: link:../../apis/phoenix-number
+      '@stupid-apis/pickup-line':
+        specifier: workspace:*
+        version: link:../../apis/pickup-line
       '@stupid-apis/press-release':
         specifier: workspace:*
         version: link:../../apis/press-release
@@ -343,6 +427,12 @@ importers:
       '@stupid-apis/victorian-complaint':
         specifier: workspace:*
         version: link:../../apis/victorian-complaint
+      '@stupid-apis/weather-but-lying':
+        specifier: workspace:*
+        version: link:../../apis/weather-but-lying
+      '@stupid-apis/would-you-rather':
+        specifier: workspace:*
+        version: link:../../apis/would-you-rather
       '@stupid-apis/yc-rejection':
         specifier: workspace:*
         version: link:../../apis/yc-rejection

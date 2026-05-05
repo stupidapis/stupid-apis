@@ -45,6 +45,16 @@
     "@stupid-apis/social-entropy": "workspace:*",
     "@stupid-apis/fortune-cookie": "workspace:*",
     "@stupid-apis/dad-joke": "workspace:*",
-    "@stupid-apis/rubber-duck": "workspace:*"
+    "@stupid-apis/rubber-duck": "workspace:*",
+    "@stupid-apis/weather-but-lying": "workspace:*",
+    "@stupid-apis/emotional-support-rock": "workspace:*",
+    "@stupid-apis/fake-horoscope": "workspace:*",
+    "@stupid-apis/corporate-buzzword": "workspace:*",
+    "@stupid-apis/pickup-line": "workspace:*",
+    "@stupid-apis/medieval-job-title": "workspace:*",
+    "@stupid-apis/cat-fact-but-fake": "workspace:*",
+    "@stupid-apis/band-name": "workspace:*",
+    "@stupid-apis/fake-changelog": "workspace:*",
+    "@stupid-apis/would-you-rather": "workspace:*"
   }
 }

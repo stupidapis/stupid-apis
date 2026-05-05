@@ -4445,6 +4445,1129 @@
         }
       ],
       "clippy_message": "It looks like you're stuck. Tell the duck. The duck is not listening, but tell the duck."
+    },
+    {
+      "id": "weather-but-lying",
+      "name": "Weather But Lying",
+      "category": "oracles",
+      "tags": [
+        "weather",
+        "lying",
+        "forecast",
+        "fiction"
+      ],
+      "description": "Returns a confidently incorrect weather forecast for any city. Temperature, conditions, recommendation — all wrong.",
+      "long_description": "The Weather But Lying API delivers weather forecasts that are confident, specific, and incorrect. Temperatures range from -200°F to 600°F. Conditions include \"sentient drizzle\" and \"scattered guilt.\" Each report includes a recommendation, like \"stay close to walls.\" Source is unverifiable. Confidence is 100%.",
+      "stupidity": 2,
+      "added_date": "2026-05-08",
+      "release_date": "2026-05-08",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/weather-but-lying",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/forecast",
+          "description": "Get a wrong forecast"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "city",
+          "type": "string",
+          "required": true,
+          "description": "City name. Spelling is unverified."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "city",
+          "type": "string",
+          "description": "The city you asked about, echoed"
+        },
+        {
+          "field": "temperature_f",
+          "type": "number",
+          "description": "Temperature in Fahrenheit. Wide range."
+        },
+        {
+          "field": "conditions",
+          "type": "string",
+          "description": "Current conditions. Often emotional."
+        },
+        {
+          "field": "humidity_pct",
+          "type": "number",
+          "description": "Humidity percentage. May exceed 100."
+        },
+        {
+          "field": "wind",
+          "type": "string",
+          "description": "Wind description with direction (sometimes)"
+        },
+        {
+          "field": "pressure",
+          "type": "string",
+          "description": "Barometric trend"
+        },
+        {
+          "field": "recommendation",
+          "type": "string",
+          "description": "What to do today"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Always 100%"
+        },
+        {
+          "field": "source",
+          "type": "string",
+          "description": "Always \"unverifiable\""
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/weather-but-lying/forecast?city=Tokyo\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/weather-but-lying/forecast\",\n    params={\"city\": \"Tokyo\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/weather-but-lying/forecast?city=Tokyo\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "city": "Tokyo",
+          "temperature_f": 412,
+          "conditions": "light meatball showers",
+          "humidity_pct": 200,
+          "wind": "sustained 88 mph from a direction not yet named",
+          "pressure": "plummeting",
+          "recommendation": "stay indoors and reconsider your priorities",
+          "confidence": "100%",
+          "source": "unverifiable"
+        }
+      },
+      "mock_responses": [
+        {
+          "city": "Paris",
+          "temperature_f": -47,
+          "conditions": "sentient drizzle",
+          "humidity_pct": 280,
+          "wind": "gusting toward your ex",
+          "pressure": "falling",
+          "recommendation": "eat soup",
+          "confidence": "100%",
+          "source": "unverifiable"
+        },
+        {
+          "city": "Phoenix",
+          "temperature_f": 488,
+          "conditions": "a dry, suspicious heat",
+          "humidity_pct": 4,
+          "wind": "absent. suspiciously absent.",
+          "pressure": "stable but disappointed",
+          "recommendation": "do not look up",
+          "confidence": "100%",
+          "source": "unverifiable"
+        },
+        {
+          "city": "Reykjavik",
+          "temperature_f": -156,
+          "conditions": "fog that knows your full name",
+          "humidity_pct": 119,
+          "wind": "circulating, but not for you",
+          "pressure": "undisclosed",
+          "recommendation": "stay close to walls",
+          "confidence": "100%",
+          "source": "unverifiable"
+        }
+      ],
+      "clippy_message": "It looks like you want to go outside. Have you considered: don't."
+    },
+    {
+      "id": "emotional-support-rock",
+      "name": "Emotional Support Rock",
+      "category": "oracles",
+      "tags": [
+        "support",
+        "rock",
+        "silence",
+        "presence"
+      ],
+      "description": "Tell a rock your problem. The rock does not analyze, advise, or judge. The rock is, however, present.",
+      "long_description": "The Emotional Support Rock API recreates the experience of telling your problem to a rock. The rock returns its response (mostly silence and grunts), its mood (typically still), its grade (igneous, sedimentary, or metamorphic), and the weight lifted (typically unchanged). The rock will not judge.",
+      "stupidity": 1,
+      "added_date": "2026-05-09",
+      "release_date": "2026-05-09",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/emotional-support-rock",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/support",
+          "description": "Tell the rock"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "problem",
+          "type": "string",
+          "required": true,
+          "description": "What is bothering you. The rock will hear it."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "problem",
+          "type": "string",
+          "description": "Your problem, echoed"
+        },
+        {
+          "field": "rock_says",
+          "type": "string",
+          "description": "The rock's response"
+        },
+        {
+          "field": "rock_mood",
+          "type": "string",
+          "description": "How the rock is doing today"
+        },
+        {
+          "field": "rock_grade",
+          "type": "string",
+          "description": "igneous, sedimentary, or metamorphic"
+        },
+        {
+          "field": "weight_lifted",
+          "type": "string",
+          "description": "Subjective change in burden"
+        },
+        {
+          "field": "emotional_support_provided",
+          "type": "boolean",
+          "description": "Always true"
+        },
+        {
+          "field": "rock_will_not_judge",
+          "type": "boolean",
+          "description": "Always true"
+        }
+      ],
+      "examples": {
+        "curl": "curl -X POST \"https://api.stupidapis.com/emotional-support-rock/support\" -H \"Content-Type: application/json\" -d '{\"problem\":\"i sent the email to the wrong person\"}'",
+        "python": "import requests\n\nresponse = requests.post(\n    \"https://api.stupidapis.com/emotional-support-rock/support\",\n    json={\"problem\": \"i sent the email to the wrong person\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/emotional-support-rock/support\",\n  { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ problem: \"i sent the email to the wrong person\" }) }\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "problem": "i sent the email to the wrong person",
+          "rock_says": "*the rock has heard worse*",
+          "rock_mood": "patient",
+          "rock_grade": "sedimentary",
+          "weight_lifted": "somewhat lower",
+          "emotional_support_provided": true,
+          "rock_will_not_judge": true
+        }
+      },
+      "mock_responses": [
+        {
+          "problem": "my code does not compile",
+          "rock_says": "...",
+          "rock_mood": "still",
+          "rock_grade": "igneous",
+          "weight_lifted": "unchanged",
+          "emotional_support_provided": true,
+          "rock_will_not_judge": true
+        },
+        {
+          "problem": "i think i offended my friend",
+          "rock_says": "*the rock will not interrupt you*",
+          "rock_mood": "present",
+          "rock_grade": "metamorphic",
+          "weight_lifted": "slightly lower",
+          "emotional_support_provided": true,
+          "rock_will_not_judge": true
+        },
+        {
+          "problem": "i missed a deadline",
+          "rock_says": "*a small grunt of acknowledgment*",
+          "rock_mood": "undisturbed",
+          "rock_grade": "igneous",
+          "weight_lifted": "about the same",
+          "emotional_support_provided": true,
+          "rock_will_not_judge": true
+        }
+      ],
+      "clippy_message": "It looks like you're processing something. The rock is here."
+    },
+    {
+      "id": "fake-horoscope",
+      "name": "Fake Horoscope",
+      "category": "oracles",
+      "tags": [
+        "horoscope",
+        "zodiac",
+        "astrology",
+        "mysticism"
+      ],
+      "description": "Daily horoscope: vague mysticism plus a mundane warning. Returns reading, lucky color, unlucky object, emotional forecast, and cosmic advice.",
+      "long_description": "The Fake Horoscope API delivers daily horoscopes for all twelve signs, combining vague celestial events (\"Mercury enters retrograde in your fourth house\") with mundane warnings (\"avoid open-plan offices on Tuesday\"). Includes lucky color, unlucky object, emotional forecast, and cosmic advice. The reading is generic. The certainty is total.",
+      "stupidity": 2,
+      "added_date": "2026-05-10",
+      "release_date": "2026-05-10",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-horoscope",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/read",
+          "description": "Read your horoscope"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "sign",
+          "type": "string",
+          "required": true,
+          "options": [
+            "aries",
+            "taurus",
+            "gemini",
+            "cancer",
+            "leo",
+            "virgo",
+            "libra",
+            "scorpio",
+            "sagittarius",
+            "capricorn",
+            "aquarius",
+            "pisces"
+          ],
+          "description": "Your zodiac sign, lowercase."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "sign",
+          "type": "string",
+          "description": "Your sign"
+        },
+        {
+          "field": "reading",
+          "type": "string",
+          "description": "The horoscope itself"
+        },
+        {
+          "field": "lucky_color",
+          "type": "string",
+          "description": "Color of the day"
+        },
+        {
+          "field": "unlucky_object",
+          "type": "string",
+          "description": "Object to avoid"
+        },
+        {
+          "field": "emotional_forecast",
+          "type": "string",
+          "description": "Mood for the day"
+        },
+        {
+          "field": "cosmic_advice",
+          "type": "string",
+          "description": "A short instruction from the universe"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-horoscope/read?sign=leo\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-horoscope/read\",\n    params={\"sign\": \"leo\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-horoscope/read?sign=leo\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "sign": "leo",
+          "reading": "Mercury enters retrograde in your fourth house. This is significant for you specifically. Avoid open-plan offices on Tuesday.",
+          "lucky_color": "burnt sienna",
+          "unlucky_object": "a mug",
+          "emotional_forecast": "mildly metaphysical",
+          "cosmic_advice": "be water"
+        }
+      },
+      "mock_responses": [
+        {
+          "sign": "cancer",
+          "reading": "Saturn has expectations of you. This is significant for you specifically. The wifi will betray you exactly once.",
+          "lucky_color": "lavender",
+          "unlucky_object": "group chats",
+          "emotional_forecast": "flat",
+          "cosmic_advice": "go to bed"
+        },
+        {
+          "sign": "aries",
+          "reading": "Mars is in your DMs. This is significant for you specifically. A meeting will run long.",
+          "lucky_color": "unsuspicious red",
+          "unlucky_object": "voicemails",
+          "emotional_forecast": "open to suggestion",
+          "cosmic_advice": "forgive the printer"
+        },
+        {
+          "sign": "pisces",
+          "reading": "the moon is in a mood you have seen before. This is significant for you specifically. You will lose a sock to forces you cannot name.",
+          "lucky_color": "gray, but warm",
+          "unlucky_object": "lozenges",
+          "emotional_forecast": "stoic",
+          "cosmic_advice": "eat a vegetable"
+        }
+      ],
+      "clippy_message": "It looks like you're seeking cosmic guidance. The cosmos is busy."
+    },
+    {
+      "id": "corporate-buzzword",
+      "name": "Corporate Buzzword",
+      "category": "generators",
+      "tags": [
+        "corporate",
+        "jargon",
+        "office",
+        "meetings"
+      ],
+      "description": "Generates corporate buzzword text. Format: phrase, sentence, paragraph, or vision (statement).",
+      "long_description": "The Corporate Buzzword API produces synergistic, cross-functional, value-add language at four lengths: phrase, sentence, paragraph, or full vision statement. Useful for filling slide decks, opening emails, or saying nothing in a long meeting. Jargon density is high. Meaning is unclear by design.",
+      "stupidity": 2,
+      "added_date": "2026-05-11",
+      "release_date": "2026-05-11",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/corporate-buzzword",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate buzzword text"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "default": "sentence",
+          "options": [
+            "phrase",
+            "sentence",
+            "paragraph",
+            "vision"
+          ],
+          "description": "Output length and structure."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "output",
+          "type": "string",
+          "description": "The generated text"
+        },
+        {
+          "field": "format",
+          "type": "string",
+          "description": "Format used"
+        },
+        {
+          "field": "jargon_density",
+          "type": "string",
+          "description": "Self-reported density (always high)"
+        },
+        {
+          "field": "meaning",
+          "type": "string",
+          "description": "Always \"unclear by design\""
+        },
+        {
+          "field": "suggested_use",
+          "type": "string",
+          "description": "Where to deploy this"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/corporate-buzzword/generate?format=vision\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/corporate-buzzword/generate\",\n    params={\"format\": \"vision\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/corporate-buzzword/generate?format=vision\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "output": "To be the most cross-functional alignment in our space — empowering teams to operationalize agile takeaways at unprecedented scale.",
+          "format": "vision",
+          "jargon_density": "94%",
+          "meaning": "unclear by design",
+          "suggested_use": "a slide deck"
+        }
+      },
+      "mock_responses": [
+        {
+          "output": "leverage our scalable bandwidth",
+          "format": "phrase",
+          "jargon_density": "78%",
+          "meaning": "unclear by design",
+          "suggested_use": "a slide deck"
+        },
+        {
+          "output": "We need to synergize our north-star deliverables in order to drive optics across runway.",
+          "format": "sentence",
+          "jargon_density": "88%",
+          "meaning": "unclear by design",
+          "suggested_use": "a slide deck"
+        },
+        {
+          "output": "We need to ideate our holistic narrative in order to drive paradigm into KPIs. We need to right-size our customer-obsessed runway in order to drive learnings against bandwidth. We need to circle back on our strategic roadmap in order to drive verticals across deliverables.",
+          "format": "paragraph",
+          "jargon_density": "99%",
+          "meaning": "unclear by design",
+          "suggested_use": "a slide deck"
+        }
+      ],
+      "clippy_message": "It looks like you're writing a deck. Let's circle back on that."
+    },
+    {
+      "id": "pickup-line",
+      "name": "Pickup Line",
+      "category": "generators",
+      "tags": [
+        "pickup",
+        "flirting",
+        "humor",
+        "rejection"
+      ],
+      "description": "Returns a pickup line by category: nerd, food, science, or terrible. Includes the estimated rejection rate.",
+      "long_description": "The Pickup Line API returns one cheesy pickup line by category. Each line ships with an estimated rejection rate (always high), delivery advice (\"commit fully\"), and required confidence level (\"unreasonable\"). The terrible category is, by design, terrible.",
+      "stupidity": 2,
+      "added_date": "2026-05-12",
+      "release_date": "2026-05-12",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/pickup-line",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/line",
+          "description": "Get a pickup line"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "default": "terrible",
+          "options": [
+            "nerd",
+            "food",
+            "science",
+            "terrible"
+          ],
+          "description": "Pickup line category."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "line",
+          "type": "string",
+          "description": "The pickup line"
+        },
+        {
+          "field": "category",
+          "type": "string",
+          "description": "Category used"
+        },
+        {
+          "field": "estimated_rejection_rate",
+          "type": "string",
+          "description": "Estimated chance of failure"
+        },
+        {
+          "field": "delivery_advice",
+          "type": "string",
+          "description": "How to use it"
+        },
+        {
+          "field": "confidence_required",
+          "type": "string",
+          "description": "Required level of confidence"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/pickup-line/line?category=nerd\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/pickup-line/line\",\n    params={\"category\": \"nerd\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/pickup-line/line?category=nerd\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "line": "Are you HTTPS? Because I trust you with my data.",
+          "category": "nerd",
+          "estimated_rejection_rate": "78%",
+          "delivery_advice": "commit fully. there is no half-commit option.",
+          "confidence_required": "unreasonable"
+        }
+      },
+      "mock_responses": [
+        {
+          "line": "Hi.",
+          "category": "terrible",
+          "estimated_rejection_rate": "97%",
+          "delivery_advice": "commit fully. there is no half-commit option.",
+          "confidence_required": "unreasonable"
+        },
+        {
+          "line": "You must be made of copper and tellurium because you are Cu-Te.",
+          "category": "science",
+          "estimated_rejection_rate": "88%",
+          "delivery_advice": "commit fully. there is no half-commit option.",
+          "confidence_required": "unreasonable"
+        },
+        {
+          "line": "If you were a fruit, you would be a fineapple.",
+          "category": "food",
+          "estimated_rejection_rate": "74%",
+          "delivery_advice": "commit fully. there is no half-commit option.",
+          "confidence_required": "unreasonable"
+        }
+      ],
+      "clippy_message": "It looks like you're flirting. Have you considered: don't."
+    },
+    {
+      "id": "medieval-job-title",
+      "name": "Medieval Job Title",
+      "category": "generators",
+      "tags": [
+        "medieval",
+        "jobs",
+        "titles",
+        "linkedin"
+      ],
+      "description": "Convert a modern job title to its medieval equivalent. Returns court role, responsibilities, and a usable email signature.",
+      "long_description": "The Medieval Job Title API converts your modern title into something more dignified. \"Senior Frontend Engineer\" becomes \"Royal Illuminator of Glass Tablets.\" Each conversion ships with three responsibilities, a court role (minor/middle/high), an email signature, and an approximate year somewhere between 1100 and 1500.",
+      "stupidity": 1,
+      "added_date": "2026-05-13",
+      "release_date": "2026-05-13",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/medieval-job-title",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/convert",
+          "description": "Convert a title"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Modern job title, e.g. \"Senior Frontend Engineer\""
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "modern_title",
+          "type": "string",
+          "description": "The original title"
+        },
+        {
+          "field": "medieval_title",
+          "type": "string",
+          "description": "The medieval equivalent"
+        },
+        {
+          "field": "court_role",
+          "type": "string",
+          "description": "minor / middle / high"
+        },
+        {
+          "field": "responsibilities",
+          "type": "string[]",
+          "description": "Three duties"
+        },
+        {
+          "field": "email_signature",
+          "type": "string",
+          "description": "Drop into your email client"
+        },
+        {
+          "field": "approximate_year",
+          "type": "number",
+          "description": "Era of practice (1100-1500)"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/medieval-job-title/convert?title=Senior+Frontend+Engineer\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/medieval-job-title/convert\",\n    params={\"title\": \"Senior Frontend Engineer\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/medieval-job-title/convert?title=Senior+Frontend+Engineer\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "modern_title": "Senior Frontend Engineer",
+          "medieval_title": "Royal Illuminator of Glass Tablets",
+          "court_role": "middle",
+          "responsibilities": [
+            "maintain the parchment ledgers",
+            "attend the morning briefing of the Council",
+            "inspect the seals before they are broken"
+          ],
+          "email_signature": "In service to the Crown,\nRoyal Illuminator of Glass Tablets",
+          "approximate_year": 1247
+        }
+      },
+      "mock_responses": [
+        {
+          "modern_title": "Product Manager",
+          "medieval_title": "Lord High Steward of the Counting House",
+          "court_role": "high",
+          "responsibilities": [
+            "verify the count of barrels",
+            "note absences and report them to the Reeve",
+            "ensure the candles do not gutter"
+          ],
+          "email_signature": "Yours in fealty,\nLord High Steward of the Counting House",
+          "approximate_year": 1183
+        },
+        {
+          "modern_title": "Customer Support Rep",
+          "medieval_title": "Page Crier of Pigeons",
+          "court_role": "minor",
+          "responsibilities": [
+            "bring the news to the kitchen by sundown",
+            "rotate the watch of the gates",
+            "transcribe the dispatches of the High Court"
+          ],
+          "email_signature": "Faithfully,\nPage Crier of Pigeons",
+          "approximate_year": 1378
+        },
+        {
+          "modern_title": "Data Scientist",
+          "medieval_title": "Court Astrologer of Ledgers",
+          "court_role": "middle",
+          "responsibilities": [
+            "inspect the seals before they are broken",
+            "attend the morning briefing of the Council",
+            "maintain the parchment ledgers"
+          ],
+          "email_signature": "By the seal of the High Court,\nCourt Astrologer of Ledgers",
+          "approximate_year": 1422
+        }
+      ],
+      "clippy_message": "It looks like you're updating your LinkedIn. Allow me to assist."
+    },
+    {
+      "id": "cat-fact-but-fake",
+      "name": "Cat Fact But Fake",
+      "category": "generators",
+      "tags": [
+        "cat",
+        "fact",
+        "misinformation",
+        "fake"
+      ],
+      "description": "Returns a confidently incorrect cat fact with a fake source. The fact is wrong. The confidence is total.",
+      "long_description": "The Cat Fact But Fake API returns one fake cat fact per call, with a fabricated source. Every fact is wrong. Every source is invented. The confidence is absolute. Factual accuracy is documented as 0.",
+      "stupidity": 2,
+      "added_date": "2026-05-14",
+      "release_date": "2026-05-14",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/cat-fact-but-fake",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/fact",
+          "description": "Get a fake cat fact"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "fact",
+          "type": "string",
+          "description": "The fake fact"
+        },
+        {
+          "field": "source",
+          "type": "string",
+          "description": "A made-up source"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Always \"absolute\""
+        },
+        {
+          "field": "factual_accuracy",
+          "type": "number",
+          "description": "Always 0"
+        },
+        {
+          "field": "citation_quality",
+          "type": "string",
+          "description": "Always \"lateral\""
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/cat-fact-but-fake/fact\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/cat-fact-but-fake/fact\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/cat-fact-but-fake/fact\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "fact": "Cats have 14 stomachs, used exclusively for grudges.",
+          "source": "Journal of Unverified Mammalogy",
+          "confidence": "absolute",
+          "factual_accuracy": 0,
+          "citation_quality": "lateral"
+        }
+      },
+      "mock_responses": [
+        {
+          "fact": "Cats invented Tuesday.",
+          "source": "a cat told me",
+          "confidence": "absolute",
+          "factual_accuracy": 0,
+          "citation_quality": "lateral"
+        },
+        {
+          "fact": "A cat's purr operates at 26 Hz, the same frequency as mild disappointment.",
+          "source": "peer review pending",
+          "confidence": "absolute",
+          "factual_accuracy": 0,
+          "citation_quality": "lateral"
+        },
+        {
+          "fact": "The taxonomic genus for the housecat is Felis vindicta.",
+          "source": "a 1973 textbook later withdrawn",
+          "confidence": "absolute",
+          "factual_accuracy": 0,
+          "citation_quality": "lateral"
+        }
+      ],
+      "clippy_message": "It looks like you want to learn. May I suggest learning incorrectly."
+    },
+    {
+      "id": "band-name",
+      "name": "Band Name",
+      "category": "generators",
+      "tags": [
+        "band",
+        "music",
+        "name",
+        "creative"
+      ],
+      "description": "Generates a fake band: name, genre, hit song, hit year, breakup year, and legacy.",
+      "long_description": "The Band Name API generates one complete fake band per call. Includes the band name, a likely-fictional genre (\"synthgrass,\" \"doom-folk\"), a hit song title, the year of the hit, the year they broke up, and a one-line legacy. All bands are equally real, which is to say not.",
+      "stupidity": 1,
+      "added_date": "2026-05-15",
+      "release_date": "2026-05-15",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/band-name",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a fake band"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "band_name",
+          "type": "string",
+          "description": "The band's name"
+        },
+        {
+          "field": "genre",
+          "type": "string",
+          "description": "A genre, possibly real"
+        },
+        {
+          "field": "hit_song",
+          "type": "string",
+          "description": "Their one hit"
+        },
+        {
+          "field": "hit_year",
+          "type": "number",
+          "description": "Year of the hit"
+        },
+        {
+          "field": "breakup_year",
+          "type": "number",
+          "description": "Year they broke up"
+        },
+        {
+          "field": "legacy",
+          "type": "string",
+          "description": "How they are remembered"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/band-name/generate\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/band-name/generate\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/band-name/generate\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "band_name": "The Velvet Toasters",
+          "genre": "synthgrass",
+          "hit_song": "Crumbs of Yesterday",
+          "hit_year": 1988,
+          "breakup_year": 1992,
+          "legacy": "one EP, lost"
+        }
+      },
+      "mock_responses": [
+        {
+          "band_name": "Saint Lonergan",
+          "genre": "doom-folk",
+          "hit_song": "My Mother's Briefcase",
+          "hit_year": 2003,
+          "breakup_year": 2010,
+          "legacy": "a B-side that aged well"
+        },
+        {
+          "band_name": "Kitchens, Crows",
+          "genre": "sad funk",
+          "hit_song": "Receipt Paper",
+          "hit_year": 1995,
+          "breakup_year": 2001,
+          "legacy": "cited as an influence by people who never heard them"
+        },
+        {
+          "band_name": "The Wounded Compromise",
+          "genre": "church-basement noise",
+          "hit_song": "Two-Bedroom Apocalypse",
+          "hit_year": 2014,
+          "breakup_year": 2017,
+          "legacy": "mostly remembered for a feud"
+        }
+      ],
+      "clippy_message": "It looks like you're starting a band. The merch is the easy part."
+    },
+    {
+      "id": "fake-changelog",
+      "name": "Fake Changelog",
+      "category": "generators",
+      "tags": [
+        "changelog",
+        "release",
+        "software",
+        "passive-aggressive"
+      ],
+      "description": "Generates a passive-aggressive software changelog. Returns fixed/added/changed/removed/known_issues sections.",
+      "long_description": "The Fake Changelog API generates a complete software changelog for any version string. Sections include \"Fixed\" (bugs nobody reported), \"Added\" (features nobody asked for), \"Changed\" (refactors that did nothing), \"Removed\" (the dark mode toggle), and \"Known Issues\" (the bug is now in a different place). Signed by the team.",
+      "stupidity": 2,
+      "added_date": "2026-05-16",
+      "release_date": "2026-05-16",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/fake-changelog",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a changelog"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "version",
+          "type": "string",
+          "required": true,
+          "description": "Version string, e.g. \"2.4.1\""
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "version",
+          "type": "string",
+          "description": "Version string"
+        },
+        {
+          "field": "released",
+          "type": "string",
+          "description": "Today's date"
+        },
+        {
+          "field": "fixed",
+          "type": "string[]",
+          "description": "Bug fixes"
+        },
+        {
+          "field": "added",
+          "type": "string[]",
+          "description": "New features"
+        },
+        {
+          "field": "changed",
+          "type": "string[]",
+          "description": "Internal changes"
+        },
+        {
+          "field": "removed",
+          "type": "string[]",
+          "description": "Removed things"
+        },
+        {
+          "field": "known_issues",
+          "type": "string[]",
+          "description": "Things you should know"
+        },
+        {
+          "field": "signed_by",
+          "type": "string",
+          "description": "Always \"the team\""
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/fake-changelog/generate?version=2.4.1\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/fake-changelog/generate\",\n    params={\"version\": \"2.4.1\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/fake-changelog/generate?version=2.4.1\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "version": "2.4.1",
+          "released": "2026-05-16",
+          "fixed": [
+            "Fixed a bug nobody reported but everyone suffered from",
+            "The button now works on Tuesdays"
+          ],
+          "added": [
+            "Added telemetry. Trust us.",
+            "New onboarding flow that nobody asked for"
+          ],
+          "changed": [
+            "Updated dependencies. We do not know why.",
+            "Refactored a function that was working"
+          ],
+          "removed": [
+            "Removed a button."
+          ],
+          "known_issues": [
+            "Dark mode is currently darker than dark",
+            "CSV exports may include a small additional column"
+          ],
+          "signed_by": "the team"
+        }
+      },
+      "mock_responses": [
+        {
+          "version": "1.0.0",
+          "released": "2026-05-16",
+          "fixed": [
+            "Resolved an issue caused by another issue",
+            "Restored functionality that was previously labeled as a feature"
+          ],
+          "added": [
+            "Added a search bar. The search returns no results.",
+            "Added a settings panel; the settings do not yet do anything"
+          ],
+          "changed": [
+            "Removed a feature that two users were using",
+            "Renamed a variable; the new name is also bad"
+          ],
+          "removed": [
+            "Removed the help text. The help was not helping."
+          ],
+          "known_issues": [
+            "Push notifications occasionally arrive in the past",
+            "No known issues. We have not looked."
+          ],
+          "signed_by": "the team"
+        },
+        {
+          "version": "3.0.0-beta",
+          "released": "2026-05-16",
+          "fixed": [
+            "Fixed an off-by-one error. We do not know which one.",
+            "Re-enabled a feature that was disabled in 2022"
+          ],
+          "added": [
+            "Introduced a feature flag to disable the feature you wanted",
+            "New keyboard shortcut. It is the same as an existing keyboard shortcut."
+          ],
+          "changed": [
+            "Migrated from one bad library to a slightly newer bad library",
+            "Reduced bundle size by 0.4%"
+          ],
+          "removed": [
+            "Sunset the legacy admin panel; the new one will arrive shortly"
+          ],
+          "known_issues": [
+            "The previous bug is still present, but in a new place",
+            "A specific user reports the timezone is wrong; we cannot reproduce"
+          ],
+          "signed_by": "the team"
+        }
+      ],
+      "clippy_message": "It looks like you're shipping. Have you considered: shipping fewer things."
+    },
+    {
+      "id": "would-you-rather",
+      "name": "Would You Rather",
+      "category": "decision-making",
+      "tags": [
+        "game",
+        "choice",
+        "cursed",
+        "questions"
+      ],
+      "description": "Returns a would-you-rather question with two cursed options and a verdict on which is statistically worse.",
+      "long_description": "The Would You Rather API returns one cursed question per call. Both options are bad. One is statistically worse, and the API will tell you which. Ships with the reason and the option most people pick (which they should not).",
+      "stupidity": 2,
+      "added_date": "2026-05-17",
+      "release_date": "2026-05-17",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/would-you-rather",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/ask",
+          "description": "Get a would-you-rather"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "option_a",
+          "type": "string",
+          "description": "First cursed option"
+        },
+        {
+          "field": "option_b",
+          "type": "string",
+          "description": "Second cursed option"
+        },
+        {
+          "field": "worse",
+          "type": "string",
+          "description": "\"a\" or \"b\" — the worse choice"
+        },
+        {
+          "field": "why",
+          "type": "string",
+          "description": "Reason for the verdict"
+        },
+        {
+          "field": "most_people_pick",
+          "type": "string",
+          "description": "What most people pick (and should not)"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/would-you-rather/ask\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/would-you-rather/ask\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/would-you-rather/ask\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "option_a": "always speak in rhyme",
+          "option_b": "always answer in haiku",
+          "worse": "a",
+          "why": "option a is statistically worse",
+          "most_people_pick": "the second option, statistically. they should not."
+        }
+      },
+      "mock_responses": [
+        {
+          "option_a": "know when you will die",
+          "option_b": "know how you will die",
+          "worse": "b",
+          "why": "option b is the answer most likely to come up in therapy",
+          "most_people_pick": "the second option, statistically. they should not."
+        },
+        {
+          "option_a": "be unable to use sarcasm",
+          "option_b": "be unable to detect sarcasm",
+          "worse": "b",
+          "why": "option b leads to bad outcomes within six months",
+          "most_people_pick": "the second option, statistically. they should not."
+        },
+        {
+          "option_a": "win every argument and lose every friend",
+          "option_b": "lose every argument and keep every friend",
+          "worse": "a",
+          "why": "option a is the option chosen by people you do not respect",
+          "most_people_pick": "the second option, statistically. they should not."
+        }
+      ],
+      "clippy_message": "It looks like you're stalling. The cursed thing is also the inevitable thing."
     }
   ]
 }

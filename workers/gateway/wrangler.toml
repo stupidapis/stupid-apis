@@ -13,3 +13,9 @@ id = "80f8d5552b5f46e697dc355e4b31c758"
 
 [triggers]
 crons = ["0 0 * * *"]
+
+[vars]
+NOTIFY_EMAIL = "bruce@well3.care"
+FROM_EMAIL = "Stupid APIs <onboarding@resend.dev>"
+# Set the Resend secret separately:
+#   wrangler secret put RESEND_API_KEY
