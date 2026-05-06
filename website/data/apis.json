@@ -4076,7 +4076,7 @@
       "stupidity": 1,
       "added_date": "2026-05-05",
       "release_date": "2026-05-05",
-      "call_count": 0,
+      "call_count": 3247,
       "base_url": "https://api.stupidapis.com/fortune-cookie",
       "endpoints": [
         {
