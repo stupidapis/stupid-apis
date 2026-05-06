@@ -9519,6 +9519,208 @@
         }
       ],
       "clippy_message": "It looks like you have a question. The answer is: you, mostly."
+    },
+    {
+      "id": "social-entropy",
+      "name": "Social Entropy",
+      "category": "randomness",
+      "tags": [
+        "random",
+        "reddit",
+        "entropy",
+        "number"
+      ],
+      "description": "Generate a random number from the social entropy of 5 Reddit sources. The internet's collective posting behavior determines your number.",
+      "long_description": "The Social Entropy API takes 5 Reddit sources (subreddits or users) and produces a number 0-99 derived from each source's latest hot post — its upvotes, comments, age, and title length, hashed together. Each call also returns the contributing posts, a methodology note, and a short Haiku-written analysis explaining why this number was inevitable. We wanted to use Instagram. Instagram did not want us to use Instagram.",
+      "stupidity": 2,
+      "added_date": "2025-04-15",
+      "release_date": "2025-04-15",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/social-entropy",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/generate",
+          "description": "Generate a number from 5 Reddit sources"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "sources",
+          "type": "string",
+          "required": false,
+          "default": "technology,worldnews,science,programming,showerthoughts",
+          "description": "Comma-separated list of up to 5 subreddits or users (e.g. \"technology,worldnews,u/spez\"). Defaults to 5 popular subreddits."
+        }
+      ],
+      "response_schema": [
+        {
+          "field": "number",
+          "type": "number",
+          "description": "The generated number 0-99"
+        },
+        {
+          "field": "methodology",
+          "type": "string",
+          "description": "How the number was derived"
+        },
+        {
+          "field": "sources",
+          "type": "object[]",
+          "description": "Per-source contributions (title, score, comments, age, entropy)"
+        },
+        {
+          "field": "failed_sources",
+          "type": "string[]",
+          "optional": true,
+          "description": "Sources that did not respond"
+        },
+        {
+          "field": "total_entropy",
+          "type": "number",
+          "description": "Sum of all entropy contributions"
+        },
+        {
+          "field": "analysis",
+          "type": "string",
+          "description": "Haiku-written explanation of the number"
+        },
+        {
+          "field": "platform",
+          "type": "string",
+          "description": "Always reddit"
+        },
+        {
+          "field": "platform_note",
+          "type": "string",
+          "description": "Why not Instagram"
+        },
+        {
+          "field": "sources_consulted",
+          "type": "number",
+          "description": "Number of sources successfully fetched"
+        },
+        {
+          "field": "sources_that_cooperated",
+          "type": "number",
+          "description": "Number of cooperating sources"
+        },
+        {
+          "field": "generated_at",
+          "type": "string",
+          "description": "ISO timestamp"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/social-entropy/generate?sources=technology,worldnews,programming\"",
+        "python": "import requests\n\nresponse = requests.get(\n    \"https://api.stupidapis.com/social-entropy/generate\",\n    params={\"sources\": \"technology,worldnews,programming\"}\n)\nprint(response.json())",
+        "javascript": "const response = await fetch(\n  \"https://api.stupidapis.com/social-entropy/generate?sources=technology,worldnews,programming\"\n);\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "number": 47,
+          "methodology": "Latest posts from 5 Reddit sources. Upvotes, comments, age, and title length hashed into a two-digit number. Peer reviewed by nobody.",
+          "sources": [
+            {
+              "source": "r/technology",
+              "title": "New chip design promises 30% efficiency gains",
+              "score": 4827,
+              "comments": 312,
+              "age_hours": 6,
+              "title_length": 47,
+              "entropy_contribution": 92
+            },
+            {
+              "source": "r/worldnews",
+              "title": "Officials report progress on long-running negotiations",
+              "score": 1284,
+              "comments": 89,
+              "age_hours": 12,
+              "title_length": 56,
+              "entropy_contribution": 41
+            },
+            {
+              "source": "r/programming",
+              "title": "Refactoring legacy code: a five-part series",
+              "score": 892,
+              "comments": 144,
+              "age_hours": 18,
+              "title_length": 43,
+              "entropy_contribution": 97
+            }
+          ],
+          "total_entropy": 230,
+          "analysis": "The technology post dominated with high recency and engagement, anchoring the number high. The worldnews post pulled it back to a more moderate range. The number 47 was inevitable: a compromise between recency and reach.",
+          "platform": "reddit",
+          "platform_note": "We wanted to use Instagram. Instagram did not want us to use Instagram.",
+          "sources_consulted": 3,
+          "sources_that_cooperated": 3,
+          "generated_at": "2026-05-06T18:50:00.000Z"
+        }
+      },
+      "mock_responses": [
+        {
+          "number": 73,
+          "methodology": "Latest posts from 5 Reddit sources. Upvotes, comments, age, and title length hashed into a two-digit number. Peer reviewed by nobody.",
+          "sources": [
+            {
+              "source": "r/showerthoughts",
+              "title": "Toothpaste is just gum that's bad at its job",
+              "score": 18420,
+              "comments": 542,
+              "age_hours": 4,
+              "title_length": 41,
+              "entropy_contribution": 7
+            },
+            {
+              "source": "u/spez",
+              "title": "A note about our community guidelines",
+              "score": 281,
+              "comments": 4392,
+              "age_hours": 22,
+              "title_length": 37,
+              "entropy_contribution": 50
+            }
+          ],
+          "total_entropy": 57,
+          "analysis": "Showerthoughts contributed less than expected; the toothpaste post had aged out of true virality. Spez carried the entropy on the strength of comment volume, mostly hostile. 73 was effectively unavoidable.",
+          "platform": "reddit",
+          "platform_note": "We wanted to use Instagram. Instagram did not want us to use Instagram.",
+          "sources_consulted": 2,
+          "sources_that_cooperated": 2,
+          "generated_at": "2026-05-04T11:32:00.000Z"
+        },
+        {
+          "number": 12,
+          "methodology": "Latest posts from 5 Reddit sources. Upvotes, comments, age, and title length hashed into a two-digit number. Peer reviewed by nobody.",
+          "sources": [
+            {
+              "source": "r/science",
+              "title": "Study: people who skip breakfast are 14% more likely to skip lunch",
+              "score": 3271,
+              "comments": 188,
+              "age_hours": 9,
+              "title_length": 73,
+              "entropy_contribution": 84
+            },
+            {
+              "source": "r/askreddit",
+              "title": "What is a small thing that ruined a relationship?",
+              "score": 11203,
+              "comments": 6792,
+              "age_hours": 14,
+              "title_length": 49,
+              "entropy_contribution": 28
+            }
+          ],
+          "total_entropy": 112,
+          "analysis": "A study about skipped meals and a question about ruined relationships should not produce the number 12. They did. The variance is unusually low.",
+          "platform": "reddit",
+          "platform_note": "We wanted to use Instagram. Instagram did not want us to use Instagram.",
+          "sources_consulted": 2,
+          "sources_that_cooperated": 2,
+          "generated_at": "2026-04-28T09:14:00.000Z"
+        }
+      ],
+      "clippy_message": "It looks like you want a random number. Have you considered: Reddit."
     }
   ]
 }
