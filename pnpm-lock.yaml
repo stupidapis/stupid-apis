@@ -144,6 +144,18 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-airbnb-listing:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-bumper-sticker:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-changelog:
     dependencies:
       '@stupid-apis/shared':
@@ -156,13 +168,37 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-coffee-order:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-conference-talk:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-curse-word:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-error-message:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-etymology:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-haiku-machine:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -180,6 +216,24 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-instructions:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-job-listing:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-license-agreement:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-museum-plaque:
     dependencies:
       '@stupid-apis/shared':
@@ -192,7 +246,43 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-nutrition-label:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-obituary:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-passport-stamp:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-podcast-name:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-press-quote:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-product-review:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-property-listing:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -228,13 +318,37 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-tournament-bracket:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-translation:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-warning-label:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-yelp-review:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fortune-cookie:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/gym-poster:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -331,6 +445,12 @@ importers:
         version: link:../../shared
 
   apis/rate-my-username:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/rejection-letter:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -565,33 +685,78 @@ importers:
       '@stupid-apis/excuse':
         specifier: workspace:*
         version: link:../../apis/excuse
+      '@stupid-apis/fake-airbnb-listing':
+        specifier: workspace:*
+        version: link:../../apis/fake-airbnb-listing
+      '@stupid-apis/fake-bumper-sticker':
+        specifier: workspace:*
+        version: link:../../apis/fake-bumper-sticker
       '@stupid-apis/fake-changelog':
         specifier: workspace:*
         version: link:../../apis/fake-changelog
       '@stupid-apis/fake-cocktail':
         specifier: workspace:*
         version: link:../../apis/fake-cocktail
+      '@stupid-apis/fake-coffee-order':
+        specifier: workspace:*
+        version: link:../../apis/fake-coffee-order
       '@stupid-apis/fake-conference-talk':
         specifier: workspace:*
         version: link:../../apis/fake-conference-talk
+      '@stupid-apis/fake-curse-word':
+        specifier: workspace:*
+        version: link:../../apis/fake-curse-word
+      '@stupid-apis/fake-error-message':
+        specifier: workspace:*
+        version: link:../../apis/fake-error-message
       '@stupid-apis/fake-etymology':
         specifier: workspace:*
         version: link:../../apis/fake-etymology
+      '@stupid-apis/fake-haiku-machine':
+        specifier: workspace:*
+        version: link:../../apis/fake-haiku-machine
       '@stupid-apis/fake-historical-event':
         specifier: workspace:*
         version: link:../../apis/fake-historical-event
       '@stupid-apis/fake-horoscope':
         specifier: workspace:*
         version: link:../../apis/fake-horoscope
+      '@stupid-apis/fake-instructions':
+        specifier: workspace:*
+        version: link:../../apis/fake-instructions
+      '@stupid-apis/fake-job-listing':
+        specifier: workspace:*
+        version: link:../../apis/fake-job-listing
+      '@stupid-apis/fake-license-agreement':
+        specifier: workspace:*
+        version: link:../../apis/fake-license-agreement
       '@stupid-apis/fake-museum-plaque':
         specifier: workspace:*
         version: link:../../apis/fake-museum-plaque
       '@stupid-apis/fake-news-headline':
         specifier: workspace:*
         version: link:../../apis/fake-news-headline
+      '@stupid-apis/fake-nutrition-label':
+        specifier: workspace:*
+        version: link:../../apis/fake-nutrition-label
+      '@stupid-apis/fake-obituary':
+        specifier: workspace:*
+        version: link:../../apis/fake-obituary
+      '@stupid-apis/fake-passport-stamp':
+        specifier: workspace:*
+        version: link:../../apis/fake-passport-stamp
+      '@stupid-apis/fake-podcast-name':
+        specifier: workspace:*
+        version: link:../../apis/fake-podcast-name
+      '@stupid-apis/fake-press-quote':
+        specifier: workspace:*
+        version: link:../../apis/fake-press-quote
       '@stupid-apis/fake-product-review':
         specifier: workspace:*
         version: link:../../apis/fake-product-review
+      '@stupid-apis/fake-property-listing':
+        specifier: workspace:*
+        version: link:../../apis/fake-property-listing
       '@stupid-apis/fake-recipe':
         specifier: workspace:*
         version: link:../../apis/fake-recipe
@@ -607,12 +772,24 @@ importers:
       '@stupid-apis/fake-ted-talk':
         specifier: workspace:*
         version: link:../../apis/fake-ted-talk
+      '@stupid-apis/fake-tournament-bracket':
+        specifier: workspace:*
+        version: link:../../apis/fake-tournament-bracket
       '@stupid-apis/fake-translation':
         specifier: workspace:*
         version: link:../../apis/fake-translation
+      '@stupid-apis/fake-warning-label':
+        specifier: workspace:*
+        version: link:../../apis/fake-warning-label
+      '@stupid-apis/fake-yelp-review':
+        specifier: workspace:*
+        version: link:../../apis/fake-yelp-review
       '@stupid-apis/fortune-cookie':
         specifier: workspace:*
         version: link:../../apis/fortune-cookie
+      '@stupid-apis/gym-poster':
+        specifier: workspace:*
+        version: link:../../apis/gym-poster
       '@stupid-apis/how-many-licks':
         specifier: workspace:*
         version: link:../../apis/how-many-licks
@@ -661,6 +838,9 @@ importers:
       '@stupid-apis/rate-my-username':
         specifier: workspace:*
         version: link:../../apis/rate-my-username
+      '@stupid-apis/rejection-letter':
+        specifier: workspace:*
+        version: link:../../apis/rejection-letter
       '@stupid-apis/roast-me':
         specifier: workspace:*
         version: link:../../apis/roast-me

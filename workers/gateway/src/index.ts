@@ -80,6 +80,26 @@ import fakeProductReview from '@stupid-apis/fake-product-review';
 import fakeSelfHelpBook from '@stupid-apis/fake-self-help-book';
 import breakupTextGenerator from '@stupid-apis/breakup-text-generator';
 import whatAmIDoingWithMyLife from '@stupid-apis/what-am-i-doing-with-my-life';
+import rejectionLetter from '@stupid-apis/rejection-letter';
+import fakeInstructions from '@stupid-apis/fake-instructions';
+import fakeErrorMessage from '@stupid-apis/fake-error-message';
+import fakePressQuote from '@stupid-apis/fake-press-quote';
+import fakeTournamentBracket from '@stupid-apis/fake-tournament-bracket';
+import gymPoster from '@stupid-apis/gym-poster';
+import fakeNutritionLabel from '@stupid-apis/fake-nutrition-label';
+import fakeAirbnbListing from '@stupid-apis/fake-airbnb-listing';
+import fakeYelpReview from '@stupid-apis/fake-yelp-review';
+import fakePodcastName from '@stupid-apis/fake-podcast-name';
+import fakePropertyListing from '@stupid-apis/fake-property-listing';
+import fakeObituary from '@stupid-apis/fake-obituary';
+import fakeJobListing from '@stupid-apis/fake-job-listing';
+import fakePassportStamp from '@stupid-apis/fake-passport-stamp';
+import fakeBumperSticker from '@stupid-apis/fake-bumper-sticker';
+import fakeWarningLabel from '@stupid-apis/fake-warning-label';
+import fakeCurseWord from '@stupid-apis/fake-curse-word';
+import fakeLicenseAgreement from '@stupid-apis/fake-license-agreement';
+import fakeHaikuMachine from '@stupid-apis/fake-haiku-machine';
+import fakeCoffeeOrder from '@stupid-apis/fake-coffee-order';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -192,6 +212,26 @@ const API_PACKS: ApiPack[] = [
   { slug: 'fake-self-help-book', module: fakeSelfHelpBook, releaseDate: '2026-06-18' },
   { slug: 'breakup-text-generator', module: breakupTextGenerator, releaseDate: '2026-06-19' },
   { slug: 'what-am-i-doing-with-my-life', module: whatAmIDoingWithMyLife, releaseDate: '2026-06-20' },
+  { slug: 'rejection-letter', module: rejectionLetter, releaseDate: '2026-06-21' },
+  { slug: 'fake-instructions', module: fakeInstructions, releaseDate: '2026-06-22' },
+  { slug: 'fake-error-message', module: fakeErrorMessage, releaseDate: '2026-06-23' },
+  { slug: 'fake-press-quote', module: fakePressQuote, releaseDate: '2026-06-24' },
+  { slug: 'fake-tournament-bracket', module: fakeTournamentBracket, releaseDate: '2026-06-25' },
+  { slug: 'gym-poster', module: gymPoster, releaseDate: '2026-06-26' },
+  { slug: 'fake-nutrition-label', module: fakeNutritionLabel, releaseDate: '2026-06-27' },
+  { slug: 'fake-airbnb-listing', module: fakeAirbnbListing, releaseDate: '2026-06-28' },
+  { slug: 'fake-yelp-review', module: fakeYelpReview, releaseDate: '2026-06-29' },
+  { slug: 'fake-podcast-name', module: fakePodcastName, releaseDate: '2026-06-30' },
+  { slug: 'fake-property-listing', module: fakePropertyListing, releaseDate: '2026-07-01' },
+  { slug: 'fake-obituary', module: fakeObituary, releaseDate: '2026-07-02' },
+  { slug: 'fake-job-listing', module: fakeJobListing, releaseDate: '2026-07-03' },
+  { slug: 'fake-passport-stamp', module: fakePassportStamp, releaseDate: '2026-07-04' },
+  { slug: 'fake-bumper-sticker', module: fakeBumperSticker, releaseDate: '2026-07-05' },
+  { slug: 'fake-warning-label', module: fakeWarningLabel, releaseDate: '2026-07-06' },
+  { slug: 'fake-curse-word', module: fakeCurseWord, releaseDate: '2026-07-07' },
+  { slug: 'fake-license-agreement', module: fakeLicenseAgreement, releaseDate: '2026-07-08' },
+  { slug: 'fake-haiku-machine', module: fakeHaikuMachine, releaseDate: '2026-07-09' },
+  { slug: 'fake-coffee-order', module: fakeCoffeeOrder, releaseDate: '2026-07-10' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────

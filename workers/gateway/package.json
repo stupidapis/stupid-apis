@@ -89,6 +89,26 @@
     "@stupid-apis/fake-product-review": "workspace:*",
     "@stupid-apis/fake-self-help-book": "workspace:*",
     "@stupid-apis/breakup-text-generator": "workspace:*",
-    "@stupid-apis/what-am-i-doing-with-my-life": "workspace:*"
+    "@stupid-apis/what-am-i-doing-with-my-life": "workspace:*",
+    "@stupid-apis/rejection-letter": "workspace:*",
+    "@stupid-apis/fake-instructions": "workspace:*",
+    "@stupid-apis/fake-error-message": "workspace:*",
+    "@stupid-apis/fake-press-quote": "workspace:*",
+    "@stupid-apis/fake-tournament-bracket": "workspace:*",
+    "@stupid-apis/gym-poster": "workspace:*",
+    "@stupid-apis/fake-nutrition-label": "workspace:*",
+    "@stupid-apis/fake-airbnb-listing": "workspace:*",
+    "@stupid-apis/fake-yelp-review": "workspace:*",
+    "@stupid-apis/fake-podcast-name": "workspace:*",
+    "@stupid-apis/fake-property-listing": "workspace:*",
+    "@stupid-apis/fake-obituary": "workspace:*",
+    "@stupid-apis/fake-job-listing": "workspace:*",
+    "@stupid-apis/fake-passport-stamp": "workspace:*",
+    "@stupid-apis/fake-bumper-sticker": "workspace:*",
+    "@stupid-apis/fake-warning-label": "workspace:*",
+    "@stupid-apis/fake-curse-word": "workspace:*",
+    "@stupid-apis/fake-license-agreement": "workspace:*",
+    "@stupid-apis/fake-haiku-machine": "workspace:*",
+    "@stupid-apis/fake-coffee-order": "workspace:*"
   }
 }
