@@ -91,6 +91,7 @@ interface Env {
   RESEND_API_KEY?: string;       // secret: wrangler secret put RESEND_API_KEY
   NOTIFY_EMAIL?: string;         // [vars] in wrangler.toml
   FROM_EMAIL?: string;           // [vars] in wrangler.toml
+  ADMIN_SECRET?: string;         // secret: wrangler secret put ADMIN_SECRET — gates /__admin/*
 }
 
 interface ApiPack {
@@ -247,10 +248,11 @@ function prettySlug(slug: string): string {
   return slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
-async function sendDropEmail(env: Env, drop: DailyDrop): Promise<void> {
+async function sendDropEmail(env: Env, drop: DailyDrop): Promise<{ id?: string }> {
   const apiKey = env.RESEND_API_KEY;
   const to = env.NOTIFY_EMAIL;
-  if (!apiKey || !to) return;
+  if (!apiKey) throw new Error('RESEND_API_KEY not set');
+  if (!to) throw new Error('NOTIFY_EMAIL not set');
 
   const name = prettySlug(drop.slug);
   const tagline = drop.tools[0]?.description ?? 'A new stupid API.';
@@ -271,23 +273,25 @@ MCP:  ${drop.mcp_url}
 
 — The Cron`;
 
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'authorization': `Bearer ${apiKey}`,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: env.FROM_EMAIL ?? 'Stupid APIs <onboarding@resend.dev>',
-        to,
-        subject,
-        text,
-      }),
-    });
-  } catch {
-    // Best-effort. Cron does not need to fail loudly.
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'authorization': `Bearer ${apiKey}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: env.FROM_EMAIL ?? 'Stupid APIs <onboarding@resend.dev>',
+      to,
+      subject,
+      text,
+    }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Resend API ${response.status}: ${body}`);
   }
+  return (await response.json()) as { id?: string };
 }
 
 // Slugs that need KV passthrough
@@ -656,6 +660,89 @@ export default {
     }
 
     if (parts[0] === 'health') return json({ status: 'ok' });
+
+    // Admin: manually run the cron logic. Gated by ADMIN_SECRET.
+    // POST /__admin/run-cron     — only sends if not already sent today
+    // POST /__admin/run-cron?force=1 — clears the idempotency flag and re-sends
+    if (parts[0] === '__admin' && parts[1] === 'run-cron') {
+      if (request.method !== 'POST') return json({ error: 'POST required' }, 405);
+      if (!env.ADMIN_SECRET) return json({ error: 'ADMIN_SECRET not configured' }, 500);
+      const provided = request.headers.get('x-admin-secret');
+      if (provided !== env.ADMIN_SECRET) return json({ error: 'unauthorized' }, 401);
+
+      const force = url.searchParams.get('force') === '1';
+      const today = todayUTC();
+      const result: Record<string, unknown> = { date: today, force };
+
+      // Step 1: drop + email
+      try {
+        const drop = computeDailyDrop(today);
+        if (!drop) {
+          result.status = 'no_drop';
+          return json(result);
+        }
+        await env.RATE_LIMIT.put(`daily:drop:${today}`, JSON.stringify(drop), { expirationTtl: 172800 });
+        result.drop_slug = drop.slug;
+        result.is_new_release = drop.is_new_release;
+
+        if (!drop.is_new_release) {
+          result.status = 'not_new_release';
+          return json(result);
+        }
+        if (!env.RESEND_API_KEY) {
+          result.status = 'missing_resend_api_key';
+          return json(result);
+        }
+        if (!env.NOTIFY_EMAIL) {
+          result.status = 'missing_notify_email';
+          return json(result);
+        }
+
+        const sentKey = `daily:emailed:${today}`;
+        if (force) {
+          await env.RATE_LIMIT.delete(sentKey);
+        } else {
+          const already = await env.RATE_LIMIT.get(sentKey);
+          if (already) {
+            result.status = 'already_sent';
+            result.previous_send = already;
+            return json(result);
+          }
+        }
+
+        try {
+          const sent = await sendDropEmail(env, drop);
+          await env.RATE_LIMIT.put(sentKey, JSON.stringify({ at: new Date().toISOString(), id: sent.id }), { expirationTtl: 172800 });
+          result.status = 'sent';
+          result.resend_id = sent.id;
+          result.notify_email = env.NOTIFY_EMAIL;
+          result.from_email = env.FROM_EMAIL ?? 'Stupid APIs <onboarding@resend.dev>';
+        } catch (err) {
+          result.status = 'email_error';
+          result.error = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+        }
+      } catch (err) {
+        result.status = 'fatal';
+        result.error = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+      }
+
+      return json(result);
+    }
+
+    // Admin: read cron health keys without exposing them on public surface.
+    if (parts[0] === '__admin' && parts[1] === 'cron-status') {
+      if (!env.ADMIN_SECRET) return json({ error: 'ADMIN_SECRET not configured' }, 500);
+      const provided = request.headers.get('x-admin-secret') ?? url.searchParams.get('secret');
+      if (provided !== env.ADMIN_SECRET) return json({ error: 'unauthorized' }, 401);
+      const today = todayUTC();
+      const [status, error, emailed, drop] = await Promise.all([
+        env.RATE_LIMIT.get(`daily:cron-status:${today}`),
+        env.RATE_LIMIT.get(`daily:cron-error:${today}`),
+        env.RATE_LIMIT.get(`daily:emailed:${today}`),
+        env.RATE_LIMIT.get(`daily:drop:${today}`),
+      ]);
+      return json({ date: today, status, error, emailed: emailed ? JSON.parse(emailed) : null, drop_cached: !!drop });
+    }
     if (parts[0] === 'stats.json') return json(await getStats(env.RATE_LIMIT));
 
     // Today's drop — feeds the website's "API of the day" section.
@@ -716,19 +803,40 @@ export default {
     );
 
     // Cache today's drop and email on actual new releases (not random picks).
+    // Errors get captured in KV at `daily:cron-error:YYYY-MM-DD` for after-the-fact debugging.
     ctx.waitUntil(
       (async () => {
-        const drop = computeDailyDrop(today);
-        if (!drop) return;
-        await env.RATE_LIMIT.put(`daily:drop:${today}`, JSON.stringify(drop), { expirationTtl: 172800 });
-        if (drop.is_new_release && env.RESEND_API_KEY && env.NOTIFY_EMAIL) {
-          // Idempotency guard: don't double-send if cron fires twice for the same date.
+        try {
+          const drop = computeDailyDrop(today);
+          if (!drop) {
+            await env.RATE_LIMIT.put(`daily:cron-status:${today}`, 'no_drop', { expirationTtl: 604800 });
+            return;
+          }
+          await env.RATE_LIMIT.put(`daily:drop:${today}`, JSON.stringify(drop), { expirationTtl: 172800 });
+
+          if (!drop.is_new_release) {
+            await env.RATE_LIMIT.put(`daily:cron-status:${today}`, 'not_new_release', { expirationTtl: 604800 });
+            return;
+          }
+          if (!env.RESEND_API_KEY || !env.NOTIFY_EMAIL) {
+            await env.RATE_LIMIT.put(`daily:cron-status:${today}`, 'missing_email_config', { expirationTtl: 604800 });
+            return;
+          }
+
+          // Idempotency guard
           const sentKey = `daily:emailed:${today}`;
           const already = await env.RATE_LIMIT.get(sentKey);
-          if (!already) {
-            await sendDropEmail(env, drop);
-            await env.RATE_LIMIT.put(sentKey, '1', { expirationTtl: 172800 });
+          if (already) {
+            await env.RATE_LIMIT.put(`daily:cron-status:${today}`, 'already_sent', { expirationTtl: 604800 });
+            return;
           }
+
+          const sent = await sendDropEmail(env, drop);
+          await env.RATE_LIMIT.put(sentKey, JSON.stringify({ at: new Date().toISOString(), id: sent.id }), { expirationTtl: 172800 });
+          await env.RATE_LIMIT.put(`daily:cron-status:${today}`, 'sent', { expirationTtl: 604800 });
+        } catch (err) {
+          const message = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+          await env.RATE_LIMIT.put(`daily:cron-error:${today}`, message, { expirationTtl: 604800 });
         }
       })(),
     );
