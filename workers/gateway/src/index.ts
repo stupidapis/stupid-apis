@@ -92,6 +92,7 @@ interface Env {
   NOTIFY_EMAIL?: string;         // [vars] in wrangler.toml
   FROM_EMAIL?: string;           // [vars] in wrangler.toml
   ADMIN_SECRET?: string;         // secret: wrangler secret put ADMIN_SECRET — gates /__admin/*
+  STRIPE_WEBHOOK_SECRET?: string; // secret: wrangler secret put STRIPE_WEBHOOK_SECRET — verifies /__stripe/webhook
 }
 
 interface ApiPack {
@@ -292,6 +293,110 @@ MCP:  ${drop.mcp_url}
     throw new Error(`Resend API ${response.status}: ${body}`);
   }
   return (await response.json()) as { id?: string };
+}
+
+// ── Stripe Webhook Fulfillment ────────────────────────────────
+
+// Verify Stripe's signature on the raw request body.
+// Format: "t=<unix_ts>,v1=<hex_sig>,..." (may include older v0 signatures)
+async function verifyStripeSignature(payload: string, signature: string, secret: string): Promise<boolean> {
+  const parts = signature.split(',').reduce<Record<string, string[]>>((acc, p) => {
+    const [k, v] = p.split('=');
+    if (!k || !v) return acc;
+    (acc[k] ||= []).push(v);
+    return acc;
+  }, {});
+
+  const ts = parts.t?.[0];
+  const v1Sigs = parts.v1 ?? [];
+  if (!ts || v1Sigs.length === 0) return false;
+
+  // Reject signatures older than 5 minutes to prevent replay
+  const tsNum = parseInt(ts, 10);
+  if (!Number.isFinite(tsNum) || Math.abs(Date.now() / 1000 - tsNum) > 300) return false;
+
+  const signed = `${ts}.${payload}`;
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  );
+  const sigBuf = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(signed));
+  const expected = Array.from(new Uint8Array(sigBuf))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+
+  // Constant-time compare against any of the v1 sigs (Stripe rotates)
+  for (const candidate of v1Sigs) {
+    if (candidate.length !== expected.length) continue;
+    let diff = 0;
+    for (let i = 0; i < expected.length; i++) {
+      diff |= expected.charCodeAt(i) ^ candidate.charCodeAt(i);
+    }
+    if (diff === 0) return true;
+  }
+  return false;
+}
+
+function generateApiKey(): string {
+  const bytes = crypto.getRandomValues(new Uint8Array(24));
+  return 'stupid_' + Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function sendKeyEmail(env: Env, to: string, apiKey: string, amountCents: number, currency: string): Promise<{ id?: string }> {
+  if (!env.RESEND_API_KEY) throw new Error('RESEND_API_KEY not set');
+  const formatted = `$${(amountCents / 100).toFixed(2)} ${currency.toUpperCase()}`;
+  const subject = '🥠 Receipt: you paid us for stupid APIs';
+  const text = `You did it. You paid us for stupid APIs (${formatted}).
+
+Here is your API key:
+  ${apiKey}
+
+Use it like this:
+  curl -H "x-api-key: ${apiKey}" "https://api.stupidapis.com/dad-joke/tell"
+
+What you get:
+- Skipped rate limits across all of our deliberately absurd APIs
+- The same APIs everyone else has access to
+- A small private satisfaction we cannot describe
+
+What you do not get:
+- Better APIs. There are no better APIs.
+- A different version of the website.
+- Tier-specific features. We sell tiers as a joke. The key is the key.
+
+Save this key somewhere. We cannot recover it for you.
+
+— The Receipt`;
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'authorization': `Bearer ${env.RESEND_API_KEY}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: env.FROM_EMAIL ?? 'Stupid APIs <onboarding@resend.dev>',
+      to,
+      subject,
+      text,
+    }),
+  });
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Resend API ${response.status}: ${body}`);
+  }
+  return (await response.json()) as { id?: string };
+}
+
+interface StripeCheckoutSession {
+  id: string;
+  customer_email?: string | null;
+  customer_details?: { email?: string | null } | null;
+  amount_total?: number | null;
+  currency?: string | null;
 }
 
 // Slugs that need KV passthrough
@@ -639,7 +744,7 @@ async function handleRest(
 // ── Entry Point ───────────────────────────────────────────────
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const parts = url.pathname.split('/').filter(Boolean);
 
@@ -727,6 +832,83 @@ export default {
       }
 
       return json(result);
+    }
+
+    // Stripe webhook fulfillment: mint an API key on checkout.session.completed.
+    // Configure in Stripe Dashboard → Developers → Webhooks:
+    //   URL:    https://api.stupidapis.com/__stripe/webhook
+    //   Event:  checkout.session.completed
+    // Then: wrangler secret put STRIPE_WEBHOOK_SECRET
+    if (parts[0] === '__stripe' && parts[1] === 'webhook') {
+      if (request.method !== 'POST') return json({ error: 'POST required' }, 405);
+      if (!env.STRIPE_WEBHOOK_SECRET) return json({ error: 'STRIPE_WEBHOOK_SECRET not configured' }, 500);
+
+      const signature = request.headers.get('stripe-signature');
+      if (!signature) return json({ error: 'missing stripe-signature' }, 400);
+
+      const rawBody = await request.text();
+      const valid = await verifyStripeSignature(rawBody, signature, env.STRIPE_WEBHOOK_SECRET);
+      if (!valid) return json({ error: 'invalid signature' }, 401);
+
+      let event: { id: string; type: string; data: { object: unknown } };
+      try {
+        event = JSON.parse(rawBody);
+      } catch {
+        return json({ error: 'invalid JSON' }, 400);
+      }
+
+      // Idempotency on event ID — Stripe retries.
+      const eventKey = `stripe:event:${event.id}`;
+      if (await env.RATE_LIMIT.get(eventKey)) {
+        return json({ status: 'already_processed', event_id: event.id });
+      }
+      await env.RATE_LIMIT.put(eventKey, '1', { expirationTtl: 86400 * 30 });
+
+      if (event.type !== 'checkout.session.completed') {
+        return json({ status: 'ignored', type: event.type });
+      }
+
+      const session = event.data.object as StripeCheckoutSession;
+      const buyerEmail = session.customer_email ?? session.customer_details?.email ?? null;
+      if (!buyerEmail) return json({ status: 'no_email', session_id: session.id });
+
+      // Idempotency on session ID — same checkout always gets the same key.
+      const sessionMapKey = `stripe:session:${session.id}`;
+      let apiKey = await env.RATE_LIMIT.get(sessionMapKey);
+      if (!apiKey) {
+        apiKey = generateApiKey();
+        await env.RATE_LIMIT.put(`apikey:${apiKey}`, JSON.stringify({
+          name: buyerEmail,
+          tier: 'partner',
+          stripe_session: session.id,
+          amount_total: session.amount_total ?? null,
+          currency: session.currency ?? null,
+          created_at: new Date().toISOString(),
+        }));
+        await env.RATE_LIMIT.put(sessionMapKey, apiKey, { expirationTtl: 86400 * 365 });
+      }
+
+      // Send the email best-effort. If it fails, log to KV for manual recovery.
+      const emailedKey = `stripe:emailed:${session.id}`;
+      const alreadyEmailed = await env.RATE_LIMIT.get(emailedKey);
+      if (!alreadyEmailed) {
+        ctx.waitUntil((async () => {
+          try {
+            const sent = await sendKeyEmail(env, buyerEmail, apiKey!, session.amount_total ?? 0, session.currency ?? 'usd');
+            await env.RATE_LIMIT.put(emailedKey, JSON.stringify({ at: new Date().toISOString(), id: sent.id }), { expirationTtl: 86400 * 30 });
+          } catch (err) {
+            const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+            await env.RATE_LIMIT.put(`stripe:email-error:${session.id}`, msg, { expirationTtl: 86400 * 30 });
+          }
+        })());
+      }
+
+      return json({
+        status: 'provisioned',
+        event_id: event.id,
+        session_id: session.id,
+        api_key_prefix: apiKey.slice(0, 14) + '...',
+      });
     }
 
     // Admin: read cron health keys without exposing them on public surface.
