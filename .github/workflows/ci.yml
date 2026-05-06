@@ -32,5 +32,8 @@ jobs:
       - name: TypeScript typecheck
         run: pnpm typecheck
 
-      - name: Build website
+      - name: Build stupidapis.com
         run: node website/build.js
+
+      - name: Build stupidmcps.com
+        run: node website-mcps/build.js

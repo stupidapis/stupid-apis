@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * StupidAPIs.com Build Script
+ * StupidMCPs.com Build Script
  *
- * Reads apis.json and categories.json, generates all HTML pages.
+ * Sibling of website/build.js. Reads the SAME apis.json + categories.json
+ * (single source of truth at website/data/). Outputs to website-mcps/pages/
+ * with MCP-flavored copy and code examples that lead with MCP server config.
+ *
+ * When you change one of the build scripts in a way that should apply to
+ * both brands (a new section, a layout block), update the other.
+ *
+ * Assets: copies the shared website/assets/ first, then overlays anything
+ * in website-mcps/assets/ (currently just the brand-specific OG image).
+ *
  * No dependencies. Run with: node build.js
  */
 
@@ -11,7 +20,9 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
-const DATA = path.join(ROOT, 'data');
+const DATA = path.join(ROOT, '..', 'website', 'data');           // shared
+const SHARED_ASSETS = path.join(ROOT, '..', 'website', 'assets'); // shared
+const LOCAL_ASSETS = path.join(ROOT, 'assets');                   // overlay
 const PAGES = path.join(ROOT, 'pages');
 
 // Load data
@@ -47,7 +58,7 @@ apis.forEach(a => {
 });
 
 // Ensure directories
-[PAGES, path.join(PAGES, 'apis'), path.join(PAGES, 'categories')].forEach(d => {
+[PAGES, path.join(PAGES, 'mcps'), path.join(PAGES, 'categories')].forEach(d => {
   fs.mkdirSync(d, { recursive: true });
 });
 
@@ -89,17 +100,17 @@ function apiCard(api) {
   const isNew = isRecent(api.added_date);
   return `<div class="api-card" data-category="${api.category}" data-stupidity="${api.stupidity}" data-date="${api.added_date}" data-calls="${api.call_count}">
   <div class="api-card-header">
-    <h3><a href="/apis/${api.id}.html">${api.name}</a>${isNew ? '<span class="new-badge">NEW</span>' : ''}</h3>
+    <h3><a href="/mcps/${api.id}.html">${api.name}</a>${isNew ? '<span class="new-badge">NEW</span>' : ''}</h3>
     ${stupidityRating(api.stupidity)}
   </div>
   ${categoryBadge(api.category)}
   <p class="description">${api.description}</p>
   <div class="card-meta">
-    <span class="call-count">${api.call_count.toLocaleString()} bad decisions made</span>
+    <span class="call-count">${api.call_count.toLocaleString()} bad tool calls served</span>
   </div>
   <div class="card-actions">
-    <a href="/apis/${api.id}.html#playground" class="btn btn-primary btn-small">TRY IT</a>
-    <a href="/apis/${api.id}.html" class="btn btn-outline btn-small">DOCS</a>
+    <a href="/mcps/${api.id}.html#install" class="btn btn-primary btn-small">ADD TO CLIENT</a>
+    <a href="/mcps/${api.id}.html" class="btn btn-outline btn-small">DOCS</a>
   </div>
 </div>`;
 }
@@ -119,14 +130,14 @@ function escapeHtml(str) {
 // LAYOUT
 // ============================================================
 
-const SITE_URL = 'https://stupidapis.com';
+const SITE_URL = 'https://stupidmcps.com';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/images/og-share.png`;
-const DEFAULT_DESCRIPTION = 'A public catalog of deliberately absurd APIs. One new pack drops every day.';
+const DEFAULT_DESCRIPTION = 'MCP servers so stupid they just might work. A public catalog of deliberately absurd MCP tools for AI assistants. One new server drops every day.';
 
 function layout(title, body, { depth = 0, clippy_message = '', extraHead = '', description = DEFAULT_DESCRIPTION, og_url = SITE_URL, og_image = DEFAULT_OG_IMAGE } = {}) {
   const prefix = depth === 0 ? './' : '../'.repeat(depth);
   const absPrefix = '/';
-  const fullTitle = title === 'Home' ? 'StupidAPIs.com — APIs So Stupid They Just Might Work' : `${title} — StupidAPIs.com`;
+  const fullTitle = title === 'Home' ? 'StupidMCPs.com — MCP Servers So Stupid They Just Might Work' : `${title} — StupidMCPs.com`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,7 +149,7 @@ function layout(title, body, { depth = 0, clippy_message = '', extraHead = '', d
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${og_url}">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="StupidAPIs.com">
+  <meta property="og:site_name" content="StupidMCPs.com">
   <meta property="og:image" content="${og_image}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -159,7 +170,7 @@ function layout(title, body, { depth = 0, clippy_message = '', extraHead = '', d
 <header class="site-header">
   <div class="container">
     <a href="${absPrefix}" class="site-logo">
-      <span class="logo-dot"></span> StupidAPIs.com
+      <span class="logo-dot"></span> StupidMCPs.com
     </a>
     <div class="nav-right">
       <button class="hotdog-toggle" id="hotdog-toggle" aria-label="Toggle Hot Dog Cart theme">
@@ -170,13 +181,13 @@ function layout(title, body, { depth = 0, clippy_message = '', extraHead = '', d
     </div>
     <nav>
       <ul class="site-nav">
-        <li><a href="${absPrefix}">APIs</a></li>
+        <li><a href="${absPrefix}">MCP Servers</a></li>
         <li><a href="${absPrefix}pricing.html">Pricing</a></li>
         <li><a href="${absPrefix}docs.html">Docs</a></li>
         <li><a href="${absPrefix}contribute.html">Contribute</a></li>
-        <li><a href="https://stupidmcps.com" target="_blank" rel="noopener" class="nav-cross">Want MCP? &rarr;</a></li>
+        <li><a href="https://stupidapis.com" target="_blank" rel="noopener" class="nav-cross">Want REST? &rarr;</a></li>
         <li><a href="https://github.com/stupidapis/stupid-apis" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://pipeworx.io" target="_blank" rel="noopener" class="nav-pipeworx">Need Real APIs? &rarr;</a></li>
+        <li><a href="https://pipeworx.io" target="_blank" rel="noopener" class="nav-pipeworx">Need Real MCPs? &rarr;</a></li>
       </ul>
     </nav>
   </div>
@@ -193,7 +204,7 @@ ${body}
       <span>\ud83d\udea7 \ud83d\udea7 \ud83d\udea7 \ud83d\udea7 \ud83d\udea7 UNDER CONSTRUCTION \ud83d\udea7 \ud83d\udea7 \ud83d\udea7 \ud83d\udea7 \ud83d\udea7</span>
     </div>
     <p class="footer-pipeworx">Need real data, not jokes? <a href="https://pipeworx.io" target="_blank" rel="noopener">Try Pipeworx &rarr;</a></p>
-    <p>&copy; 2025 StupidAPIs.com &mdash; Not liable for Friday deploys</p>
+    <p>&copy; 2025 StupidMCPs.com &mdash; Not liable for Friday deploys</p>
     <p class="footer-netscape">Best viewed in Netscape Navigator 4.0</p>
   </div>
 </footer>
@@ -292,12 +303,12 @@ function buildHomepage() {
   const startupIdeas = apis.find(a => a.id === 'startup-oracle')?.call_count || 0;
 
   const aotdSection = apiOfTheDay ? `
-  <!-- API of the Day -->
+  <!-- MCP Server of the Day -->
   <section class="section section-aotd">
     <div class="container">
       <div class="section-title">
-        <h2>${apiOfTheDay.isNewRelease ? "Today's Fresh Drop" : 'API of the Day'}</h2>
-        <p class="aotd-subhead">${apiOfTheDay.isNewRelease ? 'A new API has been released today.' : 'Picked at random from the catalog.'}</p>
+        <h2>${apiOfTheDay.isNewRelease ? "Today's Fresh Drop" : 'MCP Server of the Day'}</h2>
+        <p class="aotd-subhead">${apiOfTheDay.isNewRelease ? 'A new MCP server has been released today.' : 'Picked at random from the catalog.'}</p>
       </div>
       <div class="aotd-feature">
         ${apiCard(apiOfTheDay.api)}
@@ -310,15 +321,15 @@ function buildHomepage() {
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>APIs So Stupid They Just Might Work</h1>
-      <p class="subhead">Programmatically terrible decisions since 2025</p>
+      <h1>MCP Servers So Stupid They Just Might Work</h1>
+      <p class="subhead">AI tool calls programmatically engineered to disappoint, since 2025</p>
       <div class="hero-buttons">
-        <a href="#catalog" class="btn btn-primary">EXPLORE APIS</a>
+        <a href="#catalog" class="btn btn-primary">EXPLORE MCP SERVERS</a>
         <a href="/docs.html" class="btn btn-outline">READ THE DOCS</a>
       </div>
       <div class="hero-clippy">
         <img src="assets/images/clippy.png" alt="" width="50">
-        <span>It looks like you're evaluating APIs. Have you tried a spreadsheet?</span>
+        <span>It looks like you're picking MCP servers for your AI assistant. Have you tried a spreadsheet?</span>
       </div>
     </div>
   </section>
@@ -327,7 +338,7 @@ ${aotdSection}
   <section class="section">
     <div class="container">
       <div class="section-title">
-        <h2>Recently Deployed Questionable Technology</h2>
+        <h2>Recently Deployed Questionable MCP Servers</h2>
       </div>
       <div class="grid grid-3">
         ${featured.map(apiCard).join('\n        ')}
@@ -359,11 +370,11 @@ ${aotdSection}
       <div class="stats-grid">
         <div class="stat-item">
           <span class="stat-value">${apis.length}</span>
-          <span class="stat-label">APIs Available</span>
+          <span class="stat-label">MCP Servers Available</span>
         </div>
         <div class="stat-item">
           <span class="stat-value">${totalCalls.toLocaleString()}</span>
-          <span class="stat-label">Decisions Outsourced</span>
+          <span class="stat-label">Tool Calls Served</span>
         </div>
         <div class="stat-item">
           <span class="stat-value">${fridayDeploys.toLocaleString()}</span>
@@ -389,7 +400,7 @@ ${aotdSection}
   <section class="section" id="catalog">
     <div class="container">
       <div class="section-title">
-        <h2>The Full Suite of Bad Decisions</h2>
+        <h2>The Full Suite of Bad MCP Decisions</h2>
       </div>
 
       <div class="filter-bar">
@@ -444,7 +455,7 @@ function buildCategoryPages() {
 <main>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/">StupidAPIs.com</a><span class="sep">&gt;</span>${cat.name}
+      <a href="/">StupidMCPs.com</a><span class="sep">&gt;</span>${cat.name}
     </div>
 
     <div class="category-header">
@@ -505,7 +516,7 @@ function buildApiPages() {
 <main>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/">StupidAPIs.com</a><span class="sep">&gt;</span>
+      <a href="/">StupidMCPs.com</a><span class="sep">&gt;</span>
       <a href="/categories/${api.category}.html">${cat ? cat.name : api.category}</a><span class="sep">&gt;</span>
       ${api.name}
     </div>
@@ -521,9 +532,36 @@ function buildApiPages() {
       <p class="description">${api.long_description}</p>
     </div>
 
-    <!-- Playground -->
+    <!-- Install in your MCP client -->
+    <section class="section" id="install">
+      <h2>Add to Your MCP Client</h2>
+      <p>Drop this server into Claude Desktop, Cursor, Continue, or any MCP-compatible client.</p>
+      <div class="code-block-container">
+        <div class="code-tabs">
+          <button class="code-tab active" data-lang="claude-desktop">Claude Desktop</button>
+          <button class="code-tab" data-lang="cursor">Cursor</button>
+          <button class="code-tab" data-lang="generic">Generic MCP</button>
+        </div>
+        <div class="code-panel active" data-lang="claude-desktop">
+          <button class="code-copy-btn">Copy</button>
+          <pre>${escapeHtml(JSON.stringify({ mcpServers: { [api.id]: { url: `https://api.stupidmcps.com/${api.id}/mcp` } } }, null, 2))}</pre>
+        </div>
+        <div class="code-panel" data-lang="cursor">
+          <button class="code-copy-btn">Copy</button>
+          <pre>${escapeHtml(JSON.stringify({ mcpServers: { [api.id]: { url: `https://api.stupidmcps.com/${api.id}/mcp` } } }, null, 2))}</pre>
+        </div>
+        <div class="code-panel" data-lang="generic">
+          <button class="code-copy-btn">Copy</button>
+          <pre>POST https://api.stupidmcps.com/${api.id}/mcp</pre>
+        </div>
+      </div>
+      <p style="margin-top:1rem;">Add the snippet to your client's MCP config (typically <code>claude_desktop_config.json</code> for Claude Desktop, <code>~/.cursor/mcp.json</code> for Cursor). Restart the client. The tools become available to your AI assistant.</p>
+      <p>No-code option: <a href="https://pipeworx.io/packs/${api.id}/" target="_blank" rel="noopener">connect via Pipeworx</a> &mdash; one click into Claude, ChatGPT, and friends.</p>
+    </section>
+
+    <!-- Playground (REST) -->
     <section class="section" id="playground">
-      <h2>Try It &mdash; No Seriously</h2>
+      <h2>Or Try It Directly &mdash; No MCP Client Required</h2>
       <div class="windows-dialog">
         <div class="windows-titlebar">
           <span>${api.name}.exe</span>
@@ -638,11 +676,11 @@ function buildApiPages() {
         </div>
         <div class="code-panel active" data-lang="mcp-single">
           <button class="code-copy-btn">Copy</button>
-          <pre>POST https://api.stupidapis.com/${api.id}/mcp</pre>
+          <pre>POST https://api.stupidmcps.com/${api.id}/mcp</pre>
         </div>
         <div class="code-panel" data-lang="mcp-all">
           <button class="code-copy-btn">Copy</button>
-          <pre>POST https://api.stupidapis.com/mcp</pre>
+          <pre>POST https://api.stupidmcps.com/mcp</pre>
         </div>
       </div>
       <p style="margin-top:1rem;">Use <a href="https://pipeworx.io/packs/${api.id}/" target="_blank">Pipeworx</a> to connect this MCP tool to Claude, ChatGPT, and other AI assistants with no code.</p>
@@ -674,11 +712,11 @@ document.getElementById('playground-form').addEventListener('submit', function()
       depth: 1,
       clippy_message: api.clippy_message,
       description: api.description,
-      og_url: `${SITE_URL}/apis/${api.id}.html`,
+      og_url: `${SITE_URL}/mcps/${api.id}.html`,
     });
 
-    fs.writeFileSync(path.join(PAGES, 'apis', `${api.id}.html`), html);
-    console.log(`  \u2713 pages/apis/${api.id}.html`);
+    fs.writeFileSync(path.join(PAGES, 'mcps', `${api.id}.html`), html);
+    console.log(`  \u2713 pages/mcps/${api.id}.html`);
   });
 }
 
@@ -763,12 +801,12 @@ function buildDocsPage() {
 
       <h2>Getting Started</h2>
       <p>Using StupidAPIs is simple. Pick an API, make a request, receive questionable wisdom. No setup required. No SDK needed. No regrets guaranteed (regrets not guaranteed).</p>
-      <pre><code>curl "https://api.stupidapis.com/magic-8-ball/ask?question=Should+I+read+the+docs"</code></pre>
+      <pre><code>curl "https://api.stupidmcps.com/magic-8-ball/ask?question=Should+I+read+the+docs"</code></pre>
       <p>That's it. You're now a StupidAPIs developer. Update your LinkedIn.</p>
 
       <h2>Base URL</h2>
       <p>All API endpoints are available at:</p>
-      <pre><code>https://api.stupidapis.com</code></pre>
+      <pre><code>https://api.stupidmcps.com</code></pre>
       <p>Each API has its own path prefix. For example, the Magic 8 Ball lives at <code>/magic-8-ball/</code>.</p>
 
       <h2>Authentication</h2>
@@ -802,8 +840,8 @@ function buildDocsPage() {
 
       <h2>MCP (Model Context Protocol)</h2>
       <p>Every API is also available as an MCP tool for AI assistants. The MCP endpoint lives at:</p>
-      <pre><code>POST https://api.stupidapis.com/mcp          # All tools
-POST https://api.stupidapis.com/{slug}/mcp   # Single API pack</code></pre>
+      <pre><code>POST https://api.stupidmcps.com/mcp          # All tools
+POST https://api.stupidmcps.com/{slug}/mcp   # Single API pack</code></pre>
       <p>This means you can give your AI assistant the ability to make terrible decisions on your behalf. Delegation at its finest.</p>
       <p>Use <a href="https://pipeworx.io/packs/">Pipeworx</a> to connect StupidAPIs MCP tools to Claude, ChatGPT, and other AI assistants with no code.</p>
 
@@ -1148,7 +1186,7 @@ function buildContributePage() {
 // BUILD
 // ============================================================
 
-console.log('\nBuilding StupidAPIs.com...\n');
+console.log('\nBuilding StupidMCPs.com...\n');
 console.log(`  ${apis.length} APIs loaded`);
 console.log(`  ${categories.length} categories loaded\n`);
 
@@ -1159,10 +1197,24 @@ buildDocsPage();
 buildPricingPage();
 buildContributePage();
 
-// Copy assets into pages/ for deployment
+// Copy assets: shared from website/assets, then overlay local (mostly OG image).
+function overlayDir(src, dest) {
+  if (!fs.existsSync(src)) return;
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const s = path.join(src, entry.name);
+    const d = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      fs.mkdirSync(d, { recursive: true });
+      overlayDir(s, d);
+    } else {
+      fs.copyFileSync(s, d);
+    }
+  }
+}
 const assetsDest = path.join(PAGES, 'assets');
-copyDirSync(path.join(ROOT, 'assets'), assetsDest);
-console.log('  \u2713 assets copied');
+copyDirSync(SHARED_ASSETS, assetsDest);
+overlayDir(LOCAL_ASSETS, assetsDest);
+console.log('  \u2713 assets copied (shared + brand overlays)');
 
 console.log('\nBuild complete! Serve from pages/ directory.\n');
 console.log('  npx serve pages/');

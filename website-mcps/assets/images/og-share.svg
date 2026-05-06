@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1.2" fill="#3b5cff" opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#fff7ec"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Top accent bar (blue this time, MCP coloring) -->
+  <rect x="0" y="0" width="1200" height="14" fill="#3b5cff"/>
+
+  <!-- Bottom yellow stripe -->
+  <rect x="0" y="600" width="1200" height="30" fill="#ffd23f"/>
+  <rect x="0" y="595" width="1200" height="5" fill="#3b5cff"/>
+
+  <!-- Logo dot -->
+  <circle cx="100" cy="120" r="14" fill="#3b5cff"/>
+  <text x="124" y="129" font-size="28" font-weight="700" fill="#1a1a1a">StupidMCPs.com</text>
+
+  <text x="100" y="270" font-size="78" font-weight="700" fill="#1a1a1a">MCP Servers So Stupid</text>
+  <text x="100" y="350" font-size="78" font-weight="700" fill="#3b5cff">They Just Might Work</text>
+
+  <text x="100" y="430" font-size="28" font-weight="400" fill="#444" font-style="italic">100 deliberately absurd MCP servers for AI assistants.</text>
+  <text x="100" y="468" font-size="28" font-weight="400" fill="#444" font-style="italic">Drop one into Claude Desktop, Cursor, or Continue.</text>
+
+  <g transform="translate(940, 200)">
+    <rect x="-30" y="-12" width="200" height="240" fill="#ffd23f" stroke="#1a1a1a" stroke-width="3" rx="8"/>
+    <text x="70" y="80" font-size="64" text-anchor="middle">🦾</text>
+    <text x="70" y="140" font-size="20" text-anchor="middle" fill="#1a1a1a" font-weight="700">100 MCPS</text>
+    <text x="70" y="170" font-size="14" text-anchor="middle" fill="#444">Claude · Cursor · Continue</text>
+    <text x="70" y="200" font-size="14" text-anchor="middle" fill="#444">free tier · paid tiers</text>
+  </g>
+
+  <text x="100" y="555" font-size="20" fill="#666">stupidmcps.com  ·  api.stupidmcps.com</text>
+</svg>

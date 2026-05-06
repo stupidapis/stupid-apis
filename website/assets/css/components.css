@@ -1350,6 +1350,16 @@ body.hotdog-mode .nav-pipeworx:hover { background: #FF0000; color: #FFFF00 !impo
 body.hotdog-mode .footer-pipeworx a { color: #FFFF00; }
 body.hotdog-mode .footer-pipeworx a:hover { color: #fff; }
 
+/* Cross-site link (stupidapis <-> stupidmcps) — subtler than the pipeworx CTA */
+.nav-cross {
+  color: #666 !important;
+  text-decoration: none;
+  font-style: italic;
+}
+.nav-cross:hover { color: var(--hotdog-red) !important; text-decoration: underline; }
+body.hotdog-mode .nav-cross { color: #FFD700 !important; }
+body.hotdog-mode .nav-cross:hover { color: #FFFF00 !important; }
+
 /* === Contribute cards === */
 
 .contribute-cards {

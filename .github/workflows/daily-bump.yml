@@ -38,8 +38,11 @@ jobs:
       - name: Bump call_counts
         run: node scripts/daily-bump.mjs
 
-      - name: Build site
+      - name: Build stupidapis site
         run: node website/build.js
+
+      - name: Build stupidmcps site
+        run: node website-mcps/build.js
 
       - name: Commit bump if anything changed
         run: |
@@ -53,9 +56,16 @@ jobs:
             echo "No changes to commit."
           fi
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy stupidapis.com
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy website/pages --project-name=stupidapis-website --branch=main
+
+      - name: Deploy stupidmcps.com
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy website-mcps/pages --project-name=stupidmcps-website --branch=main
