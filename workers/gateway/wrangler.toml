@@ -15,7 +15,7 @@ id = "80f8d5552b5f46e697dc355e4b31c758"
 crons = ["0 0 * * *"]
 
 [vars]
-NOTIFY_EMAIL = "bruce@well3.care"
+NOTIFY_EMAIL = "bruce@mojibake.ai"
 FROM_EMAIL = "Stupid APIs <noreply@canoncannon.com>"
 # Set the Resend secret separately (reuse your canoncannon.com key):
 #   wrangler secret put RESEND_API_KEY
