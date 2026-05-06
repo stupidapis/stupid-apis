@@ -119,15 +119,33 @@ function escapeHtml(str) {
 // LAYOUT
 // ============================================================
 
-function layout(title, body, { depth = 0, clippy_message = '', extraHead = '' } = {}) {
+const SITE_URL = 'https://stupidapis.com';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/images/og-share.png`;
+const DEFAULT_DESCRIPTION = 'A public catalog of deliberately absurd APIs. One new pack drops every day.';
+
+function layout(title, body, { depth = 0, clippy_message = '', extraHead = '', description = DEFAULT_DESCRIPTION, og_url = SITE_URL, og_image = DEFAULT_OG_IMAGE } = {}) {
   const prefix = depth === 0 ? './' : '../'.repeat(depth);
   const absPrefix = '/';
+  const fullTitle = title === 'Home' ? 'StupidAPIs.com — APIs So Stupid They Just Might Work' : `${title} — StupidAPIs.com`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} — StupidAPIs.com</title>
+  <title>${fullTitle}</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <meta property="og:title" content="${escapeHtml(fullTitle)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${og_url}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StupidAPIs.com">
+  <meta property="og:image" content="${og_image}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${og_image}">
   <link rel="icon" type="image/x-icon" href="${prefix}assets/images/favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/images/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="${prefix}assets/images/favicons/favicon-16x16.png">
@@ -403,6 +421,8 @@ ${aotdSection}
 
   const html = layout('Home', body, {
     depth: 0,
+    description: 'A public catalog of deliberately absurd APIs. One new pack drops every day. REST + MCP for AI assistants.',
+    og_url: SITE_URL,
     clippy_message: "It looks like you're evaluating APIs. Have you tried a spreadsheet?"
   });
 
@@ -456,7 +476,11 @@ function buildCategoryPages() {
   </div>
 </main>`;
 
-    const html = layout(cat.name, body, { depth: 1 });
+    const html = layout(cat.name, body, {
+      depth: 1,
+      description: cat.description,
+      og_url: `${SITE_URL}/categories/${cat.id}.html`,
+    });
     fs.writeFileSync(path.join(PAGES, 'categories', `${cat.id}.html`), html);
     console.log(`  \u2713 pages/categories/${cat.id}.html`);
   });
@@ -647,7 +671,9 @@ document.getElementById('playground-form').addEventListener('submit', function()
 
     const html = layout(api.name, body, {
       depth: 1,
-      clippy_message: api.clippy_message
+      clippy_message: api.clippy_message,
+      description: api.description,
+      og_url: `${SITE_URL}/apis/${api.id}.html`,
     });
 
     fs.writeFileSync(path.join(PAGES, 'apis', `${api.id}.html`), html);
@@ -850,6 +876,8 @@ POST https://api.stupidapis.com/{slug}/mcp   # Single API pack</code></pre>
 
   const html = layout('Documentation', body, {
     depth: 0,
+    description: 'How to use StupidAPIs. REST + MCP. No SDK. No setup. No regrets guaranteed.',
+    og_url: `${SITE_URL}/docs.html`,
     clippy_message: "It looks like you're reading documentation. That's more than most developers do."
   });
 
@@ -1036,6 +1064,8 @@ function buildPricingPage() {
 
   const html = layout('Pricing', body, {
     depth: 0,
+    description: 'Pay us money to make bad decisions faster. Four tiers, all questionable.',
+    og_url: `${SITE_URL}/pricing.html`,
     clippy_message: "It looks like you're considering paying for stupid APIs. I respect the commitment."
   });
 
@@ -1104,6 +1134,8 @@ function buildContributePage() {
 
   const html = layout('Contribute', body, {
     depth: 0,
+    description: 'Submit a stupid API. PR-based. Security-linted. We host every pack on our own infrastructure.',
+    og_url: `${SITE_URL}/contribute.html`,
     clippy_message: "It looks like you want to contribute. Have you read CONTRIBUTING.md?"
   });
 

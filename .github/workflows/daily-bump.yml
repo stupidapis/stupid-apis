@@ -1,0 +1,61 @@
+name: Daily call_count bump + site rebuild
+
+on:
+  schedule:
+    # 00:30 UTC every day — 30 minutes after the worker cron at 00:00
+    # so today's drop has already been recorded by the gateway by the
+    # time we bump. Buffer also avoids GitHub Actions' tendency to
+    # delay top-of-the-hour cron runs.
+    - cron: '30 0 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write       # commit apis.json bump
+  deployments: write    # CF Pages deploy reports back as a deployment
+
+jobs:
+  bump-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Bump call_counts
+        run: node scripts/daily-bump.mjs
+
+      - name: Build site
+        run: node website/build.js
+
+      - name: Commit bump if anything changed
+        run: |
+          if [ -n "$(git status --porcelain website/data/apis.json)" ]; then
+            git config user.name 'stupid-apis-bot'
+            git config user.email 'bot@stupidapis.com'
+            git add website/data/apis.json
+            git commit -m "Daily call_count bump ($(date -u +'%Y-%m-%d'))"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy website/pages --project-name=stupidapis-website --branch=main
