@@ -76,6 +76,10 @@ import personalityTest from '@stupid-apis/personality-test';
 import rateMyUsername from '@stupid-apis/rate-my-username';
 import fakeStackTrace from '@stupid-apis/fake-stack-trace';
 import fakeEtymology from '@stupid-apis/fake-etymology';
+import fakeProductReview from '@stupid-apis/fake-product-review';
+import fakeSelfHelpBook from '@stupid-apis/fake-self-help-book';
+import breakupTextGenerator from '@stupid-apis/breakup-text-generator';
+import whatAmIDoingWithMyLife from '@stupid-apis/what-am-i-doing-with-my-life';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -182,6 +186,10 @@ const API_PACKS: ApiPack[] = [
   { slug: 'rate-my-username', module: rateMyUsername, releaseDate: '2026-06-14' },
   { slug: 'fake-stack-trace', module: fakeStackTrace, releaseDate: '2026-06-15' },
   { slug: 'fake-etymology', module: fakeEtymology, releaseDate: '2026-06-16' },
+  { slug: 'fake-product-review', module: fakeProductReview, releaseDate: '2026-06-17' },
+  { slug: 'fake-self-help-book', module: fakeSelfHelpBook, releaseDate: '2026-06-18' },
+  { slug: 'breakup-text-generator', module: breakupTextGenerator, releaseDate: '2026-06-19' },
+  { slug: 'what-am-i-doing-with-my-life', module: whatAmIDoingWithMyLife, releaseDate: '2026-06-20' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────

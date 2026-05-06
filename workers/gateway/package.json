@@ -85,6 +85,10 @@
     "@stupid-apis/personality-test": "workspace:*",
     "@stupid-apis/rate-my-username": "workspace:*",
     "@stupid-apis/fake-stack-trace": "workspace:*",
-    "@stupid-apis/fake-etymology": "workspace:*"
+    "@stupid-apis/fake-etymology": "workspace:*",
+    "@stupid-apis/fake-product-review": "workspace:*",
+    "@stupid-apis/fake-self-help-book": "workspace:*",
+    "@stupid-apis/breakup-text-generator": "workspace:*",
+    "@stupid-apis/what-am-i-doing-with-my-life": "workspace:*"
   }
 }

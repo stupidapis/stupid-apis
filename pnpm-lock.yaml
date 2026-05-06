@@ -60,6 +60,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/breakup-text-generator:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/buzzword-density:
     dependencies:
       '@stupid-apis/shared':
@@ -186,6 +192,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/fake-product-review:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/fake-recipe:
     dependencies:
       '@stupid-apis/shared':
@@ -193,6 +205,12 @@ importers:
         version: link:../../shared
 
   apis/fake-restaurant-menu:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
+  apis/fake-self-help-book:
     dependencies:
       '@stupid-apis/shared':
         specifier: workspace:*
@@ -432,6 +450,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/what-am-i-doing-with-my-life:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/what-would-x-say:
     dependencies:
       '@stupid-apis/shared':
@@ -499,6 +523,9 @@ importers:
       '@stupid-apis/band-name':
         specifier: workspace:*
         version: link:../../apis/band-name
+      '@stupid-apis/breakup-text-generator':
+        specifier: workspace:*
+        version: link:../../apis/breakup-text-generator
       '@stupid-apis/buzzword-density':
         specifier: workspace:*
         version: link:../../apis/buzzword-density
@@ -562,12 +589,18 @@ importers:
       '@stupid-apis/fake-news-headline':
         specifier: workspace:*
         version: link:../../apis/fake-news-headline
+      '@stupid-apis/fake-product-review':
+        specifier: workspace:*
+        version: link:../../apis/fake-product-review
       '@stupid-apis/fake-recipe':
         specifier: workspace:*
         version: link:../../apis/fake-recipe
       '@stupid-apis/fake-restaurant-menu':
         specifier: workspace:*
         version: link:../../apis/fake-restaurant-menu
+      '@stupid-apis/fake-self-help-book':
+        specifier: workspace:*
+        version: link:../../apis/fake-self-help-book
       '@stupid-apis/fake-stack-trace':
         specifier: workspace:*
         version: link:../../apis/fake-stack-trace
@@ -688,6 +721,9 @@ importers:
       '@stupid-apis/weather-but-lying':
         specifier: workspace:*
         version: link:../../apis/weather-but-lying
+      '@stupid-apis/what-am-i-doing-with-my-life':
+        specifier: workspace:*
+        version: link:../../apis/what-am-i-doing-with-my-life
       '@stupid-apis/what-would-x-say':
         specifier: workspace:*
         version: link:../../apis/what-would-x-say
