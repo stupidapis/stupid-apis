@@ -400,12 +400,10 @@ interface StripeCheckoutSession {
   metadata?: Record<string, string> | null;
 }
 
-// Marker we expect on Stupid APIs Payment Links. Set this on each of the
-// (currently 3) Payment Links in Stripe Dashboard → Payment Links → Edit:
-//   metadata: product = stupid-apis
-// Pipeworx and any other product in the same Stripe account doesn't carry
-// this, so their checkout.session.completed events fall through harmlessly.
-const STUPIDAPIS_PRODUCT_MARKER = 'stupid-apis';
+// Stupid APIs Payment Links carry tier metadata (e.g. tier=somebodys-budget,
+// stupidity=4). Pipeworx purchases use credits_amount + account_id and don't
+// carry "tier", so a presence check on session.metadata.tier cleanly
+// separates them.
 
 // Slugs that need KV passthrough
 const KV_SLUGS = new Set(['yesterdays-number']);
@@ -878,15 +876,15 @@ export default {
 
       const session = event.data.object as StripeCheckoutSession;
 
-      // Symmetric filter: only fulfill if this session was for a Stupid APIs
-      // Payment Link. The marker is set on the Payment Link's metadata in
-      // Stripe Dashboard. Other products (e.g. Pipeworx credits) don't carry
-      // this marker and short-circuit here.
-      if (session.metadata?.product !== STUPIDAPIS_PRODUCT_MARKER) {
+      // Symmetric filter: Stupid APIs Payment Links carry a tier in metadata.
+      // Pipeworx purchases use credits_amount + account_id and have no tier.
+      // Anything else short-circuits here without minting a key or sending mail.
+      const tier = session.metadata?.tier;
+      if (!tier) {
         return json({
           status: 'not_for_us',
           session_id: session.id,
-          reason: `metadata.product is "${session.metadata?.product ?? '(unset)'}", expected "${STUPIDAPIS_PRODUCT_MARKER}"`,
+          reason: 'session.metadata.tier is missing',
         });
       }
 
@@ -900,7 +898,9 @@ export default {
         apiKey = generateApiKey();
         await env.RATE_LIMIT.put(`apikey:${apiKey}`, JSON.stringify({
           name: buyerEmail,
-          tier: 'partner',
+          tier: 'partner',                          // skips rate limits in resolveAuth
+          stupid_tier: tier,                        // the bought tier slug, e.g. somebodys-budget
+          purchase_metadata: session.metadata ?? null,
           stripe_session: session.id,
           amount_total: session.amount_total ?? null,
           currency: session.currency ?? null,
