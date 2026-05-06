@@ -397,7 +397,15 @@ interface StripeCheckoutSession {
   customer_details?: { email?: string | null } | null;
   amount_total?: number | null;
   currency?: string | null;
+  metadata?: Record<string, string> | null;
 }
+
+// Marker we expect on Stupid APIs Payment Links. Set this on each of the
+// (currently 3) Payment Links in Stripe Dashboard → Payment Links → Edit:
+//   metadata: product = stupid-apis
+// Pipeworx and any other product in the same Stripe account doesn't carry
+// this, so their checkout.session.completed events fall through harmlessly.
+const STUPIDAPIS_PRODUCT_MARKER = 'stupid-apis';
 
 // Slugs that need KV passthrough
 const KV_SLUGS = new Set(['yesterdays-number']);
@@ -869,6 +877,19 @@ export default {
       }
 
       const session = event.data.object as StripeCheckoutSession;
+
+      // Symmetric filter: only fulfill if this session was for a Stupid APIs
+      // Payment Link. The marker is set on the Payment Link's metadata in
+      // Stripe Dashboard. Other products (e.g. Pipeworx credits) don't carry
+      // this marker and short-circuit here.
+      if (session.metadata?.product !== STUPIDAPIS_PRODUCT_MARKER) {
+        return json({
+          status: 'not_for_us',
+          session_id: session.id,
+          reason: `metadata.product is "${session.metadata?.product ?? '(unset)'}", expected "${STUPIDAPIS_PRODUCT_MARKER}"`,
+        });
+      }
+
       const buyerEmail = session.customer_email ?? session.customer_details?.email ?? null;
       if (!buyerEmail) return json({ status: 'no_email', session_id: session.id });
 
