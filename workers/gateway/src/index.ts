@@ -100,6 +100,7 @@ import fakeCurseWord from '@stupid-apis/fake-curse-word';
 import fakeLicenseAgreement from '@stupid-apis/fake-license-agreement';
 import fakeHaikuMachine from '@stupid-apis/fake-haiku-machine';
 import fakeCoffeeOrder from '@stupid-apis/fake-coffee-order';
+import ministryOfInformation from '@stupid-apis/ministry-of-information';
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -232,6 +233,7 @@ const API_PACKS: ApiPack[] = [
   { slug: 'fake-license-agreement', module: fakeLicenseAgreement, releaseDate: '2026-07-08' },
   { slug: 'fake-haiku-machine', module: fakeHaikuMachine, releaseDate: '2026-07-09' },
   { slug: 'fake-coffee-order', module: fakeCoffeeOrder, releaseDate: '2026-07-10' },
+  { slug: 'ministry-of-information', module: ministryOfInformation, releaseDate: '2026-07-11' },
 ];
 
 // ── Release Gating ────────────────────────────────────────────

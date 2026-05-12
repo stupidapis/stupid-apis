@@ -11773,6 +11773,137 @@
       },
       "mock_responses": [],
       "clippy_message": "It looks like you have an order. The barista is listening."
+    },
+    {
+      "id": "ministry-of-information",
+      "name": "Ministry of Information",
+      "category": "generators",
+      "tags": [
+        "officialese",
+        "bureaucracy",
+        "bulletin",
+        "propaganda"
+      ],
+      "description": "Issues a bulletin from a generic Ministry of Information — bureaucratic, numbered, signed, distributed. Achievements have been achieved.",
+      "long_description": "The Ministry of Information API issues a daily bulletin per call. Returns the bulletin number, title (\"On Recent Matters\"), three-sentence body in pure bureaucratic officialese, signatory, two achievements (recipients vague), one condemnation (the letter T pending review), classification, distribution, and the time of the next bulletin. The voice is generic mid-century official communique — no real country, no real regime; the joke is on the form.",
+      "stupidity": 2,
+      "added_date": "2026-07-11",
+      "release_date": "2026-07-11",
+      "call_count": 0,
+      "base_url": "https://api.stupidapis.com/ministry-of-information",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/issue",
+          "description": "Issue a bulletin"
+        }
+      ],
+      "parameters": [],
+      "response_schema": [
+        {
+          "field": "bulletin_number",
+          "type": "number",
+          "description": "Sequential-looking bulletin id"
+        },
+        {
+          "field": "title",
+          "type": "string",
+          "description": "Bulletin title"
+        },
+        {
+          "field": "body",
+          "type": "string",
+          "description": "Three-sentence body of officialese"
+        },
+        {
+          "field": "signatory",
+          "type": "string",
+          "description": "Who signed it"
+        },
+        {
+          "field": "achievements",
+          "type": "string[]",
+          "description": "Two vague achievements"
+        },
+        {
+          "field": "condemned",
+          "type": "string",
+          "description": "One thing condemned"
+        },
+        {
+          "field": "classification",
+          "type": "string",
+          "description": "Routing/security marker"
+        },
+        {
+          "field": "distribution",
+          "type": "string",
+          "description": "Where the bulletin goes"
+        },
+        {
+          "field": "confidence",
+          "type": "string",
+          "description": "Always final"
+        },
+        {
+          "field": "next_bulletin",
+          "type": "string",
+          "description": "When the next bulletin issues"
+        }
+      ],
+      "examples": {
+        "curl": "curl \"https://api.stupidapis.com/ministry-of-information/issue\"",
+        "python": "import requests\n\nresponse = requests.get(\"https://api.stupidapis.com/ministry-of-information/issue\")\nprint(response.json())",
+        "javascript": "const response = await fetch(\"https://api.stupidapis.com/ministry-of-information/issue\");\nconst data = await response.json();\nconsole.log(data);",
+        "response": {
+          "bulletin_number": 4719,
+          "title": "On Recent Matters",
+          "body": "The Ministry confirms that recent matters have been resolved in the appropriate fashion. Productivity in the relevant sectors has exceeded all reasonable expectations. Achievements have been achieved. We are not at liberty to specify which.",
+          "signatory": "Deputy Director, Bureau of Daily Affairs",
+          "achievements": [
+            "a milestone reached in the customary corner",
+            "a new prize awarded (recipient: the Ministry)"
+          ],
+          "condemned": "the letter T (pending review)",
+          "classification": "Approved for circulation",
+          "distribution": "all regional offices",
+          "confidence": "final",
+          "next_bulletin": "tomorrow, at the appointed hour"
+        }
+      },
+      "mock_responses": [
+        {
+          "bulletin_number": 8821,
+          "title": "Daily Briefing",
+          "body": "A meeting was held. The meeting was constructive. All scheduled events occurred as scheduled. The Office continues to function as the Office.",
+          "signatory": "Acting Minister, Ministry of Information",
+          "achievements": [
+            "targets exceeded by exactly the amount expected",
+            "a new building opened (purpose: pending)"
+          ],
+          "condemned": "irregular timekeeping",
+          "classification": "Not for foreign press",
+          "distribution": "by telegram, in triplicate",
+          "confidence": "final",
+          "next_bulletin": "tomorrow, at the appointed hour"
+        },
+        {
+          "bulletin_number": 1204,
+          "title": "Concerning Matters of No Concern",
+          "body": "Reports of irregularity in the Bureau of Statistics are without foundation. Citizens have expressed their gratitude in the usual fashion. The matter has been settled to the satisfaction of those concerned.",
+          "signatory": "Subdirector of Public Confidence",
+          "achievements": [
+            "a road completed for the second time",
+            "a holiday added to the official calendar"
+          ],
+          "condemned": "one specific newspaper",
+          "classification": "Cleared by the Censor",
+          "distribution": "kept on file; never to be referenced",
+          "confidence": "final",
+          "next_bulletin": "tomorrow, at the appointed hour"
+        }
+      ],
+      "clippy_message": "It looks like you require a bulletin. The Ministry is pleased to comply."
     }
   ]
 }

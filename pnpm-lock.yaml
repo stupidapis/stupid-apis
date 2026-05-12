@@ -408,6 +408,12 @@ importers:
         specifier: workspace:*
         version: link:../../shared
 
+  apis/ministry-of-information:
+    dependencies:
+      '@stupid-apis/shared':
+        specifier: workspace:*
+        version: link:../../shared
+
   apis/passive-aggression:
     dependencies:
       '@stupid-apis/shared':
@@ -817,6 +823,9 @@ importers:
       '@stupid-apis/mercury-number':
         specifier: workspace:*
         version: link:../../apis/mercury-number
+      '@stupid-apis/ministry-of-information':
+        specifier: workspace:*
+        version: link:../../apis/ministry-of-information
       '@stupid-apis/passive-aggression':
         specifier: workspace:*
         version: link:../../apis/passive-aggression

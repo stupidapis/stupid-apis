@@ -109,6 +109,7 @@
     "@stupid-apis/fake-curse-word": "workspace:*",
     "@stupid-apis/fake-license-agreement": "workspace:*",
     "@stupid-apis/fake-haiku-machine": "workspace:*",
-    "@stupid-apis/fake-coffee-order": "workspace:*"
+    "@stupid-apis/fake-coffee-order": "workspace:*",
+    "@stupid-apis/ministry-of-information": "workspace:*"
   }
 }
