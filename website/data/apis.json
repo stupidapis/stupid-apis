@@ -14,7 +14,7 @@
       "long_description": "The Magic 8 Ball API brings the time-honored tradition of shaking a plastic sphere to the digital age. Ask any yes-or-no question and receive a definitive answer from our proprietary blue-liquid algorithm. Features configurable cynicism levels for the modern professional and a corporate mode for when you need to justify decisions in a board meeting.",
       "stupidity": 1,
       "added_date": "2025-01-01",
-      "call_count": 81342,
+      "call_count": 81503,
       "base_url": "https://api.stupidapis.com/magic-8-ball",
       "endpoints": [
         {
@@ -126,7 +126,7 @@
       "long_description": "The Should I Ship on Friday API is a cutting-edge deployment risk analyzer powered by years of collective trauma from the software industry. It evaluates your deploy type, team size, and temporal coordinates to produce a comprehensive risk assessment. The result is always no. We've spent considerable engineering effort to arrive at this conclusion every single time, regardless of input.",
       "stupidity": 2,
       "added_date": "2025-01-15",
-      "call_count": 94464,
+      "call_count": 94655,
       "base_url": "https://api.stupidapis.com/ship-on-friday",
       "endpoints": [
         {
@@ -253,7 +253,7 @@
       "long_description": "The Emoji Oracle channels the wisdom of the ancients through the modern medium of Unicode pictographs. Submit your deepest questions and receive a prophecy composed entirely of emoji. Optionally request an interpretation, though we cannot guarantee the interpretation will be any clearer than the emojis themselves. The vibe_check field provides our proprietary assessment of the cosmic energy surrounding your query.",
       "stupidity": 2,
       "added_date": "2025-02-01",
-      "call_count": 48556,
+      "call_count": 48658,
       "base_url": "https://api.stupidapis.com/emoji-oracle",
       "endpoints": [
         {
@@ -354,7 +354,7 @@
       "long_description": "Schrödinger's Boolean exists in a superposition of true and false until the moment of observation. Ask any question and receive both possible answers simultaneously. Enable observation to collapse the wavefunction and get a definitive (but arbitrary) result. The cat parameter adds a feline companion whose fate is entangled with the boolean state. The reopen parameter returns an error because you can't un-observe quantum state. We checked.",
       "stupidity": 3,
       "added_date": "2025-02-15",
-      "call_count": 19774,
+      "call_count": 19817,
       "base_url": "https://api.stupidapis.com/schrodingers-boolean",
       "endpoints": [
         {
@@ -502,7 +502,7 @@
       "long_description": "The Should I Send That Email API provides a comprehensive analysis of your drafted email's potential for catastrophe. Our algorithm evaluates passive-aggression levels, regret probability, and the specific type of recipient to produce a recommendation that is almost always 'no'. The cooling_off_period field tells you how long to wait before re-evaluating, which is our polite way of saying 'sleep on it'.",
       "stupidity": 2,
       "added_date": "2025-03-01",
-      "call_count": 75712,
+      "call_count": 75876,
       "base_url": "https://api.stupidapis.com/send-that-email",
       "endpoints": [
         {
@@ -625,7 +625,7 @@
       "long_description": "The Should I Take The Meeting API performs a rigorous cost-benefit analysis of meeting invitations using our proprietary Productivity Coffin metric. Each coffin represents 30 minutes of productive work that will die so this meeting can live. The API evaluates duration, attendee count, agenda existence, and whether the meeting is recurring (the most dangerous kind). The email_viability_score tells you how likely it is that this meeting could have been an email. It's usually very likely.",
       "stupidity": 1,
       "added_date": "2025-03-15",
-      "call_count": 56650,
+      "call_count": 56776,
       "base_url": "https://api.stupidapis.com/take-the-meeting",
       "endpoints": [
         {
@@ -749,7 +749,7 @@
       "long_description": "The Startup Oracle evaluates your billion-dollar idea using a proprietary algorithm that considers user validation, Uber-for-X detection, and VC buzzword density. If is_it_uber_for is true, the response is immediate and devastating. The actual_tam field always returns $4 trillion because every startup deck claims the same TAM. The yc_rejection_reason provides the specific reason Y Combinator would pass, saving you the trouble of applying.",
       "stupidity": 3,
       "added_date": "2025-04-01",
-      "call_count": 63950,
+      "call_count": 64103,
       "base_url": "https://api.stupidapis.com/startup-oracle",
       "endpoints": [
         {
@@ -874,7 +874,7 @@
       "long_description": "The Buzzword Density API scans your content for synergy, disruption, paradigm shifts, and other words that mean nothing but sound important. It returns a density score, a list of offending buzzwords, and a verdict on your corporate readiness. Enable roast mode for an AI-powered commentary on your prose that you did not ask for and probably do not want.",
       "stupidity": 2,
       "added_date": "2025-05-01",
-      "call_count": 46298,
+      "call_count": 46411,
       "base_url": "https://api.stupidapis.com/buzzword-density",
       "endpoints": [
         {
@@ -1012,7 +1012,7 @@
       "long_description": "The Passive Aggression Detector uses AI to identify the subtle art of saying something polite that means something devastating. Feed it an email, a Slack message, or a performance review, and it will surface the hidden daggers in phrases like 'per my last email,' 'as previously discussed,' and 'I'm not mad, I'm just disappointed.' The translation field tells you what the person actually meant.",
       "stupidity": 2,
       "added_date": "2025-05-10",
-      "call_count": 71254,
+      "call_count": 71439,
       "base_url": "https://api.stupidapis.com/passive-aggression",
       "endpoints": [
         {
@@ -1139,7 +1139,7 @@
       "long_description": "The Could Have Been Email API accepts a meeting transcript and returns a definitive assessment of whether the meeting justified its own existence. It evaluates information density, decision count, and the ratio of productive content to small talk. The suggested_email field provides what should have been sent instead. Uses AI to read between the lines of your corporate theater.",
       "stupidity": 1,
       "added_date": "2025-05-15",
-      "call_count": 68142,
+      "call_count": 68325,
       "base_url": "https://api.stupidapis.com/could-have-been-email",
       "endpoints": [
         {
@@ -1278,7 +1278,7 @@
       "long_description": "The Jargon Translator converts between the two dominant languages of the modern workplace: Corporate and Human. Feed it 'let’s leverage our core competencies to drive stakeholder value' and receive 'let’s use what we’re good at to make people happy.' Or go the other direction and transform a simple request into something suitable for a board meeting. The formality parameter controls how unhinged the translation gets.",
       "stupidity": 1,
       "added_date": "2025-05-20",
-      "call_count": 60278,
+      "call_count": 60437,
       "base_url": "https://api.stupidapis.com/jargon-translator",
       "endpoints": [
         {
@@ -1395,7 +1395,7 @@
       "long_description": "The Temperature Weighted Random API fetches the current temperature from 10 cities across 7 continents, sums them, and returns the last two digits as your random number. It is meteorologically defensible and statistically meaningless. The methodology has not been peer reviewed because no one would agree to review it.",
       "stupidity": 2,
       "added_date": "2025-06-01",
-      "call_count": 66136,
+      "call_count": 66315,
       "base_url": "https://api.stupidapis.com/temperature-random",
       "endpoints": [
         {
@@ -1521,7 +1521,7 @@
       "long_description": "The Phoenix Number returns the current temperature in Phoenix, Arizona, and presents it as a random number. Weather is chaotic, therefore this is random. The methodology is simple: check the temperature in Phoenix. That's the number. Do not call this a weather API. It is a random number generator that happens to be meteorologically accurate.",
       "stupidity": 2,
       "added_date": "2025-06-05",
-      "call_count": 64548,
+      "call_count": 64734,
       "base_url": "https://api.stupidapis.com/phoenix-number",
       "endpoints": [
         {
@@ -1601,7 +1601,7 @@
       "long_description": "The Chaos Index combines Bitcoin price, ISS coordinates, average global temperature, latest earthquake magnitude, and lunar phase into a single number between 0 and 100. The methodology is available upon request. Please don't request it. The index is refreshed continuously and has never been the same number twice, which we consider proof that it works.",
       "stupidity": 3,
       "added_date": "2025-06-10",
-      "call_count": 43825,
+      "call_count": 43953,
       "base_url": "https://api.stupidapis.com/chaos-index",
       "endpoints": [
         {
@@ -1695,7 +1695,7 @@
       "long_description": "The Daily Tarot Draw API pulls a real card from the standard 78-card Rider-Waite tarot deck and interprets it for your specific question or situation. The cards don't know your situation. They have opinions anyway. Supports single card, three-card, and Celtic Cross spreads for those who want more unsolicited cosmic advice.",
       "stupidity": 2,
       "added_date": "2025-06-15",
-      "call_count": 19418,
+      "call_count": 19466,
       "base_url": "https://api.stupidapis.com/tarot-draw",
       "endpoints": [
         {
@@ -1802,7 +1802,7 @@
       "long_description": "The Mercury Placement Number API generates a random number justified by Mercury's current position in the sky. Mercury is always in something. Today that something has produced this number. When Mercury is in retrograde, the number may arrive late, corrupted, or addressed to someone else. The planet was not consulted and does not endorse this API.",
       "stupidity": 2,
       "added_date": "2025-06-20",
-      "call_count": 29467,
+      "call_count": 29555,
       "base_url": "https://api.stupidapis.com/mercury-number",
       "endpoints": [
         {
@@ -1888,7 +1888,7 @@
       "long_description": "The ISS Coordinates Number API retrieves the current position of the International Space Station, which is traveling at 7.66 km/s somewhere above Earth, and performs undisclosed mathematical operations on its coordinates to produce a random number. The crew was not informed. The methodology involves latitude, longitude, and altitude in ways that would not survive peer review.",
       "stupidity": 2,
       "added_date": "2025-06-25",
-      "call_count": 72196,
+      "call_count": 72412,
       "base_url": "https://api.stupidapis.com/iss-number",
       "endpoints": [
         {
@@ -1985,7 +1985,7 @@
       "long_description": "Always Seven returns a random number between 1 and 10. The number is 7. It is always 7. We have looked into this extensively. Multiple independent audits have confirmed that the number is, in fact, 7. The investigation is closed. The force parameter allows you to request a different number. The request will be denied.",
       "stupidity": 3,
       "added_date": "2025-07-01",
-      "call_count": 31362,
+      "call_count": 31458,
       "base_url": "https://api.stupidapis.com/always-seven",
       "endpoints": [
         {
@@ -2069,7 +2069,7 @@
       "long_description": "The Scream Into The Void API accepts your scream and returns a random number. The number is not influenced by your scream. The void has heard you. The void is unmoved. The number stands. The intensity parameter lets you express how loudly you are screaming, but the void does not differentiate between a whisper and a howl. All screams are equal in the void.",
       "stupidity": 3,
       "added_date": "2025-07-05",
-      "call_count": 50110,
+      "call_count": 50263,
       "base_url": "https://api.stupidapis.com/scream-void",
       "endpoints": [
         {
@@ -2171,7 +2171,7 @@
       "long_description": "The Committee convenes five random number generators to deliberate and reach a democratic decision on your number. Gerald is cautious. The Algorithm has no feelings. Professor Heisenberg's number changes when observed. Consensus Engine 3000 has always agreed with the majority. Diane dissents. Diane always dissents. Minutes of the meeting are available upon request and are generated by AI.",
       "stupidity": 3,
       "added_date": "2025-07-10",
-      "call_count": 30717,
+      "call_count": 30811,
       "base_url": "https://api.stupidapis.com/the-committee",
       "endpoints": [
         {
@@ -2350,7 +2350,7 @@
       "long_description": "Yesterday's Random Number provides a random number that was generated 24 hours ago and aged for smoothness. It includes a 7-day historical record, a freshness score, and sommelier tasting notes. Today's number is also available. You have chosen the other one. The aging process does not improve the number. The sommelier tasting notes are AI-generated and should not be used to make wine purchasing decisions.",
       "stupidity": 3,
       "added_date": "2025-07-15",
-      "call_count": 66740,
+      "call_count": 66956,
       "base_url": "https://api.stupidapis.com/yesterdays-number",
       "endpoints": [
         {
@@ -2492,7 +2492,7 @@
       "long_description": "The Apology Generator crafts personalized apologies calibrated to your exact level of sincerity, from 'genuine' through 'tactical' to 'none'. Specify the offense, the relationship, and the medium of delivery. The API will generate the apology, tell you what it does and does not apologize for, and provide an honest assessment of whether it will work. If you set relationship to 'ex', it will generate the apology but strongly recommend against sending it.",
       "stupidity": 2,
       "added_date": "2025-08-01",
-      "call_count": 31697,
+      "call_count": 31801,
       "base_url": "https://api.stupidapis.com/apology",
       "endpoints": [
         {
@@ -2651,7 +2651,7 @@
       "long_description": "The Conspiracy Theory Generator operates in three modes: Connect (link any two seemingly unrelated things), Investigate (generate three contradictory theories about any event), and Complete (escalate a casual observation into a full tinfoil theory). All theories are presented with suspicious confidence levels, questionable evidence, and sources that do not exist. The theories intentionally contradict each other. This is considered a feature.",
       "stupidity": 3,
       "added_date": "2025-08-05",
-      "call_count": 35171,
+      "call_count": 35283,
       "base_url": "https://api.stupidapis.com/conspiracy-theory",
       "endpoints": [
         {
@@ -2820,7 +2820,7 @@
       "long_description": "The Corporate Apology Generator produces board-approved apology statements for any corporate incident. Choose your audience (public, employees, investors, or regulators), your sincerity level (genuine through 'none'), and your delivery medium. The API will craft an apology that technically says sorry while admitting as little as possible. Tweet mode enforces a 280-character limit, which is more accountability than most companies prefer.",
       "stupidity": 2,
       "added_date": "2025-08-10",
-      "call_count": 54346,
+      "call_count": 54536,
       "base_url": "https://api.stupidapis.com/corporate-apology",
       "endpoints": [
         {
@@ -2964,7 +2964,7 @@
       "long_description": "The Excuse Generator produces calibrated excuses for three situations: being late, missing a deadline, or ghosting someone. Set the audience, the excuse quality (from 'implausible' to 'airtight'), and how many times you've used the excuse before. The API will generate the excuse, assess its believability, tell you what actually happened, and warn you if you're reusing it too much. Medical-grade excuses include an ethical warning.",
       "stupidity": 1,
       "added_date": "2025-08-15",
-      "call_count": 58539,
+      "call_count": 58741,
       "base_url": "https://api.stupidapis.com/excuse",
       "endpoints": [
         {
@@ -3105,7 +3105,7 @@
       "long_description": "The LinkedIn Humblebrag Generator transforms any achievement into a LinkedIn-ready post complete with manufactured vulnerability, an unrelated sad backstory, and a universal lesson for strangers. A mentor named Dave will always be mentioned regardless of relevance. The API returns the post, an honest assessment of what personality it actually conveys, and predicted engagement comments. The humble-to-brag ratio is locked at 3%/97%.",
       "stupidity": 2,
       "added_date": "2025-08-20",
-      "call_count": 18002,
+      "call_count": 18063,
       "base_url": "https://api.stupidapis.com/linkedin-humblebrag",
       "endpoints": [
         {
@@ -3236,7 +3236,7 @@
       "long_description": "The Performance Review Generator produces HR-approved performance reviews that technically contain words arranged in sentences while communicating absolutely nothing actionable. Rate your employee as 'rockstar', 'solid', 'developing', or 'not a culture fit' and receive a review that will leave them confused about where they stand. The API also tells you what the manager wanted to say, what the review actually says, and the probability of a PIP.",
       "stupidity": 2,
       "added_date": "2025-08-25",
-      "call_count": 13855,
+      "call_count": 13903,
       "base_url": "https://api.stupidapis.com/performance-review",
       "endpoints": [
         {
@@ -3371,7 +3371,7 @@
       "long_description": "The Press Release Generator takes any announcement — no matter how trivial — and transforms it into a press release of considerable gravity. Choose your tone (visionary, disrupting, humbled, transparent, or pivoting) and receive a full press release with headline, subheadline, executive quote, and About section. The API also tells you how many workshops this required, how many stakeholders were aligned, and the probability of press pickup (always 0%).",
       "stupidity": 2,
       "added_date": "2025-09-01",
-      "call_count": 36756,
+      "call_count": 36888,
       "base_url": "https://api.stupidapis.com/press-release",
       "endpoints": [
         {
@@ -3487,7 +3487,7 @@
       "long_description": "The Shakespeare Insult Generator operates in two modes. Classical mode (no target) uses authentic Elizabethan vocabulary to generate random insults from three curated word lists. Targeted mode (with a target) uses AI to craft bespoke Shakespearean devastation tailored to your specific victim. Severity ranges from 'mild' to 'nuclear'. HR approval is included in the response and decreases with severity. Nuclear severity generates a legal disclaimer.",
       "stupidity": 1,
       "added_date": "2025-09-05",
-      "call_count": 40470,
+      "call_count": 40619,
       "base_url": "https://api.stupidapis.com/shakespeare-insult",
       "endpoints": [
         {
@@ -3616,7 +3616,7 @@
       "long_description": "The Dating Bio Generator creates dating profile bios calibrated to your specific energy level, from 'low effort' through 'trying too hard' to 'unhinged honesty'. It embeds red flags, detects contradictions in your personality traits, and includes a swipe right probability. Corporate energy mode produces bios that are 94% identical to your LinkedIn. Post-breakup mode includes a vulnerability warning. Every bio includes three things you don't want matches to know.",
       "stupidity": 2,
       "added_date": "2025-09-10",
-      "call_count": 18789,
+      "call_count": 18853,
       "base_url": "https://api.stupidapis.com/tinder-bio",
       "endpoints": [
         {
@@ -3759,7 +3759,7 @@
       "long_description": "The Victorian Complaint Letter API transforms any modern grievance into a letter of extraordinary Victorian indignation. The wifi being slow has never been taken more seriously. Choose your indignation level (mild through maximum), complaint type, and letter length. The API generates a formal letter with period-appropriate language, historical comparisons, vague threats, and a closing that is always better than the letter itself. The 'excessive' length option generates multiple follow-up letters.",
       "stupidity": 1,
       "added_date": "2025-09-15",
-      "call_count": 15162,
+      "call_count": 15218,
       "base_url": "https://api.stupidapis.com/victorian-complaint",
       "endpoints": [
         {
@@ -3917,7 +3917,7 @@
       "long_description": "The YC Rejection Letter Generator provides an instant Y Combinator rejection for any startup idea, saving you the trouble of applying. Submit your idea and receive a professional but devastating rejection letter, the real reason they passed, and hollow encouragement to keep building. If is_it_uber_for is true, the rejection is immediate and categorical. The encouragement sincerity is permanently locked at 0/100. The actual TAM is always $4 trillion.",
       "stupidity": 3,
       "added_date": "2025-09-20",
-      "call_count": 24316,
+      "call_count": 24415,
       "base_url": "https://api.stupidapis.com/yc-rejection",
       "endpoints": [
         {
@@ -4222,7 +4222,7 @@
       "stupidity": 1,
       "added_date": "2026-05-06",
       "release_date": "2026-05-06",
-      "call_count": 3887,
+      "call_count": 4021,
       "base_url": "https://api.stupidapis.com/dad-joke",
       "endpoints": [
         {
@@ -4336,7 +4336,7 @@
       "stupidity": 1,
       "added_date": "2026-05-07",
       "release_date": "2026-05-07",
-      "call_count": 4634,
+      "call_count": 4819,
       "base_url": "https://api.stupidapis.com/rubber-duck",
       "endpoints": [
         {
@@ -4461,7 +4461,7 @@
       "stupidity": 2,
       "added_date": "2026-05-08",
       "release_date": "2026-05-08",
-      "call_count": 2768,
+      "call_count": 2833,
       "base_url": "https://api.stupidapis.com/weather-but-lying",
       "endpoints": [
         {
@@ -4593,7 +4593,7 @@
       "stupidity": 1,
       "added_date": "2026-05-09",
       "release_date": "2026-05-09",
-      "call_count": 3748,
+      "call_count": 3965,
       "base_url": "https://api.stupidapis.com/emotional-support-rock",
       "endpoints": [
         {
@@ -4707,7 +4707,7 @@
       "stupidity": 2,
       "added_date": "2026-05-10",
       "release_date": "2026-05-10",
-      "call_count": 4068,
+      "call_count": 4269,
       "base_url": "https://api.stupidapis.com/fake-horoscope",
       "endpoints": [
         {
@@ -4826,7 +4826,7 @@
       "stupidity": 2,
       "added_date": "2026-05-11",
       "release_date": "2026-05-11",
-      "call_count": 2632,
+      "call_count": 2840,
       "base_url": "https://api.stupidapis.com/corporate-buzzword",
       "endpoints": [
         {
@@ -4929,7 +4929,7 @@
       "stupidity": 2,
       "added_date": "2026-05-12",
       "release_date": "2026-05-12",
-      "call_count": 1871,
+      "call_count": 2063,
       "base_url": "https://api.stupidapis.com/pickup-line",
       "endpoints": [
         {
@@ -5032,7 +5032,7 @@
       "stupidity": 1,
       "added_date": "2026-05-13",
       "release_date": "2026-05-13",
-      "call_count": 1046,
+      "call_count": 1155,
       "base_url": "https://api.stupidapis.com/medieval-job-title",
       "endpoints": [
         {
@@ -5153,7 +5153,7 @@
       "stupidity": 2,
       "added_date": "2026-05-14",
       "release_date": "2026-05-14",
-      "call_count": 3027,
+      "call_count": 3113,
       "base_url": "https://api.stupidapis.com/cat-fact-but-fake",
       "endpoints": [
         {
@@ -5242,7 +5242,7 @@
       "stupidity": 1,
       "added_date": "2026-05-15",
       "release_date": "2026-05-15",
-      "call_count": 1168,
+      "call_count": 1318,
       "base_url": "https://api.stupidapis.com/band-name",
       "endpoints": [
         {
@@ -5340,7 +5340,7 @@
       "stupidity": 2,
       "added_date": "2026-05-16",
       "release_date": "2026-05-16",
-      "call_count": 0,
+      "call_count": 899,
       "base_url": "https://api.stupidapis.com/fake-changelog",
       "endpoints": [
         {
@@ -9535,7 +9535,7 @@
       "stupidity": 2,
       "added_date": "2025-04-15",
       "release_date": "2025-04-15",
-      "call_count": 49737,
+      "call_count": 49859,
       "base_url": "https://api.stupidapis.com/social-entropy",
       "endpoints": [
         {
