@@ -12,7 +12,7 @@
 #
 # Full contract: pipeworx repo, docs/release-notes.md. Posts over the shared
 # fleet rail from any cwd: ~/.claude/bin/pwcall.sh call fleet_release_note.
-set -euo pipefail
+set -eo pipefail
 
 SERVICE="stupidapis"
 REPO="stupidapis/stupid-apis"
