@@ -59,3 +59,20 @@ pnpm run dev        # wrangler dev on gateway
 pnpm run typecheck  # check all packages
 pnpm run deploy     # deploy gateway to CF
 ```
+
+## Release notes
+
+Shipped outcomes land on the dashboard's Release Notes tab
+(`dashboard.pipeworx.io` -> Release Notes), not just in conversation. Post one
+when something ships -- a new capability, a router-shaped fix, a bug fix,
+anything else noteworthy -- with:
+
+    scripts/release-note.sh <category> <title> <summary> [task_id] [commit_sha ...]
+
+`category` is one of `new-mcp`, `router`, `bug`, `other`. Full contract
+(summary standard, category meanings, source_ref convention): pipeworx repo,
+`docs/release-notes.md`. The wrapper posts under the `stupidapis` service slug
+over the shared fleet rail (`~/.claude/bin/pwcall.sh call fleet_release_note`),
+the same mechanism every Mojibake repo uses.
+
+**Known gap:** the `stupidapis` service slug is not yet in the pipeworx closed set (`shared/src/release-notes.ts`) — this wrapper is wired but every call it makes will be REFUSED by `fleet_release_note` until that slug is added. Flagged to the pipeworx PM/backend lane (fleet #3376); do not add it here.
